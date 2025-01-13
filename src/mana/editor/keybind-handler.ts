@@ -27,7 +27,7 @@ export class Keybindhandler implements ApplicationContribution {
   @inject(CommandRegistry) protected readonly commandRegistry: CommandRegistry;
   @inject(LibroService) protected readonly libroService: LibroService;
 
-  onStart() {
+  onViewStart() {
     this.registerContextKey();
     this.registerCommand();
     this.registerKeybind();
