@@ -3,7 +3,6 @@ import { CodeEditorModule } from '@difizen/libro-code-editor';
 import { ManaModule } from '@difizen/mana-app';
 
 import { LibroE2EditorContribution } from './editor-contribution';
-import { Keybindhandler } from './keybind-handler';
 import {
   LibroOpensumiEditor,
   LibroOpensumiEditorFactory,
@@ -12,7 +11,7 @@ import {
 } from './opensumi-editor';
 
 export const LibroOpensumiEditorModule = ManaModule.create()
-  .register(LibroE2EditorContribution, LibroOpensumiEditor, Keybindhandler, {
+  .register(LibroE2EditorContribution, LibroOpensumiEditor, {
     token: LibroOpensumiEditorFactory,
     useFactory: (ctx) => {
       return (options: IEditorOptions, editorState: EditorState) => {
