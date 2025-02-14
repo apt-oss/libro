@@ -68,7 +68,13 @@ export const LibroKernelCollapseContentItem: React.FC<Props> = (
               className="libro-panel-collapse-kernel-item"
               key={notebook.sessionId}
               onClick={() => {
-                const uri = new URI(notebook.path);
+                let notebookPath = '';
+                if (!notebook.path.startsWith('/ossfs/')) {
+                  notebookPath = '/ossfs/' + notebook.path;
+                } else {
+                  notebookPath = notebook.path;
+                }
+                const uri = new URI(notebookPath);
                 editorService.openUris([uri]);
               }}
             >
