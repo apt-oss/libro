@@ -473,10 +473,6 @@ export class LibroOpensumiEditor implements IEditor {
     let modelRef = getOrigin(this.editorState.state);
     const options: MonacoEditorOptions = {
       ...this.toMonacoOptions(editorConfig),
-      language:
-        this.languageSpec.language === 'sql-odps'
-          ? 'sql'
-          : this.languageSpec.language,
     };
 
     const editorCollectionService: EditorCollectionService = this.injector.get(
@@ -499,6 +495,14 @@ export class LibroOpensumiEditor implements IEditor {
     );
 
     getOrigin(this._editor).open(modelRef);
+
+    this._editor.monacoEditor
+      ?.getModel()
+      ?.setLanguage(
+        this.languageSpec.language === 'sql-odps'
+          ? 'sql'
+          : this.languageSpec.language,
+      );
 
     this.toDispose.push(
       modelRef.instance.getMonacoModel()?.onDidChangeContent((e) => {

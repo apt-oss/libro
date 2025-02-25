@@ -46,18 +46,6 @@ export class NotebookServiceOverride
   private readonly textMateService: ITextmateTokenizerService;
 
   async initialize() {
-    // monaco.languages.register({
-    //   id,
-    //   extensions: ['.sql'],
-    //   aliases: ['sql', 'odps'],
-    //   mimetypes: ['text/sql','application/vnd.libro.sql+json'],
-    // });
-    // monaco.languages.onLanguage(id, () => {
-    //   console.log("🚀 ~ monaco.languages.onLanguage ~ id:", id)
-    //   setTokensLanguage();
-    // });
-
-    // console.log("🚀 ~ setTokensLanguage ~ conf:", conf)
     try {
       import(
         /* webpackChunkName: "opensumi-textmate-languages" */ `@opensumi/textmate-languages/es/sql`

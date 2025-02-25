@@ -1,6 +1,6 @@
 {
   "name": "@difizen/opensumi-module-libro",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "libro on opensumi",
   "repository": {
     "type": "git",
@@ -25,11 +25,11 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "rm -rf lib && rm -rf es && father build",
+    "build:watch": "father dev",
     "postbuild": "npm run copy-files",
     "copy-files": "copyfiles -u 1 src/**/**/*.less lib",
     "release": "commit-and-tag-version --npmPublishHint='tnpm publish'",
     "dev": "cross-env NODE_OPTIONS=--max-old-space-size=8192 PORT=9000 dumi dev",
-    "build:watch": "father dev",
     "docs:build": "dumi build",
     "prepare": "husky install && dumi setup && npm run prepare-opensumi",
     "doctor": "father doctor",
@@ -39,13 +39,13 @@
     "start:client": "cross-env NODE_ENV=development webpack-dev-server --config ./example/configs/webpack.browser.config.js --color --watch",
     "start:webview": "webpack-dev-server --config ./example/configs/webpack.webview.config.js",
     "start:server": "cross-env EXT_MODE=js KTLOG_SHOW_DEBUG=1 node --inspect=9991 -r ts-node/register -r tsconfig-paths/register ./example/src/node/index.ts",
+    "start:opensumi": "run-p start:server start:webview",
     "compile:client": "cross-env NODE_ENV=development webpack --config ./example/configs/webpack.browser.config.js --color",
     "compile:worker-host": "cross-env NODE_ENV=production webpack --config ./example/configs/webpack.worker-host.config.js --color",
     "compile:ext-host": "cross-env webpack --config ./example/configs/webpack.ext-host.config.js --color",
     "download-extension": "cross-env DEBUG=InstallExtension node scripts/download.js",
     "prepare-opensumi": "npm run compile:worker-host && npm run compile:ext-host && cross-env DEBUG=install-ext npm run download-extension",
     "clean": "git clean -fX .",
-    "start:opensumi": "run-p start:server start:webview",
     "rebuild": "npm rebuild"
   },
   "commitlint": {
