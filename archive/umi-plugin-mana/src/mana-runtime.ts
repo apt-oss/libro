@@ -14,7 +14,7 @@ interface UmiRoute {
 type Routemap = Record<string, UmiRoute>;
 
 export const providerContent = `import React from 'react';
-import { ManaAppPreset, ManaComponents } from '@difizen/mana-app';
+import { ManaAppPreset, ManaComponents } from '@difizen/libro-common/app';
 import RootModule from '@/modules/app.module';
 
 export default ({ children }: { children: React.ReactNode }) => {
@@ -39,7 +39,7 @@ export function dataflowProvider(container: React.ReactNode) {
 `;
 
 export const pageContent = (slot: string) => `(async () => {
-const { Slot } = await import('@difizen/mana-app');
+const { Slot } = await import('@difizen/libro-common/app');
 const { Outlet } = await import('umi');
 
 const Page = ({ children, ...props }) => {

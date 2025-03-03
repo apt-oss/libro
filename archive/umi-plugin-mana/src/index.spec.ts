@@ -7,7 +7,7 @@ describe('umi-plugin-mana', () => {
     assert(
       pageContent('my-slot') ===
         `(async () => {
-const { Slot } = await import('@difizen/mana-app');
+const { Slot } = await import('@difizen/libro-common/app');
 const { Outlet } = await import('umi');
 
 const Page = ({ children, ...props }) => {
