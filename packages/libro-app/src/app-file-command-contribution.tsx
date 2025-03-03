@@ -6,7 +6,7 @@ import type {
   CommandRegistry,
   MenuRegistry,
   ViewManager,
-} from '../../libro-common/es/app/index.js';
+} from '@difizen/libro-common/app';
 import {
   ConfigurationService,
   CommandContribution,
@@ -16,7 +16,7 @@ import {
   ModalService,
   OpenerService,
   singleton,
-} from '../../libro-common/es/app/index.js';
+} from '@difizen/libro-common/app';
 
 export const AppFileCommands = {
   OPEN_FILE_BY_LIBRO_APP: {

@@ -17,7 +17,7 @@ import {
   ViewInstance,
   ViewOption,
   ViewRender,
-} from '../../libro-common/es/app/index.js';
+} from '@difizen/libro-common/app';
 import { l10n } from '@difizen/libro-common/l10n';
 import type { RadioChangeEvent } from 'antd';
 import { Radio, Button } from 'antd';

@@ -1,12 +1,12 @@
 import { LibroJupyterConfiguration } from '@difizen/libro-jupyter';
-import type { URI, ViewOpenHandlerOptions } from '../../libro-common/es/app/index.js';
-import { ConfigurationService, inject } from '../../libro-common/es/app/index.js';
+import type { URI, ViewOpenHandlerOptions } from '@difizen/libro-common/app';
+import { ConfigurationService, inject } from '@difizen/libro-common/app';
 import {
   NavigatableViewOpenHandler,
   OpenHandler,
   singleton,
   Priority,
-} from '../../libro-common/es/app/index.js';
+} from '@difizen/libro-common/app';
 
 import type { LibroAppViewer } from './app-viewer.js';
 import { AppViewerFactory } from './protocol.js';
