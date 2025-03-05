@@ -51,6 +51,10 @@
     "@types/markdown-it": "^12.2.3",
     "katex": "^0.16.10",
     "markdown-it": "^13.0.1",
-    "markdown-it-anchor": "^8.6.5"
+    "markdown-it-anchor": "^8.6.5",
+    "sanitize-html": "^2.14.0"
+  },
+  "devDependencies": {
+    "@types/sanitize-html": "^2.13.0"
   }
 }
