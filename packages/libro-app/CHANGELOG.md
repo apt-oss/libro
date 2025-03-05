@@ -1,5 +1,14 @@
 # @difizen/libro-output
 
+## 0.3.5
+
+### Patch Changes
+
+- feat(markdown): prevent potential xss attacks caused by markdown syntax
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@0.3.5
+
 ## 0.3.4
 
 ### Patch Changes

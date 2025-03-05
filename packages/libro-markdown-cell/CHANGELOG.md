@@ -1,5 +1,17 @@
 # @difizen/libro-markdown
 
+## 0.3.5
+
+### Patch Changes
+
+- feat(markdown): prevent potential xss attacks caused by markdown syntax
+
+- Updated dependencies []:
+  - @difizen/libro-markdown@0.3.5
+  - @difizen/libro-code-editor@0.3.5
+  - @difizen/libro-common@0.3.5
+  - @difizen/libro-core@0.3.5
+
 ## 0.3.4
 
 ### Patch Changes
