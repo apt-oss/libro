@@ -7,6 +7,7 @@ import {
   LibroView,
   NotebookCommands,
   ExecutableCellView,
+  LibroCellView,
 } from '@difizen/libro-core';
 import type { CommandRegistry } from '@difizen/libro-common/app';
 import {
@@ -86,8 +87,18 @@ export class LibroJupyterCommandContribution implements CommandContribution {
       command,
       NotebookCommands['SideToolbarRunSelect'],
       {
-        execute: () => {
-          //
+        execute: async (cell, libro) => {
+          if (
+            !cell ||
+            !libro ||
+            !(cell instanceof LibroCellView) ||
+            !(libro instanceof LibroView)
+          ) {
+            return;
+          }
+          if ((libro.model as LibroModel).executable) {
+            libro.runCell(cell);
+          }
         },
         isVisible: (cell, libro, path) => {
           if (
