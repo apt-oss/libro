@@ -149,6 +149,6 @@ export const kernelStatus: Record<string, ServerStatus> = {
     category: 'Kernel',
     color: statusToColor.error,
     text: 'dead',
-    text_zh: '死亡',
+    text_zh: '终止',
   },
 };

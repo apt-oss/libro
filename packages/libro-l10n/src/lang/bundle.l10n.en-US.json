@@ -117,7 +117,7 @@
   "终止中": "Terminating",
   "重启中": "Restarting",
   "自动重启中": "Automatic Restarting",
-  "死亡": "Dead",
+  "终止": "Dead",
   "无内核": "No kernel",
   "Kernel 准备失败": "Kernel preparation failed",
   "设置": "Setup",
