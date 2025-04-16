@@ -108,3 +108,14 @@ export const SupportCodeFormat: ConfigurationNode<boolean> = {
     type: 'boolean',
   },
 };
+
+export const SpmReporter: ConfigurationNode<boolean> = {
+  id: 'libro.spm.reporter',
+  description: l10n.t('是否支持数据日志'),
+  title: l10n.t('是否支持数据日志'),
+  type: 'checkbox',
+  defaultValue: false,
+  schema: {
+    type: 'boolean',
+  },
+};

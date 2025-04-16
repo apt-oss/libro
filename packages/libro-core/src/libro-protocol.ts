@@ -39,9 +39,6 @@ export interface NotebookOption extends Options {
   [key: string]: any;
 }
 
-export const PerformaceStatisticOption = Symbol('PerformaceStatisticOption');
-export type PerformaceStatisticOption = Options;
-
 export const ModelFactory = Symbol('ModelFactory');
 export type ModelFactory<T = NotebookOption> = (options: T) => NotebookModel;
 
@@ -57,6 +54,13 @@ export type Options = {
   id?: string;
   [key: string]: any;
 };
+
+export interface ITracker {
+  id: string;
+  [key: string]: any;
+  startTime?: number;
+  endTime?: number;
+}
 
 export interface ScrollParams {
   cellIndex: number;

@@ -144,6 +144,7 @@ export abstract class LibroEditorCellView
   };
 
   override onViewMount() {
+    super.onViewMount();
     this.createEditor();
     //选中cell时才focus
     if (this.parent.model.active?.id === this.id) {

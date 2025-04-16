@@ -9,13 +9,19 @@ import {
 import { equals } from '@difizen/mana-app';
 import { v4 } from 'uuid';
 
-import { LibroCellView, ExecutableCellModel, EditorCellView } from '../cell/index.js';
+import {
+  LibroCellView,
+  ExecutableCellModel,
+  EditorCellView,
+  LibroCellService,
+} from '../cell/index.js';
 import type { LibroEditorCellView } from '../cell/index.js';
 import { LibroContextKey } from '../libro-context-key.js';
 import type { LibroModel } from '../libro-model.js';
 import type { CellView, NotebookView } from '../libro-protocol.js';
 import { LibroToolbarArea } from '../libro-protocol.js';
 import { LibroService } from '../libro-service.js';
+import { LibroViewTracker } from '../libro-view-tracker.js';
 import { LibroView } from '../libro-view.js';
 import { SettingsModal } from '../settings/settings-modal.js';
 import { RestartClearOutputModal } from '../toolbar/restart-clear-outputs-modal.js';
@@ -30,7 +36,9 @@ export class LibroCommandContribution implements CommandContribution {
   @inject(ModalService) protected readonly modalService: ModalService;
   @inject(LibroCommandRegister) protected readonly libroCommand: LibroCommandRegister;
   @inject(LibroService) protected readonly libroService: LibroService;
+  @inject(LibroCellService) protected readonly cellService: LibroCellService;
   @inject(LibroContextKey) protected readonly libroContextKey: LibroContextKey;
+  @inject(LibroViewTracker) protected libroViewTracker: LibroViewTracker;
 
   registerCommands(command: CommandRegistry): void {
     this.libroCommand.registerLibroCommand(command, NotebookCommands['EnterEditMode'], {
@@ -250,23 +258,31 @@ export class LibroCommandContribution implements CommandContribution {
           if (!libro || !(libro instanceof LibroView)) {
             return;
           }
-          if (!cell || !(cell instanceof LibroCellView)) {
-            libro.addCell(
-              { id: v4(), cell: { cell_type: 'code', source: '', metadata: {} } },
-              0,
-            );
-          } else {
-            const cellIndex = libro.model.cells.findIndex((item) => equals(item, cell));
-            libro.addCell(
-              {
-                id: v4(),
-                cell: { cell_type: cell.model.type, source: '', metadata: {} },
-              },
-              cellIndex + 1,
-            );
+          const createNewCell = (cellType: string) => ({
+            id: v4(),
+            cell: { cell_type: cellType, source: '', metadata: {} },
+          });
+
+          const newCell =
+            !cell || !(cell instanceof LibroCellView)
+              ? createNewCell('code')
+              : createNewCell(cell.model.type);
+
+          const insertIndex =
+            !cell || !(cell instanceof LibroCellView)
+              ? 0
+              : libro.model.cells.findIndex((item) => equals(item, cell)) + 1;
+
+          libro.addCell(newCell, insertIndex);
+          if (this.libroViewTracker.isEnabledSpmReporter) {
+            const id = newCell.id + libro.id;
+            const libroTracker = this.libroViewTracker.getOrCreateSpmTracker({
+              id,
+            });
+            libroTracker.extra.cellsCount = libro.model.cells.length;
+            libroTracker.extra.cellOperation = 'add';
           }
         },
-        // isVisible: () => false,
         isVisible: (cell, libro, path) => {
           if (!libro || !(libro instanceof LibroView)) {
             return false;
@@ -296,13 +312,11 @@ export class LibroCommandContribution implements CommandContribution {
           }
           const cellIndex = libro.model.cells.findIndex((item) => equals(item, cell));
           if (cellIndex > -1) {
-            libro.addCellAbove(
-              {
-                id: v4(),
-                cell: { cell_type: cell.model.type, source: '', metadata: {} },
-              },
-              cellIndex,
-            );
+            const cellOptions = {
+              id: v4(),
+              cell: { cell_type: cell.model.type, source: '', metadata: {} },
+            };
+            libro.addCellAbove(cellOptions, cellIndex);
           }
         },
         isEnabled: (cell, libro) => {

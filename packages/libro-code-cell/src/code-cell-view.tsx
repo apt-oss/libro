@@ -208,6 +208,7 @@ export class LibroCodeCellView extends LibroEditableExecutableCellView {
   }
 
   override onViewMount() {
+    super.onViewMount();
     this.createEditor();
   }
 
