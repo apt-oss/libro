@@ -62,6 +62,7 @@ import {
   HeaderToolbarVisible,
   RightContentFixed,
 } from './libro-setting.js';
+import { LibroViewTracker } from './libro-view-tracker.js';
 import { LibroSlotManager, LibroSlotView } from './slot/index.js';
 import { useSize } from './utils/index.js';
 import { VirtualizedManagerHelper } from './virtualized-manager-helper.js';
@@ -325,7 +326,7 @@ export class LibroView extends BaseView implements NotebookView {
   @inject(LibroService) libroService: LibroService;
   @inject(LibroSlotManager) libroSlotManager: LibroSlotManager;
   @inject(LibroContextKey) contextKey: LibroContextKey;
-
+  @inject(LibroViewTracker) protected libroViewTracker: LibroViewTracker;
   @inject(ViewManager) protected viewManager: ViewManager;
   @inject(ConfigurationService) protected configurationService: ConfigurationService;
 
@@ -453,6 +454,14 @@ export class LibroView extends BaseView implements NotebookView {
           this.model.onChange?.();
         }),
       );
+      if (this.libroViewTracker.isEnabledSpmReporter) {
+        const libroTracker = this.libroViewTracker.getOrCreateSpmTracker({
+          id: this.id,
+        });
+        libroTracker.endTime = Date.now();
+        libroTracker.extra.cellsCount = this.model.cells.length;
+        this.libroViewTracker.tracker(libroTracker);
+      }
       this.initializedDefer.resolve();
     }, 0);
   }
@@ -519,11 +528,27 @@ export class LibroView extends BaseView implements NotebookView {
   };
 
   addCell = async (option: CellOptions, position?: number) => {
+    if (this.libroViewTracker.isEnabledSpmReporter && option.id) {
+      const id = option.id + this.id;
+      const libroTracker = this.libroViewTracker.getOrCreateSpmTracker({
+        id,
+      });
+      libroTracker.extra.cellsCount = this.model.cells.length;
+      libroTracker.extra.cellOperation = 'add';
+    }
     const cellView = await this.getCellViewByOption(option);
     this.model.addCell(cellView, position);
   };
 
   addCellAbove = async (option: CellOptions, position?: number) => {
+    if (this.libroViewTracker.isEnabledSpmReporter && option.id) {
+      const id = option.id + this.id;
+      const libroTracker = this.libroViewTracker.getOrCreateSpmTracker({
+        id,
+      });
+      libroTracker.extra.cellsCount = this.model.cells.length;
+      libroTracker.extra.cellOperation = 'add';
+    }
     const cellView = await this.getCellViewByOption(option);
     this.model.addCell(cellView, position, 'above');
   };
@@ -548,6 +573,14 @@ export class LibroView extends BaseView implements NotebookView {
   };
 
   deleteCell = (cell: CellView) => {
+    if (this.libroViewTracker.isEnabledSpmReporter && cell.model.id) {
+      const id = cell.model.id + this.id;
+      const libroTracker = this.libroViewTracker.getOrCreateSpmTracker({
+        id,
+      });
+      libroTracker.extra.cellsCount = this.model.cells.length;
+      libroTracker.extra.cellOperation = 'delete';
+    }
     const deleteIndex = this.model.getCells().findIndex((item) => {
       return equals(item, cell);
     });

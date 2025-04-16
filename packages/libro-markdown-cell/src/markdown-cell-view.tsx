@@ -114,6 +114,7 @@ export class MarkdownCellView extends LibroEditorCellView implements CellCollaps
   }
 
   override onViewMount() {
+    super.onViewMount();
     if (this.cellmodel.isEdit) {
       this.createEditor();
     }

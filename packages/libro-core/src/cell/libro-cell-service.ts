@@ -5,6 +5,7 @@ import { contrib, inject, singleton } from '@difizen/libro-common/app';
 
 import type { CellView, CellModel, CellOptions } from '../libro-protocol.js';
 import { LibroService } from '../libro-service.js';
+import { LibroViewTracker } from '../libro-view-tracker.js';
 
 import type { CellMeta } from './libro-cell-protocol.js';
 import {
@@ -24,6 +25,7 @@ export class LibroCellService implements CellService, ApplicationContribution {
   protected cellTypeToModelContribution: Map<string, CellModelContribution> = new Map();
   protected readonly viewManager: ViewManager;
   protected modelCache: Map<string, Map<string, CellModel>> = new Map();
+  @inject(LibroViewTracker) libroViewTracker: LibroViewTracker;
 
   libroService: LibroService;
   constructor(

@@ -1,7 +1,7 @@
 import type { Disposable } from '@difizen/libro-common/app';
 import { DisposableCollection, Emitter } from '@difizen/libro-common/app';
 import { ThemeService, ViewManager } from '@difizen/libro-common/app';
-import { inject, singleton } from '@difizen/libro-common/app';
+import { inject, singleton, ConfigurationService } from '@difizen/libro-common/app';
 import { prop } from '@difizen/libro-common/app';
 
 import type {
@@ -15,6 +15,7 @@ import {
   ModelFactory,
   NotebookService,
 } from './libro-protocol.js';
+import { SpmReporter } from './libro-setting.js';
 import { LibroViewTracker } from './libro-view-tracker.js';
 
 export interface NotebookViewChange {
@@ -37,6 +38,7 @@ export class LibroService implements NotebookService, Disposable {
   protected toDispose = new DisposableCollection();
   @inject(ModelFactory) protected libroModelFactory: ModelFactory;
   @inject(ViewManager) protected viewManager: ViewManager;
+  @inject(ConfigurationService) configurationService: ConfigurationService;
   @inject(LibroViewTracker) protected libroViewTracker: LibroViewTracker;
   protected themeService: ThemeService;
   @prop()
@@ -142,6 +144,10 @@ export class LibroService implements NotebookService, Disposable {
     return model;
   }
   async getOrCreateView(options: NotebookOption): Promise<NotebookView> {
+    const isEnabledSpmReporter = await this.configurationService.get(SpmReporter);
+    if (isEnabledSpmReporter) {
+      this.libroViewTracker.getOrCreateSpmTracker(options);
+    }
     const model = this.getOrCreateModel(options);
     const notebookViewPromise = this.viewManager.getOrCreateView<NotebookView>(
       notebookViewFactoryId,
