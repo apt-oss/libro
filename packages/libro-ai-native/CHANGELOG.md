@@ -1,5 +1,15 @@
 # @difizen/libro-output
 
+## 0.3.9
+
+### Patch Changes
+
+- feat: add tracker
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.9
+  - @difizen/libro-jupyter@0.3.9
+
 ## 0.3.8
 
 ### Patch Changes

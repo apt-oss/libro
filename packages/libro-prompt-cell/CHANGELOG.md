@@ -1,5 +1,18 @@
 # @difizen/libro-prompt-cell
 
+## 0.3.9
+
+### Patch Changes
+
+- feat: add tracker
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.9
+  - @difizen/libro-rendermime@0.3.9
+  - @difizen/libro-jupyter@0.3.9
+  - @difizen/libro-common@0.3.9
+  - @difizen/libro-core@0.3.9
+
 ## 0.3.8
 
 ### Patch Changes

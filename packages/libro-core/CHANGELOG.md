@@ -1,5 +1,17 @@
 # @difizen/libro-core
 
+## 0.3.9
+
+### Patch Changes
+
+- feat: add tracker
+
+- Updated dependencies []:
+  - @difizen/libro-shared-model@0.3.9
+  - @difizen/libro-code-editor@0.3.9
+  - @difizen/libro-virtualized@0.3.9
+  - @difizen/libro-common@0.3.9
+
 ## 0.3.8
 
 ### Patch Changes
