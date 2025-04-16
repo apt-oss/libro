@@ -87,18 +87,8 @@ export class LibroJupyterCommandContribution implements CommandContribution {
       command,
       NotebookCommands['SideToolbarRunSelect'],
       {
-        execute: async (cell, libro) => {
-          if (
-            !cell ||
-            !libro ||
-            !(cell instanceof LibroCellView) ||
-            !(libro instanceof LibroView)
-          ) {
-            return;
-          }
-          if ((libro.model as LibroModel).executable) {
-            libro.runCell(cell);
-          }
+        execute: async () => {
+          //
         },
         isVisible: (cell, libro, path) => {
           if (

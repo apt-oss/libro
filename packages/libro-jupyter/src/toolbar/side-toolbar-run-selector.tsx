@@ -1,11 +1,19 @@
 import { PlayCircleOutlined } from '@ant-design/icons';
-import type { LibroSideToolbarMenuItemType, LibroView } from '@difizen/libro-core';
+import type {
+  LibroSideToolbarMenuItemType,
+  LibroToolbarArags,
+  LibroView,
+} from '@difizen/libro-core';
 import { NotebookCommands, LibroSideToolbarMenu } from '@difizen/libro-core';
 import { ServerManager } from '@difizen/libro-kernel';
+import type { Toolbar } from '@difizen/libro-common/app';
 import {
   ConfigurationService,
   useInject,
   ViewInstance,
+  CommandRegistry,
+  ToolbarInstance,
+  getOrigin,
 } from '@difizen/libro-common/app';
 import { l10n } from '@difizen/libro-common/l10n';
 import { Popover, Tooltip } from 'antd';
@@ -20,6 +28,10 @@ export const SideToolbarRunSelector: React.FC = () => {
   const libroServerManager = useInject(ServerManager);
   const configService = useInject<ConfigurationService>(ConfigurationService);
   const libroModel = libroView ? libroView.model : undefined;
+  const command = useInject(CommandRegistry);
+  const toolbar = useInject<Toolbar>(ToolbarInstance);
+  const data = toolbar.currentArgs as LibroToolbarArags;
+  const args = getOrigin(data) || [];
   const items: LibroSideToolbarMenuItemType[] = [
     {
       id: NotebookCommands['RunCell'].id,
@@ -84,7 +96,11 @@ export const SideToolbarRunSelector: React.FC = () => {
         trigger="hover"
         overlayClassName="libro-popover-side-toolbar-menu libro-side-toolbar-run-select-menu"
       >
-        <PlayCircleOutlined />
+        <PlayCircleOutlined
+          onClick={() => {
+            command.executeCommand(NotebookCommands['RunCell'].id, ...args);
+          }}
+        />
       </Popover>
     );
   }
