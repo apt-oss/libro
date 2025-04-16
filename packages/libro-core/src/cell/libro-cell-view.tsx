@@ -12,6 +12,7 @@ import type { CellView, NotebookView } from '../libro-protocol.js';
 
 import { CellService } from './libro-cell-protocol.js';
 import type { LibroCell } from './libro-cell-protocol.js';
+import type { LibroCellService } from './libro-cell-service.js';
 import { ExecutableCellModel } from './libro-executable-cell-model.js';
 
 export const LibroCellComponent = React.forwardRef(function LibroCellComponent() {
@@ -81,6 +82,35 @@ export class LibroCellView extends BaseView implements CellView {
     }
     this.model = model;
     this.cellWatch();
+  }
+
+  override onViewMount(): void {
+    if (
+      (this.cellService as LibroCellService).libroViewTracker.isEnabledSpmReporter &&
+      this.options.id
+    ) {
+      const cellTracker = (
+        this.cellService as LibroCellService
+      ).libroViewTracker.getOrCreateSpmTracker({
+        id: this.options.id + this.parent.id,
+      });
+      cellTracker.endTime = Date.now();
+      cellTracker.extra.cellType = this.model.type;
+      (this.cellService as LibroCellService).libroViewTracker.tracker(cellTracker);
+    }
+  }
+
+  override onViewUnmount(): void {
+    if ((this.cellService as LibroCellService).libroViewTracker.isEnabledSpmReporter) {
+      const cellTracker = (
+        this.cellService as LibroCellService
+      ).libroViewTracker.getOrCreateSpmTracker({
+        id: this.model.id + this.parent.id,
+      });
+      cellTracker.endTime = Date.now();
+      cellTracker.extra.cellType = this.model.type;
+      (this.cellService as LibroCellService).libroViewTracker.tracker(cellTracker);
+    }
   }
 
   cellWatch() {

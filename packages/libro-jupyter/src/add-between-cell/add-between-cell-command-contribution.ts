@@ -1,6 +1,7 @@
 import type { CellOptions } from '@difizen/libro-core';
 import type { CommandRegistry } from '@difizen/libro-common/app';
 import { CommandContribution, singleton } from '@difizen/libro-common/app';
+import { v4 } from 'uuid';
 
 export const LibroAddBetweenCellCommand = {
   AddBetweenCell: {
@@ -23,16 +24,15 @@ export class LibroAddBetweenCellCommandContribution implements CommandContributi
         if (!type || typeof addCell !== 'function') {
           return;
         }
-        await addCell(
-          {
-            cell: {
-              cell_type: type,
-              metadata: {},
-              source: '',
-            },
+        const cellOptions = {
+          id: v4(),
+          cell: {
+            cell_type: type,
+            metadata: {},
+            source: '',
           },
-          index,
-        );
+        };
+        await addCell(cellOptions, index);
       },
     });
 
