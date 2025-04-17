@@ -144,8 +144,7 @@ export class LibroService implements NotebookService, Disposable {
     return model;
   }
   async getOrCreateView(options: NotebookOption): Promise<NotebookView> {
-    const isEnabledSpmReporter = await this.configurationService.get(SpmReporter);
-    if (isEnabledSpmReporter) {
+    if (this.libroViewTracker.isEnabledSpmReporter) {
       this.libroViewTracker.getOrCreateSpmTracker(options);
     }
     const model = this.getOrCreateModel(options);
