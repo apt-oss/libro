@@ -127,6 +127,30 @@ export abstract class LibroEditorCellView
       if (e.status === 'ready') {
         this.editor = this.editorView!.editor;
         this.afterEditorReady();
+        if (this.parent.libroViewTracker.isEnabledSpmReporter) {
+          if (
+            this.parent.libroViewTracker.hasTracker(
+              this.parent.model.options['modelId'] || this.parent.model.options['id'],
+            )
+          ) {
+            const libroTracker = this.parent.libroViewTracker.getOrCreateSpmTracker({
+              id:
+                this.parent.model.options['modelId'] || this.parent.model.options['id'],
+            });
+            libroTracker.endTime = Date.now();
+            libroTracker.extra.cellsCount = this.parent.model.cells.length;
+            this.parent.libroViewTracker.tracker(libroTracker);
+          }
+          const id = this.options.id + this.parent.id + 'add';
+          if (this.options.id && this.parent.libroViewTracker.hasTracker(id)) {
+            const cellTracker = this.parent.libroViewTracker.getOrCreateSpmTracker({
+              id,
+            });
+            cellTracker.endTime = Date.now();
+            cellTracker.extra.cellType = this.model.type;
+            this.parent.libroViewTracker.tracker(cellTracker);
+          }
+        }
       } else if (e.status === 'disposed') {
         this.toDisposeOnEditor.dispose();
       }
