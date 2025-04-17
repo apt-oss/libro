@@ -1,5 +1,18 @@
 # libro-langauge-client
 
+## 0.3.11
+
+### Patch Changes
+
+- fix: tracker error
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.11
+  - @difizen/libro-common@0.3.11
+  - @difizen/libro-kernel@0.3.11
+  - @difizen/libro-core@0.3.11
+  - @difizen/libro-lsp@0.3.11
+
 ## 0.3.10
 
 ### Patch Changes

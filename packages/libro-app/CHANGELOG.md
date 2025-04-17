@@ -1,5 +1,14 @@
 # @difizen/libro-output
 
+## 0.3.11
+
+### Patch Changes
+
+- fix: tracker error
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@0.3.11
+
 ## 0.3.10
 
 ### Patch Changes

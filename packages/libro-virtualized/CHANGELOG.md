@@ -1,5 +1,11 @@
 # @difizen/libro-code-editor
 
+## 0.3.11
+
+### Patch Changes
+
+- fix: tracker error
+
 ## 0.3.10
 
 ### Patch Changes
