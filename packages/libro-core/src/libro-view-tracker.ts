@@ -74,6 +74,7 @@ export class LibroViewTracker {
 
   tracker(tracker: Tracker) {
     const trackerLog = tracker.log();
+    this.spmTracker.delete(tracker.id);
     this.onTrackerEmitter.fire(trackerLog);
   }
 

@@ -326,7 +326,7 @@ export class LibroView extends BaseView implements NotebookView {
   @inject(LibroService) libroService: LibroService;
   @inject(LibroSlotManager) libroSlotManager: LibroSlotManager;
   @inject(LibroContextKey) contextKey: LibroContextKey;
-  @inject(LibroViewTracker) protected libroViewTracker: LibroViewTracker;
+  @inject(LibroViewTracker) libroViewTracker: LibroViewTracker;
   @inject(ViewManager) protected viewManager: ViewManager;
   @inject(ConfigurationService) protected configurationService: ConfigurationService;
 
@@ -454,14 +454,6 @@ export class LibroView extends BaseView implements NotebookView {
           this.model.onChange?.();
         }),
       );
-      if (this.libroViewTracker.isEnabledSpmReporter) {
-        const libroTracker = this.libroViewTracker.getOrCreateSpmTracker({
-          id: this.model.id,
-        });
-        libroTracker.endTime = Date.now();
-        libroTracker.extra.cellsCount = this.model.cells.length;
-        this.libroViewTracker.tracker(libroTracker);
-      }
       this.initializedDefer.resolve();
     }, 0);
   }
