@@ -456,7 +456,7 @@ export class LibroView extends BaseView implements NotebookView {
       );
       if (this.libroViewTracker.isEnabledSpmReporter) {
         const libroTracker = this.libroViewTracker.getOrCreateSpmTracker({
-          id: this.id,
+          id: this.model.id,
         });
         libroTracker.endTime = Date.now();
         libroTracker.extra.cellsCount = this.model.cells.length;
