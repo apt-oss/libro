@@ -531,7 +531,7 @@ export class LibroView extends BaseView implements NotebookView {
     if (this.libroViewTracker.isEnabledSpmReporter && option.id) {
       const id = option.id + this.id;
       const libroTracker = this.libroViewTracker.getOrCreateSpmTracker({
-        id,
+        id: id + 'add',
       });
       libroTracker.extra.cellsCount = this.model.cells.length;
       libroTracker.extra.cellOperation = 'add';
@@ -544,7 +544,7 @@ export class LibroView extends BaseView implements NotebookView {
     if (this.libroViewTracker.isEnabledSpmReporter && option.id) {
       const id = option.id + this.id;
       const libroTracker = this.libroViewTracker.getOrCreateSpmTracker({
-        id,
+        id: id + 'add',
       });
       libroTracker.extra.cellsCount = this.model.cells.length;
       libroTracker.extra.cellOperation = 'add';
@@ -576,7 +576,7 @@ export class LibroView extends BaseView implements NotebookView {
     if (this.libroViewTracker.isEnabledSpmReporter && cell.model.id) {
       const id = cell.model.id + this.id;
       const libroTracker = this.libroViewTracker.getOrCreateSpmTracker({
-        id,
+        id: id + 'delete',
       });
       libroTracker.extra.cellsCount = this.model.cells.length;
       libroTracker.extra.cellOperation = 'delete';

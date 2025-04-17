@@ -1,9 +1,4 @@
-import {
-  singleton,
-  Emitter,
-  ConfigurationService,
-  inject,
-} from '@difizen/libro-common/app';
+import { singleton, Emitter } from '@difizen/libro-common/app';
 import { v4 } from 'uuid';
 
 import type {
@@ -56,7 +51,6 @@ export class LibroViewTracker {
   viewCache: Map<string, NotebookView> = new Map();
   modelCache: Map<string, NotebookModel> = new Map();
   spmTracker: Map<string, Tracker> = new Map();
-  @inject(ConfigurationService) protected configurationService: ConfigurationService;
   isEnabledSpmReporter: boolean;
 
   protected onTrackerEmitter: Emitter<ITracker> = new Emitter();
@@ -81,5 +75,9 @@ export class LibroViewTracker {
   tracker(tracker: Tracker) {
     const trackerLog = tracker.log();
     this.onTrackerEmitter.fire(trackerLog);
+  }
+
+  hasTracker(id: string) {
+    return this.spmTracker.has(id);
   }
 }

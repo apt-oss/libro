@@ -85,14 +85,16 @@ export class LibroCellView extends BaseView implements CellView {
   }
 
   override onViewMount(): void {
+    const id = this.options.id + this.parent.id + 'add';
     if (
       (this.cellService as LibroCellService).libroViewTracker.isEnabledSpmReporter &&
-      this.options.id
+      this.options.id &&
+      (this.cellService as LibroCellService).libroViewTracker.hasTracker(id)
     ) {
       const cellTracker = (
         this.cellService as LibroCellService
       ).libroViewTracker.getOrCreateSpmTracker({
-        id: this.options.id + this.parent.id,
+        id,
       });
       cellTracker.endTime = Date.now();
       cellTracker.extra.cellType = this.model.type;
@@ -101,11 +103,15 @@ export class LibroCellView extends BaseView implements CellView {
   }
 
   override onViewUnmount(): void {
-    if ((this.cellService as LibroCellService).libroViewTracker.isEnabledSpmReporter) {
+    const id = this.model.id + this.parent.id + 'delete';
+    if (
+      (this.cellService as LibroCellService).libroViewTracker.isEnabledSpmReporter &&
+      (this.cellService as LibroCellService).libroViewTracker.hasTracker(id)
+    ) {
       const cellTracker = (
         this.cellService as LibroCellService
       ).libroViewTracker.getOrCreateSpmTracker({
-        id: this.model.id + this.parent.id,
+        id,
       });
       cellTracker.endTime = Date.now();
       cellTracker.extra.cellType = this.model.type;
