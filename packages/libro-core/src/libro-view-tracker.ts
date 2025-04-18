@@ -46,39 +46,65 @@ export class Tracker implements ITracker {
   }
 }
 
+export class FpsTracker implements ITracker {
+  [key: string]: any;
+  extra?: any;
+  id: string;
+  avgFPS: number;
+  maxFrameTime: number;
+  totalDropped: number;
+
+  constructor(id?: string, extra?: any) {
+    this.id = id || v4();
+    this.extra = extra || {};
+  }
+
+  log() {
+    const result = {
+      id: this.id,
+      avgFPS: this.avgFPS,
+      maxFrameTime: this.maxFrameTime,
+      totalDropped: this.totalDropped,
+      extra: this.extra,
+    };
+    return result;
+  }
+}
+
 @singleton()
 export class LibroViewTracker {
   viewCache: Map<string, NotebookView> = new Map();
   modelCache: Map<string, NotebookModel> = new Map();
-  spmTracker: Map<string, Tracker> = new Map();
+  trackers: Map<string, ITracker> = new Map();
   isEnabledSpmReporter: boolean;
 
-  protected onTrackerEmitter: Emitter<ITracker> = new Emitter();
+  protected onTrackerEmitter: Emitter<Record<string, any>> = new Emitter();
   get onTracker() {
     return this.onTrackerEmitter.event;
   }
 
-  getOrCreateSpmTracker(options: Options) {
+  getOrCreateTrackers(options: Options) {
     const id = options.id || v4();
-    const exist = this.spmTracker.get(id);
+    const exist = this.trackers.get(id);
     if (exist) {
-      if (!exist.startTime) {
-        exist.startTime = Date.now();
+      if (options['type'] !== 'fps' && !exist['startTime']) {
+        exist['startTime'] = Date.now();
       }
       return exist;
     }
-    const tracker = new Tracker(id);
-    this.spmTracker.set(id, tracker);
+
+    const tracker = options['type'] === 'fps' ? new FpsTracker(id) : new Tracker(id);
+    this.trackers.set(id, tracker);
     return tracker;
   }
 
-  tracker(tracker: Tracker) {
+  tracker(tracker: ITracker) {
     const trackerLog = tracker.log();
-    this.spmTracker.delete(tracker.id);
+    this.trackers.delete(tracker.id);
     this.onTrackerEmitter.fire(trackerLog);
   }
 
   hasTracker(id: string) {
-    return this.spmTracker.has(id);
+    return this.trackers.has(id);
   }
 }

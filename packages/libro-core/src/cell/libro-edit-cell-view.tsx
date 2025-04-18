@@ -133,21 +133,21 @@ export abstract class LibroEditorCellView
               this.parent.model.options['modelId'] || this.parent.model.options['id'],
             )
           ) {
-            const libroTracker = this.parent.libroViewTracker.getOrCreateSpmTracker({
+            const libroTracker = this.parent.libroViewTracker.getOrCreateTrackers({
               id:
                 this.parent.model.options['modelId'] || this.parent.model.options['id'],
             });
-            libroTracker.endTime = Date.now();
-            libroTracker.extra.cellsCount = this.parent.model.cells.length;
+            libroTracker['endTime'] = Date.now();
+            libroTracker['extra'].cellsCount = this.parent.model.cells.length;
             this.parent.libroViewTracker.tracker(libroTracker);
           }
           const id = this.options.id + this.parent.id + 'add';
           if (this.options.id && this.parent.libroViewTracker.hasTracker(id)) {
-            const cellTracker = this.parent.libroViewTracker.getOrCreateSpmTracker({
+            const cellTracker = this.parent.libroViewTracker.getOrCreateTrackers({
               id,
             });
-            cellTracker.endTime = Date.now();
-            cellTracker.extra.cellType = this.model.type;
+            cellTracker['endTime'] = Date.now();
+            cellTracker['extra'].cellType = this.model.type;
             this.parent.libroViewTracker.tracker(cellTracker);
           }
         }

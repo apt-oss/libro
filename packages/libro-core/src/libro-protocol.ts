@@ -58,8 +58,7 @@ export type Options = {
 export interface ITracker {
   id: string;
   [key: string]: any;
-  startTime?: number;
-  endTime?: number;
+  log: () => Record<string, any>;
 }
 
 export interface ScrollParams {

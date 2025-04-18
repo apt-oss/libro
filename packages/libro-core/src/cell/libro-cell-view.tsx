@@ -93,11 +93,11 @@ export class LibroCellView extends BaseView implements CellView {
     ) {
       const cellTracker = (
         this.cellService as LibroCellService
-      ).libroViewTracker.getOrCreateSpmTracker({
+      ).libroViewTracker.getOrCreateTrackers({
         id,
       });
-      cellTracker.endTime = Date.now();
-      cellTracker.extra.cellType = this.model.type;
+      cellTracker['endTime'] = Date.now();
+      cellTracker['extra'].cellType = this.model.type;
       (this.cellService as LibroCellService).libroViewTracker.tracker(cellTracker);
     }
   }
@@ -110,11 +110,11 @@ export class LibroCellView extends BaseView implements CellView {
     ) {
       const cellTracker = (
         this.cellService as LibroCellService
-      ).libroViewTracker.getOrCreateSpmTracker({
+      ).libroViewTracker.getOrCreateTrackers({
         id,
       });
-      cellTracker.endTime = Date.now();
-      cellTracker.extra.cellType = this.model.type;
+      cellTracker['endTime'] = Date.now();
+      cellTracker['extra'].cellType = this.model.type;
       (this.cellService as LibroCellService).libroViewTracker.tracker(cellTracker);
     }
   }

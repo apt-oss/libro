@@ -276,11 +276,11 @@ export class LibroCommandContribution implements CommandContribution {
           libro.addCell(newCell, insertIndex);
           if (this.libroViewTracker.isEnabledSpmReporter) {
             const id = newCell.id + libro.id;
-            const libroTracker = this.libroViewTracker.getOrCreateSpmTracker({
+            const libroTracker = this.libroViewTracker.getOrCreateTrackers({
               id,
             });
-            libroTracker.extra.cellsCount = libro.model.cells.length;
-            libroTracker.extra.cellOperation = 'add';
+            libroTracker['extra'].cellsCount = libro.model.cells.length;
+            libroTracker['extra'].cellOperation = 'add';
           }
         },
         isVisible: (cell, libro, path) => {

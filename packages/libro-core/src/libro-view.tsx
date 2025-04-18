@@ -64,7 +64,7 @@ import {
 } from './libro-setting.js';
 import { LibroViewTracker } from './libro-view-tracker.js';
 import { LibroSlotManager, LibroSlotView } from './slot/index.js';
-import { useSize } from './utils/index.js';
+import { useFrameMonitor, useSize } from './utils/index.js';
 import { VirtualizedManagerHelper } from './virtualized-manager-helper.js';
 import type { VirtualizedManager } from './virtualized-manager.js';
 import './index.less';
@@ -84,6 +84,18 @@ export const LibroContentComponent = memo(function LibroContentComponent() {
   const HeaderRender = getOrigin(instance.headerRender);
   const [headerVisible] = useConfigurationValue(HeaderToolbarVisible);
   const [rightContentFixed] = useConfigurationValue(RightContentFixed);
+  useFrameMonitor(
+    libroViewContentRef,
+    instance.libroViewTracker.isEnabledSpmReporter,
+    (payload) => {
+      const fpsTracker = instance.libroViewTracker.getOrCreateTrackers({ type: 'fps' });
+      fpsTracker['avgFPS'] = payload.summary.avgFPS;
+      fpsTracker['maxFrameTime'] = payload.summary.maxFrameTime;
+      fpsTracker['totalDropped'] = payload.summary.totalDropped;
+      fpsTracker['extra'] = payload.frames;
+      instance.libroViewTracker.tracker(fpsTracker);
+    },
+  );
 
   const handleScroll = useCallback(() => {
     instance.cellScrollEmitter.fire();
@@ -522,11 +534,11 @@ export class LibroView extends BaseView implements NotebookView {
   addCell = async (option: CellOptions, position?: number) => {
     if (this.libroViewTracker.isEnabledSpmReporter && option.id) {
       const id = option.id + this.id;
-      const libroTracker = this.libroViewTracker.getOrCreateSpmTracker({
+      const libroTracker = this.libroViewTracker.getOrCreateTrackers({
         id: id + 'add',
       });
-      libroTracker.extra.cellsCount = this.model.cells.length;
-      libroTracker.extra.cellOperation = 'add';
+      libroTracker['extra'].cellsCount = this.model.cells.length;
+      libroTracker['extra'].cellOperation = 'add';
     }
     const cellView = await this.getCellViewByOption(option);
     this.model.addCell(cellView, position);
@@ -535,11 +547,11 @@ export class LibroView extends BaseView implements NotebookView {
   addCellAbove = async (option: CellOptions, position?: number) => {
     if (this.libroViewTracker.isEnabledSpmReporter && option.id) {
       const id = option.id + this.id;
-      const libroTracker = this.libroViewTracker.getOrCreateSpmTracker({
+      const libroTracker = this.libroViewTracker.getOrCreateTrackers({
         id: id + 'add',
       });
-      libroTracker.extra.cellsCount = this.model.cells.length;
-      libroTracker.extra.cellOperation = 'add';
+      libroTracker['extra'].cellsCount = this.model.cells.length;
+      libroTracker['extra'].cellOperation = 'add';
     }
     const cellView = await this.getCellViewByOption(option);
     this.model.addCell(cellView, position, 'above');
@@ -567,11 +579,11 @@ export class LibroView extends BaseView implements NotebookView {
   deleteCell = (cell: CellView) => {
     if (this.libroViewTracker.isEnabledSpmReporter && cell.model.id) {
       const id = cell.model.id + this.id;
-      const libroTracker = this.libroViewTracker.getOrCreateSpmTracker({
+      const libroTracker = this.libroViewTracker.getOrCreateTrackers({
         id: id + 'delete',
       });
-      libroTracker.extra.cellsCount = this.model.cells.length;
-      libroTracker.extra.cellOperation = 'delete';
+      libroTracker['extra'].cellsCount = this.model.cells.length;
+      libroTracker['extra'].cellOperation = 'delete';
     }
     const deleteIndex = this.model.getCells().findIndex((item) => {
       return equals(item, cell);
