@@ -1,5 +1,11 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.14
+
+### Patch Changes
+
+- feat: add fps tracker& fix: optimize tracker time
+
 ## 0.3.13
 
 ### Patch Changes

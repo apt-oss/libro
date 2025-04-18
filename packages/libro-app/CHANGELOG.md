@@ -1,5 +1,14 @@
 # @difizen/libro-output
 
+## 0.3.14
+
+### Patch Changes
+
+- feat: add fps tracker& fix: optimize tracker time
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@0.3.14
+
 ## 0.3.13
 
 ### Patch Changes

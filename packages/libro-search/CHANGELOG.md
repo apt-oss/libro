@@ -1,5 +1,16 @@
 # @difizen/libro-search
 
+## 0.3.14
+
+### Patch Changes
+
+- feat: add fps tracker& fix: optimize tracker time
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.14
+  - @difizen/libro-common@0.3.14
+  - @difizen/libro-core@0.3.14
+
 ## 0.3.13
 
 ### Patch Changes
