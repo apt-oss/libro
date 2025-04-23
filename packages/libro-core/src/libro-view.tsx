@@ -363,6 +363,8 @@ export class LibroView extends BaseView implements NotebookView {
   @prop()
   saving?: boolean;
 
+  options: NotebookOption;
+
   onSaveEmitter: Emitter<boolean> = new Emitter();
   get onSave() {
     return this.onSaveEmitter.event;
@@ -399,6 +401,7 @@ export class LibroView extends BaseView implements NotebookView {
     if (options.id) {
       this.id = options.id;
     }
+    this.options = options;
     this.notebookService = notebookService;
     this.model = this.notebookService.getOrCreateModel(options);
     this.collapseService = collapseServiceFactory({ view: this });
@@ -475,7 +478,11 @@ export class LibroView extends BaseView implements NotebookView {
   override onViewMount = () => {
     this.libroService.active = this;
     this.libroSlotManager.setup(this);
-
+    if (this.libroViewTracker.isEnabledSpmReporter) {
+      this.libroViewTracker.getOrCreateTrackers({
+        id: this.options.modelId || this.options.id,
+      });
+    }
     // this.libroService.libroPerformanceStatistics.setRenderEnd(new Date());
 
     // console.log(
