@@ -24,7 +24,4 @@ export class LibroJupyterView extends LibroView {
     this.uri = uri;
     this.title.label = uri.displayName;
   }
-  get options() {
-    return this.model.options;
-  }
 }
