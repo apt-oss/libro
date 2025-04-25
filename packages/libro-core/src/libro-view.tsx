@@ -93,6 +93,7 @@ export const LibroContentComponent = memo(function LibroContentComponent() {
       fpsTracker['maxFrameTime'] = payload.summary.maxFrameTime;
       fpsTracker['totalDropped'] = payload.summary.totalDropped;
       fpsTracker['extra'] = payload.frames;
+      fpsTracker['cells'] = instance.model.cells.length;
       instance.libroViewTracker.tracker(fpsTracker);
     },
   );
