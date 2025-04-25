@@ -1,5 +1,11 @@
 # @difizen/libro-code-editor
 
+## 0.3.15
+
+### Patch Changes
+
+- feat: add cellCount for fpsTracker & fix: notebook tracker time error
+
 ## 0.3.14
 
 ### Patch Changes

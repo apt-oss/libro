@@ -1,5 +1,17 @@
 # @difizen/libro-codemirror
 
+## 0.3.15
+
+### Patch Changes
+
+- feat: add cellCount for fpsTracker & fix: notebook tracker time error
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.15
+  - @difizen/libro-rendermime@0.3.15
+  - @difizen/libro-common@0.3.15
+  - @difizen/libro-lsp@0.3.15
+
 ## 0.3.14
 
 ### Patch Changes

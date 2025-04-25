@@ -1,5 +1,15 @@
 # @difizen/libro-kernel
 
+## 0.3.15
+
+### Patch Changes
+
+- feat: add cellCount for fpsTracker & fix: notebook tracker time error
+
+- Updated dependencies []:
+  - @difizen/libro-common@0.3.15
+  - @difizen/libro-core@0.3.15
+
 ## 0.3.14
 
 ### Patch Changes

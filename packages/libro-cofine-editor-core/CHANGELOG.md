@@ -1,5 +1,14 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.15
+
+### Patch Changes
+
+- feat: add cellCount for fpsTracker & fix: notebook tracker time error
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-contribution@0.3.15
+
 ## 0.3.14
 
 ### Patch Changes
