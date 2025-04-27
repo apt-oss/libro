@@ -63,6 +63,7 @@ export class LibroNavigatableView
   }
 
   autoSave: 'on' | 'off' = 'off';
+  fileSize?: number;
 
   @prop()
   dirty: boolean;
@@ -77,7 +78,7 @@ export class LibroNavigatableView
   }
 
   constructor(
-    @inject(ViewOption) options: { path: string },
+    @inject(ViewOption) options: { path: string; [key: string]: any },
     @inject(LabelProvider) labelProvider: LabelProvider,
     @inject(ConfigurationService) configurationService: ConfigurationService,
   ) {
@@ -85,6 +86,7 @@ export class LibroNavigatableView
     this.filePath = options.path;
     this.dirty = false;
     this.title.caption = options.path;
+    this.fileSize = options['fileSize'];
     const uri = new URI(options.path);
     const uriRef = URIIconReference.create('file', new VScodeURI(options.path));
     const iconClass = labelProvider.getIcon(uriRef);
@@ -136,6 +138,7 @@ export class LibroNavigatableView
     const libroView = await this.libroService.getOrCreateView({
       id: this.filePath,
       resource: this.filePath,
+      fileSize: this.fileSize,
     });
     if (!libroView) {
       return;

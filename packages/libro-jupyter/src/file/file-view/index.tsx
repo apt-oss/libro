@@ -168,7 +168,7 @@ export class FileView extends FileTreeView {
           opener.open(treeNode.uri, {
             viewOptions: {
               name: treeNode.fileStat.name,
-              // fileSize: treeNode.fileStat.size,
+              fileSize: treeNode.fileStat.size,
             },
           });
         }
