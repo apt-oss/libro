@@ -144,6 +144,12 @@ export class LibroService implements NotebookService, Disposable {
     return model;
   }
   async getOrCreateView(options: NotebookOption): Promise<NotebookView> {
+    if (options.id) {
+      const exist = this.libroViewTracker.viewCache.get(options.id);
+      if (exist) {
+        return exist;
+      }
+    }
     const notebookViewPromise = this.viewManager.getOrCreateView<NotebookView>(
       notebookViewFactoryId,
       {

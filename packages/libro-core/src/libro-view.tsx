@@ -26,7 +26,8 @@ import {
   ConfigurationService,
   useConfigurationValue,
 } from '@difizen/libro-common/app';
-import { FloatButton, Button, Spin } from 'antd';
+import { l10n } from '@difizen/libro-common/l10n';
+import { FloatButton, Button, Spin, message } from 'antd';
 import type { FC, ForwardRefExoticComponent, RefAttributes } from 'react';
 import { forwardRef, memo, useCallback, useEffect, useRef } from 'react';
 import { v4 } from 'uuid';
@@ -479,10 +480,24 @@ export class LibroView extends BaseView implements NotebookView {
   override onViewMount = () => {
     this.libroService.active = this;
     this.libroSlotManager.setup(this);
+
     if (this.libroViewTracker.isEnabledSpmReporter) {
       this.libroViewTracker.getOrCreateTrackers({
         id: this.options.modelId || this.options.id,
       });
+    }
+    if (
+      this.model.cells.length > 30 ||
+      (this.options['fileSize'] || 0) / (1024 * 1024) >= 5
+    ) {
+      message.warning(
+        <div>
+          {l10n.t(
+            '即将打开的文件(内容过大 / cell 过多)，可能会导致操作卡顿，请耐心等待～',
+          )}
+          <Button type="link">{l10n.t('我知道了')}</Button>
+        </div>,
+      );
     }
     // this.libroService.libroPerformanceStatistics.setRenderEnd(new Date());
 
