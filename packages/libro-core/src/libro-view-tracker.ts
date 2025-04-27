@@ -53,6 +53,7 @@ export class FpsTracker implements ITracker {
   avgFPS: number;
   maxFrameTime: number;
   totalDropped: number;
+  cellsCount: number;
 
   constructor(id?: string, extra?: any) {
     this.id = id || v4();
@@ -66,6 +67,7 @@ export class FpsTracker implements ITracker {
       maxFrameTime: this.maxFrameTime,
       totalDropped: this.totalDropped,
       extra: this.extra,
+      cellsCount: this.cellsCount,
     };
     return result;
   }
