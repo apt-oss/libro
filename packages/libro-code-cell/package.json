@@ -45,9 +45,9 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-code-editor": "^0.3.4",
-    "@difizen/libro-common": "^0.3.4",
-    "@difizen/libro-core": "^0.3.4"
+    "@difizen/libro-code-editor": "^1.0.0",
+    "@difizen/libro-common": "^1.0.0",
+    "@difizen/libro-core": "^1.0.0"
   },
   "peerDependencies": {
     "react": ">=16"

@@ -46,6 +46,6 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-common": "^0.3.4"
+    "@difizen/libro-common": "^1.0.0"
   }
 }

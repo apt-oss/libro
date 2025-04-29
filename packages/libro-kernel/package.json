@@ -45,8 +45,8 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-common": "^0.3.4",
-    "@difizen/libro-core": "^0.3.4",
+    "@difizen/libro-common": "^1.0.0",
+    "@difizen/libro-core": "^1.0.0",
     "minimist": "^1.2.8",
     "query-string": "^8.1.0",
     "uuid": "^9.0.0"
