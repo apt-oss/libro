@@ -1,5 +1,26 @@
 # @difizen/libro-lab
 
+## 1.0.2
+
+### Patch Changes
+
+- fix: update mana exports typings
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@1.0.2
+  - @difizen/libro-language-client@1.0.2
+  - @difizen/libro-prompt-cell@1.0.2
+  - @difizen/libro-sql-cell@1.0.2
+  - @difizen/libro-terminal@1.0.2
+  - @difizen/libro-jupyter@1.0.2
+  - @difizen/libro-common@1.0.2
+  - @difizen/libro-kernel@1.0.2
+  - @difizen/libro-widget@1.0.2
+  - @difizen/libro-core@1.0.2
+  - @difizen/libro-l10n@1.0.2
+  - @difizen/libro-app@1.0.2
+  - @difizen/libro-toc@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

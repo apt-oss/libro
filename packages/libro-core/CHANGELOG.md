@@ -1,5 +1,17 @@
 # @difizen/libro-core
 
+## 1.0.2
+
+### Patch Changes
+
+- fix: update mana exports typings
+
+- Updated dependencies []:
+  - @difizen/libro-shared-model@1.0.2
+  - @difizen/libro-code-editor@1.0.2
+  - @difizen/libro-virtualized@1.0.2
+  - @difizen/libro-common@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

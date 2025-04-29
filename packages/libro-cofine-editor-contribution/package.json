@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-cofine-editor-contribution",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "keywords": [
     "libro",
@@ -46,7 +46,7 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-common": "^1.0.1"
+    "@difizen/libro-common": "^1.0.2"
   },
   "devDependencies": {
     "@difizen/monaco-editor-core": "0.39.4"

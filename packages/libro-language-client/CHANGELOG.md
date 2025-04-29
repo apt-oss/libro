@@ -1,5 +1,18 @@
 # libro-langauge-client
 
+## 1.0.2
+
+### Patch Changes
+
+- fix: update mana exports typings
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@1.0.2
+  - @difizen/libro-common@1.0.2
+  - @difizen/libro-kernel@1.0.2
+  - @difizen/libro-core@1.0.2
+  - @difizen/libro-lsp@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

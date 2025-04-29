@@ -1,5 +1,15 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 1.0.2
+
+### Patch Changes
+
+- fix: update mana exports typings
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-contribution@1.0.2
+  - @difizen/libro-common@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

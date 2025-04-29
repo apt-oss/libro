@@ -1,5 +1,11 @@
 # @difizen/libro-docs
 
+## 1.0.2
+
+### Patch Changes
+
+- fix: update mana exports typings
+
 ## 1.0.1
 
 ### Patch Changes

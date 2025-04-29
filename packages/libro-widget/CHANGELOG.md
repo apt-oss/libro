@@ -1,5 +1,18 @@
 # @difizen/libro-widget
 
+## 1.0.2
+
+### Patch Changes
+
+- fix: update mana exports typings
+
+- Updated dependencies []:
+  - @difizen/libro-rendermime@1.0.2
+  - @difizen/libro-jupyter@1.0.2
+  - @difizen/libro-common@1.0.2
+  - @difizen/libro-kernel@1.0.2
+  - @difizen/libro-core@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

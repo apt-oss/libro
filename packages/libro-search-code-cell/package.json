@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-search-code-cell",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "keywords": [
     "libro",
@@ -45,10 +45,10 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-common": "^1.0.1",
-    "@difizen/libro-code-editor": "^1.0.1",
-    "@difizen/libro-code-cell": "^1.0.1",
-    "@difizen/libro-search": "^1.0.1",
-    "@difizen/libro-core": "^1.0.1"
+    "@difizen/libro-common": "^1.0.2",
+    "@difizen/libro-code-editor": "^1.0.2",
+    "@difizen/libro-code-cell": "^1.0.2",
+    "@difizen/libro-search": "^1.0.2",
+    "@difizen/libro-core": "^1.0.2"
   }
 }

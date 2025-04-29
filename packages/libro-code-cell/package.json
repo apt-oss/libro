@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-code-cell",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "keywords": [
     "libro",
@@ -45,9 +45,9 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-code-editor": "^1.0.1",
-    "@difizen/libro-common": "^1.0.1",
-    "@difizen/libro-core": "^1.0.1"
+    "@difizen/libro-code-editor": "^1.0.2",
+    "@difizen/libro-common": "^1.0.2",
+    "@difizen/libro-core": "^1.0.2"
   },
   "peerDependencies": {
     "react": ">=16"

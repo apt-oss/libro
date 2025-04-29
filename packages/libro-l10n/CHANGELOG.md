@@ -1,5 +1,14 @@
 # @difizen/libro-l10n
 
+## 1.0.2
+
+### Patch Changes
+
+- fix: update mana exports typings
+
+- Updated dependencies []:
+  - @difizen/libro-common@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes
