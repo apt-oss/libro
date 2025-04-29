@@ -1,5 +1,29 @@
 # @difizen/libro-jupyter
 
+## 1.0.1
+
+### Patch Changes
+
+- chore: update exports related libro-common
+
+- Updated dependencies []:
+  - @difizen/libro-search-code-cell@1.0.1
+  - @difizen/libro-language-client@1.0.1
+  - @difizen/libro-cofine-editor@1.0.1
+  - @difizen/libro-markdown-cell@1.0.1
+  - @difizen/libro-code-editor@1.0.1
+  - @difizen/libro-codemirror@1.0.1
+  - @difizen/libro-rendermime@1.0.1
+  - @difizen/libro-code-cell@1.0.1
+  - @difizen/libro-raw-cell@1.0.1
+  - @difizen/libro-common@1.0.1
+  - @difizen/libro-kernel@1.0.1
+  - @difizen/libro-output@1.0.1
+  - @difizen/libro-search@1.0.1
+  - @difizen/libro-core@1.0.1
+  - @difizen/libro-l10n@1.0.1
+  - @difizen/libro-lsp@1.0.1
+
 ## 0.3.4
 
 ### Patch Changes

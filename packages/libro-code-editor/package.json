@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-code-editor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "libro",
@@ -45,7 +45,7 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-common": "^1.0.0",
+    "@difizen/libro-common": "^1.0.1",
     "uuid": "^9.0.1"
   },
   "peerDependencies": {

@@ -1,5 +1,16 @@
 # @difizen/libro-widget
 
+## 1.0.1
+
+### Patch Changes
+
+- chore: update exports related libro-common
+
+- Updated dependencies []:
+  - @difizen/libro-common@1.0.1
+  - @difizen/libro-kernel@1.0.1
+  - @difizen/libro-core@1.0.1
+
 ## 0.3.4
 
 ### Patch Changes

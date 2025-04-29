@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-terminal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "libro"
@@ -44,9 +44,9 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-core": "^1.0.0",
-    "@difizen/libro-common": "^1.0.0",
-    "@difizen/libro-kernel": "^1.0.0",
+    "@difizen/libro-core": "^1.0.1",
+    "@difizen/libro-common": "^1.0.1",
+    "@difizen/libro-kernel": "^1.0.1",
     "@ant-design/icons": "^5.1.0",
     "uuid": "^9.0.0",
     "xterm-addon-search": "^0.13.0",

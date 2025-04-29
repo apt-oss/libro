@@ -1,5 +1,18 @@
 # @difizen/libro-search-codemirror-cell
 
+## 1.0.1
+
+### Patch Changes
+
+- chore: update exports related libro-common
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@1.0.1
+  - @difizen/libro-code-cell@1.0.1
+  - @difizen/libro-common@1.0.1
+  - @difizen/libro-search@1.0.1
+  - @difizen/libro-core@1.0.1
+
 ## 0.3.4
 
 ### Patch Changes
