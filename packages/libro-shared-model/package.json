@@ -45,7 +45,7 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-common": "^0.3.4",
+    "@difizen/libro-common": "^1.0.0",
     "uuid": "^9.0.0",
     "y-protocols": "^1.0.5",
     "yjs": "^13.5.40"

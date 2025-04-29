@@ -46,7 +46,7 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-common": "^0.3.4"
+    "@difizen/libro-common": "^1.0.0"
   },
   "devDependencies": {
     "@difizen/monaco-editor-core": "0.39.4"

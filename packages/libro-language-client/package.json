@@ -45,11 +45,11 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-core": "^0.3.4",
-    "@difizen/libro-code-editor": "^0.3.4",
-    "@difizen/libro-kernel": "^0.3.4",
-    "@difizen/libro-common": "^0.3.4",
-    "@difizen/libro-lsp": "^0.3.4",
+    "@difizen/libro-core": "^1.0.0",
+    "@difizen/libro-code-editor": "^1.0.0",
+    "@difizen/libro-kernel": "^1.0.0",
+    "@difizen/libro-common": "^1.0.0",
+    "@difizen/libro-lsp": "^1.0.0",
     "uuid": "^9.0.0",
     "@difizen/vscode-languageserver-protocol": "^3.17.6-next.2",
     "vscode-ws-jsonrpc": "^3.1.0",
