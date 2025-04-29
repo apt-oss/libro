@@ -14,7 +14,7 @@
       "default": "./es/index.js"
     },
     "./common": {
-      "typings": "./es/common/index.js",
+      "typings": "./es/common/index.d.ts",
       "default": "./es/common/index.js"
     },
     "./es/common": {
@@ -22,7 +22,7 @@
       "default": "./es/common/index.js"
     },
     "./react": {
-      "typings": "./es/react/index.js",
+      "typings": "./es/react/index.d.ts",
       "default": "./es/react/index.js"
     },
     "./es/react": {
@@ -30,7 +30,7 @@
       "default": "./es/react/index.js"
     },
     "./l10n": {
-      "typings": "./es/l10n/index.js",
+      "typings": "./es/l10n/index.d.ts",
       "default": "./es/l10n/index.js"
     },
     "./es/l10n": {
@@ -38,7 +38,7 @@
       "default": "./es/l10n/index.js"
     },
     "./ioc": {
-      "typings": "./es/ioc/index.js",
+      "typings": "./es/ioc/index.d.ts",
       "default": "./es/ioc/index.js"
     },
     "./es/ioc": {
@@ -46,7 +46,7 @@
       "default": "./es/ioc/index.js"
     },
     "./observable": {
-      "typings": "./es/observable/index.js",
+      "typings": "./es/observable/index.d.ts",
       "default": "./es/observable/index.js"
     },
     "./es/observable": {
@@ -54,7 +54,7 @@
       "default": "./es/observable/index.js"
     },
     "./core": {
-      "typings": "./es/core/index.js",
+      "typings": "./es/core/index.d.ts",
       "default": "./es/core/index.js"
     },
     "./es/core": {
@@ -62,7 +62,7 @@
       "default": "./es/core/index.js"
     },
     "./app": {
-      "typings": "./es/app/index.js",
+      "typings": "./es/app/index.d.ts",
       "default": "./es/app/index.js"
     },
     "./es/app": {
