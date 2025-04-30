@@ -1,5 +1,11 @@
 # @difizen/libro-common
 
+## 0.3.17
+
+### Patch Changes
+
+- feat: add a msg for large files when opening notebook
+
 ## 0.3.16
 
 ### Patch Changes

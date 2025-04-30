@@ -1,5 +1,16 @@
 # @difizen/libro-rendermime
 
+## 0.3.17
+
+### Patch Changes
+
+- feat: add a msg for large files when opening notebook
+
+- Updated dependencies []:
+  - @difizen/libro-markdown@0.3.17
+  - @difizen/libro-common@0.3.17
+  - @difizen/libro-core@0.3.17
+
 ## 0.3.16
 
 ### Patch Changes
