@@ -12,6 +12,7 @@ import {
   ResourceDecorationNeedChangeEvent,
   WorkbenchEditorService,
 } from '@opensumi/ide-editor';
+import { IFileServiceClient } from '@opensumi/ide-file-service';
 import { makeObservable } from 'mobx';
 import { ContentLoaderType, ManaContainer } from '../common';
 import { LibroTracker } from './libro.view.tracker';
@@ -40,6 +41,9 @@ export class LibroOpensumiService
   @Autowired(WorkbenchEditorService)
   protected readonly editorService: WorkbenchEditorService;
 
+  @Autowired(IFileServiceClient)
+  protected readonly fileServiceClient: IFileServiceClient;
+
   constructor() {
     super();
     makeObservable(this);
@@ -51,10 +55,14 @@ export class LibroOpensumiService
   }
 
   getOrCreatLibroView = async (uri: URI) => {
+    const stat = await getOrigin(this.fileServiceClient).getFileStat(
+      uri.toString(),
+    );
     const libroOption = {
       modelId: uri.toString(),
       resource: uri.toString(),
       loadType: ContentLoaderType,
+      fileSize: stat?.size || 0,
     };
     const libroView = await this.libroService.getOrCreateView(libroOption);
     return libroView;
