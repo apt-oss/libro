@@ -59,6 +59,7 @@ export class LibroOpensumiService
       uri.toString(),
     );
     const libroOption = {
+      id: uri.toString(),
       modelId: uri.toString(),
       resource: uri.toString(),
       loadType: ContentLoaderType,
