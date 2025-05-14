@@ -55,15 +55,11 @@ export class LibroOpensumiService
   }
 
   getOrCreatLibroView = async (uri: URI) => {
-    const stat = await getOrigin(this.fileServiceClient).getFileStat(
-      uri.toString(),
-    );
     const libroOption = {
       id: uri.toString(),
       modelId: uri.toString(),
       resource: uri.toString(),
       loadType: ContentLoaderType,
-      fileSize: stat?.size || 0,
     };
     const libroView = await this.libroService.getOrCreateView(libroOption);
     return libroView;
