@@ -432,6 +432,12 @@ export class LibroView extends BaseView implements NotebookView {
   async initialize() {
     this.model.isInitialized = false;
     const options = await this.model.initialize();
+    if (
+      options.length > 30 ||
+      (this.model.options['fileSize'] || 0) / (1024 * 1024) >= 5
+    ) {
+      this.addLargeFileWarning();
+    }
     this.configurationService
       .get(AutoInsertWhenNoCell)
       .then((value) => {
@@ -477,6 +483,48 @@ export class LibroView extends BaseView implements NotebookView {
 
   override view = LibroRender;
 
+  addLargeFileWarning = () => {
+    const skipWarning =
+      localStorage.getItem(
+        'largefile' + `${this.options.modelId || this.options.id}`,
+      ) === 'true';
+    if (!skipWarning) {
+      const warningBox = document.createElement('div');
+      warningBox.style.position = 'fixed';
+      warningBox.style.top = '20px';
+      warningBox.style.left = '50%';
+      warningBox.style.display = 'flex';
+      warningBox.style.alignItems = 'center';
+      warningBox.style.color = '#000000E0';
+      warningBox.style.transform = 'translateX(-50%)';
+      warningBox.style.fontSize = '14px';
+      warningBox.style.background = '#ffffff';
+      warningBox.style.padding = '9px 12px';
+      warningBox.style.zIndex = '9999';
+      warningBox.style.borderRadius = '8px';
+      warningBox.style.boxShadow =
+        '0 6px 16px 0 rgba(0, 0, 0, 0.08),0 3px 6px -4px rgba(0, 0, 0, 0.12),0 9px 28px 8px rgba(0, 0, 0, 0.05)';
+      warningBox.innerHTML = `
+                <svg style="display: inline-block; margin-right: 8px" viewBox="64 64 896 896" focusable="false" data-icon="exclamation-circle" width="1em" height="1em" fill="#faad14" aria-hidden="true" data-macaca-recorder-select-tag="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"></path></svg>
+                <span style ="line-height: 32px">即将打开的文件(内容过大 / cell 过多)，可能会导致操作卡顿，请耐心等待～</span>
+                <a style="margin-left: 8px; color: #1677ff;">我知道了</a>
+                `;
+      warningBox.querySelector('a')?.addEventListener('click', () => {
+        // 将用户偏好保存到 localStorage
+        localStorage.setItem(
+          'largefile' + `${this.options.modelId || this.options.id}`,
+          'true',
+        );
+        document.body.removeChild(warningBox);
+      });
+      document.body.appendChild(warningBox);
+      // 可选：自动移除提示框
+      setTimeout(() => {
+        document.body.removeChild(warningBox);
+      }, 2000);
+    }
+  };
+
   override onViewMount = () => {
     this.libroService.active = this;
     this.libroSlotManager.setup(this);
@@ -487,17 +535,11 @@ export class LibroView extends BaseView implements NotebookView {
       });
     }
     if (
-      this.model.cells.length > 30 ||
-      (this.options['fileSize'] || 0) / (1024 * 1024) >= 5
+      this.model.isInitialized &&
+      (this.model.cells.length > 30 ||
+        (this.model.options['fileSize'] || 0) / (1024 * 1024) >= 5)
     ) {
-      message.warning(
-        <div>
-          {l10n.t(
-            '即将打开的文件(内容过大 / cell 过多)，可能会导致操作卡顿，请耐心等待～',
-          )}
-          <Button type="link">{l10n.t('我知道了')}</Button>
-        </div>,
-      );
+      this.addLargeFileWarning();
     }
     // this.libroService.libroPerformanceStatistics.setRenderEnd(new Date());
 
