@@ -1,5 +1,5 @@
 import type { IOutput, JSONObject, PartialJSONObject } from '@difizen/libro-common';
-import { BaseView, prop, view, ViewOption } from '@difizen/libro-common/app';
+import { BaseView, Emitter, prop, view, ViewOption } from '@difizen/libro-common/app';
 import { inject, transient } from '@difizen/libro-common/app';
 import type { FC } from 'react';
 import { v4 } from 'uuid';
@@ -32,6 +32,13 @@ export class LibroOutputView extends BaseView implements BaseOutputView {
 
   @prop()
   data: JSONObject;
+
+  onUpdateEmitter = new Emitter<void>();
+
+  get onUpdate() {
+    return this.onUpdateEmitter.event;
+  }
+
   @prop()
   metadata: PartialJSONObject;
   type: string;

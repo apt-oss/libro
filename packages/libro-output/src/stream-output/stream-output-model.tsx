@@ -1,4 +1,5 @@
 import type { JSONObject } from '@difizen/libro-common';
+import { getBundleOptions } from '@difizen/libro-common';
 import { LibroOutputView } from '@difizen/libro-core';
 import type { BaseOutputView, IOutputOptions } from '@difizen/libro-core';
 import { RenderMimeRegistry } from '@difizen/libro-rendermime';
@@ -14,8 +15,6 @@ import {
 import { forwardRef } from 'react';
 
 import '../index.less';
-
-import { getBundleOptions } from '../output-utils.js';
 
 const StreamOutputModelRender = forwardRef<HTMLDivElement>(
   function StreamOutputModelRender(_props, ref) {

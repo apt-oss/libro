@@ -1,8 +1,8 @@
 import type { JSONValue } from '@difizen/libro-common';
 import { concatMultilineString } from '@difizen/libro-common';
-import type { BaseOutputView } from '@difizen/libro-core';
 import { useInject } from '@difizen/libro-common/app';
-import React, { useEffect, useRef } from 'react';
+import type { BaseOutputView } from '@difizen/libro-core';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { renderText } from '../renderers.js';
 import type { IRenderMimeRegistry } from '../rendermime-protocol.js';
@@ -15,6 +15,7 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
   const renderTextRef = useRef<HTMLDivElement>(null);
   const renderTextContainerRef = useRef<HTMLDivElement>(null);
   const defaultRenderMime = useInject<IRenderMimeRegistry>(RenderMimeRegistry);
+  const [refreshKey, setRefreshKey] = useState(new Date().getTime().toString());
 
   const mimeType = defaultRenderMime.defaultPreferredMimeType(
     model,
@@ -25,6 +26,9 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
     dataContent = model.data[mimeType];
   }
   useEffect(() => {
+    model.onUpdate(() => {
+      setRefreshKey(new Date().getTime().toString());
+    });
     if (dataContent && mimeType) {
       renderText({
         host: renderTextRef.current as HTMLElement,
@@ -43,7 +47,7 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
   }, [mimeType, dataContent]);
   return (
     <div className="libro-text-render-container" ref={renderTextContainerRef}>
-      <div className="libro-text-render" ref={renderTextRef} />
+      <div className="libro-text-render" ref={renderTextRef} key={refreshKey} />
     </div>
   );
 };

@@ -1,4 +1,5 @@
-import type { IOutput } from '@difizen/libro-common';
+import type { IOutput, JSONObject } from '@difizen/libro-common';
+import { getBundleOptions } from '@difizen/libro-common';
 import { isError, isStream } from '@difizen/libro-common';
 import type { ViewComponent, Contribution } from '@difizen/libro-common/app';
 import {
@@ -13,7 +14,6 @@ import {
 } from '@difizen/libro-common/app';
 import { Emitter, prop, contrib, inject, transient } from '@difizen/libro-common/app';
 import { useEffect, forwardRef } from 'react';
-import { v4 } from 'uuid';
 
 import { ExecutableCellView } from '../cell/index.js';
 import type { CellView } from '../libro-protocol.js';
@@ -28,7 +28,6 @@ import { OutputContribution } from './output-protocol.js';
 const LibroOutputAreaRender = forwardRef<HTMLDivElement>(
   function LibroOutputAreaRender(props, ref) {
     const outputArea = useInject<LibroOutputArea>(ViewInstance);
-
     // const cellModel = outputArea.cell.model;
     // const executing = ExecutableCellModel.is(cellModel) && cellModel.executing;
 
@@ -108,7 +107,7 @@ export class LibroOutputArea extends BaseView implements BaseOutputArea {
     const provider = this.findProvider(options);
 
     return provider.factory({
-      output: { _librOutputId: v4(), ...options },
+      output: options,
       trusted: this.cell.model.trusted,
       cell: this.cell,
     });
@@ -131,23 +130,23 @@ export class LibroOutputArea extends BaseView implements BaseOutputArea {
       // In order to get a list change event, we add the previous
       // text to the current item and replace the previous item.
       // This also replaces the metadata of the last item.
-      this.lastStream += normalize(output.text);
+      const normalizeOutput = normalize(output.text);
+      this.lastStream += normalizeOutput;
       this.lastStream = removeOverwrittenChars(this.lastStream);
       output.text = this.lastStream;
       const index = this.length - 1;
-      this.set(index, output);
+      this.set(index, output, true);
       return this.length;
     }
-
     if (isStream(output)) {
       output.text = removeOverwrittenChars(normalize(output.text));
     }
-
     const outputModel = this.doCreateOutput(output);
 
     // Update the stream information.
     if (isStream(output)) {
-      this.lastStream = normalize(output.text);
+      const normalizedOutput = normalize(output.text);
+      this.lastStream = normalizedOutput;
       this.lastName = output.name;
     } else {
       this.lastStream = '';
@@ -165,15 +164,23 @@ export class LibroOutputArea extends BaseView implements BaseOutputArea {
     this.outputs = outputs;
   }
 
-  set = async (index: number, output: IOutput) => {
-    const outputModel = this.doCreateOutput(output);
-    const current = this.outputs[index];
-    current.dispose();
-    const model = await outputModel;
-    model.onDisposed(() => {
-      this.remove(model);
-    });
-    this.outputs[index] = model;
+  set = async (index: number, output: IOutput, shouldReplace?: boolean) => {
+    if (shouldReplace) {
+      const outputModel = this.outputs[index];
+      const { data } = getBundleOptions(output);
+      outputModel.data = data as JSONObject;
+      outputModel.onUpdateEmitter.fire();
+      // outputModel.data
+    } else {
+      const outputModel = this.doCreateOutput(output);
+      const current = this.outputs[index];
+      current.dispose();
+      const model = await outputModel;
+      model.onDisposed(() => {
+        this.remove(model);
+      });
+      this.outputs[index] = model;
+    }
   };
   clear(wait?: boolean | undefined) {
     this.lastStream = '';

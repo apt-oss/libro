@@ -1,4 +1,5 @@
 import type { JSONObject } from '@difizen/libro-common';
+import { getBundleOptions } from '@difizen/libro-common';
 import { LibroOutputView } from '@difizen/libro-core';
 import type { BaseOutputView, IOutputOptions } from '@difizen/libro-core';
 import { RenderMimeRegistry } from '@difizen/libro-rendermime';
@@ -13,7 +14,6 @@ import {
 import { inject, transient } from '@difizen/libro-common/app';
 import { forwardRef } from 'react';
 
-import { getBundleOptions } from '../output-utils.js';
 import '../index.less';
 
 const DisplayDataOutputModelRender = forwardRef<HTMLDivElement>(

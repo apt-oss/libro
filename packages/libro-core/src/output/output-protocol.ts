@@ -3,7 +3,7 @@ import type {
   ReadonlyPartialJSONObject,
   JSONObject,
 } from '@difizen/libro-common';
-import type { Event } from '@difizen/libro-common/app';
+import type { Emitter, Event } from '@difizen/libro-common/app';
 import type { View } from '@difizen/libro-common/app';
 import { Syringe } from '@difizen/libro-common/app';
 
@@ -100,7 +100,11 @@ export interface BaseOutputView extends View {
   /**
    * The data associated with the model.
    */
-  readonly data: JSONObject;
+  data: JSONObject;
+
+  onUpdateEmitter: Emitter<void>;
+
+  onUpdate: Event<void>;
 
   /**
    * The metadata associated with the model.
