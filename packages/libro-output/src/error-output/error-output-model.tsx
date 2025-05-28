@@ -1,4 +1,4 @@
-import { defaultSanitizer } from '@difizen/libro-common';
+import { defaultSanitizer, getBundleOptions } from '@difizen/libro-common';
 import type { IError, JSONObject } from '@difizen/libro-common';
 import { LibroOutputView } from '@difizen/libro-core';
 import type { BaseOutputView, IOutputOptions } from '@difizen/libro-core';
@@ -16,8 +16,6 @@ import {
 import { Button } from 'antd';
 import { forwardRef, createRef, useEffect } from 'react';
 import '../index.less';
-
-import { getBundleOptions } from '../output-utils.js';
 
 const ErrorOutputModelRender = forwardRef<HTMLDivElement>(
   function ErrorOutputModelRender(_props, ref) {
