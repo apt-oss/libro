@@ -17,6 +17,7 @@ export class LibroJupyterContentContribution implements ContentContribution {
 
     const currentFileContents = await jupyterModel.fileService.read(filePath);
     if (currentFileContents) {
+      model.options['fileSize'] = currentFileContents.size;
       currentFileContents.content.nbformat_minor = 5;
       jupyterModel.currentFileContents = currentFileContents;
       jupyterModel.filePath = currentFileContents.path;
