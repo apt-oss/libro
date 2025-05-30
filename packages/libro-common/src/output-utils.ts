@@ -4,7 +4,12 @@ import type {
   ReadonlyPartialJSONObject,
 } from './json.js';
 import { isPrimitive } from './json.js';
-import type { IExecuteResult, IMimeBundle, IOutput } from './protocol/index.js';
+import type {
+  IExecuteResult,
+  IMimeBundle,
+  IOutput,
+  MultilineString,
+} from './protocol/index.js';
 import {
   isDisplayData,
   isDisplayUpdate,
@@ -25,6 +30,17 @@ export function getData(output: IOutput): PartialJSONObject {
       bundle['application/vnd.jupyter.stderr'] = output.text;
     } else {
       bundle['application/vnd.jupyter.stdout'] = output.text;
+    }
+    if (output['display_text']) {
+      if (output.name === 'stderr') {
+        bundle['application/vnd.libro.large.output.stderr'] = output[
+          'display_text'
+        ] as MultilineString;
+      } else {
+        bundle['application/vnd.libro.large.output.stdout'] = output[
+          'display_text'
+        ] as MultilineString;
+      }
     }
   } else if (isError(output)) {
     bundle['application/vnd.jupyter.error'] = output;
