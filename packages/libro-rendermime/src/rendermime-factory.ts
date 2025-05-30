@@ -79,6 +79,20 @@ export const textRendererFactory: IRendererFactory = {
 };
 
 /**
+ * A mime renderer factory for plain and jupyter console text data.
+ */
+export const largeOutputRendererFactory: IRendererFactory = {
+  renderType: 'largeOutputRenderer',
+  safe: true,
+  mimeTypes: [
+    'application/vnd.libro.large.output.stdout',
+    'application/vnd.libro.large.output.stderr',
+  ],
+  defaultRank: 100,
+  render: TextRender,
+};
+
+/**
  * The standard factories provided by the rendermime package.
  */
 export const standardRendererFactories: IRendererFactory[] = [
@@ -89,4 +103,5 @@ export const standardRendererFactories: IRendererFactory[] = [
   imageRendererFactory,
   // javaScriptRendererFactory,
   textRendererFactory,
+  largeOutputRendererFactory,
 ];

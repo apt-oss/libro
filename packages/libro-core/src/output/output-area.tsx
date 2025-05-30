@@ -1,4 +1,5 @@
 import type { IOutput, JSONObject } from '@difizen/libro-common';
+import { concatMultilineString } from '@difizen/libro-common';
 import { getBundleOptions } from '@difizen/libro-common';
 import { isError, isStream } from '@difizen/libro-common';
 import type { ViewComponent, Contribution } from '@difizen/libro-common/app';
@@ -71,8 +72,6 @@ export class LibroOutputArea extends BaseView implements BaseOutputArea {
   @prop()
   outputs: BaseOutputView[] = [];
 
-  // lastOutputContainerHeight?: number;
-
   constructor(@inject(ViewOption) option: IOutputAreaOption) {
     super();
     this.cell = option.cell;
@@ -85,6 +84,8 @@ export class LibroOutputArea extends BaseView implements BaseOutputArea {
 
   protected clearNext = false;
   protected lastStream = '';
+  protected lastDisplayStream: string[] = [];
+  protected isFirstLastOverHeight = true;
 
   protected lastName?: 'stdout' | 'stderr';
 
@@ -135,11 +136,40 @@ export class LibroOutputArea extends BaseView implements BaseOutputArea {
       this.lastStream = removeOverwrittenChars(this.lastStream);
       output.text = this.lastStream;
       const index = this.length - 1;
+      const outputModel = this.outputs[index];
+      const containerRec = outputModel.container?.current?.getBoundingClientRect();
+
+      if ((containerRec?.height || 0) > 240) {
+        if (this.isFirstLastOverHeight) {
+          this.lastDisplayStream.push(concatMultilineString(this.lastStream));
+          this.lastDisplayStream.push('\n...\n');
+          this.isFirstLastOverHeight = false;
+        } else {
+          this.lastDisplayStream = [
+            ...this.lastDisplayStream,
+            ...splitWithNewline(normalizeOutput), //考虑有可能一次性输出多个带换行符的内容
+          ];
+        }
+        output['is_over_height'] = true;
+        output['display_text'] = this.lastDisplayStream;
+      }
       this.set(index, output, true);
       return this.length;
     }
+    this.isFirstLastOverHeight = true;
     if (isStream(output)) {
-      output.text = removeOverwrittenChars(normalize(output.text));
+      const text = removeOverwrittenChars(normalize(output.text));
+      output.text = text;
+      const split_text = splitWithNewline(text);
+      if (this.isFirstLastOverHeight && split_text.length > 15) {
+        this.lastDisplayStream.push(concatMultilineString(split_text.slice(0, 15)));
+        this.lastDisplayStream.push('\n...\n');
+        this.lastDisplayStream = [...this.lastDisplayStream, ...split_text.slice(15)];
+        this.isFirstLastOverHeight = false;
+        output['is_over_height'] = true;
+        output['display_text'] = this.lastDisplayStream;
+      }
+      this.lastDisplayStream = [];
     }
     const outputModel = this.doCreateOutput(output);
 
@@ -150,6 +180,8 @@ export class LibroOutputArea extends BaseView implements BaseOutputArea {
       this.lastName = output.name;
     } else {
       this.lastStream = '';
+      this.lastDisplayStream = [];
+      this.isFirstLastOverHeight = true;
     }
     const model = await outputModel;
     model.onDisposed(() => {
@@ -168,6 +200,7 @@ export class LibroOutputArea extends BaseView implements BaseOutputArea {
     if (shouldReplace) {
       const outputModel = this.outputs[index];
       const { data } = getBundleOptions(output);
+      outputModel.raw = output;
       outputModel.data = data as JSONObject;
       outputModel.onUpdateEmitter.fire();
       // outputModel.data
@@ -184,6 +217,8 @@ export class LibroOutputArea extends BaseView implements BaseOutputArea {
   };
   clear(wait?: boolean | undefined) {
     this.lastStream = '';
+    this.lastDisplayStream = [];
+    this.isFirstLastOverHeight = true;
     if (wait) {
       this.clearNext = true;
       return;
@@ -269,6 +304,24 @@ function fixCarriageReturn(txt: string): string {
  */
 export function removeOverwrittenChars(text: string): string {
   return fixCarriageReturn(fixBackspace(text));
+}
+
+function splitWithNewline(input: string): string[] {
+  const parts = input.split(/(\n)/);
+  const result: string[] = [];
+
+  for (let i = 0; i < parts.length; i += 2) {
+    const text = parts[i];
+    const newline = parts[i + 1] || '';
+    const combined = text + newline;
+
+    // 仅保留非空项
+    if (text || newline) {
+      result.push(combined);
+    }
+  }
+
+  return result;
 }
 
 /**
