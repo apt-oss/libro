@@ -1,6 +1,6 @@
 import type { JSONObject } from '@difizen/libro-common';
 import { getBundleOptions } from '@difizen/libro-common';
-import { inject, transient } from '@difizen/libro-common/app';
+import { inject, prop, transient } from '@difizen/libro-common/app';
 import {
   getOrigin,
   useInject,
@@ -54,6 +54,9 @@ export class StreamOutputModel extends LibroOutputView implements BaseOutputView
     this.data = data as JSONObject;
     this.metadata = metadata;
   }
+  @prop()
+  isLargeOutputDisplay = true;
+
   getRenderFactory() {
     const renderMimeType = this.renderMimeRegistry.preferredMimeType(this);
     if (renderMimeType) {

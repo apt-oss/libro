@@ -163,7 +163,7 @@ export interface IRenderMimeRegistry {
    *
    * @param bundle - The bundle of mime data.
    *
-   * @param safe - How to consider safe/unsafe factories. If 'ensure',
+   * @param mode - How to consider safe/unsafe factories. If 'ensure',
    *   it will only consider safe factories. If 'any', any factory will be
    *   considered. If 'prefer', unsafe factories will be considered, but
    *   only after the safe options have been exhausted.
@@ -173,12 +173,12 @@ export interface IRenderMimeRegistry {
    */
   preferredMimeType: (
     model: BaseOutputView,
-    safe?: 'ensure' | 'prefer' | 'any',
+    mode?: 'ensure' | 'prefer' | 'any' | 'largeOutput',
   ) => string | undefined;
 
   defaultPreferredMimeType: (
     model: BaseOutputView,
-    safe?: 'ensure' | 'prefer' | 'any',
+    mode?: 'ensure' | 'prefer' | 'any' | 'largeOutput',
   ) => string | undefined;
   // preferredMimeType: (
   //   bundle: ReadonlyPartialJSONObject,

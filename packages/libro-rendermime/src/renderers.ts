@@ -35,6 +35,11 @@ export function renderText(options: IRenderTextOptions): Promise<void> {
   if (mimeType === 'application/vnd.jupyter.stderr') {
     host.setAttribute('data-mime-type', 'application/vnd.jupyter.stderr');
   }
+  const lastPre = host.querySelector('pre');
+  if (lastPre !== null) {
+    lastPre.remove();
+  }
+
   // Set the sanitized content for the host node.
   const pre = document.createElement('pre');
   pre.innerHTML = content;

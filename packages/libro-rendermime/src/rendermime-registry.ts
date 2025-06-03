@@ -5,6 +5,7 @@ import type { Contribution } from '@difizen/libro-common/app';
 import { contrib, inject, singleton, Priority } from '@difizen/libro-common/app';
 import { Emitter } from '@difizen/libro-common/app';
 
+import { largeOutputRendererFactory } from './rendermime-factory.js';
 import {
   RenderMimeContribution,
   IRenderMimeRegistryOptions,
@@ -105,10 +106,16 @@ export class RenderMimeRegistry implements IRenderMimeRegistry {
 
   defaultPreferredMimeType(
     model: BaseOutputView,
-    // safe: 'ensure' | 'prefer' | 'any' = 'ensure',
+    mode?: 'ensure' | 'prefer' | 'any' | 'largeOutput',
   ): string | undefined {
     for (const mt of this.mimeTypes) {
       if (mt in model.data) {
+        if (
+          mode !== 'largeOutput' &&
+          largeOutputRendererFactory.mimeTypes.includes(mt)
+        ) {
+          continue;
+        }
         return mt;
       }
     }
@@ -132,7 +139,7 @@ export class RenderMimeRegistry implements IRenderMimeRegistry {
    */
   preferredMimeType(
     model: BaseOutputView,
-    // safe: 'ensure' | 'prefer' | 'any' = 'ensure',
+    mode?: 'ensure' | 'prefer' | 'any' | 'largeOutput',
   ): string | undefined {
     // // Try to find a safe factory first, if preferred.
     // if (safe === 'ensure' || safe === 'prefer') {
@@ -156,6 +163,12 @@ export class RenderMimeRegistry implements IRenderMimeRegistry {
     for (const renderMime of sortedRenderMimes) {
       for (const mt of renderMime.mimeTypes) {
         if (mt in model.data) {
+          if (
+            mode !== 'largeOutput' &&
+            largeOutputRendererFactory.mimeTypes.includes(mt)
+          ) {
+            continue;
+          }
           return mt;
         }
       }
@@ -163,6 +176,12 @@ export class RenderMimeRegistry implements IRenderMimeRegistry {
 
     for (const mt of this.mimeTypes) {
       if (mt in model.data) {
+        if (
+          mode !== 'largeOutput' &&
+          largeOutputRendererFactory.mimeTypes.includes(mt)
+        ) {
+          continue;
+        }
         return mt;
       }
     }

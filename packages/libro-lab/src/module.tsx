@@ -36,6 +36,7 @@ import {
 import { SaveableTabView } from './layout/saveable-tab-view.js';
 import './index.less';
 import { LibroLabSideTabView } from './layout/side-tab-view.js';
+import { LibroLabView } from './libro-lab-view.js';
 import { LibroLabTocModule } from './toc/module.js';
 import { EntryPointView } from './welcome/entry-point-view.js';
 import { WelcomeView } from './welcome/index.js';
@@ -50,6 +51,7 @@ export const LibroLabModule = ManaModule.create()
     LibroLabApp,
     LibroLabLayoutView,
     GithubLinkView,
+    LibroLabView,
     LabConfigAppContribution,
     LibroLabSideTabView,
     LabColorContribution,

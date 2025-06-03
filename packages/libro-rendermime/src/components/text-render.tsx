@@ -3,7 +3,8 @@ import { concatMultilineString } from '@difizen/libro-common';
 import { useInject } from '@difizen/libro-common/app';
 import type { BaseOutputView } from '@difizen/libro-core';
 import { removeOverwrittenChars } from '@difizen/libro-core';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import './index.less';
 
 import { renderText } from '../renderers.js';
 import type { IRenderMimeRegistry } from '../rendermime-protocol.js';
@@ -21,15 +22,20 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
   const renderTextRef = useRef<HTMLDivElement>(null);
   const renderTextContainerRef = useRef<HTMLDivElement>(null);
   const defaultRenderMime = useInject<IRenderMimeRegistry>(RenderMimeRegistry);
+  const [isLargeOutputDisplay, setIsLargeOutputDisplay] = useState(
+    model.isLargeOutputDisplay,
+  );
 
   const mimeType = defaultRenderMime.defaultPreferredMimeType(
     model,
+    isLargeOutputDisplay ? 'largeOutput' : undefined,
     // model.trusted ? 'any' : 'ensure'
   );
   let dataContent: JSONValue | MultilineString | null = null;
   if (mimeType) {
     dataContent = model.data[mimeType];
   }
+
   useEffect(() => {
     if (dataContent && mimeType) {
       let displaySource: string;
@@ -71,7 +77,47 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
   }, [mimeType, dataContent]);
   return (
     <div className="libro-text-render-container" ref={renderTextContainerRef}>
-      <div className="libro-text-render" ref={renderTextRef} />
+      <div
+        className="libro-text-render"
+        ref={renderTextRef}
+        style={{ overflowY: 'auto', maxHeight: '420px' }}
+      />
+      {model.raw['display_text'] && (
+        <div className="libro-text-display-action-container">
+          <span>该段输出太长，点击可进行</span>
+          <a
+            onClick={() => {
+              model.isLargeOutputDisplay = !model.isLargeOutputDisplay;
+              setIsLargeOutputDisplay(!isLargeOutputDisplay);
+            }}
+            className="libro-text-display-action"
+          >
+            {isLargeOutputDisplay ? ' 滚动查看' : ' 截断查看'}
+          </a>
+          {isLargeOutputDisplay && (
+            <span>
+              ，或在
+              <a
+                className="libro-text-display-action"
+                onClick={() => {
+                  const mimeType = defaultRenderMime.defaultPreferredMimeType(
+                    model,
+                    undefined,
+                  );
+                  let dataContent: JSONValue | MultilineString | null = null;
+                  if (mimeType) {
+                    dataContent = model.data[mimeType];
+                  }
+                  model.cell.parent.outputRenderTabEmitter.fire(dataContent || '');
+                }}
+              >
+                文本编辑器
+              </a>
+              中打开
+            </span>
+          )}
+        </div>
+      )}
     </div>
   );
 };

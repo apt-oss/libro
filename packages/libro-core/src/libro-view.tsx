@@ -1,5 +1,6 @@
 import { ToTopOutlined } from '@ant-design/icons';
 import type { IModelContentChange } from '@difizen/libro-code-editor';
+import type { MultilineString } from '@difizen/libro-common';
 import {
   concatMultilineString,
   copy2clipboard,
@@ -384,6 +385,11 @@ export class LibroView extends BaseView implements NotebookView {
   cellScrollEmitter = new Emitter<void>();
   get onCellScroll() {
     return this.cellScrollEmitter.event;
+  }
+
+  outputRenderTabEmitter = new Emitter<MultilineString | null>();
+  get onOutputRenderTab() {
+    return this.outputRenderTabEmitter.event;
   }
 
   protected initializedDefer = new Deferred<void>();
