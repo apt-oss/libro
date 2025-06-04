@@ -108,7 +108,10 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
                   if (mimeType) {
                     dataContent = model.data[mimeType];
                   }
-                  model.cell.parent.outputRenderTabEmitter.fire(dataContent || '');
+                  model.cell.parent.outputRenderTabEmitter.fire({
+                    mimeType,
+                    data: dataContent || '',
+                  });
                 }}
               >
                 文本编辑器

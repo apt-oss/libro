@@ -387,7 +387,10 @@ export class LibroView extends BaseView implements NotebookView {
     return this.cellScrollEmitter.event;
   }
 
-  outputRenderTabEmitter = new Emitter<MultilineString | null>();
+  outputRenderTabEmitter = new Emitter<{
+    mimeType: string;
+    data: MultilineString | null;
+  }>();
   get onOutputRenderTab() {
     return this.outputRenderTabEmitter.event;
   }
