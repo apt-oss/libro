@@ -80,7 +80,10 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
       <div
         className="libro-text-render"
         ref={renderTextRef}
-        style={{ overflowY: 'auto', maxHeight: '420px' }}
+        style={{
+          overflowY: 'auto',
+          maxHeight: `${isLargeOutputDisplay ? '420px' : 'unset'}`,
+        }}
       />
       {model.raw['display_text'] && (
         <div className="libro-text-display-action-container">
@@ -92,7 +95,7 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
             }}
             className="libro-text-display-action"
           >
-            {isLargeOutputDisplay ? ' 滚动查看' : ' 截断查看'}
+            {isLargeOutputDisplay ? ' 展开查看' : ' 截断查看'}
           </a>
           {isLargeOutputDisplay && (
             <span>
