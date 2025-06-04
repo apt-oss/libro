@@ -169,7 +169,6 @@ export class LibroOutputArea extends BaseView implements BaseOutputArea {
         output['is_over_height'] = true;
         output['display_text'] = this.lastDisplayStream;
       }
-      this.lastDisplayStream = [];
     }
     const outputModel = this.doCreateOutput(output);
 
