@@ -72,7 +72,6 @@ export class StreamOutputModel extends LibroOutputView implements BaseOutputView
       output_type: this.raw.output_type,
       name: this.raw.name,
       text: this.raw.text,
-      display_text: this.raw['display_text'],
     };
   }
 }
