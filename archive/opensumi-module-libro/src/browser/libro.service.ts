@@ -8,7 +8,7 @@ import type { Container } from '@difizen/mana-app';
 import { getOrigin, URI as ManaURI } from '@difizen/mana-app';
 import { Autowired, Injectable } from '@opensumi/di';
 import type { URI } from '@opensumi/ide-core-browser';
-import { path, WithEventBus } from '@opensumi/ide-core-browser';
+import { Emitter, Event, path, WithEventBus } from '@opensumi/ide-core-browser';
 import {
   ResourceDecorationNeedChangeEvent,
   WorkbenchEditorService,
@@ -25,6 +25,9 @@ export const ILibroOpensumiService = Symbol('ILibroOpensumiService');
 export interface ILibroOpensumiService {
   // manaContainer: Container;
   libroTrackerMap: Map<string, LibroTracker>;
+  libroOutputMap: Map<string, string>
+  onOpenLibroOutputTab: Event<void>;
+  _onOpenLibroOutputTab: Emitter<void>;
   // editorService: WorkbenchEditorService;
   getOrCreatLibroView: (uri: URI) => Promise<LibroView>;
   updateDirtyStatus: (uri: URI, dirty: boolean) => void;
@@ -103,4 +106,8 @@ export class LibroOpensumiService
   }
 
   libroTrackerMap: Map<string, LibroTracker> = new Map();
+  libroOutputMap: Map<string, string> = new Map();
+
+  _onOpenLibroOutputTab = new Emitter<void>();
+  onOpenLibroOutputTab: Event<void> = this._onOpenLibroOutputTab.event;
 }

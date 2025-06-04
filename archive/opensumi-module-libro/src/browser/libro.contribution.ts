@@ -27,6 +27,7 @@ import {
 import { IconService } from '@opensumi/ide-theme/lib/browser';
 import { IconType, IThemeService } from '@opensumi/ide-theme/lib/common';
 import { IWorkspaceService } from '@opensumi/ide-workspace/lib/common';
+import { LibroOutputPreview } from './libro-output-preview';
 
 import { ManaContainer } from '../common';
 
@@ -34,6 +35,8 @@ import { LibroOpener } from './libro-opener';
 import {
   LIBRO_COMPONENTS_ID,
   LIBRO_COMPONENTS_SCHEME_ID,
+  LIBRO_OUTPUT_PREVIEW_COMPONENTS_ID,
+  LIBRO_OUTPUT_PREVIEW_SCHEME_ID
 } from './libro.protocol';
 import { OpensumiLibroView } from './libro.view';
 import { NotebookDocumentContentProvider } from './notebook-document-content-provider';
@@ -111,6 +114,21 @@ export class LibroContribution
         }
       },
     );
+    registry.registerEditorComponent({
+      uid: LIBRO_OUTPUT_PREVIEW_COMPONENTS_ID,
+      scheme: LIBRO_OUTPUT_PREVIEW_SCHEME_ID,
+      component: LibroOutputPreview,
+    });
+
+    registry.registerEditorComponentResolver(
+      LIBRO_OUTPUT_PREVIEW_SCHEME_ID,
+      (resource, results) => {
+        results.push({
+          type: 'component',
+          componentId: LIBRO_OUTPUT_PREVIEW_COMPONENTS_ID,
+        });
+      },
+    );
   }
 
   registerResource(service: ResourceService) {
@@ -129,6 +147,21 @@ export class LibroContribution
         };
       },
     });
+    service.registerResourceProvider({
+      scheme: LIBRO_OUTPUT_PREVIEW_SCHEME_ID,
+      provideResource: async (uri: URI): Promise<IResource<any>> => {
+        const iconClass = this.iconService.fromIcon(
+          '',
+          'https://mdn.alipayobjects.com/huamei_xt20ge/afts/img/A*LDFvSptm_zgAAAAAAAAAAAAADiuUAQ/original',
+          IconType.Background,
+        );
+        return {
+          uri,
+          name: uri.path.name + '_preview',
+          icon: iconClass + ' libro-output-preview-icon',
+        };
+      },
+    })
   }
 
   registerEditorDocumentModelContentProvider(
