@@ -46,6 +46,8 @@ const StreamOutputModelRender = forwardRef<HTMLDivElement>(
 export class StreamOutputModel extends LibroOutputView implements BaseOutputView {
   @inject(RenderMimeRegistry) renderMimeRegistry: IRenderMimeRegistry;
   renderFactory?: IRendererFactory;
+  @prop()
+  isLargeOutputDisplay: boolean;
 
   constructor(@inject(ViewOption) options: IOutputOptions) {
     super(options);
@@ -53,9 +55,14 @@ export class StreamOutputModel extends LibroOutputView implements BaseOutputView
     this.type = options.output.output_type;
     this.data = data as JSONObject;
     this.metadata = metadata;
+    const localIsLargeOutputDisplay = localStorage.getItem(
+      'is-libro-large-output-display',
+    );
+    this.isLargeOutputDisplay =
+      localIsLargeOutputDisplay !== null
+        ? localIsLargeOutputDisplay === 'true'
+        : (options.output['is_large_display'] as boolean) || true;
   }
-  @prop()
-  isLargeOutputDisplay = true;
 
   getRenderFactory() {
     const renderMimeType = this.renderMimeRegistry.preferredMimeType(this);
@@ -72,6 +79,7 @@ export class StreamOutputModel extends LibroOutputView implements BaseOutputView
       output_type: this.raw.output_type,
       name: this.raw.name,
       text: this.raw.text,
+      is_large_display: this.isLargeOutputDisplay,
     };
   }
 }
