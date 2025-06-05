@@ -141,7 +141,7 @@ export class LibroOutputArea extends BaseView implements BaseOutputArea {
 
       if ((containerRec?.height || 0) > 240) {
         if (this.isFirstLastOverHeight) {
-          this.lastDisplayStream.push(concatMultilineString(this.lastStream));
+          this.lastDisplayStream = [concatMultilineString(this.lastStream)];
           this.lastDisplayStream.push('\n...\n');
           this.isFirstLastOverHeight = false;
         } else {
@@ -162,7 +162,7 @@ export class LibroOutputArea extends BaseView implements BaseOutputArea {
       output.text = text;
       const split_text = splitWithNewline(text);
       if (this.isFirstLastOverHeight && split_text.length > 15) {
-        this.lastDisplayStream.push(concatMultilineString(split_text.slice(0, 15)));
+        this.lastDisplayStream = [concatMultilineString(split_text.slice(0, 15))];
         this.lastDisplayStream.push('\n...\n');
         this.lastDisplayStream = [...this.lastDisplayStream, ...split_text.slice(15)];
         this.isFirstLastOverHeight = false;
