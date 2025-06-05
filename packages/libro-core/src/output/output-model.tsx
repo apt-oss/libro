@@ -51,6 +51,9 @@ export class LibroOutputView extends BaseView implements BaseOutputView {
     this.type = 'libro-default-output';
     this.data = {};
     this.metadata = {};
+    this.onUpdate(() => {
+      this.cell.parent.model.onChange?.();
+    });
   }
 
   render: FC<{ output: BaseOutputView }> = LibroOutputModelRender;
