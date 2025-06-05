@@ -1,7 +1,8 @@
-import { defaultSanitizer } from '@difizen/libro-common';
+import { concatMultilineString, defaultSanitizer } from '@difizen/libro-common';
 import { renderText } from '@difizen/libro-rendermime';
 import { URI, useInjectable } from '@opensumi/ide-core-browser';
 import React, { useEffect, useRef, useState } from 'react';
+import styles from './libro.module.less';
 import { ILibroOpensumiService } from './libro.service';
 
 export const LibroOutputPreview: React.FC = (...params) => {
@@ -11,12 +12,26 @@ export const LibroOutputPreview: React.FC = (...params) => {
     ILibroOpensumiService,
   );
   const [refresh, setRefresh] = useState(new Date().getTime().toString());
-  const initialData =
-    libroOpensumiService.libroOutputMap.get(uri.path.toString()) || '';
+  const initialData = concatMultilineString(
+    libroOpensumiService.libroOutputMap.get(uri.path.toString())?.data || '',
+  );
   const [data, setData] = useState<string>(initialData);
+  const [mimeType, setMimeType] = useState<string>(
+    libroOpensumiService.libroOutputMap.get(uri.path.toString())?.mimeType ||
+      'application/vnd.jupyter.stdout',
+  );
   libroOpensumiService.onOpenLibroOutputTab(() => {
     setRefresh(new Date().getTime().toString());
-    setData(libroOpensumiService.libroOutputMap.get(uri.path.toString()) || '');
+    setData(
+      concatMultilineString(
+        libroOpensumiService.libroOutputMap.get(uri.path.toString())?.data ||
+          '',
+      ),
+    );
+    setMimeType(
+      libroOpensumiService.libroOutputMap.get(uri.path.toString())?.mimeType ||
+        'application/vnd.jupyter.stdout',
+    );
   });
 
   useEffect(() => {
@@ -24,12 +39,12 @@ export const LibroOutputPreview: React.FC = (...params) => {
       host: previewRef.current as HTMLElement,
       source: data,
       sanitizer: defaultSanitizer,
-      mimeType: 'application/vnd.jupyter.stdout',
+      mimeType: mimeType,
     });
   }, [data]);
 
   return (
-    <div>
+    <div className={styles.libroOutputPreview}>
       <div ref={previewRef} key={refresh}></div>
     </div>
   );

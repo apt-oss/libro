@@ -4,6 +4,7 @@ import {
   LanguageSpecRegistry,
   LibroService,
   LibroView,
+  MultilineString,
 } from '@difizen/libro-jupyter';
 import { Container, getOrigin, URI as ManaURI } from '@difizen/mana-app';
 import { Autowired, Injectable } from '@opensumi/di';
@@ -29,7 +30,13 @@ export const ILibroOpensumiService = Symbol('ILibroOpensumiService');
 export interface ILibroOpensumiService {
   // manaContainer: Container;
   libroTrackerMap: Map<string, LibroTracker>;
-  libroOutputMap: Map<string, string>;
+  libroOutputMap: Map<
+    string,
+    {
+      mimeType: string;
+      data: MultilineString | null;
+    } | null
+  >;
   onOpenLibroOutputTab: Event<void>;
   _onOpenLibroOutputTab: Emitter<void>;
   // editorService: WorkbenchEditorService;
@@ -114,7 +121,13 @@ export class LibroOpensumiService
   }
 
   libroTrackerMap: Map<string, LibroTracker> = new Map();
-  libroOutputMap: Map<string, string> = new Map();
+  libroOutputMap: Map<
+    string,
+    {
+      mimeType: string;
+      data: MultilineString | null;
+    }
+  > = new Map();
 
   _onOpenLibroOutputTab = new Emitter<void>();
   onOpenLibroOutputTab: Event<void> = this._onOpenLibroOutputTab.event;

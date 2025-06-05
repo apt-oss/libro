@@ -1,10 +1,6 @@
 import * as React from 'react';
 
-import {
-  concatMultilineString,
-  DocumentCommands,
-  LibroView,
-} from '@difizen/libro-jupyter';
+import { DocumentCommands, LibroView } from '@difizen/libro-jupyter';
 import { CommandRegistry, Container, ViewRender } from '@difizen/mana-app';
 import { Injector, INJECTOR_TOKEN } from '@opensumi/di';
 import { URI, useInjectable } from '@opensumi/ide-core-browser';
@@ -88,7 +84,7 @@ export const OpensumiLibroView: ReactEditorComponent = (...params) => {
           if (e !== null) {
             libroOpensumiService.libroOutputMap.set(
               (params[0].resource.uri as URI).path.toString(),
-              concatMultilineString(e),
+              e,
             );
             libroOpensumiService._onOpenLibroOutputTab.fire();
             editorService.open(uri, {
