@@ -1,12 +1,20 @@
 import * as React from 'react';
 
-import { DocumentCommands, LibroView } from '@difizen/libro-jupyter';
+import {
+  concatMultilineString,
+  DocumentCommands,
+  LibroView,
+} from '@difizen/libro-jupyter';
 import { CommandRegistry, Container, ViewRender } from '@difizen/mana-app';
 import { Injector, INJECTOR_TOKEN } from '@opensumi/di';
 import { URI, useInjectable } from '@opensumi/ide-core-browser';
-import { ReactEditorComponent } from '@opensumi/ide-editor/lib/browser/types';
+import {
+  ReactEditorComponent,
+  WorkbenchEditorService,
+} from '@opensumi/ide-editor/lib/browser/types';
 import { ManaContainer } from '../common';
 import styles from './libro.module.less';
+import { LIBRO_OUTPUT_PREVIEW_SCHEME_ID } from './libro.protocol';
 import { ILibroOpensumiService } from './libro.service';
 import { LibroTracker } from './libro.view.tracker';
 
@@ -17,6 +25,9 @@ export const OpensumiLibroView: ReactEditorComponent = (...params) => {
   const manaContainer = useInjectable<Container>(ManaContainer);
   const commandRegistry = manaContainer.get(CommandRegistry);
   const injector: Injector = useInjectable(INJECTOR_TOKEN);
+  const editorService: WorkbenchEditorService = useInjectable(
+    WorkbenchEditorService,
+  );
 
   const [libroTracker, setLibroTracker] = React.useState<LibroTracker>();
 
@@ -68,6 +79,22 @@ export const OpensumiLibroView: ReactEditorComponent = (...params) => {
         });
         libro.onSave(() => {
           libroOpensumiService.updateDirtyStatus(params[0].resource.uri, false);
+        });
+
+        libro.onOutputRenderTab((e) => {
+          const uri = new URI(
+            `${LIBRO_OUTPUT_PREVIEW_SCHEME_ID}://${params[0].resource.uri.path.toString()}`,
+          );
+          if (e !== null) {
+            libroOpensumiService.libroOutputMap.set(
+              (params[0].resource.uri as URI).path.toString(),
+              concatMultilineString(e),
+            );
+            libroOpensumiService._onOpenLibroOutputTab.fire();
+            editorService.open(uri, {
+              preview: false,
+            });
+          }
         });
       });
     return () => {
