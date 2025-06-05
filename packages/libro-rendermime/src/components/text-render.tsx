@@ -110,11 +110,13 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
                   let dataContent: JSONValue | MultilineString | null = null;
                   if (mimeType) {
                     dataContent = model.data[mimeType];
+                    if (dataContent !== null) {
+                      model.cell.parent.outputRenderTabEmitter.fire({
+                        mimeType,
+                        data: (dataContent as MultilineString | null) || '',
+                      });
+                    }
                   }
-                  model.cell.parent.outputRenderTabEmitter.fire({
-                    mimeType,
-                    data: dataContent || '',
-                  });
                 }}
               >
                 文本编辑器
