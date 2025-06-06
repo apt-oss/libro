@@ -27,7 +27,6 @@ export function renderText(options: IRenderTextOptions): Promise<void> {
   // Unpack the options.
   const { host, sanitizer, source, mimeType } = options;
   const data = concatMultilineString(JSON.parse(JSON.stringify(source)));
-  // Create the HTML content.
   const content = sanitizer.sanitize(ansiSpan(data), {
     allowedTags: ['span'],
   });
@@ -35,62 +34,54 @@ export function renderText(options: IRenderTextOptions): Promise<void> {
   if (mimeType === 'application/vnd.jupyter.stderr') {
     host.setAttribute('data-mime-type', 'application/vnd.jupyter.stderr');
   }
-  const lastPre = host.querySelector('pre');
-  if (lastPre !== null) {
-    lastPre.remove();
-  }
 
-  // Set the sanitized content for the host node.
-  const pre = document.createElement('pre');
+  let pre = host.querySelector('pre');
+  if (!pre) {
+    pre = document.createElement('pre');
+    host.appendChild(pre); // 提前附加到 DOM
+  }
   pre.innerHTML = content;
 
   const preTextContent = pre.textContent;
 
   if (preTextContent) {
-    // Note: only text nodes and span elements should be present after sanitization in the `<pre>` element.
     const linkedNodes = autolink(preTextContent);
     let inAnchorElement = false;
 
     const combinedNodes: (HTMLAnchorElement | Text | HTMLSpanElement)[] = [];
     const preNodes = Array.from(pre.childNodes) as (Text | HTMLSpanElement)[];
 
-    while (preNodes.length && linkedNodes.length) {
-      // Use non-null assertions to workaround TypeScript context awareness limitation
-      // (if any of the arrays were empty, we would not enter the body of the loop).
-      let preNode = preNodes.shift()!;
-      let linkNode = linkedNodes.shift()!;
+    let i = 0,
+      j = 0;
+    const preNodesLength = preNodes.length;
+    const linkedNodesLength = linkedNodes.length;
 
-      // This should never happen because we modify the arrays in flight so they should end simultaneously,
-      // but this makes the coding assistance happy and might make it easier to conceptualize.
-      if (typeof preNode === 'undefined') {
-        combinedNodes.push(linkNode);
-        break;
-      }
-      if (typeof linkNode === 'undefined') {
-        combinedNodes.push(preNode);
-        break;
-      }
+    while (i < preNodesLength && j < linkedNodesLength) {
+      const preNode = preNodes[i];
+      const linkNode = linkedNodes[j];
 
-      const preLen = preNode.textContent?.length;
-      const linkLen = linkNode.textContent?.length;
-      if (preLen && linkLen) {
-        if (preLen > linkLen) {
-          // Split pre node and only keep the shorter part
-          const { pre: keep, post: postpone } = splitShallowNode(preNode, linkLen);
-          preNodes.unshift(postpone);
-          preNode = keep;
-        } else if (linkLen > preLen) {
-          const { pre: keep, post: postpone } = splitShallowNode(linkNode, preLen);
-          linkedNodes.unshift(postpone);
-          linkNode = keep;
-        }
+      const preText = preNode.textContent || '';
+      const linkText = linkNode.textContent || '';
+      const preLen = preText.length;
+      const linkLen = linkText.length;
+
+      let shouldContinue = true;
+
+      if (preLen > linkLen) {
+        const { pre: keep, post: postpone } = splitShallowNode(preNode, linkLen);
+        // 保存剩余部分到 preNodes 中，但不修改原数组
+        preNodes[i] = postpone; // 替换当前节点为剩余部分
+        preNode.textContent = keep.textContent; // 修改当前节点为保留部分
+        shouldContinue = false; // i 不增加，等待下一轮处理剩余部分
+      } else if (linkLen > preLen) {
+        const { pre: keep, post: postpone } = splitShallowNode(linkNode, preLen);
+        linkedNodes[j] = postpone; // 替换当前节点为剩余部分
+        linkNode.textContent = keep.textContent; // 修改当前节点为保留部分
+        shouldContinue = false; // j 不增加，等待下一轮处理剩余部分
       }
 
       const lastCombined = combinedNodes[combinedNodes.length - 1];
 
-      // If we are already in an anchor element and the anchor element did not change,
-      // we should insert the node from <pre> which is either Text node or coloured span Element
-      // into the anchor content as a child
       if (
         inAnchorElement &&
         (linkNode as HTMLAnchorElement).href ===
@@ -98,34 +89,41 @@ export function renderText(options: IRenderTextOptions): Promise<void> {
       ) {
         lastCombined.appendChild(preNode);
       } else {
-        // the `linkNode` is either Text or AnchorElement;
         const isAnchor = linkNode.nodeType !== Node.TEXT_NODE;
-        // if we are NOT about to start an anchor element, just add the pre Node
+
         if (!isAnchor) {
           combinedNodes.push(preNode);
           inAnchorElement = false;
         } else {
-          // otherwise start a new anchor; the contents of the `linkNode` and `preNode` should be the same,
-          // so we just put the neatly formatted `preNode` inside the anchor node (`linkNode`)
-          // and append that to combined nodes.
           linkNode.textContent = '';
           linkNode.appendChild(preNode);
           combinedNodes.push(linkNode);
           inAnchorElement = true;
         }
       }
+
+      if (shouldContinue) {
+        i++;
+        j++;
+      } else if (preLen <= linkLen) {
+        j++;
+      } else {
+        i++;
+      }
     }
-    // TODO: replace with `.replaceChildren()` once the target ES version allows it
-    pre.innerHTML = '';
+
+    const fragment = document.createDocumentFragment();
     for (const child of combinedNodes) {
-      pre.appendChild(child);
+      fragment.appendChild(child);
     }
+
+    pre.innerHTML = '';
+    pre.appendChild(fragment);
   }
 
   host.appendChild(pre);
   host.classList.add('libro-text-render');
 
-  // Return the rendered promise.
   return Promise.resolve(undefined);
 }
 
