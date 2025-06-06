@@ -79,11 +79,11 @@ export const OpensumiLibroView: ReactEditorComponent = (...params) => {
 
         libro.onOutputRenderTab((e) => {
           const uri = new URI(
-            `${LIBRO_OUTPUT_PREVIEW_SCHEME_ID}://${params[0].resource.uri.path.toString()}`,
+            `${LIBRO_OUTPUT_PREVIEW_SCHEME_ID}://${params[0].resource.uri.path.toString()}.libro`,
           );
           if (e !== null) {
             libroOpensumiService.libroOutputMap.set(
-              (params[0].resource.uri as URI).path.toString(),
+              (params[0].resource.uri as URI).path.toString() + '.libro',
               e,
             );
             libroOpensumiService._onOpenLibroOutputTab.fire();
