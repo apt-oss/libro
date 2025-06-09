@@ -1,5 +1,18 @@
 # @difizen/libro-widget
 
+## 0.3.20
+
+### Patch Changes
+
+- fix: text render
+
+- Updated dependencies []:
+  - @difizen/libro-rendermime@0.3.20
+  - @difizen/libro-jupyter@0.3.20
+  - @difizen/libro-common@0.3.20
+  - @difizen/libro-kernel@0.3.20
+  - @difizen/libro-core@0.3.20
+
 ## 0.3.19
 
 ### Patch Changes

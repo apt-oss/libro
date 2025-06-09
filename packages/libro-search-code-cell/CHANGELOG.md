@@ -1,5 +1,18 @@
 # @difizen/libro-search-codemirror-cell
 
+## 0.3.20
+
+### Patch Changes
+
+- fix: text render
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.20
+  - @difizen/libro-code-cell@0.3.20
+  - @difizen/libro-common@0.3.20
+  - @difizen/libro-search@0.3.20
+  - @difizen/libro-core@0.3.20
+
 ## 0.3.19
 
 ### Patch Changes

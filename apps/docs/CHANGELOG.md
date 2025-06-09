@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.20
+
+### Patch Changes
+
+- fix: text render
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.20
+  - @difizen/libro-jupyter@0.3.20
+  - @difizen/libro-core@0.3.20
+  - @difizen/libro-lab@0.3.20
+
 ## 0.3.19
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.20
+
+### Patch Changes
+
+- fix: text render
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.20
+
 ## 0.3.19
 
 ### Patch Changes
