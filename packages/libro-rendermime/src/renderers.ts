@@ -24,7 +24,6 @@ import {
  * @returns A promise which resolves when rendering is complete.
  */
 export function renderText(options: IRenderTextOptions): Promise<void> {
-  // Unpack the options.
   const { host, sanitizer, source, mimeType } = options;
   const data = concatMultilineString(JSON.parse(JSON.stringify(source)));
   const content = sanitizer.sanitize(ansiSpan(data), {
@@ -38,12 +37,12 @@ export function renderText(options: IRenderTextOptions): Promise<void> {
   let pre = host.querySelector('pre');
   if (!pre) {
     pre = document.createElement('pre');
-    host.appendChild(pre); // 提前附加到 DOM
+    host.appendChild(pre);
   }
+
   pre.innerHTML = content;
 
   const preTextContent = pre.textContent;
-
   if (preTextContent) {
     const linkedNodes = autolink(preTextContent);
     let inAnchorElement = false;
@@ -51,33 +50,23 @@ export function renderText(options: IRenderTextOptions): Promise<void> {
     const combinedNodes: (HTMLAnchorElement | Text | HTMLSpanElement)[] = [];
     const preNodes = Array.from(pre.childNodes) as (Text | HTMLSpanElement)[];
 
-    let i = 0,
-      j = 0;
-    const preNodesLength = preNodes.length;
-    const linkedNodesLength = linkedNodes.length;
+    // 使用 shift/unshift 替代索引遍历，确保所有节点被处理
+    while (preNodes.length && linkedNodes.length) {
+      const preNode = preNodes.shift()!;
+      const linkNode = linkedNodes.shift()!;
 
-    while (i < preNodesLength && j < linkedNodesLength) {
-      const preNode = preNodes[i];
-      const linkNode = linkedNodes[j];
+      const preLen = preNode.textContent?.length || 0;
+      const linkLen = linkNode.textContent?.length || 0;
 
-      const preText = preNode.textContent || '';
-      const linkText = linkNode.textContent || '';
-      const preLen = preText.length;
-      const linkLen = linkText.length;
-
-      let shouldContinue = true;
-
+      // 如果长度不一致，进行分割处理
       if (preLen > linkLen) {
         const { pre: keep, post: postpone } = splitShallowNode(preNode, linkLen);
-        // 保存剩余部分到 preNodes 中，但不修改原数组
-        preNodes[i] = postpone; // 替换当前节点为剩余部分
-        preNode.textContent = keep.textContent; // 修改当前节点为保留部分
-        shouldContinue = false; // i 不增加，等待下一轮处理剩余部分
+        preNodes.unshift(postpone); // 剩余部分放回数组头部
+        preNode.textContent = keep.textContent;
       } else if (linkLen > preLen) {
         const { pre: keep, post: postpone } = splitShallowNode(linkNode, preLen);
-        linkedNodes[j] = postpone; // 替换当前节点为剩余部分
-        linkNode.textContent = keep.textContent; // 修改当前节点为保留部分
-        shouldContinue = false; // j 不增加，等待下一轮处理剩余部分
+        linkedNodes.unshift(postpone);
+        linkNode.textContent = keep.textContent;
       }
 
       const lastCombined = combinedNodes[combinedNodes.length - 1];
@@ -101,24 +90,16 @@ export function renderText(options: IRenderTextOptions): Promise<void> {
           inAnchorElement = true;
         }
       }
-
-      if (shouldContinue) {
-        i++;
-        j++;
-      } else if (preLen <= linkLen) {
-        j++;
-      } else {
-        i++;
-      }
     }
 
+    // 使用 DocumentFragment 一次性插入 DOM，提升性能
     const fragment = document.createDocumentFragment();
     for (const child of combinedNodes) {
       fragment.appendChild(child);
     }
 
-    pre.innerHTML = '';
-    pre.appendChild(fragment);
+    pre.innerHTML = ''; // 清空内容
+    pre.appendChild(fragment); // 一次性插入
   }
 
   host.appendChild(pre);
