@@ -108,6 +108,9 @@ export class LibroModel implements NotebookModel, DndListModel {
   @prop()
   cellsEditable = true;
 
+  @prop()
+  noEditorMode = false;
+
   get executable() {
     return this.outputEditable && this.runnable;
   }

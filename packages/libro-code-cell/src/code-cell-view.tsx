@@ -33,7 +33,12 @@ import {
   Deferred,
 } from '@difizen/mana-app';
 import { l10n } from '@difizen/mana-l10n'; /* eslint-disable react-hooks/exhaustive-deps */
+import hljs from 'highlight.js';
 import { useEffect, useRef, memo, forwardRef } from 'react';
+
+// 引入高亮样式
+import 'highlight.js/styles/vs.css';
+import './index.less';
 
 import type { LibroCodeCellModel } from './code-cell-model.js';
 
@@ -78,6 +83,26 @@ const CellEditor: React.FC = () => {
   }
 };
 
+const CellWithoutEditor: React.FC = () => {
+  const instance = useInject<LibroCodeCellView>(ViewInstance);
+  const codeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (codeRef.current) {
+      // 先高亮代码
+      const hljsValue = hljs.highlight(instance.model.value, {
+        language: 'python',
+      });
+      codeRef.current.innerHTML = hljsValue.value;
+    }
+  }, [instance.model.value]);
+  return (
+    <pre className="cell-no-editor-input">
+      <code ref={codeRef}></code>
+    </pre>
+  );
+};
+
 export const CellEditorMemo = memo(CellEditor);
 
 const CodeEditorViewComponent = forwardRef<HTMLDivElement>(
@@ -86,12 +111,16 @@ const CodeEditorViewComponent = forwardRef<HTMLDivElement>(
 
     return (
       <div
-        className="libro-codemirror-cell-editor"
+        className={instance.className}
         ref={ref}
         tabIndex={10}
         onBlur={instance.blur}
       >
-        <CellEditorMemo />
+        {instance.parent.model.noEditorMode ? (
+          <CellWithoutEditor />
+        ) : (
+          <CellEditorMemo />
+        )}
       </div>
     );
   },
