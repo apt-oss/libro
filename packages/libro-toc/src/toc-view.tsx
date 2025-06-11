@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 import { ArrowDown, ArrowRight } from '@difizen/libro-core';
 import type { DisplayView, LibroView } from '@difizen/libro-core';
 import { ConfigurationService } from '@difizen/libro-common/app';
@@ -8,7 +9,7 @@ import { inject, transient } from '@difizen/libro-common/app';
 import { l10n } from '@difizen/libro-common/l10n';
 import React, { useRef } from 'react';
 
-import { TOCVisible } from './toc-configuration.js';
+import { EnableExpandCollapse, TOCVisible } from './toc-configuration.js';
 import { LibroTOCManager } from './toc-manager.js';
 import type { IHeading } from './toc-protocol.js';
 import type { LibroTOCProvider } from './toc-provider.js';
@@ -81,32 +82,47 @@ const TocItem: React.FC<TocItemProps> = ({
 export const TocRender = () => {
   const instance = useInject<TOCView>(ViewInstance);
   const containRef = useRef<HTMLDivElement>(null);
-
   const handleClick = (heading: IHeading) => {
     instance.activeHeading = heading;
     instance.tocProvider?.selectCellByHeading(heading);
   };
 
   return (
-    <div className="markdown-toc-container" ref={containRef}>
-      <div className="markdown-toc-container-title">{instance.tocTitle}</div>
-      {instance.getDisplayHeadings().map((heading) => {
-        const collapsed = instance.isHeadingCollapsed(heading);
-        return (
-          <TocItem
-            active={instance.activeHeading?.id === heading.id}
-            heading={heading}
-            key={heading.id}
-            onClick={handleClick}
-            headingCollapsed={collapsed}
-            onToggle={() => {
-              if (heading.id) {
-                instance.headingCollapseState.set(heading.id, !collapsed);
-              }
+    <div
+      className={`markdown-toc-container ${instance.isExpand ? 'expand' : 'collapse'}`}
+      ref={containRef}
+    >
+      <div className="markdown-toc-container-header">
+        <span>{instance.tocTitle}</span>
+        {instance.supportExpand && (
+          <div
+            className="markdown-toc-expand-action"
+            onClick={() => {
+              instance.isExpand = !instance.isExpand;
             }}
-          />
-        );
-      })}
+          >
+            {instance.isExpand ? <EyeInvisibleOutlined /> : <EyeOutlined />}
+          </div>
+        )}
+      </div>
+      {instance.isExpand &&
+        instance.getDisplayHeadings().map((heading) => {
+          const collapsed = instance.isHeadingCollapsed(heading);
+          return (
+            <TocItem
+              active={instance.activeHeading?.id === heading.id}
+              heading={heading}
+              key={heading.id}
+              onClick={handleClick}
+              headingCollapsed={collapsed}
+              onToggle={() => {
+                if (heading.id) {
+                  instance.headingCollapseState.set(heading.id, !collapsed);
+                }
+              }}
+            />
+          );
+        })}
     </div>
   );
 };
@@ -121,6 +137,12 @@ export class TOCView extends BaseView implements DisplayView {
 
   @prop()
   isDisplay: boolean;
+
+  @prop()
+  isExpand = true;
+
+  @prop()
+  supportExpand: boolean;
 
   @prop()
   tocProvider?: LibroTOCProvider;
@@ -147,6 +169,15 @@ export class TOCView extends BaseView implements DisplayView {
       .get(TOCVisible)
       .then((value) => {
         this.isDisplay = value;
+        return;
+      })
+      .catch(() => {
+        //
+      });
+    this.configurationService
+      .get(EnableExpandCollapse)
+      .then((value) => {
+        this.supportExpand = value;
         return;
       })
       .catch(() => {

@@ -14,6 +14,17 @@ export const TOCVisible: ConfigurationNode<boolean> = {
   },
 };
 
+export const EnableExpandCollapse: ConfigurationNode<boolean> = {
+  id: 'libro.toc.expand.collapse',
+  description: l10n.t('是否支持展开与收起侧边的TOC'),
+  title: 'TOC',
+  type: 'checkbox',
+  defaultValue: false,
+  schema: {
+    type: 'boolean',
+  },
+};
+
 @singleton({ contrib: ConfigurationContribution })
 export class TOCSettingContribution implements ConfigurationContribution {
   registerConfigurations() {
