@@ -88,6 +88,7 @@ export interface BaseNotebookModel {
   active?: CellView | undefined;
   activeIndex: number;
   dndAreaNullEnable: boolean;
+  noEditorMode: boolean;
 
   /**
    * Controlling whether the cell input is editable

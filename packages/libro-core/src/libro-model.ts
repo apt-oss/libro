@@ -4,16 +4,16 @@ import type {
   INotebookContent,
   INotebookMetadata,
 } from '@difizen/libro-common';
+import { getOrigin, ConfigurationService } from '@difizen/libro-common/app';
+import { Emitter } from '@difizen/libro-common/app';
+import { prop } from '@difizen/libro-common/app';
+import { inject, transient } from '@difizen/libro-common/app';
+import { createMutex, YNotebook } from '@difizen/libro-shared-model';
 import type {
   CellTypeAdaptor,
   ISharedNotebook,
   NotebookChange,
 } from '@difizen/libro-shared-model';
-import { createMutex, YNotebook } from '@difizen/libro-shared-model';
-import { getOrigin, ConfigurationService } from '@difizen/libro-common/app';
-import { Emitter } from '@difizen/libro-common/app';
-import { prop } from '@difizen/libro-common/app';
-import { inject, transient } from '@difizen/libro-common/app';
 import { v4 } from 'uuid';
 
 import { LibroContentService } from './content/index.js';
@@ -107,6 +107,9 @@ export class LibroModel implements NotebookModel, DndListModel {
 
   @prop()
   cellsEditable = true;
+
+  @prop()
+  noEditorMode = false;
 
   get executable() {
     return this.outputEditable && this.runnable;

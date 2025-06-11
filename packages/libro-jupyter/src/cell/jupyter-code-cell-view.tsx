@@ -1,4 +1,4 @@
-import { CellEditorMemo, LibroCodeCellView } from '@difizen/libro-code-cell';
+import { LibroCodeCellView } from '@difizen/libro-code-cell';
 import type {
   CodeEditorViewOptions,
   CompletionProvider,
@@ -6,35 +6,18 @@ import type {
   TooltipProvider,
   TooltipProviderOption,
 } from '@difizen/libro-code-editor';
-import type { KernelMessage } from '@difizen/libro-kernel';
-import { KernelError } from '@difizen/libro-kernel';
 import { transient } from '@difizen/libro-common/app';
-import { view, ViewInstance } from '@difizen/libro-common/app';
-import { getOrigin, useInject } from '@difizen/libro-common/app';
+import { view } from '@difizen/libro-common/app';
+import { getOrigin } from '@difizen/libro-common/app';
 import { l10n } from '@difizen/libro-common/l10n';
-import { forwardRef } from 'react';
+import { KernelError } from '@difizen/libro-kernel';
+import type { KernelMessage } from '@difizen/libro-kernel';
 
 import { LibroJupyterModel } from '../libro-jupyter-model.js';
 import type { ExecutionMeta } from '../libro-jupyter-protocol.js';
 import type { LibroJupyterView } from '../libro-jupyter-view.js';
 
 import type { JupyterCodeCellModel } from './jupyter-code-cell-model.js';
-
-const JupyterCodeCellComponent = forwardRef<HTMLDivElement>(
-  function JupyterCodeCellComponent(props, ref) {
-    const instance = useInject<JupyterCodeCellView>(ViewInstance);
-    return (
-      <div
-        className={instance.className}
-        ref={ref}
-        tabIndex={10}
-        onBlur={instance.blur}
-      >
-        <CellEditorMemo />
-      </div>
-    );
-  },
-);
 
 @transient()
 @view('jupyter-code-cell-view')
@@ -49,7 +32,7 @@ export class JupyterCodeCellView extends LibroCodeCellView {
     this.parentDefer.resolve(this.parent);
   }
 
-  override view = JupyterCodeCellComponent;
+  // override view = JupyterCodeCellComponent;
   declare model: JupyterCodeCellModel;
 
   override clearExecution = () => {
