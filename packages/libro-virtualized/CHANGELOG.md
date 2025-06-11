@@ -1,5 +1,11 @@
 # @difizen/libro-code-editor
 
+## 0.3.21
+
+### Patch Changes
+
+- feat: support no editor mode & fix expand and collapse of toc
+
 ## 0.3.20
 
 ### Patch Changes

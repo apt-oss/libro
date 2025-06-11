@@ -1,5 +1,18 @@
 # @difizen/libro-search-codemirror-cell
 
+## 0.3.21
+
+### Patch Changes
+
+- feat: support no editor mode & fix expand and collapse of toc
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.21
+  - @difizen/libro-code-cell@0.3.21
+  - @difizen/libro-common@0.3.21
+  - @difizen/libro-search@0.3.21
+  - @difizen/libro-core@0.3.21
+
 ## 0.3.20
 
 ### Patch Changes

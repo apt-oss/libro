@@ -1,5 +1,14 @@
 # @difizen/libro-output
 
+## 0.3.21
+
+### Patch Changes
+
+- feat: support no editor mode & fix expand and collapse of toc
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@0.3.21
+
 ## 0.3.20
 
 ### Patch Changes

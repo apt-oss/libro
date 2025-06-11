@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-output",
-  "version": "0.3.20",
+  "version": "0.3.21",
   "description": "",
   "keywords": [
     "libro",
@@ -45,9 +45,9 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-common": "^0.3.20",
-    "@difizen/libro-core": "^0.3.20",
-    "@difizen/libro-rendermime": "^0.3.20",
+    "@difizen/libro-common": "^0.3.21",
+    "@difizen/libro-core": "^0.3.21",
+    "@difizen/libro-rendermime": "^0.3.21",
     "@difizen/mana-app": "latest",
     "markdown-it": "^13.0.1"
   },
