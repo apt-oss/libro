@@ -83,61 +83,70 @@ export class MarkdownRender implements MarkdownParser {
 
   // 使用 sanitize-html 清理 HTML
   private sanitizeHTML(html: string): string {
+    const allowedTags = sanitizeHtml.defaults.allowedTags.concat([
+      'a',
+      'abbr',
+      'acronym',
+      'b',
+      'blockquote',
+      'br',
+      'code',
+      'col',
+      'colgroup',
+      'dd',
+      'del',
+      'div',
+      'em',
+      'h1',
+      'h2',
+      'h3',
+      'h4',
+      'h5',
+      'h6',
+      'hr',
+      'i',
+      'img',
+      'li',
+      'ol',
+      'p',
+      'pre',
+      'q',
+      's',
+      'small',
+      'strong',
+      'sub',
+      'sup',
+      'table',
+      'tbody',
+      'td',
+      'th',
+      'tr',
+      'tt',
+      'u',
+      'ul',
+      'kbd',
+      'var',
+    ]);
+    // 构建新的 allowedAttributes，为所有允许的标签添加 'id'
+    const allowedAttributes = Object.fromEntries(
+      allowedTags.map((tag) => [
+        tag,
+        [...(sanitizeHtml.defaults.allowedAttributes[tag] || []), 'id'],
+      ]),
+    );
     return sanitizeHtml(html, {
-      allowedTags: sanitizeHtml.defaults.allowedTags.concat([
-        'a',
-        'abbr',
-        'acronym',
-        'b',
-        'blockquote',
-        'br',
-        'code',
-        'col',
-        'colgroup',
-        'dd',
-        'del',
-        'div',
-        'em',
-        'h1',
-        'h2',
-        'h3',
-        'h4',
-        'h5',
-        'h6',
-        'hr',
-        'i',
-        'img',
-        'li',
-        'ol',
-        'p',
-        'pre',
-        'q',
-        's',
-        'small',
-        'strong',
-        'sub',
-        'sup',
-        'table',
-        'tbody',
-        'td',
-        'th',
-        'tr',
-        'tt',
-        'u',
-        'ul',
-        'kbd',
-        'var',
-      ]), // 允许的标签
+      allowedTags, // 允许的标签
       allowedAttributes: {
-        // 允许的属性
-        a: ['href', 'title'],
-        img: ['src', 'alt'],
+        ...allowedAttributes,
+        a: ['href', 'title', 'id'],
+        img: ['src', 'alt', 'id'],
       },
     });
   }
 
   render(markdownText: string, options?: MarkdownRenderOption): string {
     const unsanitizedRenderedMarkdown = this.mkt.render(markdownText, options);
-    return this.sanitizeHTML(unsanitizedRenderedMarkdown);
+    const sanitizeHTML = this.sanitizeHTML(unsanitizedRenderedMarkdown);
+    return sanitizeHTML;
   }
 }
