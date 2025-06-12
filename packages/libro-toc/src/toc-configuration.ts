@@ -28,6 +28,6 @@ export const EnableExpandCollapse: ConfigurationNode<boolean> = {
 @singleton({ contrib: ConfigurationContribution })
 export class TOCSettingContribution implements ConfigurationContribution {
   registerConfigurations() {
-    return [TOCVisible];
+    return [TOCVisible, EnableExpandCollapse];
   }
 }
