@@ -1,5 +1,16 @@
 # @difizen/libro-widget
 
+## 0.3.23
+
+### Patch Changes
+
+- fix: add toc config
+
+- Updated dependencies []:
+  - @difizen/libro-common@0.3.23
+  - @difizen/libro-kernel@0.3.23
+  - @difizen/libro-core@0.3.23
+
 ## 0.3.22
 
 ### Patch Changes

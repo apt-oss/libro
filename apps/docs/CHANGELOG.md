@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.23
+
+### Patch Changes
+
+- fix: add toc config
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.23
+  - @difizen/libro-jupyter@0.3.23
+  - @difizen/libro-core@0.3.23
+  - @difizen/libro-lab@0.3.23
+
 ## 0.3.22
 
 ### Patch Changes

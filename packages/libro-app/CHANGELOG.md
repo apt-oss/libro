@@ -1,5 +1,14 @@
 # @difizen/libro-output
 
+## 0.3.23
+
+### Patch Changes
+
+- fix: add toc config
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@0.3.23
+
 ## 0.3.22
 
 ### Patch Changes

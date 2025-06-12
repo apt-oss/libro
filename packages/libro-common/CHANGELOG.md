@@ -1,5 +1,11 @@
 # @difizen/libro-common
 
+## 0.3.23
+
+### Patch Changes
+
+- fix: add toc config
+
 ## 0.3.22
 
 ### Patch Changes
