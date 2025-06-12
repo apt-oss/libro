@@ -144,6 +144,14 @@ libro
 
 😊 我们建议您使用[github issue](https://github.com/difizen/libro/issues) 提交您的疑问, 我们通常会在2日内回复。
 
-### 贡献代码
+<!-- GITCONTRIBUTOR_START -->
 
-🤝 请查阅 [CONTRIBUTING.md](./CONTRIBUTING_zh.md)
+## Contributors
+
+|[<img src="https://avatars.githubusercontent.com/u/20186737?v=4" width="100px;"/><br/><sub><b>NewByVector</b></sub>](https://github.com/NewByVector)<br/>|[<img src="https://avatars.githubusercontent.com/u/6045824?v=4" width="100px;"/><br/><sub><b>bubkoo</b></sub>](https://github.com/bubkoo)<br/>|
+| :---: | :---: |
+
+
+This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Thu Jun 12 2025 12:58:42 GMT+0800`.
+
+<!-- GITCONTRIBUTOR_END -->
