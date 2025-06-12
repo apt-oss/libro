@@ -1,5 +1,17 @@
 # @difizen/libro-sql-cell
 
+## 0.3.24
+
+### Patch Changes
+
+- feat: add configuration about largeoutput display
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.24
+  - @difizen/libro-rendermime@0.3.24
+  - @difizen/libro-jupyter@0.3.24
+  - @difizen/libro-common@0.3.24
+
 ## 0.3.23
 
 ### Patch Changes

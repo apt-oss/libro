@@ -1,5 +1,11 @@
 # @difizen/libro-code-editor
 
+## 0.3.24
+
+### Patch Changes
+
+- feat: add configuration about largeoutput display
+
 ## 0.3.23
 
 ### Patch Changes

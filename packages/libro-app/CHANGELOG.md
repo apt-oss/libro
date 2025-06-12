@@ -1,5 +1,14 @@
 # @difizen/libro-output
 
+## 0.3.24
+
+### Patch Changes
+
+- feat: add configuration about largeoutput display
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@0.3.24
+
 ## 0.3.23
 
 ### Patch Changes

@@ -1,5 +1,26 @@
 # @difizen/libro-lab
 
+## 0.3.24
+
+### Patch Changes
+
+- feat: add configuration about largeoutput display
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.24
+  - @difizen/libro-language-client@0.3.24
+  - @difizen/libro-prompt-cell@0.3.24
+  - @difizen/libro-ai-native@0.3.24
+  - @difizen/libro-sql-cell@0.3.24
+  - @difizen/libro-terminal@0.3.24
+  - @difizen/libro-jupyter@0.3.24
+  - @difizen/libro-kernel@0.3.24
+  - @difizen/libro-widget@0.3.24
+  - @difizen/libro-core@0.3.24
+  - @difizen/libro-l10n@0.3.24
+  - @difizen/libro-app@0.3.24
+  - @difizen/libro-toc@0.3.24
+
 ## 0.3.23
 
 ### Patch Changes
