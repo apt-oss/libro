@@ -37,7 +37,11 @@ export class KeybindInstructionsContribution
       icon: KeybindInstructionsIcon,
       command: KeybindInstructionsCommand.id,
       order: 'l',
-      tooltip: () => <div>{l10n.t('查看快捷键')}</div>,
+      tooltip: () => (
+        <div className="libro-tooltip">
+          <span className="libro-tooltip-text">{l10n.t('查看快捷键')}</span>
+        </div>
+      ),
     });
   }
 
