@@ -1,5 +1,18 @@
 # @difizen/libro-prompt-cell
 
+## 0.3.25
+
+### Patch Changes
+
+- fix: improve style
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.25
+  - @difizen/libro-rendermime@0.3.25
+  - @difizen/libro-jupyter@0.3.25
+  - @difizen/libro-common@0.3.25
+  - @difizen/libro-core@0.3.25
+
 ## 0.3.24
 
 ### Patch Changes

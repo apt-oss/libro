@@ -1,5 +1,11 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.25
+
+### Patch Changes
+
+- fix: improve style
+
 ## 0.3.24
 
 ### Patch Changes

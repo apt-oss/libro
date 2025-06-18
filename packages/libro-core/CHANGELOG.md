@@ -1,5 +1,17 @@
 # @difizen/libro-core
 
+## 0.3.25
+
+### Patch Changes
+
+- fix: improve style
+
+- Updated dependencies []:
+  - @difizen/libro-shared-model@0.3.25
+  - @difizen/libro-code-editor@0.3.25
+  - @difizen/libro-virtualized@0.3.25
+  - @difizen/libro-common@0.3.25
+
 ## 0.3.24
 
 ### Patch Changes

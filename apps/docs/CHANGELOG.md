@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.25
+
+### Patch Changes
+
+- fix: improve style
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.25
+  - @difizen/libro-jupyter@0.3.25
+  - @difizen/libro-core@0.3.25
+  - @difizen/libro-lab@0.3.25
+
 ## 0.3.24
 
 ### Patch Changes
