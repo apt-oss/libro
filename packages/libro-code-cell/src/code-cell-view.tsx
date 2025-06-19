@@ -18,6 +18,7 @@ import {
   VirtualizedManagerHelper,
 } from '@difizen/libro-core';
 import type { ViewSize } from '@difizen/mana-app';
+import { ConfigurationService } from '@difizen/mana-app';
 import {
   getOrigin,
   inject,
@@ -190,10 +191,11 @@ export class LibroCodeCellView extends LibroEditableExecutableCellView {
   constructor(
     @inject(ViewOption) options: CellViewOptions,
     @inject(CellService) cellService: CellService,
+    @inject(ConfigurationService) configurationService: ConfigurationService,
     @inject(ViewManager) viewManager: ViewManager,
     @inject(CodeEditorManager) codeEditorManager: CodeEditorManager,
   ) {
-    super(options, cellService);
+    super(options, cellService, configurationService);
     this.options = options;
     this.viewManager = viewManager;
     this.codeEditorManager = codeEditorManager;

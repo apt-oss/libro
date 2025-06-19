@@ -281,6 +281,8 @@ export interface CellView extends View {
 
   editorStatus?: EditorStatus;
 
+  isLargeOutputDisplay?: boolean;
+
   calcEditorAreaHeight?: () => number;
 
   calcEditorOffset?: () => number;

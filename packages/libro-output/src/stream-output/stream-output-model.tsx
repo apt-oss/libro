@@ -4,7 +4,7 @@ import { LibroOutputView } from '@difizen/libro-core';
 import type { BaseOutputView, IOutputOptions } from '@difizen/libro-core';
 import { RenderMimeRegistry } from '@difizen/libro-rendermime';
 import type { IRenderMimeRegistry, IRendererFactory } from '@difizen/libro-rendermime';
-import { ConfigurationService, inject, prop, transient } from '@difizen/mana-app';
+import { inject, transient } from '@difizen/mana-app';
 import {
   getOrigin,
   useInject,
@@ -15,7 +15,6 @@ import {
 import { forwardRef, useEffect, useState } from 'react';
 
 import '../index.less';
-import { LargeOutputDisplay } from './output-configuration.js';
 
 const StreamOutputModelRender = forwardRef<HTMLDivElement>(
   function StreamOutputModelRender(_props, ref) {
@@ -47,34 +46,13 @@ const StreamOutputModelRender = forwardRef<HTMLDivElement>(
 export class StreamOutputModel extends LibroOutputView implements BaseOutputView {
   @inject(RenderMimeRegistry) renderMimeRegistry: IRenderMimeRegistry;
   renderFactory?: IRendererFactory;
-  @prop()
-  isLargeOutputDisplay: boolean;
 
-  constructor(
-    @inject(ViewOption) options: IOutputOptions,
-    @inject(ConfigurationService) configurationService: ConfigurationService,
-  ) {
+  constructor(@inject(ViewOption) options: IOutputOptions) {
     super(options);
     const { data, metadata } = getBundleOptions(options.output);
     this.type = options.output.output_type;
     this.data = data as JSONObject;
     this.metadata = metadata;
-    const localIsLargeOutputDisplay = localStorage.getItem(
-      'is-libro-large-output-display',
-    );
-    configurationService
-      .get(LargeOutputDisplay)
-      .then((value) => {
-        this.isLargeOutputDisplay =
-          localIsLargeOutputDisplay !== null
-            ? localIsLargeOutputDisplay === 'true'
-            : (options.output['is_large_display'] as boolean) || true;
-        this.isLargeOutputDisplay = this.isLargeOutputDisplay && value;
-        return;
-      })
-      .catch(() => {
-        //
-      });
   }
 
   getRenderFactory() {
@@ -92,7 +70,6 @@ export class StreamOutputModel extends LibroOutputView implements BaseOutputView
       output_type: this.raw.output_type,
       name: this.raw.name,
       text: this.raw.text,
-      is_large_display: this.isLargeOutputDisplay,
     };
   }
 }

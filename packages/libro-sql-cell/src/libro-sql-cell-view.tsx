@@ -21,6 +21,7 @@ import {
   LibroOutputArea,
 } from '@difizen/libro-jupyter';
 import type { ViewSize } from '@difizen/mana-app';
+import { ConfigurationService } from '@difizen/mana-app';
 import {
   Deferred,
   getOrigin,
@@ -327,11 +328,12 @@ export class LibroSqlCellView extends LibroEditableExecutableCellView {
   constructor(
     @inject(ViewOption) options: CellViewOptions,
     @inject(CellService) cellService: CellService,
+    @inject(ConfigurationService) configurationService: ConfigurationService,
     @inject(ViewManager) viewManager: ViewManager,
     @inject(LibroViewTracker) libroViewTracker: LibroViewTracker,
     @inject(CodeEditorManager) codeEditorManager: CodeEditorManager,
   ) {
-    super(options, cellService);
+    super(options, cellService, configurationService);
     this.codeEditorManager = codeEditorManager;
 
     this.outputs = options.cell?.outputs as IOutput[];

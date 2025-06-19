@@ -31,6 +31,7 @@ import {
   ViewRender,
   watch,
   Deferred,
+  ConfigurationService,
 } from '@difizen/mana-app';
 import { l10n } from '@difizen/mana-l10n';
 import { Select, Tag } from 'antd';
@@ -420,9 +421,10 @@ export class LibroPromptCellView extends LibroEditableExecutableCellView {
   constructor(
     @inject(ViewOption) options: CellViewOptions,
     @inject(CellService) cellService: CellService,
+    @inject(ConfigurationService) configurationService: ConfigurationService,
     @inject(ViewManager) viewManager: ViewManager,
   ) {
-    super(options, cellService);
+    super(options, cellService, configurationService);
     this.options = options;
     this.viewManager = viewManager;
     this.className = this.className + ' prompt';

@@ -7,6 +7,7 @@ import {
   CollapserClickActive,
   EnterEditModeWhenAddCell,
   HeaderToolbarVisible,
+  LargeOutputDisplay,
   MultiSelectionWhenShiftClick,
   RightContentFixed,
 } from './libro-setting.js';
@@ -23,6 +24,7 @@ export class LibroSettingContribution implements ConfigurationContribution {
       CollapserClickActive,
       MultiSelectionWhenShiftClick,
       RightContentFixed,
+      LargeOutputDisplay,
     ];
   }
 }
