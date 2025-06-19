@@ -106,8 +106,6 @@ export interface BaseOutputView extends View {
 
   onUpdate: Event<void>;
 
-  isLargeOutputDisplay?: boolean;
-
   isTabRender?: boolean;
 
   /**

@@ -2,10 +2,9 @@ import { OutputModule } from '@difizen/libro-core';
 import { LibroRenderMimeModule } from '@difizen/libro-rendermime';
 import { ManaModule } from '@difizen/libro-common/app';
 
-import { OutputSettingContribution } from './output-configuration.js';
 import { StreamOutputContribution } from './stream-output-contribution.js';
 import { StreamOutputModel } from './stream-output-model.js';
 
 export const StreamOutputModule = ManaModule.create()
-  .register(StreamOutputModel, StreamOutputContribution, OutputSettingContribution)
+  .register(StreamOutputModel, StreamOutputContribution)
   .dependOn(OutputModule, LibroRenderMimeModule);

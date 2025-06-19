@@ -3,6 +3,22 @@ import type { IRange } from '@difizen/libro-code-editor';
 import type { ICodeCell, IOutput } from '@difizen/libro-common';
 import { MIME } from '@difizen/libro-common';
 import { isOutput } from '@difizen/libro-common';
+import {
+  getOrigin,
+  inject,
+  prop,
+  transient,
+  useInject,
+  view,
+  ViewInstance,
+  ViewManager,
+  ViewOption,
+  ViewRender,
+  watch,
+  Deferred,
+  ConfigurationService,
+} from '@difizen/libro-common/app';
+import { l10n } from '@difizen/libro-common/l10n';
 import type {
   ExecutionMeta,
   KernelMessage,
@@ -18,21 +34,6 @@ import {
   LibroOutputArea,
 } from '@difizen/libro-jupyter';
 import { ChatComponents } from '@difizen/magent-chat';
-import {
-  getOrigin,
-  inject,
-  prop,
-  transient,
-  useInject,
-  view,
-  ViewInstance,
-  ViewManager,
-  ViewOption,
-  ViewRender,
-  watch,
-  Deferred,
-} from '@difizen/libro-common/app';
-import { l10n } from '@difizen/libro-common/l10n';
 import { Select, Tag } from 'antd';
 import type { DefaultOptionType } from 'antd/es/select/index.js';
 import classNames from 'classnames';
@@ -420,9 +421,10 @@ export class LibroPromptCellView extends LibroEditableExecutableCellView {
   constructor(
     @inject(ViewOption) options: CellViewOptions,
     @inject(CellService) cellService: CellService,
+    @inject(ConfigurationService) configurationService: ConfigurationService,
     @inject(ViewManager) viewManager: ViewManager,
   ) {
-    super(options, cellService);
+    super(options, cellService, configurationService);
     this.options = options;
     this.viewManager = viewManager;
     this.className = this.className + ' prompt';

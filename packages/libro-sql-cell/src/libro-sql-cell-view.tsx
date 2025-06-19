@@ -2,24 +2,6 @@ import { EditFilled, DatabaseOutlined } from '@ant-design/icons';
 import { CodeEditorManager } from '@difizen/libro-code-editor';
 import type { ICodeCell, IOutput } from '@difizen/libro-common';
 import { isOutput } from '@difizen/libro-common';
-import type {
-  CellViewOptions,
-  ExecutionMeta,
-  IOutputAreaOption,
-  LibroCell,
-  KernelMessage,
-} from '@difizen/libro-jupyter';
-import {
-  CellService,
-  EditorStatus,
-  LibroContextKey,
-  LibroEditableExecutableCellView,
-  LibroViewTracker,
-  VirtualizedManagerHelper,
-  KernelError,
-  LibroJupyterModel,
-  LibroOutputArea,
-} from '@difizen/libro-jupyter';
 import type { ViewSize } from '@difizen/libro-common/app';
 import {
   Deferred,
@@ -33,8 +15,27 @@ import {
   ViewManager,
   ViewOption,
   ViewRender,
+  ConfigurationService,
 } from '@difizen/libro-common/app';
 import { l10n } from '@difizen/libro-common/l10n';
+import {
+  CellService,
+  EditorStatus,
+  LibroContextKey,
+  LibroEditableExecutableCellView,
+  LibroViewTracker,
+  VirtualizedManagerHelper,
+  KernelError,
+  LibroJupyterModel,
+  LibroOutputArea,
+} from '@difizen/libro-jupyter';
+import type {
+  CellViewOptions,
+  ExecutionMeta,
+  IOutputAreaOption,
+  LibroCell,
+  KernelMessage,
+} from '@difizen/libro-jupyter';
 import type { InputRef } from 'antd';
 import { Select } from 'antd';
 import { Input } from 'antd';
@@ -327,11 +328,12 @@ export class LibroSqlCellView extends LibroEditableExecutableCellView {
   constructor(
     @inject(ViewOption) options: CellViewOptions,
     @inject(CellService) cellService: CellService,
+    @inject(ConfigurationService) configurationService: ConfigurationService,
     @inject(ViewManager) viewManager: ViewManager,
     @inject(LibroViewTracker) libroViewTracker: LibroViewTracker,
     @inject(CodeEditorManager) codeEditorManager: CodeEditorManager,
   ) {
-    super(options, cellService);
+    super(options, cellService, configurationService);
     this.codeEditorManager = codeEditorManager;
 
     this.outputs = options.cell?.outputs as IOutput[];

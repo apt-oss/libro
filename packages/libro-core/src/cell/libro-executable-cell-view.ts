@@ -5,6 +5,7 @@ import { inject } from '@difizen/libro-common/app';
 
 import type { CellModel } from '../libro-protocol.js';
 import type { CellViewOptions } from '../libro-protocol.js';
+import { LargeOutputDisplay } from '../libro-setting.js';
 import type { BaseOutputArea } from '../output/index.js';
 
 import type { LibroCell } from './libro-cell-protocol.js';
@@ -50,11 +51,30 @@ export abstract class LibroEditableExecutableCellView
 
   declare noEditorAreaHeight: number;
 
+  isLargeOutputDisplay?: boolean;
+
   constructor(
     @inject(ViewOption) options: CellViewOptions,
     @inject(CellService) cellService: CellService,
+    @inject(ConfigurationService) configurationService: ConfigurationService,
   ) {
     super(options, cellService);
+    const localIsLargeOutputDisplay = localStorage.getItem(
+      'is-libro-large-output-display',
+    );
+    configurationService
+      .get(LargeOutputDisplay)
+      .then((value) => {
+        this.isLargeOutputDisplay =
+          localIsLargeOutputDisplay !== null
+            ? localIsLargeOutputDisplay === 'true'
+            : ((this.options.cell.metadata['isLargeOutputDisplay'] ?? true) as boolean);
+        this.isLargeOutputDisplay = this.isLargeOutputDisplay && value;
+        return;
+      })
+      .catch(() => {
+        //
+      });
     this.outputWatch();
   }
 
@@ -83,6 +103,9 @@ export abstract class LibroEditableExecutableCellView
 
   override toJSON(): LibroCell {
     const meta = super.toJSON();
+    if (this.isLargeOutputDisplay !== undefined) {
+      meta.metadata['isLargeOutputDisplay'] = this.isLargeOutputDisplay;
+    }
     return {
       ...meta,
       source: meta.source ?? this.options.cell.source,

@@ -23,7 +23,7 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
   const renderTextContainerRef = useRef<HTMLDivElement>(null);
   const defaultRenderMime = useInject<IRenderMimeRegistry>(RenderMimeRegistry);
   const [isLargeOutputDisplay, setIsLargeOutputDisplay] = useState(
-    model.isLargeOutputDisplay,
+    model.cell.isLargeOutputDisplay,
   );
 
   const mimeType = defaultRenderMime.defaultPreferredMimeType(
@@ -90,7 +90,7 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
           <span>该段输出太长，点击可进行</span>
           <a
             onClick={() => {
-              model.isLargeOutputDisplay = !model.isLargeOutputDisplay;
+              model.cell.isLargeOutputDisplay = !model.cell.isLargeOutputDisplay;
               setIsLargeOutputDisplay(!isLargeOutputDisplay);
             }}
             className="libro-text-display-action"
