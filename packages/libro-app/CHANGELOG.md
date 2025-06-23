@@ -1,5 +1,15 @@
 # @difizen/libro-output
 
+## 1.0.3
+
+### Patch Changes
+
+- feat: improve output render in large files & style in dark mode
+
+- Updated dependencies []:
+  - @difizen/libro-common@1.0.3
+  - @difizen/libro-jupyter@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes

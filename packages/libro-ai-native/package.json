@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-ai-native",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "keywords": [
     "libro",
@@ -46,12 +46,12 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.4.0",
-    "@difizen/libro-code-editor": "^1.0.2",
-    "@difizen/libro-jupyter": "^1.0.2",
+    "@difizen/libro-code-editor": "^1.0.3",
+    "@difizen/libro-jupyter": "^1.0.3",
     "@difizen/magent-chat": "^0.1.27",
     "@difizen/magent-core": "^0.1.27",
     "@difizen/magent-libro": "^0.1.27",
-    "@difizen/libro-common": "^1.0.2",
+    "@difizen/libro-common": "^1.0.3",
     "copy-to-clipboard": "^3.3.3",
     "eventsource-parser": "^1.1.2",
     "katex": "^0.16.10",

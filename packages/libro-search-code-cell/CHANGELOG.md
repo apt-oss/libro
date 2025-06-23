@@ -1,5 +1,18 @@
 # @difizen/libro-search-codemirror-cell
 
+## 1.0.3
+
+### Patch Changes
+
+- feat: improve output render in large files & style in dark mode
+
+- Updated dependencies []:
+  - @difizen/libro-code-cell@1.0.3
+  - @difizen/libro-core@1.0.3
+  - @difizen/libro-code-editor@1.0.3
+  - @difizen/libro-common@1.0.3
+  - @difizen/libro-search@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes

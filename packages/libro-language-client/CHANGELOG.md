@@ -1,5 +1,18 @@
 # libro-langauge-client
 
+## 1.0.3
+
+### Patch Changes
+
+- feat: improve output render in large files & style in dark mode
+
+- Updated dependencies []:
+  - @difizen/libro-core@1.0.3
+  - @difizen/libro-code-editor@1.0.3
+  - @difizen/libro-common@1.0.3
+  - @difizen/libro-kernel@1.0.3
+  - @difizen/libro-lsp@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes

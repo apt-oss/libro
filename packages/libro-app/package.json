@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-app",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "keywords": [
     "libro",
@@ -45,8 +45,8 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-jupyter": "^1.0.2",
-    "@difizen/libro-common": "^1.0.2",
+    "@difizen/libro-jupyter": "^1.0.3",
+    "@difizen/libro-common": "^1.0.3",
     "@ant-design/icons": "^5.4.0"
   },
   "peerDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-output",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "keywords": [
     "libro",
@@ -45,9 +45,9 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-common": "^1.0.2",
-    "@difizen/libro-core": "^1.0.2",
-    "@difizen/libro-rendermime": "^1.0.2",
+    "@difizen/libro-common": "^1.0.3",
+    "@difizen/libro-core": "^1.0.3",
+    "@difizen/libro-rendermime": "^1.0.3",
     "markdown-it": "^13.0.1"
   },
   "peerDependencies": {

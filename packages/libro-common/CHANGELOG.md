@@ -1,5 +1,11 @@
 # @difizen/libro-common
 
+## 1.0.3
+
+### Patch Changes
+
+- feat: improve output render in large files & style in dark mode
+
 ## 1.0.2
 
 ### Patch Changes
