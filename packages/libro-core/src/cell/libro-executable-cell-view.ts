@@ -1,5 +1,5 @@
 import type { ICodeCell } from '@difizen/libro-common';
-import { watch } from '@difizen/libro-common/app';
+import { watch, ConfigurationService } from '@difizen/libro-common/app';
 import { ViewOption } from '@difizen/libro-common/app';
 import { inject } from '@difizen/libro-common/app';
 
@@ -13,7 +13,7 @@ import { CellService } from './libro-cell-protocol.js';
 import { EditorCellView, LibroEditorCellView } from './libro-edit-cell-view.js';
 import { ExecutableCellModel } from './libro-executable-cell-model.js';
 
-interface ExecutableCellView extends EditorCellView {
+export interface ExecutableCellView extends EditorCellView {
   run: () => Promise<boolean>;
   clearExecution: () => void;
 

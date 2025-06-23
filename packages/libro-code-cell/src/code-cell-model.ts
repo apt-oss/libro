@@ -1,10 +1,10 @@
 import { MIME } from '@difizen/libro-common';
 import type { ICodeCell, ExecutionCount } from '@difizen/libro-common';
-import type { ExecutableCellModel } from '@difizen/libro-core';
-import { CellOptions, LibroCellModel } from '@difizen/libro-core';
 import type { Event as ManaEvent } from '@difizen/libro-common/app';
 import { inject, prop, transient, ViewManager } from '@difizen/libro-common/app';
 import { Emitter } from '@difizen/libro-common/app';
+import type { ExecutableCellModel } from '@difizen/libro-core';
+import { CellOptions, LibroCellModel } from '@difizen/libro-core';
 
 /**
  * 基础的可执行代码的cell, 带有执行能力
