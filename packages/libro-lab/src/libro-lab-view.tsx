@@ -1,11 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  inject,
+  OpenerService,
+  transient,
+  URI,
+  view,
+  ViewOption,
+} from '@difizen/libro-common/app';
 import type { NotebookOption } from '@difizen/libro-core';
 import { VirtualizedManagerHelper } from '@difizen/libro-core';
 import { CollapseServiceFactory, NotebookService } from '@difizen/libro-core';
 import { notebookViewFactoryId } from '@difizen/libro-core';
 import { LibroJupyterView } from '@difizen/libro-jupyter';
-import { OpenerService, URI, view, ViewOption } from '@difizen/mana-app';
-import { inject, transient } from '@difizen/mana-app';
 
 @transient()
 @view(notebookViewFactoryId)
