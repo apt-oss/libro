@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-widget",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "keywords": [
     "libro"
@@ -44,11 +44,11 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-core": "^1.0.3",
-    "@difizen/libro-common": "^1.0.3",
-    "@difizen/libro-kernel": "^1.0.3",
-    "@difizen/libro-rendermime": "^1.0.3",
-    "@difizen/libro-jupyter": "^1.0.3"
+    "@difizen/libro-core": "^1.0.4",
+    "@difizen/libro-common": "^1.0.4",
+    "@difizen/libro-kernel": "^1.0.4",
+    "@difizen/libro-rendermime": "^1.0.4",
+    "@difizen/libro-jupyter": "^1.0.4"
   },
   "peerDependencies": {
     "antd": "^5.8.6",

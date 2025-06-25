@@ -1,5 +1,29 @@
 # @difizen/libro-jupyter
 
+## 1.0.4
+
+### Patch Changes
+
+- fix: update refs
+
+- Updated dependencies []:
+  - @difizen/libro-search-code-cell@1.0.4
+  - @difizen/libro-language-client@1.0.4
+  - @difizen/libro-cofine-editor@1.0.4
+  - @difizen/libro-markdown-cell@1.0.4
+  - @difizen/libro-code-editor@1.0.4
+  - @difizen/libro-codemirror@1.0.4
+  - @difizen/libro-rendermime@1.0.4
+  - @difizen/libro-code-cell@1.0.4
+  - @difizen/libro-raw-cell@1.0.4
+  - @difizen/libro-common@1.0.4
+  - @difizen/libro-kernel@1.0.4
+  - @difizen/libro-output@1.0.4
+  - @difizen/libro-search@1.0.4
+  - @difizen/libro-core@1.0.4
+  - @difizen/libro-l10n@1.0.4
+  - @difizen/libro-lsp@1.0.4
+
 ## 1.0.3
 
 ### Patch Changes

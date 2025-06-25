@@ -1,5 +1,15 @@
 # @difizen/libro-kernel
 
+## 1.0.4
+
+### Patch Changes
+
+- fix: update refs
+
+- Updated dependencies []:
+  - @difizen/libro-common@1.0.4
+  - @difizen/libro-core@1.0.4
+
 ## 1.0.3
 
 ### Patch Changes

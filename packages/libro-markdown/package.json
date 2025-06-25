@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-markdown",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "keywords": [
     "libro",
@@ -46,7 +46,7 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-common": "^1.0.3",
+    "@difizen/libro-common": "^1.0.4",
     "@traptitech/markdown-it-katex": "^3.6.0",
     "@types/markdown-it": "^12.2.3",
     "katex": "^0.16.10",

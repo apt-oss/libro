@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-kernel",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "keywords": [
     "ai-infra",
@@ -45,8 +45,8 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-common": "^1.0.3",
-    "@difizen/libro-core": "^1.0.3",
+    "@difizen/libro-common": "^1.0.4",
+    "@difizen/libro-core": "^1.0.4",
     "minimist": "^1.2.8",
     "query-string": "^8.1.0",
     "uuid": "^9.0.0"
