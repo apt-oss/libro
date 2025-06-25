@@ -1,3 +1,3 @@
-export * from './menu';
-export * from './context';
+export * from './menu.js';
+export * from './context.js';
 import './styles/index.less';

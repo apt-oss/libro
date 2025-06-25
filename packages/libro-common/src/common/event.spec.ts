@@ -1,9 +1,9 @@
 import assert from 'assert';
 
-import type { Disposable } from '.';
-import { noop } from '.';
-import { Deferred } from '.';
-import { Emitter, Event } from '.';
+import type { Disposable } from './index.js';
+import { noop } from './index.js';
+import { Deferred } from './index.js';
+import { Emitter, Event } from './index.js';
 
 describe('event', () => {
   describe('Event', () => {

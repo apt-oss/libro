@@ -1,4 +1,4 @@
-import { noop } from './utils';
+import { noop } from './utils.js';
 
 export type Disposable = {
   disposed?: boolean | undefined;

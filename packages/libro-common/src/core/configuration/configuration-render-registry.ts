@@ -1,11 +1,11 @@
-import type { Contribution } from '../../ioc/index.js';
-import { contrib, singleton, Syringe } from '../../ioc/index.js';
 import type { JSONSchemaType } from 'ajv';
 import type React from 'react';
 
-import { ApplicationContribution } from '../application';
+import type { Contribution } from '../../ioc/index.js';
+import { contrib, singleton, Syringe } from '../../ioc/index.js';
+import { ApplicationContribution } from '../application/index.js';
 
-import type { ConfigurationNode } from './configuration-protocol';
+import type { ConfigurationNode } from './configuration-protocol.js';
 
 export function notFalse(x: number | false): x is number {
   return x !== false;

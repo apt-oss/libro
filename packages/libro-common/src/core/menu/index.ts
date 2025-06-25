@@ -1,16 +1,16 @@
-import { ManaModule } from '../module';
+import { ManaModule } from '../module/index.js';
 
-import { DefaultActionMenuItem, DefaultGeneralMenuItem } from './default-menu-node';
-import type { MenuNode, MenuPath } from './menu-protocol';
+import { DefaultActionMenuItem, DefaultGeneralMenuItem } from './default-menu-node.js';
+import type { MenuNode, MenuPath } from './menu-protocol.js';
 import {
   MenuSymbol,
   ActionMenuItemFactory,
   GeneralMenuItemFactory,
-} from './menu-protocol';
-import { MenuRegistry, MenuContribution } from './menu-registry';
+} from './menu-protocol.js';
+import { MenuRegistry, MenuContribution } from './menu-registry.js';
 
-export * from './menu-registry';
-export * from './menu-protocol';
+export * from './menu-registry.js';
+export * from './menu-protocol.js';
 
 export const CoreMenuModule = ManaModule.create()
   .contribution(MenuContribution)

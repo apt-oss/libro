@@ -1,3 +1,3 @@
-export * from './lifecycle';
-export * from './map';
-export * from './hooks';
+export * from './lifecycle.js';
+export * from './map.js';
+export * from './hooks.js';

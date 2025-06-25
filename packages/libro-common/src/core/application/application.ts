@@ -3,11 +3,10 @@ import { Disposable } from '../../common/index.js';
 import { Emitter, DisposableCollection } from '../../common/index.js';
 import { inject, singleton, Syringe, contrib, Utils } from '../../ioc/index.js';
 import type { Decorator, Contribution } from '../../ioc/index.js';
+import { DebugService } from '../common/debug.js';
 
-import { DebugService } from '../common/debug';
-
-import { WindowService } from './application-protocol';
-import { ApplicationStateService, ApplicationState } from './application-state';
+import { WindowService } from './application-protocol.js';
+import { ApplicationStateService, ApplicationState } from './application-state.js';
 
 export const ApplicationContribution = Syringe.defineToken('ApplicationContribution');
 export type ApplicationContribution = {

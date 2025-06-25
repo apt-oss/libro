@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import type { interfaces } from 'inversify';
 
-import { ContainerAPI } from './container-api';
-import { Utils, Syringe } from './core';
-import type { InversifyContext } from './inversify-api';
-import { isInversifyContext } from './inversify-api';
+import { ContainerAPI } from './container-api.js';
+import { Utils, Syringe } from './core.js';
 import {
   bindNamed,
   bindGeneralToken,
   bindMonoToken,
   bindLifecycle,
-} from './inversify-api';
-import { OptionSymbol } from './side-option';
+} from './inversify-api/index.js';
+import { isInversifyContext } from './inversify-api/index.js';
+import type { InversifyContext } from './inversify-api/index.js';
+import { OptionSymbol } from './side-option.js';
 
 export class Register<T> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

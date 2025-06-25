@@ -1,8 +1,8 @@
 import 'react';
 import assert from 'assert';
 
-import { AntdVariableContribution } from './antd-variable-contribution';
-import { VariableRegistry } from './variable-registry';
+import { AntdVariableContribution } from './antd-variable-contribution.js';
+import { VariableRegistry } from './variable-registry.js';
 
 describe('theme basic', () => {
   it('#antd variable', () => {

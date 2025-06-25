@@ -1,4 +1,4 @@
-import type { Emitter } from './event';
+import type { Emitter } from './event.js';
 
 export type WaitUntilEvent = {
   /**

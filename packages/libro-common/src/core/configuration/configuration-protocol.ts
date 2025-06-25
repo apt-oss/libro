@@ -1,6 +1,6 @@
 import type { JSONSchemaType } from 'ajv';
 
-import type { ConfigurationStorage } from './configuration-storage';
+import type { ConfigurationStorage } from './configuration-storage.js';
 
 export interface ConfigurationNode<T> {
   /**

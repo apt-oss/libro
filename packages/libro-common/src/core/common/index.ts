@@ -1,12 +1,12 @@
-import { ManaModule } from '../module';
+import { ManaModule } from '../module/index.js';
 
-import { DebugService, debug } from './debug';
-import { StorageService } from './storage-protocol';
-import { LocalStorageService, localStorageService } from './storage-service';
+import { DebugService, debug } from './debug.js';
+import { StorageService } from './storage-protocol.js';
+import { LocalStorageService, localStorageService } from './storage-service.js';
 
-export * from './debug';
-export * from './storage-service';
-export * from './storage-protocol';
+export * from './debug.js';
+export * from './storage-service.js';
+export * from './storage-protocol.js';
 
 export const CommonModule = ManaModule.create()
   .register({

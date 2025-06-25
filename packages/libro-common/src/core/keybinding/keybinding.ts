@@ -3,16 +3,15 @@ import { isOSX } from '../../common/index.js';
 import { Emitter, Disposable, DisposableCollection } from '../../common/index.js';
 import { contrib, inject, singleton, Syringe } from '../../ioc/index.js';
 import type { Contribution } from '../../ioc/index.js';
+import type { Application } from '../application/index.js';
+import { ApplicationContribution } from '../application/index.js';
+import { CommandRegistry, Command } from '../command/index.js';
+import { DebugService } from '../common/debug.js';
+import { KeyboardLayoutService } from '../keyboard/keyboard-layout-service.js';
+import { KeyCode, KeySequence, Key } from '../keyboard/keys.js';
 
-import type { Application } from '../application';
-import { ApplicationContribution } from '../application';
-import { CommandRegistry, Command } from '../command';
-import { DebugService } from '../common/debug';
-import { KeyboardLayoutService } from '../keyboard/keyboard-layout-service';
-import { KeyCode, KeySequence, Key } from '../keyboard/keys';
-
-import { ContextKeyService } from './context-key-service';
-import { KeybindingContribution } from './keybinding-proocol';
+import { ContextKeyService } from './context-key-service.js';
+import { KeybindingContribution } from './keybinding-proocol.js';
 
 /**
  * A Keybinding binds a specific key sequence ({@link Keybinding#keybinding}) to trigger a command ({@link Keybinding#command}). A Keybinding optionally may

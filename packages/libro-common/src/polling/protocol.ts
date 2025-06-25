@@ -1,4 +1,4 @@
-import type { Event } from '../app';
+import type { Event } from '../app/index.js';
 
 /**
  * A readonly poll that calls an asynchronous function with each tick.

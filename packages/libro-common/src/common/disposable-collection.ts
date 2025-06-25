@@ -1,4 +1,4 @@
-import { Disposable } from './disposable';
+import { Disposable } from './disposable.js';
 import type { Event } from './event.js';
 import { Emitter } from './event.js';
 

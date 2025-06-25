@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useMemo, useState, createRef } from 'react';
 
-import { ApplicationState, ApplicationStateService } from '../application';
-import { Application, ApplicationModule } from '../application';
-import type { ManaContext } from '../module';
-import { ManaModule } from '../module';
-import { useMount, useUnmount } from '../utils/hooks';
-import { createSlotPreference, PortalSlotId, Slot } from '../view';
-import { PortalSlotView } from '../view/portal-slot-view';
-import { RootComponents } from '../view/root-view';
+import { ApplicationState, ApplicationStateService } from '../application/index.js';
+import { Application, ApplicationModule } from '../application/index.js';
+import type { ManaContext } from '../module/index.js';
+import { ManaModule } from '../module/index.js';
+import { useMount, useUnmount } from '../utils/hooks.js';
+import { createSlotPreference, PortalSlotId, Slot } from '../view/index.js';
+import { PortalSlotView } from '../view/portal-slot-view.js';
+import { RootComponents } from '../view/root-view.js';
 
-import type { ContextProps } from './context';
-import { ContextComponent } from './context';
-import { RootViewRender } from './root-view-render';
+import type { ContextProps } from './context.js';
+import { ContextComponent } from './context.js';
+import { RootViewRender } from './root-view-render.js';
 import './index.less';
 
 const PortalModule = ManaModule.create().register(

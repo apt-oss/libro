@@ -1,9 +1,9 @@
 import { Disposable, Event } from '../common/index.js';
 
-import type { Notify } from './core';
-import { Notifier } from './notifier';
-import { observable } from './observable';
-import { getOrigin, Observability } from './utils';
+import type { Notify } from './core.js';
+import { Notifier } from './notifier.js';
+import { observable } from './observable.js';
+import { getOrigin, Observability } from './utils.js';
 
 function tryObservable<T>(target: T) {
   const data = getOrigin(target);

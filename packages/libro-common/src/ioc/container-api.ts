@@ -1,6 +1,6 @@
 import type { interfaces } from 'inversify';
 
-import type { Syringe } from './core';
+import type { Syringe } from './core.js';
 
 export const ContainerCacheToken = Symbol('ContainerCacheToken');
 export class ContainerAPI {

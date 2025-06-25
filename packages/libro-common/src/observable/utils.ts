@@ -2,9 +2,9 @@ import 'reflect-metadata';
 import type { Disposable } from '../common/index.js';
 import { isPlainObject, getPropertyDescriptor } from '../common/index.js';
 
-import { ObservableConfig } from './config';
-import type { Traceable } from './core';
-import { ObservableSymbol } from './core';
+import { ObservableConfig } from './config.js';
+import type { Traceable } from './core.js';
+import { ObservableSymbol } from './core.js';
 
 export namespace Observability {
   export function isTraceable(data: any): data is Traceable {

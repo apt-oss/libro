@@ -2,9 +2,9 @@ import type { Event } from '../../common/index.js';
 import { Emitter } from '../../common/index.js';
 import { singleton } from '../../ioc/index.js';
 
-import { ApplicationContribution } from './application';
-import type { Application } from './application';
-import { WindowService } from './application-protocol';
+import { WindowService } from './application-protocol.js';
+import { ApplicationContribution } from './application.js';
+import type { Application } from './application.js';
 
 @singleton({
   contrib: [WindowService, ApplicationContribution],

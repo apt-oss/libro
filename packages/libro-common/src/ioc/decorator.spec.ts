@@ -1,7 +1,7 @@
 import assert from 'assert';
 
-import { Syringe } from './core';
-import { singleton, transient, injectable } from './decorator';
+import { Syringe } from './core.js';
+import { singleton, transient, injectable } from './decorator.js';
 
 describe('decorator', () => {
   it('#injectable without option', () => {

@@ -1,6 +1,5 @@
 import type { Event, Disposable } from '../../common/index.js';
-
-import type { CommandHandler } from '../command';
+import type { CommandHandler } from '../command/index.js';
 
 /**
  * Instance of toolbar

@@ -1,6 +1,6 @@
-import type { SelectableTreeNode } from '../tree-selection';
+import type { SelectableTreeNode } from '../tree-selection.js';
 
-import { TreeView } from './tree-view';
+import { TreeView } from './tree-view.js';
 
 export type TreeViewSelection = readonly Readonly<SelectableTreeNode>[] & {
   source: TreeView;

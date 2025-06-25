@@ -2,7 +2,7 @@ import assert from 'assert';
 
 import { noop } from '../common/index.js';
 
-import { AsyncEmitter, AsyncCallbackList } from './async-event';
+import { AsyncEmitter, AsyncCallbackList } from './async-event.js';
 
 describe('AsyncEvent', () => {
   it('#callback list', (done) => {

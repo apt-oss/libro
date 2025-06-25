@@ -1,6 +1,6 @@
-import type { MaybeArray } from './types';
+import type { MaybeArray } from './types.js';
 
-import type { MaybePromise } from '.';
+import type { MaybePromise } from './index.js';
 
 export enum Priority {
   PRIOR = 1000,

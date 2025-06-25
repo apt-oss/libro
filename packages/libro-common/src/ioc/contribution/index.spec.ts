@@ -3,16 +3,16 @@
 import 'reflect-metadata';
 import assert from 'assert';
 
-import { GlobalContainer } from '../container';
-import { register } from '../container';
-import { Contribution, contrib } from './index';
-import { Syringe } from '../core';
-import { inject, singleton } from '../decorator';
-import { Module } from '../module/index';
+import { GlobalContainer } from '../container.js';
+import { register } from '../container.js';
+import { Syringe } from '../core.js';
+import { inject, singleton } from '../decorator.js';
+import { Module } from '../module/index.js';
 
-import { DefaultContributionProvider } from './contribution-provider';
+import { DefaultContributionProvider } from './contribution-provider.js';
 
-import { ContributionOptionConfig } from './index';
+import { ContributionOptionConfig } from './index.js';
+import { Contribution, contrib } from './index.js';
 
 describe('contribution', () => {
   it('#register contribution', () => {

@@ -1,12 +1,11 @@
 import { Emitter } from '../../common/index.js';
-import { prop } from '../../observable/index.js';
 import type { Contribution } from '../../ioc/index.js';
 import { contrib, inject, singleton, Syringe } from '../../ioc/index.js';
+import { prop } from '../../observable/index.js';
+import { ApplicationContribution } from '../application/index.js';
 
-import { ApplicationContribution } from '../application';
-
-import type { ToolbarNode } from './toolbar-protocol';
-import { ToolbarItem, ToolbarItemFactory } from './toolbar-protocol';
+import type { ToolbarNode } from './toolbar-protocol.js';
+import { ToolbarItem, ToolbarItemFactory } from './toolbar-protocol.js';
 /**
  * Clients should implement this interface if they want to contribute to the toolbar.
  */

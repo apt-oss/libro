@@ -16,13 +16,13 @@ import type {
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
-} from './protocol';
-import { DEFAULT_DURATION } from './protocol';
-import { getPlacementStyle } from './protocol';
-import { DEFAULT_OFFSET } from './protocol';
-import { NOTIFICATION_PREFIX_CLS } from './protocol';
-import { DEFAULT_PLACEMENT } from './protocol';
-import { PureContent } from './pure-panel';
+} from './protocol.js';
+import { DEFAULT_DURATION } from './protocol.js';
+import { getPlacementStyle } from './protocol.js';
+import { DEFAULT_OFFSET } from './protocol.js';
+import { NOTIFICATION_PREFIX_CLS } from './protocol.js';
+import { DEFAULT_PLACEMENT } from './protocol.js';
+import { PureContent } from './pure-panel.js';
 
 export function getCloseIcon(prefixCls: string, closeIcon?: ReactNode): ReactNode {
   if (closeIcon === null || closeIcon === false) {

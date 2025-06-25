@@ -1,10 +1,10 @@
-import { getOrigin, ObservableContext } from '../../observable/index.js';
 import * as React from 'react';
 
-import type { ManaContext } from '../module';
+import { getOrigin, ObservableContext } from '../../observable/index.js';
+import type { ManaContext } from '../module/index.js';
 
-import { ViewMeta } from './view-meta';
-import type { View } from './view-protocol';
+import { ViewMeta } from './view-meta.js';
+import type { View } from './view-protocol.js';
 
 export interface ViewContextProps {
   view: View;

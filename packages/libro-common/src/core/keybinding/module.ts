@@ -1,11 +1,14 @@
-import { BrowserKeyboardLayoutProvider, KeyboardLayoutService } from '../keyboard';
-import { ManaModule } from '../module';
+import {
+  BrowserKeyboardLayoutProvider,
+  KeyboardLayoutService,
+} from '../keyboard/index.js';
+import { ManaModule } from '../module/index.js';
 
-import { ContextKeyService } from './context-key-service';
-import { KeybindingContext, KeybindingRegistry } from './keybinding';
-import { KeybindingContribution } from './keybinding-proocol';
-import { ConfigurationService } from './vs/configuration/configurationService';
-import { VSContextKeyService } from './vs/contextKeyService';
+import { ContextKeyService } from './context-key-service.js';
+import { KeybindingContribution } from './keybinding-proocol.js';
+import { KeybindingContext, KeybindingRegistry } from './keybinding.js';
+import { ConfigurationService } from './vs/configuration/configurationService.js';
+import { VSContextKeyService } from './vs/contextKeyService.js';
 
 export const KeybindModule = ManaModule.create()
   .contribution(KeybindingContribution, KeybindingContext)

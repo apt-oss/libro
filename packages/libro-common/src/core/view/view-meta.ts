@@ -1,9 +1,8 @@
 import { getOrigin } from '../../observable/index.js';
+import type { ManaContext } from '../module/index.js';
 
-import type { ManaContext } from '../module';
-
-import type { View } from './view-protocol';
-import { ViewContextMetaKey } from './view-protocol';
+import type { View } from './view-protocol.js';
+import { ViewContextMetaKey } from './view-protocol.js';
 
 /**
  * View metadata

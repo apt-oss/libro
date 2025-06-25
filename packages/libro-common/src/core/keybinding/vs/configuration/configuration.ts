@@ -6,16 +6,16 @@
 import type { Event, IStringDictionary } from '../../../../common/index.js';
 import { objects, types, URI } from '../../../../common/index.js';
 import { Syringe } from '../../../../ioc/index.js';
-import { Registry } from '../platform';
+import { Registry } from '../platform.js';
 
 // import type { IWorkspaceFolder } from 'vs/platform/workspace/common/workspace';
 // import { createDecorator } from 'vs/platform/instantiation/common/instantiation';
-import type { IConfigurationRegistry } from './configurationRegistry';
+import type { IConfigurationRegistry } from './configurationRegistry.js';
 import {
   Extensions,
   overrideIdentifierFromKey,
   OVERRIDE_PROPERTY_PATTERN,
-} from './configurationRegistry';
+} from './configurationRegistry.js';
 
 // export const IConfigurationService = createDecorator<IConfigurationService>('configurationService');
 export const IConfigurationService = Syringe.defineToken('IConfigurationService');

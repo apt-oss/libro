@@ -6,9 +6,9 @@ import {
   named as inversifyNamed,
 } from 'inversify';
 
-import type { Decorator } from './core';
-import { Syringe } from './core';
-import { namedToIdentifier, tokenToIdentifier } from './inversify-api';
+import type { Decorator } from './core.js';
+import { Syringe } from './core.js';
+import { namedToIdentifier, tokenToIdentifier } from './inversify-api/index.js';
 
 export function injectable<T = any>(
   option: Syringe.DecoratorOption<T> = {},

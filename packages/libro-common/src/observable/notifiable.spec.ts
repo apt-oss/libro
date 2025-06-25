@@ -3,7 +3,7 @@ import assert from 'assert';
 
 import { isPlainObject } from '../common/index.js';
 
-import { Notifiable, Notifier, Observability } from './index';
+import { Notifiable, Notifier, Observability } from './index.js';
 
 describe('reactivity', () => {
   it('#can be reactable', () => {

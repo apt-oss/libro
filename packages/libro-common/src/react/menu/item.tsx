@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
 
-import { MenuContext } from './context';
+import { MenuContext } from './context.js';
 
 export interface MenuItemProps {
   className?: string;

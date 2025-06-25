@@ -1,8 +1,8 @@
 import { singleton } from '../../../ioc/index.js';
 
-import { ColorContribution } from './color-protocol';
-import type { ColorRegistry } from './color-registry';
-import { Color } from './color-registry';
+import { ColorContribution } from './color-protocol.js';
+import type { ColorRegistry } from './color-registry.js';
+import { Color } from './color-registry.js';
 
 @singleton({ contrib: ColorContribution })
 export class AntdColorContribution implements ColorContribution {

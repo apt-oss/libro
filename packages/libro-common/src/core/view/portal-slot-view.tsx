@@ -1,20 +1,21 @@
 /* eslint-disable @typescript-eslint/unified-signatures */
-import { Disposable, DisposableCollection } from '../../common/index.js';
-import { equals, getOrigin, prop, useInject } from '../../observable/index.js';
-import { inject, transient } from '../../ioc/index.js';
 import * as React from 'react';
 
-import { view } from './decorator';
-import { BaseView } from './default-view';
+import { Disposable, DisposableCollection } from '../../common/index.js';
+import { inject, transient } from '../../ioc/index.js';
+import { equals, getOrigin, prop, useInject } from '../../observable/index.js';
+
+import { view } from './decorator.js';
+import { BaseView } from './default-view.js';
 import type {
   SlotView,
   ViewOpenOption,
   ViewComponent,
   SlotViewOption,
   View,
-} from './view-protocol';
-import { ViewOption, ViewInstance } from './view-protocol';
-import { ViewRender } from './view-render';
+} from './view-protocol.js';
+import { ViewOption, ViewInstance } from './view-protocol.js';
+import { ViewRender } from './view-render.js';
 
 export const PortalViewComponent: React.FC = React.forwardRef(
   function PortalViewComponent() {

@@ -1,13 +1,13 @@
 import type { MaybePromise } from '../../common/index.js';
-import { prop } from '../../observable/index.js';
 import { singleton, Syringe } from '../../ioc/index.js';
+import { prop } from '../../observable/index.js';
 
-import type { ConfigurationNode } from './configuration-protocol';
-import type { ConfigurationStorage } from './configuration-storage';
+import type { ConfigurationNode } from './configuration-protocol.js';
+import type { ConfigurationStorage } from './configuration-storage.js';
 import {
   LocalConfigurationStorage,
   DefaultConfigurationStorage,
-} from './configuration-storage';
+} from './configuration-storage.js';
 
 export const ConfigurationProvider = Syringe.defineToken('ConfigurationProvider');
 

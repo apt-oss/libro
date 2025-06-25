@@ -1,9 +1,9 @@
-import { getOrigin, ObservableContext, useInject } from '../../observable/index.js';
 import * as React from 'react';
 
-import type { ManaContext } from '../module';
+import { getOrigin, ObservableContext, useInject } from '../../observable/index.js';
+import type { ManaContext } from '../module/index.js';
 
-import { DataContextManager } from './data-context-manager';
+import { DataContextManager } from './data-context-manager.js';
 
 export interface DataContextProps {
   contextKey: any;

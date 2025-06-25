@@ -6,8 +6,8 @@ import {
   cancelled,
   checkCancelled,
   isCancelled,
-} from '.';
-import { Deferred } from '.';
+} from './index.js';
+import { Deferred } from './index.js';
 
 describe('cancellation', () => {
   const waitTime = (number = 100) => {

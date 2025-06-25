@@ -6,14 +6,13 @@ import {
   isPromiseLike,
 } from '../../common/index.js';
 import { singleton, inject } from '../../ioc/index.js';
+import { localStorageService } from '../common/index.js';
+import type { StorageService } from '../common/index.js';
 
-import { localStorageService } from '../common';
-import type { StorageService } from '../common';
-
-import { DefaultVariablePrefix } from './protocol';
-import type { CssVariable, VariableDefinition } from './protocol';
-import type { ExtraTokens } from './theme-service';
-import { ThemeService } from './theme-service';
+import { DefaultVariablePrefix } from './protocol.js';
+import type { CssVariable, VariableDefinition } from './protocol.js';
+import type { ExtraTokens } from './theme-service.js';
+import { ThemeService } from './theme-service.js';
 
 /**
  * It should be implemented by an extension, e.g. by the monaco extension.

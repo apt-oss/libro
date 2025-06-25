@@ -8,7 +8,7 @@ import * as assert from 'assert';
 
 import { types } from '../../../common/index.js';
 
-import { Registry } from './platform';
+import { Registry } from './platform.js';
 
 describe('Platform / Registry', () => {
   test('registry - api', function () {

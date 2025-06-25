@@ -1,9 +1,9 @@
 import { Emitter } from '../../common/index.js';
 import { inject, postConstruct, singleton } from '../../ioc/index.js';
 
-import type { ContextKeyExpression, IContextKey } from './vs/contextkey';
-import { ContextKeyExpr } from './vs/contextkey';
-import { VSContextKeyService } from './vs/contextKeyService';
+import type { ContextKeyExpression, IContextKey } from './vs/contextkey.js';
+import { ContextKeyExpr } from './vs/contextkey.js';
+import { VSContextKeyService } from './vs/contextKeyService.js';
 
 export type ContextKeyChangeEvent = {
   affects: (keys: Set<string>) => boolean;

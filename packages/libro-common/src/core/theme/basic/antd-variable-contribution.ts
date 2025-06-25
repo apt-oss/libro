@@ -1,7 +1,7 @@
 import { singleton } from '../../../ioc/index.js';
 
-import { VariableContribution } from './variable-protocol';
-import type { VariableRegistry } from './variable-registry';
+import { VariableContribution } from './variable-protocol.js';
+import type { VariableRegistry } from './variable-registry.js';
 
 @singleton({ contrib: VariableContribution })
 export class AntdVariableContribution implements VariableContribution {

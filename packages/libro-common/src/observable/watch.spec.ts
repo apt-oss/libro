@@ -2,7 +2,7 @@ import assert from 'assert';
 
 import { Disposable } from '../common/index.js';
 
-import { watch, prop } from './index';
+import { watch, prop } from './index.js';
 
 console.warn = () => {
   //

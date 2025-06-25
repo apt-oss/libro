@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import type { Menu } from './menu';
+import type { Menu } from './menu.js';
 
 /**
  * @deprecated use useInject(MenuInstance) instead

@@ -5,10 +5,10 @@ import assert from 'assert';
 
 import { injectable } from 'inversify';
 
-import { GlobalContainer } from '../container';
-import { Syringe } from '../core';
 import { Event } from '../../common/index.js';
-import { Register } from '../register';
+import { GlobalContainer } from '../container.js';
+import { Syringe } from '../core.js';
+import { Register } from '../register.js';
 
 import { bindSingleton, bindTransient, bindLifecycle, isInversifyContext } from '.';
 

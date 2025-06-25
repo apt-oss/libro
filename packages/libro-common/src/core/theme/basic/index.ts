@@ -1,2 +1,2 @@
-export * from './variable-registry';
-export * from './variable-protocol';
+export * from './variable-registry.js';
+export * from './variable-protocol.js';

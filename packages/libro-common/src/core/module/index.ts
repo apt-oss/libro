@@ -1,3 +1,3 @@
-export * from './module-protocol';
-export * from './mana-module';
-export * from './mana-module-context';
+export * from './module-protocol.js';
+export * from './mana-module.js';
+export * from './mana-module-context.js';

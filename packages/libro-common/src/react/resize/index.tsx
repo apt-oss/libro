@@ -2,8 +2,8 @@
 import classnames from 'classnames';
 import * as React from 'react';
 
-import { defaultPrefixCls } from '../constant';
-import type { Layout } from '../layout/layout';
+import { defaultPrefixCls } from '../constant.js';
+import type { Layout } from '../layout/layout.js';
 
 export const RESIZE_LOCK = 'resize-lock';
 import './styles/index.less';

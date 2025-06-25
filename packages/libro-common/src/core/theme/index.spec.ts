@@ -2,10 +2,9 @@ import 'react';
 import assert from 'assert';
 
 import { Container } from '../../ioc/index.js';
+import { ApplicationModule } from '../index.js';
 
-import { ApplicationModule } from '../index';
-
-import { ThemeModule, ThemeService } from './index';
+import { ThemeModule, ThemeService } from './index.js';
 
 describe('theme', () => {
   it('#theme module load', () => {

@@ -1,23 +1,22 @@
 import type { Newable } from '../../common/index.js';
 import type { Syringe } from '../../ioc/index.js';
 import { registerSideOption } from '../../ioc/index.js';
+import type { ManaModule } from '../module/index.js';
+import { ManaContext } from '../module/index.js';
 
-import type { ManaModule } from '../module';
-import { ManaContext } from '../module';
-
-import { isWrapperViewComponent, ViewWrapper } from './view-container';
-import { ViewManager } from './view-manager';
-import type { SlotPreference, ViewPreference } from './view-protocol';
-import type { View } from './view-protocol';
-import { OriginViewComponent, ViewComponent } from './view-protocol';
-import { SlotPreferenceContribution } from './view-protocol';
+import { isWrapperViewComponent, ViewWrapper } from './view-container.js';
+import { ViewManager } from './view-manager.js';
+import type { SlotPreference, ViewPreference } from './view-protocol.js';
+import type { View } from './view-protocol.js';
+import { OriginViewComponent, ViewComponent } from './view-protocol.js';
+import { SlotPreferenceContribution } from './view-protocol.js';
 import {
   ViewDefineToken,
   ViewInstance,
   ViewOption,
   ViewFactory,
   ViewPreferenceContribution,
-} from './view-protocol';
+} from './view-protocol.js';
 
 export const createViewPreference = (...preferences: ViewPreference[]) => {
   return { token: ViewPreferenceContribution, useValue: preferences };

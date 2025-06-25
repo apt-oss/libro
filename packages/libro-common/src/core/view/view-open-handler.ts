@@ -2,12 +2,12 @@ import type { Event, MaybePromise, URI } from '../../common/index.js';
 import { Emitter } from '../../common/index.js';
 import { inject, postConstruct, singleton } from '../../ioc/index.js';
 
-import type { BaseView } from './default-view';
-import type { OpenHandler } from './open-handler';
-import { SlotViewManager } from './slot-view-manager';
-import { ViewManager } from './view-manager';
-import type { ViewOpenOption } from './view-protocol';
-import { RootSlotId } from './view-protocol';
+import type { BaseView } from './default-view.js';
+import type { OpenHandler } from './open-handler.js';
+import { SlotViewManager } from './slot-view-manager.js';
+import { ViewManager } from './view-manager.js';
+import type { ViewOpenOption } from './view-protocol.js';
+import { RootSlotId } from './view-protocol.js';
 
 export interface ViewOpenHandlerOptions extends ViewOpenOption {
   slot?: string;

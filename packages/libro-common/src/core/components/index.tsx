@@ -1,8 +1,8 @@
-import { ApplicationComponent } from './application';
-import { ContextComponent } from './context';
+import { ApplicationComponent } from './application.js';
+import { ContextComponent } from './context.js';
 
-export { ApplicationComponent } from './application';
-export { ContextComponent } from './context';
+export { ApplicationComponent } from './application.js';
+export { ContextComponent } from './context.js';
 
 export const ManaComponents = {
   Application: ApplicationComponent,

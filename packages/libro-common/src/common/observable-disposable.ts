@@ -1,5 +1,5 @@
-import type { Disposable } from './disposable';
-import type { Event } from './event';
+import type { Disposable } from './disposable.js';
+import type { Event } from './event.js';
 
 /**
  * A disposable object with an observable `disposed` signal.

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Syringe } from '../../ioc/index.js';
-
-import type { ManaModule } from '../module';
+import type { ManaModule } from '../module/index.js';
 
 export type DataContextContriburtionKey = string | symbol;
 export const DataContextContriburtion = Syringe.defineToken('DataContextContriburtion');

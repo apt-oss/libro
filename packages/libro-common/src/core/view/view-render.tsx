@@ -1,14 +1,15 @@
-import { useInject } from '../../observable/index.js';
 import type { ReactNode } from 'react';
 import { memo } from 'react';
 
-import { isWrapperViewComponent } from './view-container';
-import { ViewContext } from './view-context';
-import type { View } from './view-protocol';
-import { OriginViewComponent } from './view-protocol';
-import { ViewComponent } from './view-protocol';
+import { useInject } from '../../observable/index.js';
 
-// import { ViewManager } from './view-manager';
+import { isWrapperViewComponent } from './view-container.js';
+import { ViewContext } from './view-context.js';
+import type { View } from './view-protocol.js';
+import { OriginViewComponent } from './view-protocol.js';
+import { ViewComponent } from './view-protocol.js';
+
+// import { ViewManager } from './view-manager.js';
 
 export interface ViewRenderProps {
   view: View;

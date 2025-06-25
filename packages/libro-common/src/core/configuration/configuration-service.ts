@@ -1,16 +1,15 @@
 import { Emitter } from '../../common/index.js';
-import { getOrigin } from '../../observable/index.js';
 import type { Contribution } from '../../ioc/index.js';
 import { contrib, inject, singleton } from '../../ioc/index.js';
+import { getOrigin } from '../../observable/index.js';
+import { ApplicationContribution } from '../application/index.js';
 
-import { ApplicationContribution } from '../application';
-
-import { ConfigurationCache } from './configuration-cache';
-import type { ConfigurationNode } from './configuration-protocol';
-import { ConfigurationProvider } from './configuration-provider';
-import { ConfigurationRegistry } from './configuration-registry';
-import type { ConfigurationStorage } from './configuration-storage';
-import { SchemaValidator } from './validation';
+import { ConfigurationCache } from './configuration-cache.js';
+import type { ConfigurationNode } from './configuration-protocol.js';
+import { ConfigurationProvider } from './configuration-provider.js';
+import { ConfigurationRegistry } from './configuration-registry.js';
+import type { ConfigurationStorage } from './configuration-storage.js';
+import { SchemaValidator } from './validation.js';
 
 @singleton({ contrib: [ApplicationContribution] })
 export class ConfigurationService implements ApplicationContribution {

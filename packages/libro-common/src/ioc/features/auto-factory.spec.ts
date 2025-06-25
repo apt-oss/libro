@@ -1,10 +1,10 @@
 import assert from 'assert';
 
-import { GlobalContainer } from '../container';
-import { inject, singleton } from '../decorator';
+import { GlobalContainer } from '../container.js';
+import { inject, singleton } from '../decorator.js';
 
-import type { ToAutoFactory } from './auto-factory';
-import { autoFactory, AutoFactoryOption, toAutoFactory } from './auto-factory';
+import type { ToAutoFactory } from './auto-factory.js';
+import { autoFactory, AutoFactoryOption, toAutoFactory } from './auto-factory.js';
 
 describe('auto factory', () => {
   it('#decorator', async () => {

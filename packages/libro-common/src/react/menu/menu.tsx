@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import * as React from 'react';
 
-import { MenuContext } from './context';
-import { MenuDivider } from './divider';
-import { MenuItem } from './item';
-import { MenuSubMenu } from './submenu';
+import { MenuContext } from './context.js';
+import { MenuDivider } from './divider.js';
+import { MenuItem } from './item.js';
+import { MenuSubMenu } from './submenu.js';
 import './styles/index.less';
 
 export interface MenuProps {

@@ -4,9 +4,9 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { isMacintosh, isLinux, isWindows, isWeb } from '../../../common/index.js';
-import { localize } from '../../nls';
+import { localize } from '../../nls.js';
 
-import { RawContextKey } from './contextkey';
+import { RawContextKey } from './contextkey.js';
 
 export const IsMacContext = new RawContextKey<boolean>(
   'isMac',
@@ -44,7 +44,7 @@ export const IsDevelopmentContext = new RawContextKey<boolean>(
   true,
 );
 
-export const InputFocusedContextKey = 'inputFocus';
+export const InputFocusedContextKey = 'inputFocus.js';
 export const InputFocusedContext = new RawContextKey<boolean>(
   InputFocusedContextKey,
   false,

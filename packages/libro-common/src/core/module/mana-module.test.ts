@@ -2,8 +2,8 @@ import assert from 'assert';
 
 import { Container, singleton } from '../../ioc/index.js';
 
-import { ManaModule } from './mana-module';
-import { ManaContext } from './mana-module-context';
+import { ManaContext } from './mana-module-context.js';
+import { ManaModule } from './mana-module.js';
 
 describe('mana module', () => {
   it('name', async () => {

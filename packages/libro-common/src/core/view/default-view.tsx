@@ -1,11 +1,12 @@
-import type { Event } from '../../common/index.js';
-import { DisposableCollection, Emitter } from '../../common/index.js';
-import { prop } from '../../observable/index.js';
-import { transient } from '../../ioc/index.js';
 import * as React from 'react';
 
-import { ViewTitle } from './title';
-import type { View, ViewComponent, ViewSize } from './view-protocol';
+import type { Event } from '../../common/index.js';
+import { DisposableCollection, Emitter } from '../../common/index.js';
+import { transient } from '../../ioc/index.js';
+import { prop } from '../../observable/index.js';
+
+import { ViewTitle } from './title.js';
+import type { View, ViewComponent, ViewSize } from './view-protocol.js';
 
 let viewCount = 0;
 

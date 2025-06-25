@@ -3,7 +3,7 @@ import { Iterable } from '../../common/index.js';
 import { Emitter } from '../../common/index.js';
 import { singleton } from '../../ioc/index.js';
 
-import type { View } from './view-protocol';
+import type { View } from './view-protocol.js';
 
 /**
  * A class which tracks focus among a set of views.

@@ -1,11 +1,11 @@
-import { ObservableContext } from '../../observable/index.js';
-import type { Syringe } from '../../ioc/index.js';
 import * as React from 'react';
 
-import type { ManaContext } from '../module/mana-module-context';
-import { useMount } from '../utils/hooks';
+import type { Syringe } from '../../ioc/index.js';
+import { ObservableContext } from '../../observable/index.js';
+import type { ManaContext } from '../module/mana-module-context.js';
+import { useMount } from '../utils/hooks.js';
 
-import { useCreateManaContext } from './hooks';
+import { useCreateManaContext } from './hooks.js';
 
 export interface ContextProps {
   /**

@@ -3,18 +3,19 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-plusplus */
+import type { IWindowsKeyMapping } from 'native-keymap';
+
 import type { Event } from '../../common/index.js';
 import { Emitter, isWindows } from '../../common/index.js';
 import { inject, optional, singleton } from '../../ioc/index.js';
-import type { IWindowsKeyMapping } from 'native-keymap';
 
-import type { NativeKeyboardLayout } from './keyboard-protocol';
+import type { NativeKeyboardLayout } from './keyboard-protocol.js';
 import {
   KeyboardLayoutProvider,
   KeyboardLayoutChangeNotifier,
   KeyValidator,
-} from './keyboard-protocol';
-import { KeyCode, Key } from './keys';
+} from './keyboard-protocol.js';
+import { KeyCode, Key } from './keys.js';
 
 export type KeyboardLayout = {
   /**

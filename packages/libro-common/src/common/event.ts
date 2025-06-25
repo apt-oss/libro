@@ -1,7 +1,7 @@
-import { Disposable } from './disposable';
-import { LinkedList } from './linkedList';
-import type { MaybePromise } from './types';
-import { noop } from './utils';
+import { Disposable } from './disposable.js';
+import { LinkedList } from './linkedList.js';
+import type { MaybePromise } from './types.js';
+import { noop } from './utils.js';
 
 /**
  * Represents a typed event.

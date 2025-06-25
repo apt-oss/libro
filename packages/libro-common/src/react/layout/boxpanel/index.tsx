@@ -1,11 +1,11 @@
 import clsx from 'classnames';
 import * as React from 'react';
 
-import { defaultPrefixCls } from '../../constant';
-import { Layout } from '../layout';
+import { defaultPrefixCls } from '../../constant.js';
+import { Layout } from '../layout.js';
 
-import { BoxPanelContext } from './context';
-import { Pane } from './Pane';
+import { BoxPanelContext } from './context.js';
+import { Pane } from './Pane.js';
 import './styles/index.less';
 
 export interface BoxPanelProps {

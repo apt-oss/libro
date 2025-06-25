@@ -1,8 +1,8 @@
 import assert from 'assert';
 
-import { VscodeURI } from './vscode-uri';
+import { VscodeURI } from './vscode-uri/index.js';
 
-import { URI } from '.';
+import { URI } from './index.js';
 
 describe('URI', () => {
   it('#toSting', async () => {

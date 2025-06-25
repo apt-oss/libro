@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import type { URI, UriComponents } from './vscode-uri/uri';
+import type { URI, UriComponents } from './vscode-uri/uri.js';
 
 /**
  * @returns whether the provided parameter is a JavaScript Array or not.

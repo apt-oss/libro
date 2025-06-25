@@ -1,7 +1,7 @@
 import assert from 'assert';
 import 'reflect-metadata';
 
-import { prop, ObservableProperties, Observability, origin } from './index';
+import { prop, ObservableProperties, Observability, origin } from './index.js';
 
 describe('decorator', () => {
   it('#prop', () => {

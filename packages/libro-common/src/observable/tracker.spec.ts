@@ -11,7 +11,7 @@ import {
   Observability,
   Notifier,
   tryInvokeGetter,
-} from './index';
+} from './index.js';
 
 describe('Tracker', () => {
   it('#trackable', () => {

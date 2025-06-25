@@ -1,16 +1,15 @@
 import { Disposable, DisposableCollection } from '../../common/index.js';
 import type { Contribution } from '../../ioc/index.js';
 import { contrib, inject, singleton } from '../../ioc/index.js';
+import type { Application } from '../application/index.js';
+import { ApplicationContribution } from '../application/index.js';
 
-import type { Application } from '../application/index';
-import { ApplicationContribution } from '../application/index';
-
-import { VariableContribution } from './basic/variable-protocol';
-import { VariableRegistry } from './basic/variable-registry';
-import { ColorContribution } from './color/color-protocol';
-import { ColorRegistry } from './color/color-registry';
-import type { CssVariable } from './protocol';
-import { ThemeService } from './theme-service';
+import { VariableContribution } from './basic/variable-protocol.js';
+import { VariableRegistry } from './basic/variable-registry.js';
+import { ColorContribution } from './color/color-protocol.js';
+import { ColorRegistry } from './color/color-registry.js';
+import type { CssVariable } from './protocol.js';
+import { ThemeService } from './theme-service.js';
 
 @singleton({ contrib: ApplicationContribution })
 export class ThemeApplication implements ApplicationContribution {

@@ -4,8 +4,8 @@ import * as React from 'react';
 import './styles/index.less';
 import '../menu/styles/index.less';
 
-import { MenubarContext } from './context';
-import { MenubarItem } from './item';
+import { MenubarContext } from './context.js';
+import { MenubarItem } from './item.js';
 
 export interface MenubarProps {
   prefixCls?: string;

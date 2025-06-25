@@ -1,8 +1,8 @@
-import { Syringe } from '../core';
+import { Syringe } from '../core.js';
 
-import * as Contribution from './contribution-protocol';
-import type { Provider, Option } from './contribution-protocol';
-import { DefaultContributionProvider } from './contribution-provider';
+import * as Contribution from './contribution-protocol.js';
+import type { Provider, Option } from './contribution-protocol.js';
+import { DefaultContributionProvider } from './contribution-provider.js';
 
 export function contributionInjectOption(
   token: Syringe.DefinedToken,

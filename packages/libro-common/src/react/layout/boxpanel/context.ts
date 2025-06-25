@@ -1,5 +1,6 @@
 import * as React from 'react';
-import type { Layout } from '../layout';
+
+import type { Layout } from '../layout.js';
 
 export interface BoxPanelContextProps {
   direction: Layout.direction;

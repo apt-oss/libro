@@ -5,7 +5,7 @@ import assert from 'assert';
 import React, { useEffect } from 'react';
 import renderer, { act } from 'react-test-renderer';
 
-import { prop, useObserve, observable, useObservableState } from './index';
+import { prop, useObserve, observable, useObservableState } from './index.js';
 
 describe('use', () => {
   it('#useObserve basic ', (done) => {

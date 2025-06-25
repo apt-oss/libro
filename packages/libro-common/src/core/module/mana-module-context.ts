@@ -1,6 +1,6 @@
 import type { Syringe } from '../../ioc/index.js';
 
-import { ManaModule } from './mana-module';
+import { ManaModule } from './mana-module.js';
 
 export class ManaContext implements Syringe.Context {
   container: Syringe.Container;

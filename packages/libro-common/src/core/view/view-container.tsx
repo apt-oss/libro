@@ -1,17 +1,17 @@
-import { ObservableContext, useInject } from '../../observable/index.js';
-import type { Syringe } from '../../ioc/index.js';
 import * as React from 'react';
 
-import { useMount, useUnmount } from '../utils/hooks';
+import type { Syringe } from '../../ioc/index.js';
+import { ObservableContext, useInject } from '../../observable/index.js';
+import { useMount, useUnmount } from '../utils/hooks.js';
 
-import { useViewSize } from './hooks';
-import { isForwardRefComponent } from './utils';
-import type { View } from './view-protocol';
-import type { ViewComponent } from './view-protocol';
-import { OriginViewComponent } from './view-protocol';
-import { ViewInstance } from './view-protocol';
+import { useViewSize } from './hooks.js';
+import { isForwardRefComponent } from './utils.js';
+import type { View } from './view-protocol.js';
+import type { ViewComponent } from './view-protocol.js';
+import { OriginViewComponent } from './view-protocol.js';
+import { ViewInstance } from './view-protocol.js';
 
-import './index.less';
+import './index.less.js';
 
 interface ViewContainerProps {
   component: ViewComponent;
@@ -24,7 +24,7 @@ export const ViewContainer = React.forwardRef<HTMLDivElement, ViewContainerProps
     const { viewComponentProps = {}, children, component } = props;
     const viewInstance = useInject<View>(ViewInstance);
     const Component = component;
-    const className = viewInstance?.className ?? '';
+    const className = viewInstance?.className ?? '.js';
     useMount(() => {
       if (typeof containerRef === 'object') {
         viewInstance.container = containerRef;

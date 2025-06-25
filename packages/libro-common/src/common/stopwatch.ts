@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { globals } from './platform';
+import { globals } from './platform.js';
 
 const hasPerformanceNow =
   globals.performance && typeof globals.performance.now === 'function';

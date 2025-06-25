@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { isObject, isUndefinedOrNull, isArray } from './valueTypes';
+import { isObject, isUndefinedOrNull, isArray } from './valueTypes.js';
 
 export function deepClone<T>(obj: T): T {
   if (!obj || typeof obj !== 'object') {
@@ -181,7 +181,7 @@ export function safeStringify(obj: any): string {
   return JSON.stringify(obj, (_key, value) => {
     if (isObject(value) || Array.isArray(value)) {
       if (seen.has(value)) {
-        return '[Circular]';
+        return '[Circular].js';
       }
       seen.add(value);
     }

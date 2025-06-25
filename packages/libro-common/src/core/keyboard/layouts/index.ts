@@ -1,6 +1,6 @@
 
-import en_US_mac_data from './en-US-mac';
-import en_US_pc_data from './en-US-pc';
+import en_US_mac_data from './en-US-mac.js';
+import en_US_pc_data from './en-US-pc.js';
 
 export const en_US_mac = en_US_mac_data as any;
 export const en_US_pc = en_US_pc_data as any;

@@ -1,12 +1,11 @@
 import { inject, singleton } from '../../ioc/index.js';
+import { ApplicationContribution } from '../application/index.js';
 
-import { ApplicationContribution } from '../application';
-
-import { SlotViewManager } from './slot-view-manager';
-import { ViewManager } from './view-manager';
-import type { ViewPreference } from './view-protocol';
-import { RootViewId } from './view-protocol';
-import { ViewStorage } from './view-storage';
+import { SlotViewManager } from './slot-view-manager.js';
+import { ViewManager } from './view-manager.js';
+import type { ViewPreference } from './view-protocol.js';
+import { RootViewId } from './view-protocol.js';
+import { ViewStorage } from './view-storage.js';
 
 @singleton({ contrib: ApplicationContribution })
 export class ViewApplication implements ApplicationContribution {

@@ -1,7 +1,7 @@
 import { Event } from '../../common/index.js';
 import { singleton } from '../../ioc/index.js';
 
-import type { WindowService } from './application-protocol';
+import type { WindowService } from './application-protocol.js';
 
 @singleton()
 export class MockWindowService implements WindowService {

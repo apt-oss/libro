@@ -1,6 +1,7 @@
-import { isWeb } from './app';
 import { posix } from 'path-browserify';
 import urlparse from 'url-parse';
+
+import { isWeb } from './app/index.js';
 
 /**
  * The namespace for URL-related functions.

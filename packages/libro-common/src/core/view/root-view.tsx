@@ -1,15 +1,15 @@
-import { timeout } from '../../common/index.js';
-import { prop, useInject } from '../../observable/index.js';
-import { inject, singleton } from '../../ioc/index.js';
 import * as React from 'react';
 
-import { ApplicationState, ApplicationStateService } from '../application';
-import { parseCssTime } from '../browser';
+import { timeout } from '../../common/index.js';
+import { inject, singleton } from '../../ioc/index.js';
+import { prop, useInject } from '../../observable/index.js';
+import { ApplicationState, ApplicationStateService } from '../application/index.js';
+import { parseCssTime } from '../browser.js';
 
-import { view } from './decorator';
-import { BaseView } from './default-view';
-import { Slot } from './slot';
-import { RootSlotId, RootViewId, ViewInstance } from './view-protocol';
+import { view } from './decorator.js';
+import { BaseView } from './default-view.js';
+import { Slot } from './slot.js';
+import { RootSlotId, RootViewId, ViewInstance } from './view-protocol.js';
 
 export const RootComponents = Symbol('RootViewComponent');
 export interface RootComponents {

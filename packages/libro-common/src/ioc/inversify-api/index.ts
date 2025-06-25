@@ -1,9 +1,9 @@
 import type { interfaces } from 'inversify';
 import { Container } from 'inversify';
 
-import { Syringe, Utils } from '../core';
+import { Syringe, Utils } from '../core.js';
 
-import type { InversifyContext } from './inversify-protocol';
+import type { InversifyContext } from './inversify-protocol.js';
 
 export function bindSingleton<T>(
   toBind: interfaces.BindingInSyntax<T>,

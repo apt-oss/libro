@@ -2,9 +2,9 @@
 /* eslint-disable prefer-spread */
 import { isPlainObject } from '../common/index.js';
 
-import { ObservableSymbol } from './core';
-import { Notifier } from './notifier';
-import { isReadonly, Observability } from './utils';
+import { ObservableSymbol } from './core.js';
+import { Notifier } from './notifier.js';
+import { isReadonly, Observability } from './utils.js';
 
 export interface Notifiable {
   [ObservableSymbol.Notifier]: Notifier;

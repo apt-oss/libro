@@ -1,4 +1,4 @@
-import { defaultPrefixCls } from '../constant';
+import { defaultPrefixCls } from '../constant.js';
 
 export type NotificationPlacement =
   | 'top'

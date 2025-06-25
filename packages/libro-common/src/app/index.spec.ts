@@ -7,7 +7,7 @@ import {
   FileTreeView,
   ToolbarRender,
   MenuRender,
-} from './index';
+} from './index.js';
 
 describe('app', () => {
   it('#app import', () => {

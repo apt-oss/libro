@@ -8,7 +8,7 @@ import {
   ObservableProperties,
   Observability,
   InstanceValue,
-} from './index';
+} from './index.js';
 
 describe('utils', () => {
   it('#Observability', () => {

@@ -1,3 +1,3 @@
-export * from './tree-view';
-export * from './tree-view-decorator';
-export * from './tree-view-module';
+export * from './tree-view.js';
+export * from './tree-view-decorator.js';
+export * from './tree-view-module.js';

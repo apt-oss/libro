@@ -1,11 +1,10 @@
 import type { Event } from '../../common/index.js';
 import { isPromiseLike } from '../../common/index.js';
 import { Emitter, Disposable, objects } from '../../common/index.js';
-import { prop } from '../../observable/index.js';
 import { singleton } from '../../ioc/index.js';
-
-import { localStorageService } from '../common';
-import type { StorageService } from '../common';
+import { prop } from '../../observable/index.js';
+import { localStorageService } from '../common/index.js';
+import type { StorageService } from '../common/index.js';
 
 import './style/theme-base.less';
 

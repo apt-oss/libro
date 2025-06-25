@@ -2,23 +2,22 @@ import type { MaybePromise } from '../../common/index.js';
 import { Disposable } from '../../common/index.js';
 import type { Contribution } from '../../ioc/index.js';
 import { contrib, inject, singleton, Syringe } from '../../ioc/index.js';
-
-import { ApplicationContribution } from '../application/application';
-import { CommandRegistry } from '../command/command-registry';
+import { ApplicationContribution } from '../application/application.js';
+import { CommandRegistry } from '../command/command-registry.js';
 
 import type {
   MenuOptions,
   MenuPath,
   ActionMenuNode,
   GeneralMenuItem,
-} from './menu-protocol';
-import { CommandMenuNode, ExecutableMenuNode } from './menu-protocol';
+} from './menu-protocol.js';
+import { CommandMenuNode, ExecutableMenuNode } from './menu-protocol.js';
 import {
   GeneralMenuItemFactory,
   MenuNode,
   MenuItem,
   ActionMenuItemFactory,
-} from './menu-protocol';
+} from './menu-protocol.js';
 
 export const MenuContribution = Syringe.defineToken('MenuContribution');
 

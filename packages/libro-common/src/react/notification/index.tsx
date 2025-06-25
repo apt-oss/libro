@@ -1,18 +1,18 @@
 import React, { forwardRef, useEffect } from 'react';
 
-import { defaultPrefixCls } from '../constant';
+import { defaultPrefixCls } from '../constant.js';
 
 import type {
   NotificationArgsProps,
   GlobalConfigProps,
   NotificationInstance,
-} from './protocol';
-import PurePanel from './pure-panel';
-import { render } from './render';
-import { useInternalNotification } from './use-notification';
-import './style';
+} from './protocol.js';
+import PurePanel from './pure-panel.js';
+import { render } from './render.js';
+import { useInternalNotification } from './use-notification.js';
+import './style/index.js';
 
-export type { NotificationArgsProps } from './protocol';
+export type { NotificationArgsProps } from './protocol.js';
 
 let globalNotification: GlobalNotification | null = null;
 

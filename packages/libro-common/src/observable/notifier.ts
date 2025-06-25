@@ -2,12 +2,12 @@
 import type { Disposable } from '../common/index.js';
 import { Event } from '../common/index.js';
 
-import { AsyncEmitter } from './async-event';
-import { ObservableConfig } from './config';
-import type { Notify } from './core';
-import { ObservableSymbol } from './core';
-import { Notifiable } from './notifiable';
-import { Observability } from './utils';
+import { AsyncEmitter } from './async-event.js';
+import { ObservableConfig } from './config.js';
+import type { Notify } from './core.js';
+import { ObservableSymbol } from './core.js';
+import { Notifiable } from './notifiable.js';
+import { Observability } from './utils.js';
 
 export interface Notification<T = any> {
   target: T;

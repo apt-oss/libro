@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'react';
 
-import { Tracker } from './tracker';
-import { Observability } from './utils';
+import { Tracker } from './tracker.js';
+import { Observability } from './utils.js';
 
 interface Action<T> {
   key: keyof T;

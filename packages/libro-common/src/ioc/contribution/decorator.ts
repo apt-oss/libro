@@ -1,7 +1,7 @@
-import type { Syringe } from '../core';
-import { inject, named } from '../decorator';
+import type { Syringe } from '../core.js';
+import { inject, named } from '../decorator.js';
 
-import { Provider } from './contribution-protocol';
+import { Provider } from './contribution-protocol.js';
 
 export const contrib =
   (token: Syringe.Named) =>

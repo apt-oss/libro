@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { getPropertyDescriptor, isPlainObject } from '../common/index.js';
 
-import { ObservableSymbol } from './core';
-import { Notifiable } from './notifiable';
-import { Notifier } from './notifier';
-import { observable } from './observable';
-import { Observability } from './utils';
+import { ObservableSymbol } from './core.js';
+import { Notifiable } from './notifiable.js';
+import { Notifier } from './notifier.js';
+import { observable } from './observable.js';
+import { Observability } from './utils.js';
 
 type Act = (...args: any) => void;
 

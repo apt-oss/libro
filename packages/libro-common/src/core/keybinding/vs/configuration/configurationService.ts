@@ -6,32 +6,31 @@
 import { Emitter } from '../../../../common/index.js';
 import type { Event } from '../../../../common/index.js';
 import { singleton } from '../../../../ioc/index.js';
-
-import type { IDisposable } from '../../../utils/lifecycle';
-import { VSDisposable } from '../../../utils/lifecycle';
-import { Registry } from '../platform';
+import type { IDisposable } from '../../../utils/lifecycle.js';
+import { VSDisposable } from '../../../utils/lifecycle.js';
+import { Registry } from '../platform.js';
 
 import {
   ConfigurationTarget,
   isConfigurationOverrides,
   IConfigurationService,
-} from './configuration';
+} from './configuration.js';
 import type {
   IConfigurationChangeEvent,
   IConfigurationOverrides,
   IConfigurationData,
   IConfigurationValue,
   IConfigurationChange,
-} from './configuration';
+} from './configuration.js';
 import {
   DefaultConfigurationModel,
   Configuration,
   ConfigurationModel,
   ConfigurationChangeEvent,
   UserSettings,
-} from './configurationModels';
-import { Extensions } from './configurationRegistry';
-import type { IConfigurationRegistry } from './configurationRegistry';
+} from './configurationModels.js';
+import { Extensions } from './configurationRegistry.js';
+import type { IConfigurationRegistry } from './configurationRegistry.js';
 
 @singleton({ contrib: IConfigurationService })
 export class ConfigurationService

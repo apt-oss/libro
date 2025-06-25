@@ -1,6 +1,6 @@
 import assert from 'assert';
 
-import { toArray } from './index';
+import { toArray } from './index.js';
 
 describe('Types util', () => {
   it('#toArray array', async () => {

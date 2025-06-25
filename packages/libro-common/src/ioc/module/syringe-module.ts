@@ -3,11 +3,11 @@
 import type { interfaces } from 'inversify';
 import { ContainerModule } from 'inversify';
 
-import { contributionInjectOption } from '../contribution/contribution-register';
-import type { Syringe } from '../core';
-import { Utils } from '../core';
-import type { InversifyRegister } from '../inversify-api';
-import { Register } from '../register';
+import { contributionInjectOption } from '../contribution/contribution-register.js';
+import type { Syringe } from '../core.js';
+import { Utils } from '../core.js';
+import type { InversifyRegister } from '../inversify-api/index.js';
+import { Register } from '../register.js';
 
 type TokenOrOption<T> = Syringe.Token<T> | Syringe.InjectOption<T>;
 

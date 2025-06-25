@@ -1,14 +1,15 @@
-import type { Newable } from '../../common/index.js';
-import { useInject, getOrigin } from '../../observable/index.js';
 import type { ReactNode } from 'react';
 import { useEffect } from 'react';
 import { memo } from 'react';
 
-import { SlotViewManager } from './slot-view-manager';
-import { ViewInstance } from './view-protocol';
-import type { View } from './view-protocol';
-import type { SlotView } from './view-protocol';
-import { ViewRender } from './view-render';
+import type { Newable } from '../../common/index.js';
+import { useInject, getOrigin } from '../../observable/index.js';
+
+import { SlotViewManager } from './slot-view-manager.js';
+import { ViewInstance } from './view-protocol.js';
+import type { View } from './view-protocol.js';
+import type { SlotView } from './view-protocol.js';
+import { ViewRender } from './view-render.js';
 
 export interface Props {
   name: string;

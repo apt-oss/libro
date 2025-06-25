@@ -1,8 +1,8 @@
 import assert from 'assert';
 
-import { register, GlobalContainer } from './container';
-import { singleton } from './decorator';
-import { registerSideOption } from './side-option';
+import { register, GlobalContainer } from './container.js';
+import { singleton } from './decorator.js';
+import { registerSideOption } from './side-option.js';
 
 describe('side option', () => {
   it('#side register', () => {

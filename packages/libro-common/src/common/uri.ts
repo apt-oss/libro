@@ -1,5 +1,5 @@
-import { Path } from './path';
-import { URI as Uri } from './vscode-uri/uri';
+import { Path } from './path.js';
+import { URI as Uri } from './vscode-uri/uri.js';
 
 export class URI {
   private readonly codeUri: Uri;
@@ -42,7 +42,7 @@ export class URI {
     if (this.path.isRoot) {
       return this.path.toString();
     }
-    return '';
+    return '.js';
   }
 
   get scheme(): string {

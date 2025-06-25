@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ObservableConfig } from './config';
-import { Notifiable } from './notifiable';
-import { Notifier } from './notifier';
-import { InstanceValue, ObservableProperties, Observability } from './utils';
+import { ObservableConfig } from './config.js';
+import { Notifiable } from './notifiable.js';
+import { Notifier } from './notifier.js';
+import { InstanceValue, ObservableProperties, Observability } from './utils.js';
 
 const propertyRelatedNotifier = Symbol('propertyRelatedNotifier');
 

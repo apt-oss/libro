@@ -1,13 +1,12 @@
 import 'react';
 import assert from 'assert';
 
-import { Container } from '../../ioc/index.js';
+import { Container } from '../../../ioc/index.js';
+import { ThemeService } from '../theme-service.js';
 
-import { ThemeService } from '../theme-service';
-
-import { AntdColorContribution } from './antd-color-contribution';
-import { ColorRegistry } from './color-registry';
-import { DefaultColorContribution } from './default-color-contribution';
+import { AntdColorContribution } from './antd-color-contribution.js';
+import { ColorRegistry } from './color-registry.js';
+import { DefaultColorContribution } from './default-color-contribution.js';
 
 describe('theme color', () => {
   it('#antd color', () => {

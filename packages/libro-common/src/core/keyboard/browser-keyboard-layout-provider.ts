@@ -2,19 +2,18 @@ import type { Event } from '../../common/index.js';
 import { Deferred, Emitter } from '../../common/index.js';
 import { isOSX } from '../../common/index.js';
 import { inject, postConstruct, singleton } from '../../ioc/index.js';
-
-import { LocalStorageService } from '../common';
+import { LocalStorageService } from '../common/index.js';
 
 import {
   KeyboardLayoutProvider,
   KeyboardLayoutChangeNotifier,
-} from './keyboard-protocol';
+} from './keyboard-protocol.js';
 import type {
   KeyValidationInput,
   KeyValidator,
   NativeKeyboardLayout,
-} from './keyboard-protocol';
-import { layoutRawDataLoader, en_US_mac, en_US_pc } from './layouts';
+} from './keyboard-protocol.js';
+import { layoutRawDataLoader, en_US_mac, en_US_pc } from './layouts/index.js';
 
 export type KeyboardLayoutSource =
   | 'navigator.keyboard'

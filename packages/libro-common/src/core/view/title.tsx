@@ -1,9 +1,10 @@
-import { prop } from '../../observable/index.js';
-import { transient } from '../../ioc/index.js';
 import type * as React from 'react';
 
-import type { View } from './view-protocol';
-import type { Title } from './view-protocol';
+import { transient } from '../../ioc/index.js';
+import { prop } from '../../observable/index.js';
+
+import type { View } from './view-protocol.js';
+import type { Title } from './view-protocol.js';
 
 @transient()
 export class ViewTitle implements Title<View> {

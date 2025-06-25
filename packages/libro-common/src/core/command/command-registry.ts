@@ -4,11 +4,11 @@ import {
   Disposable,
   DisposableCollection,
 } from '../../common/index.js';
-import { prop } from '../../observable/index.js';
 import type { Contribution } from '../../ioc/index.js';
 import { Syringe } from '../../ioc/index.js';
 import { contrib, singleton } from '../../ioc/index.js';
-import { ApplicationContribution } from '../application/application';
+import { prop } from '../../observable/index.js';
+import { ApplicationContribution } from '../application/application.js';
 
 import type {
   CommandEvent,
@@ -19,8 +19,8 @@ import type {
   VisibleHandler,
   WillExecuteCommandEvent,
   ExecuteHandler,
-} from './command-protocol';
-import { Command, CommandService } from './command-protocol';
+} from './command-protocol.js';
+import { Command, CommandService } from './command-protocol.js';
 
 export const CommandContribution = Syringe.defineToken('CommandContribution');
 /**

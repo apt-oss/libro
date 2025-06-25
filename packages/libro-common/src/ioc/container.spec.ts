@@ -1,9 +1,9 @@
 import assert from 'assert';
 
-import { register, GlobalContainer, Container } from './container';
-import { Syringe } from './core';
-import { singleton, transient, injectable } from './decorator';
-import { Module } from './module';
+import { register, GlobalContainer, Container } from './container.js';
+import { Syringe } from './core.js';
+import { singleton, transient, injectable } from './decorator.js';
+import { Module } from './module/index.js';
 
 describe('container', () => {
   describe('default', () => {

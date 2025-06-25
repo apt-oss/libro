@@ -1,4 +1,4 @@
-import { ResizeHandleVertical, ResizeHandleHorizontal } from '../resize/index';
+import { ResizeHandleVertical, ResizeHandleHorizontal } from '../resize/index.js';
 
 const flexDirectionMap: Record<
   string,

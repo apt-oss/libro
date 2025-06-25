@@ -1,9 +1,9 @@
 import type { Disposable } from '../../../common/index.js';
 import { singleton } from '../../../ioc/index.js';
-import { BaseVariableRegistry } from '../base-variable-registry';
-import type { VariableDefinition } from '../protocol';
+import { BaseVariableRegistry } from '../base-variable-registry.js';
+import type { VariableDefinition } from '../protocol.js';
 
-import * as VSColor from './color';
+import * as VSColor from './color.js';
 
 /**
  * Either be a reference to an existing color or a color value as a hex string, rgba, or hsla.

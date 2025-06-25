@@ -1,4 +1,4 @@
-import { Observability, ObservableProperties } from './utils';
+import { Observability, ObservableProperties } from './utils.js';
 
 /**
  * Define observable property

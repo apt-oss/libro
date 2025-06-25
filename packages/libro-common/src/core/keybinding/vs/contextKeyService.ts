@@ -7,18 +7,18 @@ import type { Emitter, Event } from '../../../common/index.js';
 import { Iterable } from '../../../common/index.js';
 import { PauseableEmitter } from '../../../common/index.js';
 import { objects } from '../../../common/index.js';
-import { prop } from '../../../observable/index.js';
 import { inject, injectable, singleton } from '../../../ioc/index.js';
-import type { CommandRegistry } from '../../command/index';
-import type { CommandContribution } from '../../command/index';
-import { DisposableStore, MutableDisposable } from '../../utils';
-import type { IDisposable } from '../../utils/index';
-import { TernarySearchTree } from '../../utils/map';
+import { prop } from '../../../observable/index.js';
+import type { CommandRegistry } from '../../command/index.js';
+import type { CommandContribution } from '../../command/index.js';
+import { DisposableStore, MutableDisposable } from '../../utils/index.js';
+import type { IDisposable } from '../../utils/index.js';
+import { TernarySearchTree } from '../../utils/map.js';
 
 import {
   ConfigurationTarget,
   IConfigurationService,
-} from './configuration/configuration';
+} from './configuration/configuration.js';
 import type {
   IContext,
   IContextKeyChangeEvent,
@@ -27,12 +27,12 @@ import type {
   ContextKeyExpression,
   ContextKeyInfo,
   IContextKey,
-} from './contextkey';
+} from './contextkey.js';
 import {
   SET_CONTEXT_COMMAND_ID,
   RawContextKey,
   IContextKeyService,
-} from './contextkey';
+} from './contextkey.js';
 
 const KEYBINDING_CONTEXT_ATTR = 'data-mana-keybinding-context';
 

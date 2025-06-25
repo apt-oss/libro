@@ -2,13 +2,12 @@ import type { MaybePromise } from '../../common/index.js';
 import { DisposableCollection } from '../../common/index.js';
 import type { Contribution } from '../../ioc/index.js';
 import { contrib, inject, singleton, Syringe } from '../../ioc/index.js';
+import { ApplicationContribution } from '../application/index.js';
 
-import { ApplicationContribution } from '../application/index';
-
-import type { ConfigurationNode } from './configuration-protocol';
-import type { ConfigurationStorage } from './configuration-storage';
-import { DefaultConfigurationStorage } from './configuration-storage';
-import { SchemaValidator } from './validation';
+import type { ConfigurationNode } from './configuration-protocol.js';
+import type { ConfigurationStorage } from './configuration-storage.js';
+import { DefaultConfigurationStorage } from './configuration-storage.js';
+import { SchemaValidator } from './validation.js';
 
 export const ConfigurationContribution = Syringe.defineToken(
   'ConfigurationContribution',

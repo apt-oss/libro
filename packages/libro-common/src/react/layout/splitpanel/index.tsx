@@ -5,8 +5,8 @@ import * as React from 'react';
 
 import { Emitter } from '../../../common/index.js';
 import { defaultPrefixCls } from '../../constant.js';
-import type { IResizeHandleDelegate } from '../../resize/index';
-import { ResizeFlexMode } from '../../resize/index';
+import type { IResizeHandleDelegate } from '../../resize/index.js';
+import { ResizeFlexMode } from '../../resize/index.js';
 import { Layout } from '../layout.js';
 
 import { SplitPanelContext } from './context.js';

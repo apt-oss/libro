@@ -1,8 +1,8 @@
-import { ManaModule } from '../module';
+import { ManaModule } from '../module/index.js';
 
-import { DefaultToolbarItem } from './default-toolbar-item';
-import { ToolbarNode, ToolbarItemFactory } from './toolbar-protocol';
-import { ToolbarRegistry, ToolbarContribution } from './toolbar-registry';
+import { DefaultToolbarItem } from './default-toolbar-item.js';
+import { ToolbarNode, ToolbarItemFactory } from './toolbar-protocol.js';
+import { ToolbarRegistry, ToolbarContribution } from './toolbar-registry.js';
 
 export const CoreToolbarModule = ManaModule.create()
   .contribution(ToolbarContribution)
@@ -18,6 +18,6 @@ export const CoreToolbarModule = ManaModule.create()
     },
   });
 
-export * from './toolbar-protocol';
-export * from './toolbar-registry';
-export * from './default-toolbar-item';
+export * from './toolbar-protocol.js';
+export * from './toolbar-registry.js';
+export * from './default-toolbar-item.js';

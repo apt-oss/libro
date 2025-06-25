@@ -1,5 +1,5 @@
-import { CancellationToken, cancelled } from './cancellation';
-import { Deferred } from './deferred';
+import { CancellationToken, cancelled } from './cancellation.js';
+import { Deferred } from './deferred.js';
 
 /**
  * @returns resolves after a specified number of milliseconds

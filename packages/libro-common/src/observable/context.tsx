@@ -1,7 +1,7 @@
 import { createContext, useContext, useMemo } from 'react';
 
-import type { Observable } from './core';
-import { useObserve } from './hooks';
+import type { Observable } from './core.js';
+import { useObserve } from './hooks.js';
 
 export type ContextConfig<T> = {
   context: T;

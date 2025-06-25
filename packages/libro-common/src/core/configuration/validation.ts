@@ -1,8 +1,9 @@
-import { getOrigin } from '../../observable/index.js';
-import { singleton } from '../../ioc/index.js';
 import Ajv from 'ajv';
 
-import type { ConfigurationNode } from './configuration-protocol';
+import { singleton } from '../../ioc/index.js';
+import { getOrigin } from '../../observable/index.js';
+
+import type { ConfigurationNode } from './configuration-protocol.js';
 
 @singleton()
 export class SchemaValidator {

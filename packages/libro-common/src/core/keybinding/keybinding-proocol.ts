@@ -1,6 +1,6 @@
 import { Syringe } from '../../ioc/index.js';
 
-import type { KeybindingRegistry } from './keybinding';
+import type { KeybindingRegistry } from './keybinding.js';
 
 export const KeybindingContribution = Syringe.defineToken('KeybindingContribution');
 /**

@@ -2,7 +2,7 @@ import assert from 'assert';
 
 import { injectable } from 'inversify';
 
-import { Syringe, Utils } from './core';
+import { Syringe, Utils } from './core.js';
 
 describe('register helper', () => {
   describe('option parser', () => {

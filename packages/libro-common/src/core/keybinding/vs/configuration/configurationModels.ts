@@ -8,9 +8,8 @@ import { types } from '../../../../common/index.js';
 import { objects } from '../../../../common/index.js';
 import type { URI } from '../../../../common/index.js';
 import type { Event } from '../../../../common/index.js';
-
-import { getOrSet, ResourceMap, VSDisposable } from '../../../utils';
-import { Registry } from '../platform';
+import { getOrSet, ResourceMap, VSDisposable } from '../../../utils/index.js';
+import { Registry } from '../platform.js';
 
 import {
   addToValueTree,

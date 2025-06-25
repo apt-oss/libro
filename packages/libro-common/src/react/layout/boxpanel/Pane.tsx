@@ -1,9 +1,9 @@
 import clsx from 'classnames';
 import * as React from 'react';
 
-import { Layout } from '../layout';
+import { Layout } from '../layout.js';
 
-import { BoxPanelContext } from './context';
+import { BoxPanelContext } from './context.js';
 import './styles/index.less';
 
 export interface PaneProps {

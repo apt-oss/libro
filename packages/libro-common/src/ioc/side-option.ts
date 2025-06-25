@@ -1,4 +1,4 @@
-import type { Syringe } from './core';
+import type { Syringe } from './core.js';
 
 export const OptionSymbol = Symbol.for('SyringeSideOption');
 export const registerSideOption = <

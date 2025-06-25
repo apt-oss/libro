@@ -4,7 +4,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { locale } from './platform';
+import { locale } from './platform.js';
 /**
  * forked from vscode l10n
  */

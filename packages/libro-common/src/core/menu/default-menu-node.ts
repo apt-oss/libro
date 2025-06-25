@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import type { Disposable, Event } from '../../common/index.js';
 import { Emitter } from '../../common/index.js';
-import { getOrigin, prop } from '../../observable/index.js';
 import { inject, transient } from '../../ioc/index.js';
+import { getOrigin, prop } from '../../observable/index.js';
+import { CommandRegistry } from '../command/command-registry.js';
+import { renderNode } from '../view/utils.js';
 
-import { CommandRegistry } from '../command/command-registry';
-import { renderNode } from '../view/utils';
-
-import { CommandMenuNode, ExecutableMenuNode, MenuSymbol } from './menu-protocol';
-import type { MenuItem, MenuPath, ActionMenuNode, MenuNode } from './menu-protocol';
+import { CommandMenuNode, ExecutableMenuNode, MenuSymbol } from './menu-protocol.js';
+import type { MenuItem, MenuPath, ActionMenuNode, MenuNode } from './menu-protocol.js';
 
 /**
  * Node representing a (sub)menu in the menu tree structure.

@@ -1,6 +1,5 @@
 import { useInject } from '../../observable/index.js';
-
-import { ViewManager, ViewRender } from '../view';
+import { ViewManager, ViewRender } from '../view/index.js';
 
 export const RootViewRender = (props: { loading: JSX.Element | null }) => {
   const { loading } = props;

@@ -6,8 +6,8 @@
 import type { Event } from '../../../common/index.js';
 import { Emitter } from '../../../common/index.js';
 
-import type { IJSONSchema } from './jsonSchema';
-import * as platform from './platform';
+import type { IJSONSchema } from './jsonSchema.js';
+import * as platform from './platform.js';
 
 export const Extensions = {
   JSONContribution: 'base.contributions.json',

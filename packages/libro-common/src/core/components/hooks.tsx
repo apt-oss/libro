@@ -1,9 +1,9 @@
-import { ObservableContext } from '../../observable/index.js';
-import type { Syringe } from '../../ioc/index.js';
-import { GlobalContainer } from '../../ioc/index.js';
 import * as React from 'react';
 
-import { ManaContext } from '../module/mana-module-context';
+import type { Syringe } from '../../ioc/index.js';
+import { GlobalContainer } from '../../ioc/index.js';
+import { ObservableContext } from '../../observable/index.js';
+import { ManaContext } from '../module/mana-module-context.js';
 
 export const useCreateManaContext = (
   context: Syringe.Context | undefined,

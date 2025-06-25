@@ -2,18 +2,17 @@
 import type { MaybePromise, Event, Newable, Disposable } from '../../common/index.js';
 import { DisposableCollection } from '../../common/index.js';
 import { Priority, Emitter } from '../../common/index.js';
-import { prop } from '../../observable/index.js';
 import type { Contribution } from '../../ioc/index.js';
 import { contrib, inject, singleton } from '../../ioc/index.js';
+import { prop } from '../../observable/index.js';
+import { DebugService } from '../common/debug.js';
+import type { ManaContext } from '../module/index.js';
 
-import { DebugService } from '../common/debug';
-import type { ManaContext } from '../module';
-
-import { ViewMeta } from './view-meta';
-import type { ViewPreference, View } from './view-protocol';
-import type { SlotView } from './view-protocol';
-import { ViewDefineToken } from './view-protocol';
-import { ViewFactory, ViewPreferenceContribution } from './view-protocol';
+import { ViewMeta } from './view-meta.js';
+import type { ViewPreference, View } from './view-protocol.js';
+import type { SlotView } from './view-protocol.js';
+import { ViewDefineToken } from './view-protocol.js';
+import { ViewFactory, ViewPreferenceContribution } from './view-protocol.js';
 
 export interface ViewCreateOptions {
   factoryId: string;

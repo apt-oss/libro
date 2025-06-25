@@ -4,7 +4,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { CharCode } from './charCode';
+import { CharCode } from './charCode.js';
 
 export function isFalsyOrWhitespace(str: string | undefined): boolean {
   if (!str || typeof str !== 'string') {

@@ -1,7 +1,7 @@
 import type { URI } from '../../common/index.js';
 
-import { BaseView } from './default-view';
-import type { View } from './view-protocol';
+import { BaseView } from './default-view.js';
+import type { View } from './view-protocol.js';
 
 /**
  * `Navigatable` provides an access to an URI of an underlying instance of `Resource`.
@@ -37,13 +37,13 @@ export namespace NavigatableView {
 }
 
 export interface NavigatableViewOptions {
-  kind: 'navigatable';
+  kind: 'navigatable.js';
   uri: string;
   counter?: number;
 }
 export namespace NavigatableWidgetOptions {
   export function is(arg: Record<any, any> | undefined): arg is NavigatableViewOptions {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return !!arg && 'kind' in arg && (arg as any).kind === 'navigatable';
+    return !!arg && 'kind' in arg && (arg as any).kind === 'navigatable.js';
   }
 }

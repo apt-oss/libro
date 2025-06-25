@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { MenuContext } from './context';
-import type { MenuItemProps } from './item';
-import { getProps, getContent } from './item';
+import { MenuContext } from './context.js';
+import type { MenuItemProps } from './item.js';
+import { getProps, getContent } from './item.js';
 import './styles/index.less';
 
 const noop = () => {

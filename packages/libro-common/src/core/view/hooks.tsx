@@ -1,9 +1,9 @@
 import { useLayoutEffect } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
 
-import { useLatest } from '../utils/index';
+import { useLatest } from '../utils/index.js';
 
-import type { View } from './view-protocol';
+import type { View } from './view-protocol.js';
 
 export type Size = { width?: number; height?: number };
 

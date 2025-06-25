@@ -1,6 +1,6 @@
 import assert from 'assert';
 
-import { prop, Notifier, observable } from './index';
+import { prop, Notifier, observable } from './index.js';
 
 describe('tracker', () => {
   it('#create tracker', () => {

@@ -1,2 +1,2 @@
-export * from './color-registry';
-export * from './color-protocol';
+export * from './color-registry.js';
+export * from './color-protocol.js';

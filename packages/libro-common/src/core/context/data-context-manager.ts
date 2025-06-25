@@ -1,10 +1,12 @@
 import type { Contribution, Syringe } from '../../ioc/index.js';
 import { contrib, inject, singleton } from '../../ioc/index.js';
+import { ManaContext } from '../module/index.js';
 
-import { ManaContext } from '../module';
-
-import type { DataContextContriburtionKey } from './data-context-protocol';
-import { DataContextContriburtion, DataContextSymbol } from './data-context-protocol';
+import type { DataContextContriburtionKey } from './data-context-protocol.js';
+import {
+  DataContextContriburtion,
+  DataContextSymbol,
+} from './data-context-protocol.js';
 
 @singleton()
 export class DataContextManager {

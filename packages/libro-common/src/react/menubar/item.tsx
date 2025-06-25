@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import * as ReactDom from 'react-dom';
 
-import { MenubarContext } from './context';
+import { MenubarContext } from './context.js';
 
 function stopPropagation(e: MouseEvent) {
   e.stopPropagation();

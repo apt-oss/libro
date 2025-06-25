@@ -1,6 +1,5 @@
 import type { Event, MaybePromise } from '../../common/index.js';
-
-import type { View } from '..';
+import type { View } from '../index.js';
 
 export interface Saveable {
   readonly dirty: boolean;

@@ -5,7 +5,7 @@ import RcTabs, { TabPane } from 'rc-tabs';
 import type { EditableConfig } from 'rc-tabs/lib/interface';
 import * as React from 'react';
 
-import { getPrefixCls } from '../util';
+import { getPrefixCls } from '../util.js';
 import './styles/index.less';
 
 export type { TabPaneProps } from 'rc-tabs';

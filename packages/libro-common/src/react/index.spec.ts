@@ -1,7 +1,7 @@
 import 'react';
 import assert from 'assert';
 
-import { Tabs, Dropdown, Menu, Menubar } from './index';
+import { Tabs, Dropdown, Menu, Menubar } from './index.js';
 
 describe('react', () => {
   it('#react import', () => {

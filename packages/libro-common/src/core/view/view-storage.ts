@@ -1,19 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { prop } from '../../observable/index.js';
 import { inject, singleton } from '../../ioc/index.js';
-
+import { prop } from '../../observable/index.js';
 import { DebugService, StorageService } from '../common';
 
-import { SlotViewManager } from './slot-view-manager';
-import { ViewManager } from './view-manager';
-import type { View, ViewOpenOption } from './view-protocol';
-import { RootViewId } from './view-protocol';
-import { SlotView } from './view-protocol';
-import { StatefulView } from './view-protocol';
+import { SlotViewManager } from './slot-view-manager.js';
+import { ViewManager } from './view-manager.js';
+import type { View, ViewOpenOption } from './view-protocol.js';
+import { RootViewId } from './view-protocol.js';
+import { SlotView } from './view-protocol.js';
+import { StatefulView } from './view-protocol.js';
 
 interface SavedView {
   factoryId: string;
-  // viewType: 'slotView' | 'view';
+  // viewType: 'slotView' | 'view.js';
   option: any;
   slot?: string | undefined;
   children?: SavedView[] | undefined;
@@ -27,11 +26,11 @@ export namespace SavedView {
   }
 }
 
-const ShouldPreventStoreViewKey = 'mana-should-prevent-store-view';
+const ShouldPreventStoreViewKey = 'mana-should-prevent-store-view.js';
 
 @singleton()
 export class ViewStorage {
-  protected storageKey = 'mana-view-info';
+  protected storageKey = 'mana-view-info.js';
   protected restoreCount = 0;
   protected readonly viewManager: ViewManager;
   protected readonly slotViewManager: SlotViewManager;

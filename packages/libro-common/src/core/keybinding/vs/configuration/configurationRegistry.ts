@@ -6,12 +6,11 @@
 
 import type { Event, IStringDictionary } from '../../../../common/index.js';
 import { Emitter, types } from '../../../../common/index.js';
-
-import * as nls from '../../../nls';
-import type { IJSONContributionRegistry } from '../jsonContributionRegistry';
-import { Extensions as JSONExtensions } from '../jsonContributionRegistry';
-import type { IJSONSchema } from '../jsonSchema';
-import { Registry } from '../platform';
+import * as nls from '../../../nls.js';
+import type { IJSONContributionRegistry } from '../jsonContributionRegistry.js';
+import { Extensions as JSONExtensions } from '../jsonContributionRegistry.js';
+import type { IJSONSchema } from '../jsonSchema.js';
+import { Registry } from '../platform.js';
 
 export const Extensions = {
   Configuration: 'base.contributions.configuration',

@@ -1,7 +1,7 @@
 import type { Disposable } from '../../../common/index.js';
 import { singleton } from '../../../ioc/index.js';
-import { BaseVariableRegistry } from '../base-variable-registry';
-import type { VariableDefinition } from '../protocol';
+import { BaseVariableRegistry } from '../base-variable-registry.js';
+import type { VariableDefinition } from '../protocol.js';
 
 /**
  * It should be implemented by an extension, e.g. by the monaco extension.

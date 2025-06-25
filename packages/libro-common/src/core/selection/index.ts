@@ -1,7 +1,7 @@
-import { ManaModule } from '../module';
+import { ManaModule } from '../module/index.js';
 
-import { SelectionService } from './selection-service';
+import { SelectionService } from './selection-service.js';
 
 export const SelectionModule = ManaModule.create().register(SelectionService);
 
-export * from './selection-service';
+export * from './selection-service.js';

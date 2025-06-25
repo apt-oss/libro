@@ -1,7 +1,14 @@
 import assert from 'assert';
 
-import type { Contribution } from '..';
-import { injectable, Module, GlobalContainer, Syringe, singleton, contrib } from '..';
+import {
+  injectable,
+  Module,
+  GlobalContainer,
+  Syringe,
+  singleton,
+  contrib,
+} from '../index.js';
+import type { Contribution } from '../index.js';
 
 describe('module', () => {
   it('#load module', () => {

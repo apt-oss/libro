@@ -2,17 +2,16 @@ import type { Newable } from '../../common/index.js';
 import { Emitter } from '../../common/index.js';
 import { Deferred } from '../../common/index.js';
 import { Disposable, Priority } from '../../common/index.js';
-import { prop } from '../../observable/index.js';
 import { contrib, inject, singleton } from '../../ioc/index.js';
 import type { Contribution } from '../../ioc/index.js';
+import { prop } from '../../observable/index.js';
+import { DebugService } from '../common/debug.js';
 
-import { DebugService } from '../common/debug';
-
-import { DefaultSlotView } from './default-slot-view';
-import { ViewManager } from './view-manager';
-import type { View } from './view-protocol';
-import type { SlotPreference, ViewOpenOption } from './view-protocol';
-import { SlotPreferenceContribution, SlotView } from './view-protocol';
+import { DefaultSlotView } from './default-slot-view.js';
+import { ViewManager } from './view-manager.js';
+import type { View } from './view-protocol.js';
+import type { SlotPreference, ViewOpenOption } from './view-protocol.js';
+import { SlotPreferenceContribution, SlotView } from './view-protocol.js';
 
 interface ViewAddArgs {
   view?: View;

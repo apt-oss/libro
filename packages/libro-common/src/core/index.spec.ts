@@ -1,7 +1,7 @@
 import 'react';
 import assert from 'assert';
 
-import { ManaPreset, ManaComponents, ThemeModule } from './index';
+import { ManaPreset, ManaComponents, ThemeModule } from './index.js';
 
 describe('app', () => {
   it('#app import', () => {

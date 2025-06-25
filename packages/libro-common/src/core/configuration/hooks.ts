@@ -1,8 +1,9 @@
-import { useInject } from '../../observable/index.js';
 import { useCallback, useEffect, useState } from 'react';
 
-import type { ConfigurationNode } from './configuration-protocol';
-import { ConfigurationService } from './configuration-service';
+import { useInject } from '../../observable/index.js';
+
+import type { ConfigurationNode } from './configuration-protocol.js';
+import { ConfigurationService } from './configuration-service.js';
 
 export const useConfigurationValue = <T>(node: ConfigurationNode<T>) => {
   const configurationService = useInject(ConfigurationService);

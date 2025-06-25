@@ -1,9 +1,9 @@
-import type { CommandHandler } from '../command/command-protocol';
+import type { CommandHandler } from '../command/command-protocol.js';
 
 import type {
   DefaultActionMenuItem,
   DefaultGeneralMenuItem,
-} from './default-menu-node';
+} from './default-menu-node.js';
 
 export type ActionMenuItem = DefaultActionMenuItem;
 export type GeneralMenuItem = DefaultGeneralMenuItem;

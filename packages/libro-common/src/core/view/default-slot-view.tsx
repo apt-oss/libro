@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/unified-signatures */
+import * as React from 'react';
+
 import { Disposable, DisposableCollection } from '../../common/index.js';
+import { inject, transient } from '../../ioc/index.js';
 import {
   equals,
   getOrigin,
@@ -7,15 +10,13 @@ import {
   prop,
   useInject,
 } from '../../observable/index.js';
-import { inject, transient } from '../../ioc/index.js';
-import * as React from 'react';
 
-import { view } from './decorator';
-import { BaseView } from './default-view';
-import { NavigatableView } from './navigatable-types';
-import { renderNode } from './utils';
-import { ViewManager } from './view-manager';
-import { ViewOption, ViewInstance } from './view-protocol';
+import { view } from './decorator.js';
+import { BaseView } from './default-view.js';
+import { NavigatableView } from './navigatable-types.js';
+import { renderNode } from './utils.js';
+import { ViewManager } from './view-manager.js';
+import { ViewOption, ViewInstance } from './view-protocol.js';
 import type {
   SlotView,
   StatefulView,
@@ -23,8 +24,8 @@ import type {
   ViewComponent,
   SlotViewOption,
   View,
-} from './view-protocol';
-import { ViewRender } from './view-render';
+} from './view-protocol.js';
+import { ViewRender } from './view-render.js';
 
 export const DefaultSlotViewId = 'default-slot-view';
 

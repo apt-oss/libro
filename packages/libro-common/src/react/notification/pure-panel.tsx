@@ -9,8 +9,8 @@ import { Notice } from 'rc-notification';
 import type { NoticeProps } from 'rc-notification/es/Notice';
 import * as React from 'react';
 
-import type { IconType } from './protocol';
-import { NOTIFICATION_PREFIX_CLS } from './protocol';
+import type { IconType } from './protocol.js';
+import { NOTIFICATION_PREFIX_CLS } from './protocol.js';
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,

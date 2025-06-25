@@ -1,9 +1,9 @@
 import type { MaybePromise, Event } from '../../common/index.js';
 import { Emitter } from '../../common/index.js';
 
-import type { DebugService } from './debug';
-import { debug } from './debug';
-import type { LocalStorage, StorageService } from './storage-protocol';
+import type { DebugService } from './debug.js';
+import { debug } from './debug.js';
+import type { LocalStorage, StorageService } from './storage-protocol.js';
 
 export class LocalStorageService implements StorageService {
   public usePathInPrefix = false;

@@ -2,7 +2,7 @@ import type { MaybePromise } from '../../common/index.js';
 import { Deferred } from '../../common/index.js';
 import { SyringeModule } from '../../ioc/index.js';
 
-import type { CanloadModule, ModuleLoader, ModulePreload } from './module-protocol';
+import type { CanloadModule, ModuleLoader, ModulePreload } from './module-protocol.js';
 
 export class ManaModule extends SyringeModule<MaybePromise<ManaModule>> {
   protected preloadMethod?: ModulePreload;
