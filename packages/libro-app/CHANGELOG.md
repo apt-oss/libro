@@ -1,5 +1,15 @@
 # @difizen/libro-output
 
+## 1.0.5
+
+### Patch Changes
+
+- fix: fix refs
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@1.0.5
+  - @difizen/libro-common@1.0.5
+
 ## 1.0.4
 
 ### Patch Changes

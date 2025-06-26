@@ -1,5 +1,14 @@
 # @difizen/libro-code-editor
 
+## 1.0.5
+
+### Patch Changes
+
+- fix: fix refs
+
+- Updated dependencies []:
+  - @difizen/libro-common@1.0.5
+
 ## 1.0.4
 
 ### Patch Changes

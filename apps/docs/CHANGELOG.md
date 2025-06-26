@@ -1,5 +1,11 @@
 # @difizen/libro-docs
 
+## 1.0.5
+
+### Patch Changes
+
+- fix: fix refs
+
 ## 1.0.4
 
 ### Patch Changes

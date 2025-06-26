@@ -1,5 +1,26 @@
 # @difizen/libro-lab
 
+## 1.0.5
+
+### Patch Changes
+
+- fix: fix refs
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@1.0.5
+  - @difizen/libro-language-client@1.0.5
+  - @difizen/libro-prompt-cell@1.0.5
+  - @difizen/libro-sql-cell@1.0.5
+  - @difizen/libro-terminal@1.0.5
+  - @difizen/libro-jupyter@1.0.5
+  - @difizen/libro-common@1.0.5
+  - @difizen/libro-kernel@1.0.5
+  - @difizen/libro-widget@1.0.5
+  - @difizen/libro-core@1.0.5
+  - @difizen/libro-l10n@1.0.5
+  - @difizen/libro-app@1.0.5
+  - @difizen/libro-toc@1.0.5
+
 ## 1.0.4
 
 ### Patch Changes
