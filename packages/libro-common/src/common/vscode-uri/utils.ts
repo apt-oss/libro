@@ -3,10 +3,12 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { posix } from 'path-browserify';
+import pkg from 'path-browserify';
 
 import { CharCode } from './char-code.js';
 import type { URI } from './uri.js';
+
+const { posix } = pkg;
 
 const posixPath = posix;
 const slash = '/';

@@ -1,7 +1,9 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-namespace */
 
-import { posix } from 'path-browserify';
+import pkg from 'path-browserify';
+
+const { posix } = pkg;
 
 /**
  * The namespace for path-related functions.

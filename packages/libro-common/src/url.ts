@@ -1,7 +1,9 @@
-import { posix } from 'path-browserify';
+import pkg from 'path-browserify';
 import urlparse from 'url-parse';
 
 import { isWeb } from './app/index.js';
+
+const { posix } = pkg;
 
 /**
  * The namespace for URL-related functions.
