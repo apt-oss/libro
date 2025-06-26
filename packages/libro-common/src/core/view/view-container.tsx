@@ -11,7 +11,7 @@ import type { ViewComponent } from './view-protocol.js';
 import { OriginViewComponent } from './view-protocol.js';
 import { ViewInstance } from './view-protocol.js';
 
-import './index.less.js';
+import './index.less';
 
 interface ViewContainerProps {
   component: ViewComponent;
