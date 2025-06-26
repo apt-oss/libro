@@ -1,5 +1,18 @@
 # libro-langauge-client
 
+## 1.0.5
+
+### Patch Changes
+
+- fix: fix refs
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@1.0.5
+  - @difizen/libro-common@1.0.5
+  - @difizen/libro-kernel@1.0.5
+  - @difizen/libro-core@1.0.5
+  - @difizen/libro-lsp@1.0.5
+
 ## 1.0.4
 
 ### Patch Changes
