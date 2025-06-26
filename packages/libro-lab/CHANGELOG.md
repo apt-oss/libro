@@ -1,5 +1,26 @@
 # @difizen/libro-lab
 
+## 1.0.6
+
+### Patch Changes
+
+- fix: fix ioc exports
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@1.0.6
+  - @difizen/libro-language-client@1.0.6
+  - @difizen/libro-prompt-cell@1.0.6
+  - @difizen/libro-sql-cell@1.0.6
+  - @difizen/libro-terminal@1.0.6
+  - @difizen/libro-jupyter@1.0.6
+  - @difizen/libro-common@1.0.6
+  - @difizen/libro-kernel@1.0.6
+  - @difizen/libro-widget@1.0.6
+  - @difizen/libro-core@1.0.6
+  - @difizen/libro-l10n@1.0.6
+  - @difizen/libro-app@1.0.6
+  - @difizen/libro-toc@1.0.6
+
 ## 1.0.5
 
 ### Patch Changes

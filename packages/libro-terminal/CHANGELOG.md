@@ -1,5 +1,16 @@
 # @difizen/libro-widget
 
+## 1.0.6
+
+### Patch Changes
+
+- fix: fix ioc exports
+
+- Updated dependencies []:
+  - @difizen/libro-common@1.0.6
+  - @difizen/libro-kernel@1.0.6
+  - @difizen/libro-core@1.0.6
+
 ## 1.0.5
 
 ### Patch Changes

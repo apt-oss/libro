@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-l10n",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "keywords": [
     "libro",
@@ -46,6 +46,6 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-common": "^1.0.5"
+    "@difizen/libro-common": "^1.0.6"
   }
 }

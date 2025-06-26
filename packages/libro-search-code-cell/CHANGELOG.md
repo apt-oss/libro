@@ -1,5 +1,18 @@
 # @difizen/libro-search-codemirror-cell
 
+## 1.0.6
+
+### Patch Changes
+
+- fix: fix ioc exports
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@1.0.6
+  - @difizen/libro-code-cell@1.0.6
+  - @difizen/libro-common@1.0.6
+  - @difizen/libro-search@1.0.6
+  - @difizen/libro-core@1.0.6
+
 ## 1.0.5
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 1.0.6
+
+### Patch Changes
+
+- fix: fix ioc exports
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-contribution@1.0.6
+  - @difizen/libro-common@1.0.6
+
 ## 1.0.5
 
 ### Patch Changes
