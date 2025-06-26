@@ -73,4 +73,4 @@ export function tokenToIdentifier<T = any>(
 
 export const GlobalContainer = new Container();
 
-export * from './inversify-protocol';
+export * from './inversify-protocol.js';
