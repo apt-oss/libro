@@ -1,4 +1,8 @@
 import type { INotebookContent } from '@difizen/libro-common';
+import { getOrigin, ModalService, prop } from '@difizen/libro-common/app';
+import { Deferred } from '@difizen/libro-common/app';
+import { inject, transient } from '@difizen/libro-common/app';
+import { l10n } from '@difizen/libro-common/l10n';
 import type { VirtualizedManager } from '@difizen/libro-core';
 import { LibroModel, VirtualizedManagerHelper } from '@difizen/libro-core';
 import {
@@ -10,10 +14,6 @@ import {
 } from '@difizen/libro-kernel';
 import type { IKernelConnection, ExecutableNotebookModel } from '@difizen/libro-kernel';
 import type { IContentsCheckpointModel, IContentsModel } from '@difizen/libro-kernel';
-import { getOrigin, ModalService, prop } from '@difizen/libro-common/app';
-import { Deferred } from '@difizen/libro-common/app';
-import { inject, transient } from '@difizen/libro-common/app';
-import { l10n } from '@difizen/libro-common/l10n';
 
 import {
   ExecutedWithKernelCellModel,
@@ -150,7 +150,7 @@ export class LibroJupyterModel extends LibroModel implements ExecutableNotebookM
 
   override async loadNotebookContent(): Promise<INotebookContent> {
     const content = await super.loadNotebookContent();
-    this.id = this.currentFileContents.path; // use file path as id, will be passed to editor and lsp
+    this.id = this.filePath; // use file path as id, will be passed to editor and lsp
     if (this.executable && !this.kernelConnecting) {
       this.startKernelConnection();
     }
