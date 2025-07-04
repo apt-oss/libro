@@ -396,7 +396,7 @@ export class LibroOpensumiEditor implements IEditor {
       // fontSize: editorConfig.fontSize ?? 13,
       lineNumbers: editorConfig.lineNumbers ? 'on' : 'off',
       // folding: editorConfig.codeFolding,
-      wordWrap: editorConfig.lineWrap,
+      // wordWrap: editorConfig.lineWrap,
       renderLineHighlightOnlyWhenFocus: true,
       // lineDecorationsWidth: 15,
       // lineNumbersMinChars: 3,
