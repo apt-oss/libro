@@ -1,5 +1,11 @@
 # @difizen/libro-common
 
+## 0.3.28
+
+### Patch Changes
+
+- fix: repair the model.id assignment logic
+
 ## 0.3.27
 
 ### Patch Changes

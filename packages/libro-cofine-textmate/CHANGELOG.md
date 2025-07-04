@@ -1,5 +1,14 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.28
+
+### Patch Changes
+
+- fix: repair the model.id assignment logic
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.28
+
 ## 0.3.27
 
 ### Patch Changes

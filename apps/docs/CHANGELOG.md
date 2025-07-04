@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.28
+
+### Patch Changes
+
+- fix: repair the model.id assignment logic
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.28
+  - @difizen/libro-jupyter@0.3.28
+  - @difizen/libro-core@0.3.28
+  - @difizen/libro-lab@0.3.28
+
 ## 0.3.27
 
 ### Patch Changes

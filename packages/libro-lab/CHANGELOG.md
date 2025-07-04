@@ -1,5 +1,26 @@
 # @difizen/libro-lab
 
+## 0.3.28
+
+### Patch Changes
+
+- fix: repair the model.id assignment logic
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.28
+  - @difizen/libro-language-client@0.3.28
+  - @difizen/libro-prompt-cell@0.3.28
+  - @difizen/libro-ai-native@0.3.28
+  - @difizen/libro-sql-cell@0.3.28
+  - @difizen/libro-terminal@0.3.28
+  - @difizen/libro-jupyter@0.3.28
+  - @difizen/libro-kernel@0.3.28
+  - @difizen/libro-widget@0.3.28
+  - @difizen/libro-core@0.3.28
+  - @difizen/libro-l10n@0.3.28
+  - @difizen/libro-app@0.3.28
+  - @difizen/libro-toc@0.3.28
+
 ## 0.3.27
 
 ### Patch Changes

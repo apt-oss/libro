@@ -1,5 +1,14 @@
 # @difizen/libro-output
 
+## 0.3.28
+
+### Patch Changes
+
+- fix: repair the model.id assignment logic
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@0.3.28
+
 ## 0.3.27
 
 ### Patch Changes
