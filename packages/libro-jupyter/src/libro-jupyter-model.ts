@@ -150,7 +150,7 @@ export class LibroJupyterModel extends LibroModel implements ExecutableNotebookM
 
   override async loadNotebookContent(): Promise<INotebookContent> {
     const content = await super.loadNotebookContent();
-    this.id = this.currentFileContents.path; // use file path as id, will be passed to editor and lsp
+    this.id = this.filePath; // use file path as id, will be passed to editor and lsp
     if (this.executable && !this.kernelConnecting) {
       this.startKernelConnection();
     }
