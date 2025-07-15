@@ -38,7 +38,7 @@ import hljs from 'highlight.js';
 import { useEffect, useRef, memo, forwardRef } from 'react';
 
 // 引入高亮样式
-import 'highlight.js/styles/vs.css';
+import 'highlight.js/styles/github.css';
 import './index.less';
 
 import type { LibroCodeCellModel } from './code-cell-model.js';
