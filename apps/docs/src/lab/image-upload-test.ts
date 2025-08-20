@@ -1,12 +1,15 @@
-import { ImageUploadService } from '@difizen/libro-output';
-import { ApplicationContribution } from '@difizen/mana-app';
+import { ImageUploadService, ImageProcessingEnabled } from '@difizen/libro-output';
+import { ApplicationContribution, ConfigurationService } from '@difizen/mana-app';
 import { inject, singleton } from '@difizen/mana-app';
 
 @singleton({ contrib: ApplicationContribution })
 export class ImageUploadTestService implements ApplicationContribution {
   @inject(ImageUploadService) imageUploadService: ImageUploadService;
+  @inject(ConfigurationService) configurationService: ConfigurationService;
 
   async onStart() {
+    // 测试修改默认配置值
+    this.configurationService.set(ImageProcessingEnabled, false); // 禁用图片处理
     // 配置测试用的图片上传函数
     this.imageUploadService.setUploadFunction(
       async (base64Data: string, mimeType: string) => {

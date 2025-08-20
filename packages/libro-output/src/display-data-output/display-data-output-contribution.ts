@@ -119,13 +119,13 @@ export class DisplayDataOutputContribution implements OutputContribution {
     const processedData = { ...data };
     const { supportedMimeTypes, sizeThreshold, removeOriginal } = config;
 
+    // 已经有 IMAGE_URL_MIME_TYPE 无需处理
+    if (processedData[IMAGE_URL_MIME_TYPE]) {
+      return processedData;
+    }
+
     for (const [mimeType, content] of Object.entries(data)) {
       if (supportedMimeTypes.includes(mimeType) && typeof content === 'string') {
-        // 已经是 url 无需处理
-        if (content?.startsWith('http')) {
-          continue;
-        }
-
         try {
           // 检查是否超过阈值
           if (content.length > sizeThreshold) {
