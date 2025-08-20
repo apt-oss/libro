@@ -1,5 +1,4 @@
 import { ServerConnection, ServerManager } from '@difizen/libro-lab';
-import { ImageProcessingEnabled } from '@difizen/libro-output';
 import {
   ApplicationContribution,
   inject,
@@ -19,7 +18,5 @@ export class LibroApp implements ApplicationContribution {
       wsUrl: 'ws://localhost:8888/',
     });
     this.serverManager.launch();
-    // 测试修改默认配置值
-    this.configurationService.set(ImageProcessingEnabled, false); // 禁用图片处理
   }
 }
