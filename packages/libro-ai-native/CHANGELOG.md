@@ -1,5 +1,15 @@
 # @difizen/libro-output
 
+## 0.3.30
+
+### Patch Changes
+
+- add image URL rendering and image upload service
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.30
+  - @difizen/libro-jupyter@0.3.30
+
 ## 0.3.29
 
 ### Patch Changes
