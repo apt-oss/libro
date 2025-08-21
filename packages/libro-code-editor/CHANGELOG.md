@@ -1,5 +1,14 @@
 # @difizen/libro-code-editor
 
+## 0.3.30
+
+### Patch Changes
+
+- add image URL rendering and image upload service
+
+- Updated dependencies []:
+  - @difizen/libro-common@0.3.30
+
 ## 0.3.29
 
 ### Patch Changes

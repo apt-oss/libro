@@ -1,5 +1,26 @@
 # @difizen/libro-lab
 
+## 0.3.30
+
+### Patch Changes
+
+- add image URL rendering and image upload service
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.30
+  - @difizen/libro-language-client@0.3.30
+  - @difizen/libro-prompt-cell@0.3.30
+  - @difizen/libro-ai-native@0.3.30
+  - @difizen/libro-sql-cell@0.3.30
+  - @difizen/libro-terminal@0.3.30
+  - @difizen/libro-jupyter@0.3.30
+  - @difizen/libro-kernel@0.3.30
+  - @difizen/libro-widget@0.3.30
+  - @difizen/libro-core@0.3.30
+  - @difizen/libro-l10n@0.3.30
+  - @difizen/libro-app@0.3.30
+  - @difizen/libro-toc@0.3.30
+
 ## 0.3.29
 
 ### Patch Changes

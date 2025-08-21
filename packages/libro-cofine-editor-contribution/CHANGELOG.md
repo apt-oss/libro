@@ -1,5 +1,11 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.30
+
+### Patch Changes
+
+- add image URL rendering and image upload service
+
 ## 0.3.29
 
 ### Patch Changes

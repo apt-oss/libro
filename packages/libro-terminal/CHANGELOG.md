@@ -1,5 +1,16 @@
 # @difizen/libro-widget
 
+## 0.3.30
+
+### Patch Changes
+
+- add image URL rendering and image upload service
+
+- Updated dependencies []:
+  - @difizen/libro-common@0.3.30
+  - @difizen/libro-kernel@0.3.30
+  - @difizen/libro-core@0.3.30
+
 ## 0.3.29
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.30
+
+### Patch Changes
+
+- add image URL rendering and image upload service
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.30
+  - @difizen/libro-cofine-textmate@0.3.30
+  - @difizen/libro-code-editor@0.3.30
+  - @difizen/libro-common@0.3.30
+  - @difizen/libro-core@0.3.30
+  - @difizen/libro-lsp@0.3.30
+
 ## 0.3.29
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @difizen/libro-core
 
+## 0.3.30
+
+### Patch Changes
+
+- add image URL rendering and image upload service
+
+- Updated dependencies []:
+  - @difizen/libro-shared-model@0.3.30
+  - @difizen/libro-code-editor@0.3.30
+  - @difizen/libro-virtualized@0.3.30
+  - @difizen/libro-common@0.3.30
+
 ## 0.3.29
 
 ### Patch Changes
