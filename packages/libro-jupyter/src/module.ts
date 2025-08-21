@@ -5,6 +5,7 @@ import {
 } from '@difizen/libro-code-cell';
 import { CodeMirrorEditorModule } from '@difizen/libro-codemirror';
 import { LibroE2EditorModule } from '@difizen/libro-cofine-editor';
+import { ManaModule } from '@difizen/libro-common/app';
 import {
   CellExecutionTimeProvider,
   CellOutputBottomBlankProvider,
@@ -25,7 +26,6 @@ import {
 import { RawCellModule } from '@difizen/libro-raw-cell';
 import { LibroSearchModule } from '@difizen/libro-search';
 import { SearchCodeCellModule } from '@difizen/libro-search-code-cell';
-import { ManaModule } from '@difizen/libro-common/app';
 
 import { LibroBetweenCellModule } from './add-between-cell/index.js';
 import { JupyterCodeCellModel, JupyterCodeCellView } from './cell/index.js';
@@ -50,7 +50,7 @@ import { JupyterServerLaunchManager } from './libro-jupyter-server-launch-manage
 import { LibroJupyterView } from './libro-jupyter-view.js';
 import { JupyterWorkspaceService } from './libro-jupyter-workspace.js';
 import { LibroJupyterOutputArea } from './output/index.js';
-import { PlotlyModule } from './rendermime/index.js';
+import { CustomRenderMimeModule } from './rendermime/index.js';
 import { LibroJupyterColorContribution } from './theme/index.js';
 import {
   KernelStatusSelector,
@@ -114,7 +114,7 @@ export const LibroJupyterNoEditorModule = ManaModule.create()
     // custom module
     LibroBetweenCellModule,
     KeybindInstructionsModule,
-    PlotlyModule,
+    CustomRenderMimeModule,
     LibroJupyterFileModule,
     WidgetModule,
   );

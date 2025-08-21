@@ -1,35 +1,43 @@
 import type { JSONObject } from '@difizen/libro-common';
 import { getBundleOptions } from '@difizen/libro-common';
-import { LibroOutputView } from '@difizen/libro-core';
-import type { BaseOutputView, IOutputOptions } from '@difizen/libro-core';
-import { RenderMimeRegistry } from '@difizen/libro-rendermime';
-import type { IRenderMimeRegistry, IRendererFactory } from '@difizen/libro-rendermime';
 import {
   getOrigin,
   useInject,
   view,
   ViewInstance,
   ViewOption,
+  inject,
+  transient,
 } from '@difizen/libro-common/app';
-import { inject, transient } from '@difizen/libro-common/app';
-import { forwardRef } from 'react';
+import { LibroOutputView } from '@difizen/libro-core';
+import type { BaseOutputView, IOutputOptions } from '@difizen/libro-core';
+import { RenderMimeRegistry } from '@difizen/libro-rendermime';
+import type { IRenderMimeRegistry, IRendererFactory } from '@difizen/libro-rendermime';
+import type { ReactNode } from 'react';
+import { createElement, forwardRef } from 'react';
 
 import '../index.less';
 
-const DisplayDataOutputModelRender = forwardRef<HTMLDivElement>(
-  function DisplayDataOutputModelRender(_props, ref) {
+const DisplayDataOutputModelRender = forwardRef<HTMLDivElement, Record<string, never>>(
+  function DisplayDataOutputModelRender(_props, ref): React.ReactElement {
     const output = useInject<DisplayDataOutputModel>(ViewInstance);
     const model = getOrigin(output);
+
     const factory = model.getRenderFactory();
-    let children = null;
-    if (factory) {
-      const OutputRender = factory.render;
-      children = <OutputRender model={model} />;
+    let children: ReactNode = null;
+    if (factory && factory.render) {
+      const renderFunction = factory.render;
+      if (typeof renderFunction === 'function') {
+        children = renderFunction({ model });
+      }
     }
-    return (
-      <div ref={ref} className={'libro-display-data-container'}>
-        {children}
-      </div>
+    return createElement(
+      'div',
+      {
+        ref,
+        className: 'libro-display-data-container',
+      },
+      children,
     );
   },
 );

@@ -1,7 +1,9 @@
 import { ManaModule } from '@difizen/libro-common/app';
 
-import { LibroPlotlyMimeTypeContribution } from './plotly-rendermime-contribution.js';
+import { LibroImageUrlMimeTypeContribution } from './image-url/image-url-rendermime-contribution.js';
+import { LibroPlotlyMimeTypeContribution } from './ploty/plotly-rendermime-contribution.js';
 
-export const PlotlyModule = ManaModule.create().register(
+export const CustomRenderMimeModule = ManaModule.create().register(
   LibroPlotlyMimeTypeContribution,
+  LibroImageUrlMimeTypeContribution,
 );

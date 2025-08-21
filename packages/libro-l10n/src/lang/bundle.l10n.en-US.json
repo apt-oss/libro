@@ -300,5 +300,13 @@
   "以报告的形式打开": "Open as report",
   "待执行": "Execution queued.",
   "清空输出并重启 Kernel？": "Clear outputs and restart the kernel?",
-  "确定清空输出并重启当前 Kernel 吗？所有变量都将丢失。": "Do you want to clear outputs of all cells and restart the current kernel? All variables will be lost."
+  "确定清空输出并重启当前 Kernel 吗？所有变量都将丢失。": "Do you want to clear outputs of all cells and restart the current kernel? All variables will be lost.",
+  "是否启用图片处理功能": "Whether to enable image processing functionality",
+  "启用图片处理": "Enable Image Processing",
+  "图片处理的大小阈值（字符数）": "Size threshold for image processing (character count)",
+  "图片大小阈值": "Image Size Threshold",
+  "上传图片后是否移除原始base64数据": "Whether to remove original base64 data after image upload",
+  "移除原始数据": "Remove Original Data",
+  "支持处理的图片MIME类型": "Supported image MIME types for processing",
+  "支持的图片类型": "Supported Image Types"
 }
