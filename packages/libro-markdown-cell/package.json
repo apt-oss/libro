@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-markdown-cell",
-  "version": "0.3.30",
+  "version": "0.3.31",
   "description": "",
   "keywords": [
     "libro",
@@ -52,10 +52,10 @@
     "@types/react": "^18.2.25"
   },
   "dependencies": {
-    "@difizen/libro-core": "^0.3.30",
-    "@difizen/libro-common": "^0.3.30",
-    "@difizen/libro-code-editor": "^0.3.30",
-    "@difizen/libro-markdown": "^0.3.30",
+    "@difizen/libro-core": "^0.3.31",
+    "@difizen/libro-common": "^0.3.31",
+    "@difizen/libro-code-editor": "^0.3.31",
+    "@difizen/libro-markdown": "^0.3.31",
     "@difizen/mana-app": "latest",
     "@types/markdown-it": "^12.2.3",
     "markdown-it": "^13.0.1",

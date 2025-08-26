@@ -50,7 +50,7 @@ import { JupyterServerLaunchManager } from './libro-jupyter-server-launch-manage
 import { LibroJupyterView } from './libro-jupyter-view.js';
 import { JupyterWorkspaceService } from './libro-jupyter-workspace.js';
 import { LibroJupyterOutputArea } from './output/index.js';
-import { CustomRenderMimeModule } from './rendermime/index.js';
+import { PlotlyModule, ImageUrlMimeModule } from './rendermime/index.js';
 import { LibroJupyterColorContribution } from './theme/index.js';
 import {
   KernelStatusSelector,
@@ -114,7 +114,8 @@ export const LibroJupyterNoEditorModule = ManaModule.create()
     // custom module
     LibroBetweenCellModule,
     KeybindInstructionsModule,
-    CustomRenderMimeModule,
+    PlotlyModule,
+    ImageUrlMimeModule,
     LibroJupyterFileModule,
     WidgetModule,
   );

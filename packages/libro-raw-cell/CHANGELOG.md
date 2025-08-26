@@ -1,5 +1,16 @@
 # @difizen/libro-codemirror-raw-cell
 
+## 0.3.31
+
+### Patch Changes
+
+- fix: Ploty module not found & revert data-output-model
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.31
+  - @difizen/libro-common@0.3.31
+  - @difizen/libro-core@0.3.31
+
 ## 0.3.30
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.31
+
+### Patch Changes
+
+- fix: Ploty module not found & revert data-output-model
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.31
+  - @difizen/libro-jupyter@0.3.31
+  - @difizen/libro-core@0.3.31
+  - @difizen/libro-lab@0.3.31
+
 ## 0.3.30
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-ai-native",
-  "version": "0.3.30",
+  "version": "0.3.31",
   "description": "",
   "keywords": [
     "libro",
@@ -46,8 +46,8 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.4.0",
-    "@difizen/libro-code-editor": "^0.3.30",
-    "@difizen/libro-jupyter": "^0.3.30",
+    "@difizen/libro-code-editor": "^0.3.31",
+    "@difizen/libro-jupyter": "^0.3.31",
     "@difizen/magent-chat": "^0.1.27",
     "@difizen/magent-core": "^0.1.27",
     "@difizen/magent-libro": "^0.1.27",

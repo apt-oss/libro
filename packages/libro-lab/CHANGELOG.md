@@ -1,5 +1,26 @@
 # @difizen/libro-lab
 
+## 0.3.31
+
+### Patch Changes
+
+- fix: Ploty module not found & revert data-output-model
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.31
+  - @difizen/libro-language-client@0.3.31
+  - @difizen/libro-prompt-cell@0.3.31
+  - @difizen/libro-ai-native@0.3.31
+  - @difizen/libro-sql-cell@0.3.31
+  - @difizen/libro-terminal@0.3.31
+  - @difizen/libro-jupyter@0.3.31
+  - @difizen/libro-kernel@0.3.31
+  - @difizen/libro-widget@0.3.31
+  - @difizen/libro-core@0.3.31
+  - @difizen/libro-l10n@0.3.31
+  - @difizen/libro-app@0.3.31
+  - @difizen/libro-toc@0.3.31
+
 ## 0.3.30
 
 ### Patch Changes

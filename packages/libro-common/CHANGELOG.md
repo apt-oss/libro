@@ -1,5 +1,11 @@
 # @difizen/libro-common
 
+## 0.3.31
+
+### Patch Changes
+
+- fix: Ploty module not found & revert data-output-model
+
 ## 0.3.30
 
 ### Patch Changes

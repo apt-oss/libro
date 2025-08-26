@@ -48,11 +48,4 @@ export const ImageProcessingSupportedMimeTypes: ConfigurationNode<string[]> = {
       type: 'string',
     },
   },
-  options: [
-    { label: 'PNG', value: 'image/png' },
-    { label: 'JPEG', value: 'image/jpeg' },
-    { label: 'GIF', value: 'image/gif' },
-    { label: 'WebP', value: 'image/webp' },
-    { label: 'SVG', value: 'image/svg+xml' },
-  ],
 };

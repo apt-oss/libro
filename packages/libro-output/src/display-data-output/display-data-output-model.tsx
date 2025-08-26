@@ -10,34 +10,26 @@ import {
   view,
   ViewInstance,
   ViewOption,
-  inject,
-  transient,
 } from '@difizen/mana-app';
-import type { ReactNode } from 'react';
-import { createElement, forwardRef } from 'react';
+import { inject, transient } from '@difizen/mana-app';
+import { forwardRef } from 'react';
 
 import '../index.less';
 
-const DisplayDataOutputModelRender = forwardRef<HTMLDivElement, Record<string, never>>(
-  function DisplayDataOutputModelRender(_props, ref): React.ReactElement {
+const DisplayDataOutputModelRender = forwardRef<HTMLDivElement>(
+  function DisplayDataOutputModelRender(_props, ref) {
     const output = useInject<DisplayDataOutputModel>(ViewInstance);
     const model = getOrigin(output);
-
     const factory = model.getRenderFactory();
-    let children: ReactNode = null;
-    if (factory && factory.render) {
-      const renderFunction = factory.render;
-      if (typeof renderFunction === 'function') {
-        children = renderFunction({ model });
-      }
+    let children = null;
+    if (factory) {
+      const OutputRender = factory.render;
+      children = <OutputRender model={model} />;
     }
-    return createElement(
-      'div',
-      {
-        ref,
-        className: 'libro-display-data-container',
-      },
-      children,
+    return (
+      <div ref={ref} className={'libro-display-data-container'}>
+        {children}
+      </div>
     );
   },
 );

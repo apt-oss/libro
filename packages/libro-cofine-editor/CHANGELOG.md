@@ -1,5 +1,19 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.31
+
+### Patch Changes
+
+- fix: Ploty module not found & revert data-output-model
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.31
+  - @difizen/libro-cofine-textmate@0.3.31
+  - @difizen/libro-code-editor@0.3.31
+  - @difizen/libro-common@0.3.31
+  - @difizen/libro-core@0.3.31
+  - @difizen/libro-lsp@0.3.31
+
 ## 0.3.30
 
 ### Patch Changes
