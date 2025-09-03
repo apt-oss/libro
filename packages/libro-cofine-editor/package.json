@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-cofine-editor",
-  "version": "0.3.31",
+  "version": "0.3.32",
   "description": "",
   "keywords": [
     "libro",
@@ -46,12 +46,12 @@
   },
   "dependencies": {
     "@difizen/monaco-editor-core": "0.39.4",
-    "@difizen/libro-cofine-editor-core": "^0.3.31",
-    "@difizen/libro-cofine-textmate": "^0.3.31",
-    "@difizen/libro-lsp": "^0.3.31",
-    "@difizen/libro-code-editor": "^0.3.31",
-    "@difizen/libro-common": "^0.3.31",
-    "@difizen/libro-core": "^0.3.31",
+    "@difizen/libro-cofine-editor-core": "^0.3.32",
+    "@difizen/libro-cofine-textmate": "^0.3.32",
+    "@difizen/libro-lsp": "^0.3.32",
+    "@difizen/libro-code-editor": "^0.3.32",
+    "@difizen/libro-common": "^0.3.32",
+    "@difizen/libro-core": "^0.3.32",
     "@difizen/mana-app": "latest",
     "resize-observer-polyfill": "^1.5.1",
     "vscode-languageserver-protocol": "^3.17.4",

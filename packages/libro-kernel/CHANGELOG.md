@@ -1,5 +1,15 @@
 # @difizen/libro-kernel
 
+## 0.3.32
+
+### Patch Changes
+
+- fix: libro esc key code bind make A or D key code can't match in edit mode
+
+- Updated dependencies []:
+  - @difizen/libro-common@0.3.32
+  - @difizen/libro-core@0.3.32
+
 ## 0.3.31
 
 ### Patch Changes

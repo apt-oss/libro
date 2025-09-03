@@ -1,5 +1,26 @@
 # @difizen/libro-lab
 
+## 0.3.32
+
+### Patch Changes
+
+- fix: libro esc key code bind make A or D key code can't match in edit mode
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.32
+  - @difizen/libro-language-client@0.3.32
+  - @difizen/libro-prompt-cell@0.3.32
+  - @difizen/libro-ai-native@0.3.32
+  - @difizen/libro-sql-cell@0.3.32
+  - @difizen/libro-terminal@0.3.32
+  - @difizen/libro-jupyter@0.3.32
+  - @difizen/libro-kernel@0.3.32
+  - @difizen/libro-widget@0.3.32
+  - @difizen/libro-core@0.3.32
+  - @difizen/libro-l10n@0.3.32
+  - @difizen/libro-app@0.3.32
+  - @difizen/libro-toc@0.3.32
+
 ## 0.3.31
 
 ### Patch Changes

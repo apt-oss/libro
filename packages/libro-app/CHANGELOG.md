@@ -1,5 +1,14 @@
 # @difizen/libro-output
 
+## 0.3.32
+
+### Patch Changes
+
+- fix: libro esc key code bind make A or D key code can't match in edit mode
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@0.3.32
+
 ## 0.3.31
 
 ### Patch Changes
