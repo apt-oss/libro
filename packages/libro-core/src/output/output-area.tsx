@@ -14,7 +14,7 @@ import {
   ViewInstance,
 } from '@difizen/libro-common/app';
 import { Emitter, prop, contrib, inject, transient } from '@difizen/libro-common/app';
-import { useEffect, forwardRef } from 'react';
+import { useEffect, useState, forwardRef, useMemo } from 'react';
 
 import { ExecutableCellView } from '../cell/index.js';
 import type { CellView } from '../libro-protocol.js';
@@ -35,15 +35,23 @@ const LibroOutputAreaRender = forwardRef<HTMLDivElement>(
     useEffect(() => {
       outputArea.onUpdateEmitter.fire();
     }, [outputArea.onUpdateEmitter, outputArea.outputs]);
+
     const childrenCannotClear = [];
     const children = [];
-    for (const output of outputArea.outputs) {
+    const [oversizeLimit, setOversizeLimt] = useState(100);
+    const oversized = outputArea.outputs.length > oversizeLimit;
+    const showOutputs = useMemo(() => {
+      return outputArea.outputs.slice(0, oversizeLimit);
+    }, [outputArea.outputs, oversizeLimit]);
+
+    for (const output of showOutputs) {
       if (output.allowClear === false) {
         childrenCannotClear.push(output);
       } else {
         children.push(output);
       }
     }
+
     return (
       <div
         className="libro-output-area"
@@ -57,6 +65,19 @@ const LibroOutputAreaRender = forwardRef<HTMLDivElement>(
         {children.map((output) => {
           return <ViewRender view={output} key={output.id} />;
         })}
+        {oversized && (
+          <div className="libro-output-area-action-container">
+            超过 {oversizeLimit} 条输出，点击
+            <a
+              className="libro-output-area-action"
+              onClick={() => {
+                setOversizeLimt(oversizeLimit + 100);
+              }}
+            >
+              展开更多
+            </a>
+          </div>
+        )}
       </div>
     );
   },

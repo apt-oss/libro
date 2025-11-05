@@ -75,29 +75,32 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mimeType, dataContent]);
-  return (
-    <div className="libro-text-render-container" ref={renderTextContainerRef}>
-      <div
-        className="libro-text-render"
-        ref={renderTextRef}
-        style={{
-          overflowY: 'auto',
-          maxHeight: `${isLargeOutputDisplay ? '420px' : 'unset'}`,
-        }}
-      />
-      {model.raw['display_text'] && (
-        <div className="libro-text-display-action-container">
-          <span>该段输出太长，点击可进行</span>
-          <a
-            onClick={() => {
-              model.cell.isLargeOutputDisplay = !model.cell.isLargeOutputDisplay;
-              setIsLargeOutputDisplay(!isLargeOutputDisplay);
-            }}
-            className="libro-text-display-action"
-          >
-            {isLargeOutputDisplay ? ' 展开查看' : ' 截断查看'}
-          </a>
-          {isLargeOutputDisplay && (
+
+  let content = null;
+
+  if (isLargeOutputDisplay) {
+    content = (
+      <>
+        <div
+          className="libro-text-render"
+          ref={renderTextRef}
+          style={{
+            overflowY: 'auto',
+            maxHeight: 'unset',
+          }}
+        />
+        {model.raw['display_text'] && (
+          <div className="libro-text-display-action-container">
+            <span>输出已被截断，点击可在滚动容器内</span>
+            <a
+              onClick={() => {
+                model.cell.isLargeOutputDisplay = !model.cell.isLargeOutputDisplay;
+                setIsLargeOutputDisplay(!isLargeOutputDisplay);
+              }}
+              className="libro-text-display-action"
+            >
+              滚动查看
+            </a>
             <span>
               ，或在
               <a
@@ -123,9 +126,42 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
               </a>
               中打开
             </span>
-          )}
-        </div>
-      )}
+          </div>
+        )}
+      </>
+    );
+  } else {
+    content = (
+      <>
+        <div
+          className="libro-text-render"
+          ref={renderTextRef}
+          style={{
+            overflowY: 'auto',
+            maxHeight: '420px',
+          }}
+        />
+        {model.raw['display_text'] && (
+          <div className="libro-text-display-action-container">
+            <span>当前处于滚动查看，点击可</span>
+            <a
+              onClick={() => {
+                model.cell.isLargeOutputDisplay = !model.cell.isLargeOutputDisplay;
+                setIsLargeOutputDisplay(!isLargeOutputDisplay);
+              }}
+              className="libro-text-display-action"
+            >
+              截断查看
+            </a>
+          </div>
+        )}
+      </>
+    );
+  }
+
+  return (
+    <div className="libro-text-render-container" ref={renderTextContainerRef}>
+      {content}
     </div>
   );
 };
