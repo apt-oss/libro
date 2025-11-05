@@ -1,5 +1,18 @@
 # @difizen/libro-search-codemirror-cell
 
+## 0.3.33
+
+### Patch Changes
+
+- optimize large outputs render performance
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.33
+  - @difizen/libro-code-cell@0.3.33
+  - @difizen/libro-common@0.3.33
+  - @difizen/libro-search@0.3.33
+  - @difizen/libro-core@0.3.33
+
 ## 0.3.32
 
 ### Patch Changes

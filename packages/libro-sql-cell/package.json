@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-sql-cell",
-  "version": "0.3.32",
+  "version": "0.3.33",
   "description": "",
   "keywords": [
     "libro",
@@ -45,10 +45,10 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-code-editor": "^0.3.32",
-    "@difizen/libro-jupyter": "^0.3.32",
-    "@difizen/libro-rendermime": "^0.3.32",
-    "@difizen/libro-common": "^0.3.32",
+    "@difizen/libro-code-editor": "^0.3.33",
+    "@difizen/libro-jupyter": "^0.3.33",
+    "@difizen/libro-rendermime": "^0.3.33",
+    "@difizen/libro-common": "^0.3.33",
     "@ant-design/icons": "^5.1.0",
     "@difizen/mana-app": "latest",
     "@difizen/mana-l10n": "latest"

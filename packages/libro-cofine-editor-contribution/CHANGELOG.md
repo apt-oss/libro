@@ -1,5 +1,11 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.33
+
+### Patch Changes
+
+- optimize large outputs render performance
+
 ## 0.3.32
 
 ### Patch Changes

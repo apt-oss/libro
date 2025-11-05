@@ -1,5 +1,15 @@
 # @difizen/libro-output
 
+## 0.3.33
+
+### Patch Changes
+
+- optimize large outputs render performance
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.33
+  - @difizen/libro-jupyter@0.3.33
+
 ## 0.3.32
 
 ### Patch Changes

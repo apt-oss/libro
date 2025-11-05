@@ -1,5 +1,17 @@
 # @difizen/libro-codemirror
 
+## 0.3.33
+
+### Patch Changes
+
+- optimize large outputs render performance
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.33
+  - @difizen/libro-rendermime@0.3.33
+  - @difizen/libro-common@0.3.33
+  - @difizen/libro-lsp@0.3.33
+
 ## 0.3.32
 
 ### Patch Changes

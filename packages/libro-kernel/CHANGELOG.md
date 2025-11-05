@@ -1,5 +1,15 @@
 # @difizen/libro-kernel
 
+## 0.3.33
+
+### Patch Changes
+
+- optimize large outputs render performance
+
+- Updated dependencies []:
+  - @difizen/libro-common@0.3.33
+  - @difizen/libro-core@0.3.33
+
 ## 0.3.32
 
 ### Patch Changes
