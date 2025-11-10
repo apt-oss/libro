@@ -1,5 +1,26 @@
 # @difizen/libro-lab
 
+## 0.3.34
+
+### Patch Changes
+
+- fix output not update when pagination
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.34
+  - @difizen/libro-language-client@0.3.34
+  - @difizen/libro-prompt-cell@0.3.34
+  - @difizen/libro-ai-native@0.3.34
+  - @difizen/libro-sql-cell@0.3.34
+  - @difizen/libro-terminal@0.3.34
+  - @difizen/libro-jupyter@0.3.34
+  - @difizen/libro-kernel@0.3.34
+  - @difizen/libro-widget@0.3.34
+  - @difizen/libro-core@0.3.34
+  - @difizen/libro-l10n@0.3.34
+  - @difizen/libro-app@0.3.34
+  - @difizen/libro-toc@0.3.34
+
 ## 0.3.33
 
 ### Patch Changes

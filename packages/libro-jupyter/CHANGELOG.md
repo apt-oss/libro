@@ -1,5 +1,29 @@
 # @difizen/libro-jupyter
 
+## 0.3.34
+
+### Patch Changes
+
+- fix output not update when pagination
+
+- Updated dependencies []:
+  - @difizen/libro-search-code-cell@0.3.34
+  - @difizen/libro-language-client@0.3.34
+  - @difizen/libro-cofine-editor@0.3.34
+  - @difizen/libro-markdown-cell@0.3.34
+  - @difizen/libro-code-editor@0.3.34
+  - @difizen/libro-codemirror@0.3.34
+  - @difizen/libro-rendermime@0.3.34
+  - @difizen/libro-code-cell@0.3.34
+  - @difizen/libro-raw-cell@0.3.34
+  - @difizen/libro-common@0.3.34
+  - @difizen/libro-kernel@0.3.34
+  - @difizen/libro-output@0.3.34
+  - @difizen/libro-search@0.3.34
+  - @difizen/libro-core@0.3.34
+  - @difizen/libro-l10n@0.3.34
+  - @difizen/libro-lsp@0.3.34
+
 ## 0.3.33
 
 ### Patch Changes
