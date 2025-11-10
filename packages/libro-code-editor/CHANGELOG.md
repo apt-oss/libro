@@ -1,5 +1,14 @@
 # @difizen/libro-code-editor
 
+## 0.3.34
+
+### Patch Changes
+
+- fix output not update when pagination
+
+- Updated dependencies []:
+  - @difizen/libro-common@0.3.34
+
 ## 0.3.33
 
 ### Patch Changes

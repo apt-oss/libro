@@ -1,5 +1,17 @@
 # @difizen/libro-sql-cell
 
+## 0.3.34
+
+### Patch Changes
+
+- fix output not update when pagination
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.34
+  - @difizen/libro-rendermime@0.3.34
+  - @difizen/libro-jupyter@0.3.34
+  - @difizen/libro-common@0.3.34
+
 ## 0.3.33
 
 ### Patch Changes

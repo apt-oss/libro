@@ -1,5 +1,14 @@
 # @difizen/libro-output
 
+## 0.3.34
+
+### Patch Changes
+
+- fix output not update when pagination
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@0.3.34
+
 ## 0.3.33
 
 ### Patch Changes

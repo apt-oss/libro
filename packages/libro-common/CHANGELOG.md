@@ -1,5 +1,11 @@
 # @difizen/libro-common
 
+## 0.3.34
+
+### Patch Changes
+
+- fix output not update when pagination
+
 ## 0.3.33
 
 ### Patch Changes

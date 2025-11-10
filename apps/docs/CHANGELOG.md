@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.34
+
+### Patch Changes
+
+- fix output not update when pagination
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.34
+  - @difizen/libro-jupyter@0.3.34
+  - @difizen/libro-core@0.3.34
+  - @difizen/libro-lab@0.3.34
+
 ## 0.3.33
 
 ### Patch Changes
