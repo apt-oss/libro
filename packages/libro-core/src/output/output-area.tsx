@@ -14,7 +14,7 @@ import {
   ViewInstance,
 } from '@difizen/libro-common/app';
 import { Emitter, prop, contrib, inject, transient } from '@difizen/libro-common/app';
-import { useEffect, useState, forwardRef, useMemo } from 'react';
+import { useEffect, useState, forwardRef } from 'react';
 
 import { ExecutableCellView } from '../cell/index.js';
 import type { CellView } from '../libro-protocol.js';
@@ -38,11 +38,10 @@ const LibroOutputAreaRender = forwardRef<HTMLDivElement>(
 
     const childrenCannotClear = [];
     const children = [];
-    const [oversizeLimit, setOversizeLimt] = useState(100);
+    const pageSize = 100;
+    const [oversizeLimit, setOversizeLimt] = useState(pageSize);
     const oversized = outputArea.outputs.length > oversizeLimit;
-    const showOutputs = useMemo(() => {
-      return outputArea.outputs.slice(0, oversizeLimit);
-    }, [outputArea.outputs, oversizeLimit]);
+    const showOutputs = outputArea.outputs.slice(0, oversizeLimit);
 
     for (const output of showOutputs) {
       if (output.allowClear === false) {
@@ -71,7 +70,7 @@ const LibroOutputAreaRender = forwardRef<HTMLDivElement>(
             <a
               className="libro-output-area-action"
               onClick={() => {
-                setOversizeLimt(oversizeLimit + 100);
+                setOversizeLimt(oversizeLimit + pageSize);
               }}
             >
               展开更多
