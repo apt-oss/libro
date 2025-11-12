@@ -1,5 +1,14 @@
 # @difizen/libro-shared-model
 
+## 0.3.35
+
+### Patch Changes
+
+- optimize text-render performance
+
+- Updated dependencies []:
+  - @difizen/libro-common@0.3.35
+
 ## 0.3.34
 
 ### Patch Changes

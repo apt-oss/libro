@@ -1,5 +1,17 @@
 # @difizen/libro-sql-cell
 
+## 0.3.35
+
+### Patch Changes
+
+- optimize text-render performance
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.35
+  - @difizen/libro-rendermime@0.3.35
+  - @difizen/libro-jupyter@0.3.35
+  - @difizen/libro-common@0.3.35
+
 ## 0.3.34
 
 ### Patch Changes

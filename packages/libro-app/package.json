@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-app",
-  "version": "0.3.34",
+  "version": "0.3.35",
   "description": "",
   "keywords": [
     "libro",
@@ -45,7 +45,7 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-jupyter": "^0.3.34",
+    "@difizen/libro-jupyter": "^0.3.35",
     "@ant-design/icons": "^5.4.0",
     "@difizen/mana-app": "latest",
     "@difizen/mana-l10n": "latest"

@@ -1,5 +1,11 @@
 # @difizen/libro-common
 
+## 0.3.35
+
+### Patch Changes
+
+- optimize text-render performance
+
 ## 0.3.34
 
 ### Patch Changes
