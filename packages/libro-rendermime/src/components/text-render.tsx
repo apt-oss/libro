@@ -53,7 +53,7 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
         );
       } else {
         displaySource = removeOverwrittenChars(
-          concatMultilineString(JSON.parse(JSON.stringify(dataContent))),
+          concatMultilineString(dataContent as MultilineString),
         );
       }
 
