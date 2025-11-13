@@ -1,5 +1,16 @@
 # @difizen/libro-widget
 
+## 0.3.36
+
+### Patch Changes
+
+- optimize text-render autolink performance
+
+- Updated dependencies []:
+  - @difizen/libro-common@0.3.36
+  - @difizen/libro-kernel@0.3.36
+  - @difizen/libro-core@0.3.36
+
 ## 0.3.35
 
 ### Patch Changes

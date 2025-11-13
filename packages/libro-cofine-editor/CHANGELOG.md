@@ -1,5 +1,19 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.36
+
+### Patch Changes
+
+- optimize text-render autolink performance
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.36
+  - @difizen/libro-cofine-textmate@0.3.36
+  - @difizen/libro-code-editor@0.3.36
+  - @difizen/libro-common@0.3.36
+  - @difizen/libro-core@0.3.36
+  - @difizen/libro-lsp@0.3.36
+
 ## 0.3.35
 
 ### Patch Changes
