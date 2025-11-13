@@ -5,6 +5,23 @@ import escape from 'lodash.escape';
 
 import type { ILinkHandler, IResolver, RankMap } from './rendermime-protocol.js';
 
+export interface IRenderOptions {
+  /**
+   * The host node for the text content.
+   */
+  host: HTMLElement;
+
+  /**
+   * The html sanitizer for untrusted source.
+   */
+  sanitizer: ISanitizer;
+
+  /**
+   * The source text to render.
+   */
+  source: string;
+}
+
 const ANSI_COLORS = [
   'ansi-black',
   'ansi-red',
@@ -134,6 +151,7 @@ function getExtendedColors(numbers: number[]): number | number[] {
   }
   return [r, g, b];
 }
+
 /**
  * Transform ANSI color escape codes into HTML <span> tags with CSS
  * classes such as "ansi-green-intense-fg".
@@ -275,14 +293,49 @@ export function ansiSpan(str: string): string {
   }
   return out.join('');
 }
+
+export interface LinkRange {
+  start: number; // inclusive index in whole content string
+  end: number; // exclusive index
+  url: string; // raw matched url text (without trailing > or <)
+}
+
 /**
- * Replace URLs with links.
- *
- * @param content - The text content of a node.
- *
- * @returns A list of text nodes and anchor elements.
+ * 根据原始节点、start/end 在该节点的偏移，创建对应的片段节点（不修改原节点）
+ * - 若原节点是 Text，则创建 document.createTextNode(substring)
+ * - 若原节点是 Element（如 span），则 cloneNode(false) shallow clone 后设 textContent 为 substring（保留属性/类）
  */
-export function autolink(content: string): (HTMLAnchorElement | Text)[] {
+export function pieceFromNodeSlice(
+  node: Node,
+  startInNode: number,
+  endInNode: number,
+): Node {
+  const text = (node.textContent || '').slice(startInNode, endInNode);
+  if (node.nodeType === Node.TEXT_NODE) {
+    return document.createTextNode(text);
+  } else {
+    const el = (node as Element).cloneNode(false) as Element;
+    el.textContent = text;
+    return el;
+  }
+}
+
+/**
+ * 创建 <a> 的 helper（保留 rel/target，并处理 www. 前缀）
+ */
+export function createAnchorForUrl(urlText: string): HTMLAnchorElement {
+  const a = document.createElement('a');
+  a.href = urlText.startsWith('www.') ? 'https://' + urlText : urlText;
+  a.rel = 'noopener';
+  a.target = '_blank';
+  return a;
+}
+
+/**
+ * 在字符串中查找链接范围（不创建 DOM），返回按 start 升序、不重叠的 LinkRange 数组。
+ * 该函数仅做正则匹配与位置信息记录，避免任何 DOM 分配以降低开销。
+ */
+export function autolinkRanges(content: string): LinkRange[] {
   // Taken from Visual Studio Code:
   // https://github.com/microsoft/vscode/blob/9f709d170b06e991502153f281ec3c012add2e42/src/vs/workbench/contrib/debug/browser/linkDetector.ts#L17-L18
   const controlCodes = '\\u0000-\\u0020\\u007f-\\u009f';
@@ -295,49 +348,22 @@ export function autolink(content: string): (HTMLAnchorElement | Text)[] {
     'ug',
   );
 
-  const nodes = [];
-  let lastIndex = 0;
-
+  const ranges: LinkRange[] = [];
   let match: RegExpExecArray | null;
-  while (null !== (match = webLinkRegex.exec(content))) {
-    if (match.index !== lastIndex) {
-      nodes.push(document.createTextNode(content.slice(lastIndex, match.index)));
-    }
-    let url = match[0];
-    // Special case when the URL ends with ">" or "<"
+  while ((match = webLinkRegex.exec(content))) {
+    const url = match[0];
+    // 处理特殊情况：末尾为 '>' 或 '<' 时排除该字符
     const lastChars = url.slice(-1);
-    const endsWithGtLt = ['>', '<'].indexOf(lastChars) !== -1;
+    const endsWithGtLt = lastChars === '>' || lastChars === '<';
     const len = endsWithGtLt ? url.length - 1 : url.length;
-    const anchor = document.createElement('a');
-    url = url.slice(0, len);
-    anchor.href = url.startsWith('www.') ? 'https://' + url : url;
-    anchor.rel = 'noopener';
-    anchor.target = '_blank';
-    anchor.appendChild(document.createTextNode(url.slice(0, len)));
-    nodes.push(anchor);
-    lastIndex = match.index + len;
+    const start = match.index;
+    const end = match.index + len;
+    ranges.push({ start, end, url: url.slice(0, len) });
+    // 正则使用全局标志 'g'，exec 会自动推进位置
   }
-  if (lastIndex !== content.length) {
-    nodes.push(document.createTextNode(content.slice(lastIndex, content.length)));
-  }
-  return nodes;
+  return ranges;
 }
-export interface IRenderOptions {
-  /**
-   * The host node for the text content.
-   */
-  host: HTMLElement;
 
-  /**
-   * The html sanitizer for untrusted source.
-   */
-  sanitizer: ISanitizer;
-
-  /**
-   * The source text to render.
-   */
-  source: string;
-}
 /**
  * Split a shallow node (node without nested nodes inside) at a given text content position.
  *
