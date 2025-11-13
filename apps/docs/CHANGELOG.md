@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.36
+
+### Patch Changes
+
+- optimize text-render autolink performance
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.36
+  - @difizen/libro-jupyter@0.3.36
+  - @difizen/libro-core@0.3.36
+  - @difizen/libro-lab@0.3.36
+
 ## 0.3.35
 
 ### Patch Changes
