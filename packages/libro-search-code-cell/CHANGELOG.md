@@ -1,5 +1,18 @@
 # @difizen/libro-search-codemirror-cell
 
+## 0.3.37
+
+### Patch Changes
+
+- autolink add long string protect reg exec stack size exceeded
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.37
+  - @difizen/libro-code-cell@0.3.37
+  - @difizen/libro-common@0.3.37
+  - @difizen/libro-search@0.3.37
+  - @difizen/libro-core@0.3.37
+
 ## 0.3.36
 
 ### Patch Changes

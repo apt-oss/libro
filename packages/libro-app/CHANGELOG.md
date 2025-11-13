@@ -1,5 +1,14 @@
 # @difizen/libro-output
 
+## 0.3.37
+
+### Patch Changes
+
+- autolink add long string protect reg exec stack size exceeded
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@0.3.37
+
 ## 0.3.36
 
 ### Patch Changes

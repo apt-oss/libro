@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-language-client",
-  "version": "0.3.36",
+  "version": "0.3.37",
   "description": "",
   "keywords": [
     "libro",
@@ -45,11 +45,11 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-core": "^0.3.36",
-    "@difizen/libro-code-editor": "^0.3.36",
-    "@difizen/libro-kernel": "^0.3.36",
-    "@difizen/libro-common": "^0.3.36",
-    "@difizen/libro-lsp": "^0.3.36",
+    "@difizen/libro-core": "^0.3.37",
+    "@difizen/libro-code-editor": "^0.3.37",
+    "@difizen/libro-kernel": "^0.3.37",
+    "@difizen/libro-common": "^0.3.37",
+    "@difizen/libro-lsp": "^0.3.37",
     "@difizen/mana-app": "latest",
     "@difizen/mana-common": "latest",
     "uuid": "^9.0.0",

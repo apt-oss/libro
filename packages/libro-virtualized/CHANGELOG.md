@@ -1,5 +1,11 @@
 # @difizen/libro-code-editor
 
+## 0.3.37
+
+### Patch Changes
+
+- autolink add long string protect reg exec stack size exceeded
+
 ## 0.3.36
 
 ### Patch Changes
