@@ -336,6 +336,18 @@ export function createAnchorForUrl(urlText: string): HTMLAnchorElement {
  * 该函数仅做正则匹配与位置信息记录，避免任何 DOM 分配以降低开销。
  */
 export function autolinkRanges(content: string): LinkRange[] {
+  if (!content) {
+    return [];
+  }
+
+  const MAX_AUTOLINK_LENGTH = 100_000;
+
+  // 长度保护，超长文本直接不检测链接，返回空
+  // 避免超长文本正则匹配引起栈溢出
+  if (content.length > MAX_AUTOLINK_LENGTH) {
+    return [];
+  }
+
   // Taken from Visual Studio Code:
   // https://github.com/microsoft/vscode/blob/9f709d170b06e991502153f281ec3c012add2e42/src/vs/workbench/contrib/debug/browser/linkDetector.ts#L17-L18
   const controlCodes = '\\u0000-\\u0020\\u007f-\\u009f';
