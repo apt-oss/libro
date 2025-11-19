@@ -15,10 +15,11 @@ function getLastThreeAfterFirstTwo(arr: string[]): string[] {
   return arr.slice(startIndex);
 }
 
-export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
+export const RawTextRender: React.FC<{
   model: BaseOutputView;
-}) => {
-  const { model } = props;
+  refreshKey?: string;
+}> = (props: { model: BaseOutputView; refreshKey?: string }) => {
+  const { model, refreshKey } = props;
   const renderTextRef = useRef<HTMLDivElement>(null);
   const renderTextContainerRef = useRef<HTMLDivElement>(null);
   const defaultRenderMime = useInject<IRenderMimeRegistry>(RenderMimeRegistry);
@@ -74,21 +75,13 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mimeType, dataContent]);
+  }, [mimeType, dataContent, refreshKey]);
 
   let content = null;
 
   if (isLargeOutputDisplay) {
     content = (
       <>
-        <div
-          className="libro-text-render"
-          ref={renderTextRef}
-          style={{
-            overflowY: 'auto',
-            maxHeight: 'unset',
-          }}
-        />
         {model.raw['display_text'] && (
           <div className="libro-text-display-action-container">
             <span>输出已被截断，点击可在滚动容器内</span>
@@ -133,14 +126,6 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
   } else {
     content = (
       <>
-        <div
-          className="libro-text-render"
-          ref={renderTextRef}
-          style={{
-            overflowY: 'auto',
-            maxHeight: '420px',
-          }}
-        />
         {model.raw['display_text'] && (
           <div className="libro-text-display-action-container">
             <span>当前处于滚动查看，点击可</span>
@@ -161,6 +146,14 @@ export const RawTextRender: React.FC<{ model: BaseOutputView }> = (props: {
 
   return (
     <div className="libro-text-render-container" ref={renderTextContainerRef}>
+      <div
+        className="libro-text-render"
+        ref={renderTextRef}
+        style={{
+          overflowY: 'auto',
+          maxHeight: isLargeOutputDisplay ? 'unset' : '420px',
+        }}
+      />
       {content}
     </div>
   );
