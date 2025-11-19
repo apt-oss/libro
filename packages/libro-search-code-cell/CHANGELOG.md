@@ -1,5 +1,18 @@
 # @difizen/libro-search-codemirror-cell
 
+## 0.3.38
+
+### Patch Changes
+
+- text-render stream output support append-only
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.38
+  - @difizen/libro-code-cell@0.3.38
+  - @difizen/libro-common@0.3.38
+  - @difizen/libro-search@0.3.38
+  - @difizen/libro-core@0.3.38
+
 ## 0.3.37
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @difizen/libro-markdown
 
+## 0.3.38
+
+### Patch Changes
+
+- text-render stream output support append-only
+
 ## 0.3.37
 
 ### Patch Changes

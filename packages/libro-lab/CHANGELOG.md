@@ -1,5 +1,26 @@
 # @difizen/libro-lab
 
+## 0.3.38
+
+### Patch Changes
+
+- text-render stream output support append-only
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.38
+  - @difizen/libro-language-client@0.3.38
+  - @difizen/libro-prompt-cell@0.3.38
+  - @difizen/libro-ai-native@0.3.38
+  - @difizen/libro-sql-cell@0.3.38
+  - @difizen/libro-terminal@0.3.38
+  - @difizen/libro-jupyter@0.3.38
+  - @difizen/libro-kernel@0.3.38
+  - @difizen/libro-widget@0.3.38
+  - @difizen/libro-core@0.3.38
+  - @difizen/libro-l10n@0.3.38
+  - @difizen/libro-app@0.3.38
+  - @difizen/libro-toc@0.3.38
+
 ## 0.3.37
 
 ### Patch Changes

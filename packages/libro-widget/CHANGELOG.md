@@ -1,5 +1,18 @@
 # @difizen/libro-widget
 
+## 0.3.38
+
+### Patch Changes
+
+- text-render stream output support append-only
+
+- Updated dependencies []:
+  - @difizen/libro-rendermime@0.3.38
+  - @difizen/libro-jupyter@0.3.38
+  - @difizen/libro-common@0.3.38
+  - @difizen/libro-kernel@0.3.38
+  - @difizen/libro-core@0.3.38
+
 ## 0.3.37
 
 ### Patch Changes

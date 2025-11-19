@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.38
+
+### Patch Changes
+
+- text-render stream output support append-only
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.38
+  - @difizen/libro-jupyter@0.3.38
+  - @difizen/libro-core@0.3.38
+  - @difizen/libro-lab@0.3.38
+
 ## 0.3.37
 
 ### Patch Changes

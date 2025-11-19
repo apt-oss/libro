@@ -1,5 +1,14 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.38
+
+### Patch Changes
+
+- text-render stream output support append-only
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-contribution@0.3.38
+
 ## 0.3.37
 
 ### Patch Changes
