@@ -30,7 +30,7 @@ const StreamOutputModelRender = forwardRef<HTMLDivElement>(
     });
     if (factory) {
       const OutputRender = factory.render;
-      const children = <OutputRender model={model} key={refreshKey} />;
+      const children = <OutputRender model={model} refreshKey={refreshKey} />;
       return (
         <div ref={ref} className={'libro-stream-container'}>
           {children}
