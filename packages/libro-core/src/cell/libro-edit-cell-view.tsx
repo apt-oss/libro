@@ -139,6 +139,9 @@ export abstract class LibroEditorCellView
             });
             libroTracker['endTime'] = Date.now();
             libroTracker['extra'].cellsCount = this.parent.model.cells.length;
+            libroTracker['extra'].size = (
+              this.parent.model as any
+            ).currentFileContents?.size;
             this.parent.libroViewTracker.tracker(libroTracker);
           }
           const id = this.options.id + this.parent.id + 'add';
