@@ -1,5 +1,17 @@
 # @difizen/libro-core
 
+## 0.3.39
+
+### Patch Changes
+
+- add render and scroll performance with size report
+
+- Updated dependencies []:
+  - @difizen/libro-shared-model@0.3.39
+  - @difizen/libro-code-editor@0.3.39
+  - @difizen/libro-virtualized@0.3.39
+  - @difizen/libro-common@0.3.39
+
 ## 0.3.38
 
 ### Patch Changes

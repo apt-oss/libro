@@ -1,5 +1,11 @@
 # @difizen/libro-l10n
 
+## 0.3.39
+
+### Patch Changes
+
+- add render and scroll performance with size report
+
 ## 0.3.38
 
 ### Patch Changes
