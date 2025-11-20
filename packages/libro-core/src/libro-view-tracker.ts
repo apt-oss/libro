@@ -54,6 +54,7 @@ export class FpsTracker implements ITracker {
   maxFrameTime: number;
   totalDropped: number;
   cellsCount: number;
+  size: number;
 
   constructor(id?: string, extra?: any) {
     this.id = id || v4();
@@ -68,6 +69,7 @@ export class FpsTracker implements ITracker {
       totalDropped: this.totalDropped,
       extra: this.extra,
       cellsCount: this.cellsCount,
+      size: this.size,
     };
     return result;
   }
