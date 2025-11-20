@@ -1,5 +1,14 @@
 # @difizen/libro-output
 
+## 0.3.39
+
+### Patch Changes
+
+- add render and scroll performance with size report
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@0.3.39
+
 ## 0.3.38
 
 ### Patch Changes
