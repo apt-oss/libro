@@ -90,12 +90,16 @@ export const LibroContentComponent = memo(function LibroContentComponent() {
     libroViewContentRef,
     instance.libroViewTracker.isEnabledSpmReporter,
     (payload) => {
-      const fpsTracker = instance.libroViewTracker.getOrCreateTrackers({ type: 'fps' });
+      const fpsTracker = instance.libroViewTracker.getOrCreateTrackers({
+        type: 'fps',
+        id: instance.model.options['modelId'] + 'fps',
+      });
       fpsTracker['avgFPS'] = payload.summary.avgFPS;
       fpsTracker['maxFrameTime'] = payload.summary.maxFrameTime;
       fpsTracker['totalDropped'] = payload.summary.totalDropped;
       fpsTracker['extra'] = payload.frames;
       fpsTracker['cells'] = instance.model.cells.length;
+      fpsTracker['size'] = instance.model.currentFileContents?.size;
       instance.libroViewTracker.tracker(fpsTracker);
     },
   );
