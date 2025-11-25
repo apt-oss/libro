@@ -1,5 +1,18 @@
 # @difizen/libro-prompt-cell
 
+## 0.3.40
+
+### Patch Changes
+
+- add virtulized config and fix sql cell height when virtualized
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.40
+  - @difizen/libro-rendermime@0.3.40
+  - @difizen/libro-jupyter@0.3.40
+  - @difizen/libro-common@0.3.40
+  - @difizen/libro-core@0.3.40
+
 ## 0.3.39
 
 ### Patch Changes

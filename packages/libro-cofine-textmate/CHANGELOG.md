@@ -1,5 +1,14 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.40
+
+### Patch Changes
+
+- add virtulized config and fix sql cell height when virtualized
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.40
+
 ## 0.3.39
 
 ### Patch Changes
