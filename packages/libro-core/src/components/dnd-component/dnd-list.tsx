@@ -174,7 +174,7 @@ export const DndCellsRender = forwardRef<
     // TODO: 类型处理
     const model = libroView.model as any;
     if (model.currentFileContents && model.currentFileContents.size) {
-      size = parseFloat((model.currentFileContents.size / 1048576).toFixed(3)); // 单位MB
+      size = model.currentFileContents.size; // 单位 byte
       path = model.currentFileContents.path || '';
     }
 

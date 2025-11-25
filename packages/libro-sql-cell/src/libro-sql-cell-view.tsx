@@ -306,7 +306,6 @@ export class LibroSqlCellView extends LibroEditableExecutableCellView {
         this.codeEditorManager.getUserEditorConfig(this.model);
       const codeHeight = countLines(this.model.value) * lineHeight!;
       const editorPadding = paddingTop + paddingBottom;
-
       const scrollbarHeight = 12;
 
       // TODO: 滚动条有条件显示
@@ -391,10 +390,17 @@ export class LibroSqlCellView extends LibroEditableExecutableCellView {
   }
 
   override onViewResize = (size: ViewSize): void => {
-    // 把 header 部分高度也放在这部分，用来撑开高度
-    if (size.height) {
-      this.editorAreaHeight = size.height + 36;
+    // 只有在编辑器未加载或加载中时才更新 editorAreaHeight
+    if (
+      this.editorStatus === EditorStatus.NOTLOADED ||
+      this.editorStatus === EditorStatus.LOADING
+    ) {
+      // 把 header 部分高度也放在这部分，用来撑开高度
+      if (size.height) {
+        this.editorAreaHeight = size.height + 36;
+      }
     }
+    // 编辑器已加载后，高度由 ResizeObserver 等机制自动管理
   };
 
   handleDbChange(value: string) {
