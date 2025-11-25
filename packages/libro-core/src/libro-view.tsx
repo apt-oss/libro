@@ -1045,14 +1045,12 @@ export class LibroView extends BaseView implements NotebookView {
           ExecutableCellModel.is(selectedCell.model)
         ) {
           selectedCell.clearExecution();
-          selectedCell.model.executing = false;
           selectedCell.model.hasOutputHidden = false;
         }
       }
     } else {
       if (ExecutableCellView.is(cell) && ExecutableCellModel.is(cell.model)) {
         cell.clearExecution();
-        cell.model.executing = false;
         cell.model.hasOutputHidden = false;
       }
     }
@@ -1064,7 +1062,6 @@ export class LibroView extends BaseView implements NotebookView {
     for (const cell of this.model.cells) {
       if (ExecutableCellView.is(cell) && ExecutableCellModel.is(cell.model)) {
         cell.clearExecution();
-        cell.model.executing = false;
         cell.model.hasOutputHidden = false;
       }
     }
