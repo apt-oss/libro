@@ -130,3 +130,40 @@ export const LargeOutputDisplay: ConfigurationNode<boolean> = {
     type: 'boolean',
   },
 };
+
+export const VirtualizationEnabled: ConfigurationNode<boolean> = {
+  id: 'libro.virtualization.enabled',
+  description: l10n.t('是否启用虚拟滚动功能'),
+  title: l10n.t('虚拟滚动'),
+  type: 'checkbox',
+  defaultValue: false,
+  schema: {
+    type: 'boolean',
+  },
+};
+
+export const VirtualizationThresholdCellCount: ConfigurationNode<number> = {
+  id: 'libro.virtualization.threshold.cellcount',
+  description: l10n.t('启用虚拟滚动所需的cell数量阈值'),
+  title: l10n.t('虚拟滚动 cell 数量阈值'),
+  type: 'input',
+  defaultValue: 50,
+  schema: {
+    type: 'number',
+    minimum: 1,
+    maximum: 1000,
+  },
+};
+
+export const VirtualizationThresholdFileSize: ConfigurationNode<number> = {
+  id: 'libro.virtualization.threshold.filesize',
+  description: l10n.t('启用虚拟滚动所需的文件大小阈值，单位 byte'),
+  title: l10n.t('虚拟滚动文件大小阈值'),
+  type: 'input',
+  defaultValue: 100 * 1024, // 100KB
+  schema: {
+    type: 'number',
+    minimum: 1,
+    maximum: 1024 * 1024 * 1024, // 1GB
+  },
+};
