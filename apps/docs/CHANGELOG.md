@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.40
+
+### Patch Changes
+
+- add virtulized config and fix sql cell height when virtualized
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.40
+  - @difizen/libro-jupyter@0.3.40
+  - @difizen/libro-core@0.3.40
+  - @difizen/libro-lab@0.3.40
+
 ## 0.3.39
 
 ### Patch Changes

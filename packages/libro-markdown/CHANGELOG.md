@@ -1,5 +1,11 @@
 # @difizen/libro-markdown
 
+## 0.3.40
+
+### Patch Changes
+
+- add virtulized config and fix sql cell height when virtualized
+
 ## 0.3.39
 
 ### Patch Changes
