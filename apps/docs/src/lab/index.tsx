@@ -1,11 +1,15 @@
 import { LibroLabModule, AppExtention } from '@difizen/libro-lab';
 
 import { LibroApp } from './app.js';
+import { VirtualizationConfigContribution } from './virtualize-config-contribution.js';
 import './index.less';
 
 const { ManaAppPreset, ManaComponents, ManaModule } = AppExtention;
 
-const BaseModule = ManaModule.create().register(LibroApp);
+const BaseModule = ManaModule.create().register(
+  LibroApp,
+  VirtualizationConfigContribution,
+);
 
 const App = (): JSX.Element => {
   return (

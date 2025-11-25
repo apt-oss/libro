@@ -10,6 +10,9 @@ import {
   LargeOutputDisplay,
   MultiSelectionWhenShiftClick,
   RightContentFixed,
+  VirtualizationEnabled,
+  VirtualizationThresholdCellCount,
+  VirtualizationThresholdFileSize,
 } from './libro-setting.js';
 
 @singleton({ contrib: ConfigurationContribution })
@@ -25,6 +28,9 @@ export class LibroSettingContribution implements ConfigurationContribution {
       MultiSelectionWhenShiftClick,
       RightContentFixed,
       LargeOutputDisplay,
+      VirtualizationEnabled,
+      VirtualizationThresholdCellCount,
+      VirtualizationThresholdFileSize,
     ];
   }
 }
