@@ -1,5 +1,11 @@
 # @difizen/libro-code-editor
 
+## 0.3.41
+
+### Patch Changes
+
+- add virtualized list scroll and render event emit
+
 ## 0.3.40
 
 ### Patch Changes

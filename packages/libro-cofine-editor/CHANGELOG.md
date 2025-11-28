@@ -1,5 +1,19 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.41
+
+### Patch Changes
+
+- add virtualized list scroll and render event emit
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.41
+  - @difizen/libro-cofine-textmate@0.3.41
+  - @difizen/libro-code-editor@0.3.41
+  - @difizen/libro-common@0.3.41
+  - @difizen/libro-core@0.3.41
+  - @difizen/libro-lsp@0.3.41
+
 ## 0.3.40
 
 ### Patch Changes

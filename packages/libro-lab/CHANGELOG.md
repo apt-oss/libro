@@ -1,5 +1,26 @@
 # @difizen/libro-lab
 
+## 0.3.41
+
+### Patch Changes
+
+- add virtualized list scroll and render event emit
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.41
+  - @difizen/libro-language-client@0.3.41
+  - @difizen/libro-prompt-cell@0.3.41
+  - @difizen/libro-ai-native@0.3.41
+  - @difizen/libro-sql-cell@0.3.41
+  - @difizen/libro-terminal@0.3.41
+  - @difizen/libro-jupyter@0.3.41
+  - @difizen/libro-kernel@0.3.41
+  - @difizen/libro-widget@0.3.41
+  - @difizen/libro-core@0.3.41
+  - @difizen/libro-l10n@0.3.41
+  - @difizen/libro-app@0.3.41
+  - @difizen/libro-toc@0.3.41
+
 ## 0.3.40
 
 ### Patch Changes
