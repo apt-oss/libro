@@ -50,6 +50,7 @@ export type CellSize = CellSizeGetter | number;
 export type NoContentRenderer = () => React.ReactNode | null;
 
 export type Scroll = {
+  scrollingContainer: Element;
   clientHeight: number;
   clientWidth: number;
   scrollHeight: number;

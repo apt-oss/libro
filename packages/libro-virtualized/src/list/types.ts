@@ -22,4 +22,5 @@ export type Scroll = {
   clientHeight: number;
   scrollHeight: number;
   scrollTop: number;
+  scrollingContainer: Element;
 };
