@@ -7,9 +7,9 @@ import type {
   INotebookContent,
   INotebookMetadata,
 } from '@difizen/libro-common';
-import type { ISharedNotebook } from '@difizen/libro-shared-model';
 import type { Disposable, Event } from '@difizen/libro-common/app';
 import type { View } from '@difizen/libro-common/app';
+import type { ISharedNotebook } from '@difizen/libro-shared-model';
 
 import type { LibroCell } from './cell/index.js';
 import type { LibroView } from './libro-view.js';
@@ -64,6 +64,11 @@ export interface ITracker {
 export interface ScrollParams {
   cellIndex: number;
   cellOffset?: number;
+}
+
+export interface LibroViewScrollParams {
+  scrollingContainer: Element;
+  scrollTop: number;
 }
 
 export type NotebookModel = BaseNotebookModel & DndListModel;
