@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.41
+
+### Patch Changes
+
+- add virtualized list scroll and render event emit
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.41
+  - @difizen/libro-jupyter@0.3.41
+  - @difizen/libro-core@0.3.41
+  - @difizen/libro-lab@0.3.41
+
 ## 0.3.40
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # @difizen/libro-widget
 
+## 0.3.41
+
+### Patch Changes
+
+- add virtualized list scroll and render event emit
+
+- Updated dependencies []:
+  - @difizen/libro-rendermime@0.3.41
+  - @difizen/libro-jupyter@0.3.41
+  - @difizen/libro-common@0.3.41
+  - @difizen/libro-kernel@0.3.41
+  - @difizen/libro-core@0.3.41
+
 ## 0.3.40
 
 ### Patch Changes
