@@ -52,6 +52,9 @@ type Props = {
 
   onRowsRendered: (params: RenderedRows) => void;
 
+  /** Callback invoked when the grid has been rendered */
+  onGridRendered: (grid: React.ElementRef<typeof Grid> | null | undefined) => void;
+
   /**
    * Callback invoked whenever the scroll offset changes within the inner scrollable region.
    * This callback can be used to sync scrolling between lists, tables, or grids.
@@ -117,6 +120,9 @@ export default class List extends React.PureComponent<Props> {
     onRowsRendered: () => {
       //
     },
+    onGridRendered: () => {
+      //
+    },
     overscanIndicesGetter: accessibilityOverscanIndicesGetter,
     overscanRowCount: 10,
     scrollToAlignment: 'auto',
@@ -125,6 +131,8 @@ export default class List extends React.PureComponent<Props> {
   };
 
   Grid?: React.ElementRef<typeof Grid> | null;
+
+  hasGridRenderedRef = false;
 
   forceUpdateGrid() {
     if (this.Grid) {
@@ -211,6 +219,10 @@ export default class List extends React.PureComponent<Props> {
     }
   }
 
+  override componentWillUnmount(): void {
+    this.hasGridRenderedRef = false;
+  }
+
   override render() {
     const { className, noRowsRenderer, scrollToIndex, width } = this.props;
 
@@ -268,10 +280,14 @@ export default class List extends React.PureComponent<Props> {
     this.Grid = ref;
   };
 
-  _onScroll = ({ clientHeight, scrollHeight, scrollTop }: GridScroll) => {
+  _onScroll = ({
+    clientHeight,
+    scrollHeight,
+    scrollTop,
+    scrollingContainer,
+  }: GridScroll) => {
     const { onScroll } = this.props;
-
-    onScroll({ clientHeight, scrollHeight, scrollTop });
+    onScroll({ clientHeight, scrollHeight, scrollTop, scrollingContainer });
   };
 
   _onSectionRendered = ({
@@ -281,6 +297,12 @@ export default class List extends React.PureComponent<Props> {
     rowStopIndex,
   }: RenderedSection) => {
     const { onRowsRendered } = this.props;
+
+    if (!this.hasGridRenderedRef) {
+      this.hasGridRenderedRef = true;
+
+      this.props.onGridRendered(this.Grid);
+    }
 
     onRowsRendered({
       overscanStartIndex: rowOverscanStartIndex,

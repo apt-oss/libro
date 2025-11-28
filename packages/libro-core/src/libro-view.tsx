@@ -6,6 +6,7 @@ import {
   copy2clipboard,
   readFromClipboard,
 } from '@difizen/libro-common';
+import type { Grid } from '@difizen/libro-virtualized';
 import {
   equals,
   useInject,
@@ -56,6 +57,7 @@ import type {
   NotebookView,
   NotebookModel,
   NotebookOption,
+  LibroViewScrollParams,
 } from './libro-protocol.js';
 import { LibroService } from './libro-service.js';
 import {
@@ -105,7 +107,11 @@ export const LibroContentComponent = memo(function LibroContentComponent() {
   );
 
   const handleScroll = useCallback(() => {
-    instance.cellScrollEmitter.fire();
+    libroViewContentRef.current &&
+      instance.cellScrollEmitter.fire({
+        scrollingContainer: libroViewContentRef.current,
+        scrollTop: libroViewContentRef.current.scrollTop,
+      });
     const cellRightToolbar = instance.container?.current?.getElementsByClassName(
       'libro-cell-right-toolbar',
     )[instance.model.activeIndex] as HTMLDivElement;
@@ -386,9 +392,14 @@ export class LibroView extends BaseView implements NotebookView {
     return this.runCellEmitter.event;
   }
 
-  cellScrollEmitter = new Emitter<void>();
+  cellScrollEmitter = new Emitter<LibroViewScrollParams>();
   get onCellScroll() {
     return this.cellScrollEmitter.event;
+  }
+
+  virtualizedGridRenderedEmitter = new Emitter<Grid>();
+  get onVirtualizedGridRendered() {
+    return this.virtualizedGridRenderedEmitter.event;
   }
 
   outputRenderTabEmitter = new Emitter<{

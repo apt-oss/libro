@@ -1408,6 +1408,7 @@ class Grid extends React.PureComponent<Props, State> {
         const { height, onScroll, width } = this.props;
 
         onScroll({
+          scrollingContainer: this._scrollingContainer,
           clientHeight: height,
           clientWidth: width,
           scrollHeight: totalRowsHeight,
