@@ -1,5 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { AutoSizer, List } from '@difizen/libro-virtualized';
+import type { Grid } from '@difizen/libro-virtualized';
 import type { ReactNode } from 'react';
 import { memo, useEffect, useMemo, useRef, useState } from 'react';
 
@@ -88,6 +88,40 @@ export const LibroCellsOutputRender: React.FC<{
     [noEditorAreaHeight],
   );
 
+  // 绘制所有的非编辑器区域
+  const noEditorArea = useMemo(() => {
+    let position = -1;
+    return (
+      <div
+        style={{
+          position: 'absolute',
+          visibility: 'visible',
+          width: '100%',
+          height: '100%',
+        }}
+        ref={noEditorAreaRef}
+      >
+        {cells
+          // .filter((cell) => cell.collapsedHidden === false)
+          .map((cell, index) => {
+            position += 1;
+            if (cell.collapsedHidden) {
+              return null;
+            }
+            return (
+              <DndCellRender
+                cell={cell}
+                key={cell.id}
+                index={index}
+                position={position}
+              />
+            );
+          })}
+        {addCellButtons}
+      </div>
+    );
+  }, [cells, addCellButtons]);
+
   useEffect(() => {
     if (!listRef || !listRef.current || !libroView.model) {
       return;
@@ -127,41 +161,7 @@ export const LibroCellsOutputRender: React.FC<{
     });
 
     setEditorsOffset(newCellOffsets);
-  }, [noEditorAreaRef.current, cells]);
-
-  // 绘制所有的非编辑器区域
-  const noEditorArea = useMemo(() => {
-    let position = -1;
-    return (
-      <div
-        style={{
-          position: 'absolute',
-          visibility: 'visible',
-          width: '100%',
-          height: '100%',
-        }}
-        ref={noEditorAreaRef}
-      >
-        {cells
-          // .filter((cell) => cell.collapsedHidden === false)
-          .map((cell, index) => {
-            position += 1;
-            if (cell.collapsedHidden) {
-              return null;
-            }
-            return (
-              <DndCellRender
-                cell={cell}
-                key={cell.id}
-                index={index}
-                position={position}
-              />
-            );
-          })}
-        {addCellButtons}
-      </div>
-    );
-  }, [cells, addCellButtons]);
+  }, [cells]);
 
   return (
     <AutoSizer style={{ height: '100%', width: '100%' }} ref={parentRef}>
@@ -182,6 +182,20 @@ export const LibroCellsOutputRender: React.FC<{
             editorAreaHeight={editorAreaHeight}
             noEditorArea={noEditorArea}
             editorsOffset={editorsOffset}
+            onScroll={(scrollParams: {
+              clientHeight: number;
+              scrollHeight: number;
+              scrollTop: number;
+              scrollingContainer: Element;
+            }) => {
+              libroView.cellScrollEmitter.fire({
+                scrollingContainer: scrollParams.scrollingContainer,
+                scrollTop: scrollParams.scrollTop,
+              });
+            }}
+            onGridRendered={(Grid: Grid) => {
+              libroView.virtualizedGridRenderedEmitter.fire(Grid);
+            }}
           />
         );
       }}

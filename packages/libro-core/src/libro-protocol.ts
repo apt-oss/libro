@@ -66,6 +66,11 @@ export interface ScrollParams {
   cellOffset?: number;
 }
 
+export interface LibroViewScrollParams {
+  scrollingContainer: Element;
+  scrollTop: number;
+}
+
 export type NotebookModel = BaseNotebookModel & DndListModel;
 
 export interface ICellContentChange {
