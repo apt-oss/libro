@@ -43,6 +43,8 @@ export const LibroCellsOutputRender: React.FC<{
   const parentRef = useRef(null);
   const listRef = useRef<List | null>(null);
   const noEditorAreaRef = useRef<HTMLDivElement | null>(null);
+  const scrollTopRef = useRef(0);
+  const viewportHeightRef = useRef(0);
 
   const [editorsOffset, setEditorsOffset] = useState<number[]>([]);
 
@@ -128,13 +130,38 @@ export const LibroCellsOutputRender: React.FC<{
     }
 
     libroView.model.onScrollToCellView((params: ScrollParams) => {
-      // listRef.current!.scrollToRow(index);
-      listRef.current!.scrollToCellPosition(params.cellIndex, params.cellOffset);
+      const index = params.cellIndex;
+      const offset = params.cellOffset || 0;
+      const top = (editorsOffset[index] || 0) + offset;
+      const height = (noEditorAreaHeight[index] || 0) + (editorAreaHeight[index] || 0);
+      const viewportTop = scrollTopRef.current;
+      const viewportHeight = viewportHeightRef.current;
+
+      if (viewportHeight && height) {
+        if (top > viewportTop && top + height < viewportTop + viewportHeight) {
+          // 在可视范围内就不需要滚动
+          return;
+        }
+        if (top < viewportTop) {
+          listRef.current!.scrollToCellPosition(index, offset);
+        } else {
+          const prevCellNoEditorHeight = noEditorAreaHeight[index - 1] || 0;
+          const prevCellEditorHeight = editorAreaHeight[index - 1] || 0;
+          const centerOffset =
+            offset -
+            viewportHeight / 2 -
+            (prevCellNoEditorHeight - prevCellEditorHeight);
+          listRef.current!.scrollToCellPosition(index, centerOffset); // 把目标 cell 的顶部放到视窗的中间位置
+        }
+      } else {
+        listRef.current!.scrollToCellPosition(index, offset);
+      }
     });
+
     return () => {
       libroView.model.disposeScrollToCellViewEmitter();
     };
-  }, [listRef, libroView]);
+  }, [listRef, libroView, editorsOffset, noEditorAreaHeight, editorAreaHeight]);
 
   // 在Cell的高度变化时，触发重新计算所有Cell的高度偏移值
   useEffect(() => {
@@ -166,6 +193,7 @@ export const LibroCellsOutputRender: React.FC<{
   return (
     <AutoSizer style={{ height: '100%', width: '100%' }} ref={parentRef}>
       {({ width, height }: { width: number; height: number }) => {
+        viewportHeightRef.current = height;
         return (
           <List
             ref={listRef}
@@ -188,6 +216,8 @@ export const LibroCellsOutputRender: React.FC<{
               scrollTop: number;
               scrollingContainer: Element;
             }) => {
+              scrollTopRef.current = scrollParams.scrollTop;
+              viewportHeightRef.current = scrollParams.clientHeight;
               libroView.cellScrollEmitter.fire({
                 scrollingContainer: scrollParams.scrollingContainer,
                 scrollTop: scrollParams.scrollTop,
