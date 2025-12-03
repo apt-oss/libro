@@ -422,9 +422,11 @@ export class LibroModel implements NotebookModel, DndListModel {
       target = target?.offsetParent as HTMLElement;
       offsetTop += target?.offsetTop || 0;
     }
+
     if (target?.offsetParent?.parentElement && _targetheight) {
       const _height = target.offsetParent.parentElement.clientHeight;
       const _scrollTop = target.offsetParent.parentElement.scrollTop;
+
       if (offsetTop > _scrollTop && offsetTop + _targetheight < _height + _scrollTop) {
         // 在可视范围内就不需要滚动
         return;
@@ -432,9 +434,9 @@ export class LibroModel implements NotebookModel, DndListModel {
       if (offsetTop < _scrollTop) {
         target.offsetParent.parentElement.scrollTop = offsetTop;
       } else {
-        //目标cell的高度大于屏幕的高度
+        // 目标 cell 的高度大于屏幕的高度
         if (_targetheight >= _height) {
-          target.offsetParent.parentElement.scrollTop = offsetTop - _height / 2;
+          target.offsetParent.parentElement.scrollTop = offsetTop - _height / 2; // 把目标 cell 的顶部放到视窗的中间位置
         } else {
           target.offsetParent.parentElement.scrollTop =
             offsetTop + _targetheight - _height + 30; // 加缓冲向上不贴底部
