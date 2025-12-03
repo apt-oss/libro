@@ -1,5 +1,14 @@
 # @difizen/libro-code-editor
 
+## 0.3.42
+
+### Patch Changes
+
+- fix virtualized scrollToCell position
+
+- Updated dependencies []:
+  - @difizen/libro-common@0.3.42
+
 ## 0.3.41
 
 ### Patch Changes

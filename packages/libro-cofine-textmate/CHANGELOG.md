@@ -1,5 +1,14 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.42
+
+### Patch Changes
+
+- fix virtualized scrollToCell position
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.42
+
 ## 0.3.41
 
 ### Patch Changes
