@@ -1,5 +1,14 @@
 # @difizen/libro-output
 
+## 0.3.43
+
+### Patch Changes
+
+- add virtualized list fps report
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@0.3.43
+
 ## 0.3.42
 
 ### Patch Changes

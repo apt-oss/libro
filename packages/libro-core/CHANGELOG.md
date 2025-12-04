@@ -1,5 +1,17 @@
 # @difizen/libro-core
 
+## 0.3.43
+
+### Patch Changes
+
+- add virtualized list fps report
+
+- Updated dependencies []:
+  - @difizen/libro-shared-model@0.3.43
+  - @difizen/libro-code-editor@0.3.43
+  - @difizen/libro-virtualized@0.3.43
+  - @difizen/libro-common@0.3.43
+
 ## 0.3.42
 
 ### Patch Changes
