@@ -6,6 +6,7 @@ import { memo, useEffect, useMemo, useRef, useState } from 'react';
 import { EditorCellView } from '../cell/index.js';
 import type { CellView, ScrollParams } from '../libro-protocol.js';
 import type { LibroView } from '../libro-view.js';
+import { useFrameMonitor } from '../utils/index.js';
 
 import { DndCellRender } from './dnd-component/index.js';
 
@@ -189,6 +190,26 @@ export const LibroCellsOutputRender: React.FC<{
 
     setEditorsOffset(newCellOffsets);
   }, [cells]);
+
+  useFrameMonitor(
+    {
+      current: listRef.current?.Grid?._scrollingContainer,
+    },
+    libroView.libroViewTracker.isEnabledSpmReporter,
+    (payload) => {
+      const fpsTracker = libroView.libroViewTracker.getOrCreateTrackers({
+        type: 'fps',
+        id: libroView.model.options['modelId'] + 'fps',
+      });
+      fpsTracker['avgFPS'] = payload.summary.avgFPS;
+      fpsTracker['maxFrameTime'] = payload.summary.maxFrameTime;
+      fpsTracker['totalDropped'] = payload.summary.totalDropped;
+      fpsTracker['extra'] = payload.frames;
+      fpsTracker['cells'] = libroView.model.cells.length;
+      fpsTracker['size'] = libroView.model.currentFileContents?.size;
+      libroView.libroViewTracker.tracker(fpsTracker);
+    },
+  );
 
   return (
     <AutoSizer style={{ height: '100%', width: '100%' }} ref={parentRef}>
