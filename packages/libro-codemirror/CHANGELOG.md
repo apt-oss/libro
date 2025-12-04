@@ -1,5 +1,17 @@
 # @difizen/libro-codemirror
 
+## 0.3.43
+
+### Patch Changes
+
+- add virtualized list fps report
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.43
+  - @difizen/libro-rendermime@0.3.43
+  - @difizen/libro-common@0.3.43
+  - @difizen/libro-lsp@0.3.43
+
 ## 0.3.42
 
 ### Patch Changes

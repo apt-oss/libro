@@ -1,5 +1,11 @@
 # @difizen/libro-code-editor
 
+## 0.3.43
+
+### Patch Changes
+
+- add virtualized list fps report
+
 ## 0.3.42
 
 ### Patch Changes

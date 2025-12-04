@@ -1,5 +1,11 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.43
+
+### Patch Changes
+
+- add virtualized list fps report
+
 ## 0.3.42
 
 ### Patch Changes
