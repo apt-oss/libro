@@ -1,5 +1,18 @@
 # libro-langauge-client
 
+## 0.3.44
+
+### Patch Changes
+
+- optimize mana view key performance when getOrCreateView
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.44
+  - @difizen/libro-common@0.3.44
+  - @difizen/libro-kernel@0.3.44
+  - @difizen/libro-core@0.3.44
+  - @difizen/libro-lsp@0.3.44
+
 ## 0.3.43
 
 ### Patch Changes
