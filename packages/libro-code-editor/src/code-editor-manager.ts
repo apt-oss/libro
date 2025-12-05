@@ -65,11 +65,19 @@ export class CodeEditorManager {
         `no code editor factory registered for mimetype: ${option.model.mimeType}`,
       );
     }
+
     const editorView = await this.viewManager.getOrCreateView<
       CodeEditorView,
       CodeEditorViewOptions
     >(CodeEditorView, {
       factory,
+      toJSON: () => {
+        return {
+          uuid: option.uuid,
+          editorHostId: option.editorHostId,
+          mimeType: option.model.mimeType,
+        };
+      },
       ...option,
     });
     return editorView;
