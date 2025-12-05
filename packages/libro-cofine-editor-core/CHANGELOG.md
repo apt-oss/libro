@@ -1,5 +1,14 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.44
+
+### Patch Changes
+
+- optimize mana view key performance when getOrCreateView
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-contribution@0.3.44
+
 ## 0.3.43
 
 ### Patch Changes

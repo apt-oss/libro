@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.44
+
+### Patch Changes
+
+- optimize mana view key performance when getOrCreateView
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.44
+  - @difizen/libro-jupyter@0.3.44
+  - @difizen/libro-core@0.3.44
+  - @difizen/libro-lab@0.3.44
+
 ## 0.3.43
 
 ### Patch Changes
