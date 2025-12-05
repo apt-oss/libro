@@ -30,7 +30,7 @@ export class LibroAINativeService {
     } else {
       libroAINativeForCellView = await this.viewManager.getOrCreateView(
         LibroAINativeForCellView,
-        { id: id, cell: getOrigin(cell) },
+        { id: id, cell: getOrigin(cell), toJSON: () => ({ id, cellId: cell.id }) },
       );
       this.libroAINativeForCellViewMap.set(cell.id, libroAINativeForCellView);
     }

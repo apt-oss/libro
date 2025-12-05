@@ -16,6 +16,19 @@ export class StreamOutputContribution implements OutputContribution {
     return 1;
   };
   factory(output: IOutputOptions) {
-    return this.viewManager.getOrCreateView(StreamOutputModel, output);
+    return this.viewManager.getOrCreateView(
+      StreamOutputModel,
+      Object.assign(output, {
+        toJSON: () => ({
+          cellId: output.cell.id,
+          type: output.output.output_type,
+          name: (output.output as any).name,
+          length:
+            typeof (output.output as any).text === 'string'
+              ? (output.output as any).text.length
+              : 0,
+        }),
+      }),
+    );
   }
 }
