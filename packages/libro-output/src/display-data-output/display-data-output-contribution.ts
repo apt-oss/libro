@@ -1,8 +1,8 @@
 import type { IOutput } from '@difizen/libro-common';
-import type { IOutputOptions } from '@difizen/libro-core';
-import { OutputContribution } from '@difizen/libro-core';
 import { inject, singleton } from '@difizen/libro-common/app';
 import { ViewManager } from '@difizen/libro-common/app';
+import type { IOutputOptions } from '@difizen/libro-core';
+import { OutputContribution } from '@difizen/libro-core';
 
 import { DisplayDataOutputModel } from './display-data-output-model.js';
 
@@ -18,7 +18,17 @@ export class DisplayDataOutputContribution implements OutputContribution {
     }
     return 1;
   };
-  factory(output: IOutputOptions) {
-    return this.viewManager.getOrCreateView(DisplayDataOutputModel, output);
+
+  async factory(output: IOutputOptions) {
+    return this.viewManager.getOrCreateView(
+      DisplayDataOutputModel,
+      Object.assign(output, {
+        toJSON: () => ({
+          cellId: output.cell.id,
+          type: output.output.output_type,
+          keys: Object.keys((output.output as any).data || {}),
+        }),
+      }),
+    );
   }
 }

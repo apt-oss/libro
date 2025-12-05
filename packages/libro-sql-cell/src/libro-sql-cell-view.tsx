@@ -342,6 +342,7 @@ export class LibroSqlCellView extends LibroEditableExecutableCellView {
       .getOrCreateView<LibroOutputArea, IOutputAreaOption>(LibroOutputArea, {
         cellId: this.id,
         cell: this,
+        toJSON: () => ({ cellId: this.id }),
       })
       .then(async (outputArea) => {
         this.outputArea = outputArea;

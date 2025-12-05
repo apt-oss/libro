@@ -163,6 +163,7 @@ export interface IOutputOptions {
   output: IOutput;
   trusted: boolean;
   cell: CellView;
+  toJSON?: () => JSONObject;
 }
 
 export type OutputModelFactory = (options: IOutputOptions) => Promise<BaseOutputModel>;
