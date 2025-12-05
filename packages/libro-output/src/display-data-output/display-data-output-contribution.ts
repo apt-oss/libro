@@ -46,7 +46,16 @@ export class DisplayDataOutputContribution implements OutputContribution {
   async factory(output: IOutputOptions) {
     // 在构造模型之前预处理图片数据
     const processedOutput = await this.preprocessImageData(output);
-    return this.viewManager.getOrCreateView(DisplayDataOutputModel, processedOutput);
+    return this.viewManager.getOrCreateView(
+      DisplayDataOutputModel,
+      Object.assign(processedOutput, {
+        toJSON: () => ({
+          cellId: processedOutput.cell.id,
+          type: processedOutput.output.output_type,
+          keys: Object.keys((processedOutput.output as any).data || {}),
+        }),
+      }),
+    );
   }
 
   private async preprocessImageData(options: IOutputOptions): Promise<IOutputOptions> {

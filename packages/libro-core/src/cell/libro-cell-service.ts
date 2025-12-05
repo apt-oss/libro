@@ -112,6 +112,11 @@ export class LibroCellService implements CellService, ApplicationContribution {
       ...options,
       modelId: model.id,
       parentId: parentId,
+      toJSON: () => ({
+        id: options.id,
+        modelId: model.id,
+        parentId,
+      }),
     });
 
     const cellView = await cellViewPromise;
