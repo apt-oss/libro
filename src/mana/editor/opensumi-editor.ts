@@ -488,6 +488,11 @@ export class LibroOpensumiEditor implements IEditor {
         uri,
         'libro-opensumi-editor',
       );
+      // 如果在等待期间 editor 已被销毁，则销毁创建的 modelRef 并直接返回
+      if (this.disposed) {
+        modelRef.dispose();
+        return;
+      }
     }
     this._editor = getOrigin(editorCollectionService).createCodeEditor(
       host,
@@ -504,6 +509,7 @@ export class LibroOpensumiEditor implements IEditor {
           : this.languageSpec.language,
       );
 
+    this.toDispose.push(this._editor);
     this.toDispose.push(
       modelRef.instance.getMonacoModel()?.onDidChangeContent((e) => {
         const value = this.monacoEditor?.getValue();
