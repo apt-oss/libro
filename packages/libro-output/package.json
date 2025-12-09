@@ -50,7 +50,8 @@
     "@difizen/libro-rendermime": "^0.3.44",
     "@difizen/mana-app": "latest",
     "@difizen/mana-l10n": "^0.1.32",
-    "markdown-it": "^13.0.1"
+    "markdown-it": "^13.0.1",
+    "uuid": "^9.0.0"
   },
   "peerDependencies": {
     "antd": "^5.8.6",
