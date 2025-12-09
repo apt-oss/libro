@@ -1,5 +1,19 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.45
+
+### Patch Changes
+
+- fix data output key invalid
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.45
+  - @difizen/libro-cofine-textmate@0.3.45
+  - @difizen/libro-code-editor@0.3.45
+  - @difizen/libro-common@0.3.45
+  - @difizen/libro-core@0.3.45
+  - @difizen/libro-lsp@0.3.45
+
 ## 0.3.44
 
 ### Patch Changes
