@@ -1,5 +1,7 @@
 node_modules
 /dist
+/apps
+/examples
 .dumi/tmp
 .dumi/tmp-test
 .dumi/tmp-production

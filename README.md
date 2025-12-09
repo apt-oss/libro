@@ -17,6 +17,8 @@ see [opensumi-libro-demo](./example/src/browser/render-app.ts)
 
 ```bash
 # install dependencies
+$ npm config set registry https://registry.antgroup-inc.cn/
+$ nvm use 20
 $ npm install
 
 # start server
