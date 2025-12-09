@@ -1,5 +1,15 @@
 # @difizen/libro-output
 
+## 0.3.45
+
+### Patch Changes
+
+- fix data output key invalid
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.45
+  - @difizen/libro-jupyter@0.3.45
+
 ## 0.3.44
 
 ### Patch Changes

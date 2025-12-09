@@ -1,5 +1,11 @@
 # @difizen/libro-l10n
 
+## 0.3.45
+
+### Patch Changes
+
+- fix data output key invalid
+
 ## 0.3.44
 
 ### Patch Changes
