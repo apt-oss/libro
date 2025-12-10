@@ -1,5 +1,29 @@
 # @difizen/libro-jupyter
 
+## 0.3.46
+
+### Patch Changes
+
+- optimize output clear performance
+
+- Updated dependencies []:
+  - @difizen/libro-search-code-cell@0.3.46
+  - @difizen/libro-language-client@0.3.46
+  - @difizen/libro-cofine-editor@0.3.46
+  - @difizen/libro-markdown-cell@0.3.46
+  - @difizen/libro-code-editor@0.3.46
+  - @difizen/libro-codemirror@0.3.46
+  - @difizen/libro-rendermime@0.3.46
+  - @difizen/libro-code-cell@0.3.46
+  - @difizen/libro-raw-cell@0.3.46
+  - @difizen/libro-common@0.3.46
+  - @difizen/libro-kernel@0.3.46
+  - @difizen/libro-output@0.3.46
+  - @difizen/libro-search@0.3.46
+  - @difizen/libro-core@0.3.46
+  - @difizen/libro-l10n@0.3.46
+  - @difizen/libro-lsp@0.3.46
+
 ## 0.3.45
 
 ### Patch Changes

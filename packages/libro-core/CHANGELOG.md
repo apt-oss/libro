@@ -1,5 +1,17 @@
 # @difizen/libro-core
 
+## 0.3.46
+
+### Patch Changes
+
+- optimize output clear performance
+
+- Updated dependencies []:
+  - @difizen/libro-shared-model@0.3.46
+  - @difizen/libro-code-editor@0.3.46
+  - @difizen/libro-virtualized@0.3.46
+  - @difizen/libro-common@0.3.46
+
 ## 0.3.45
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # @difizen/libro-prompt-cell
 
+## 0.3.46
+
+### Patch Changes
+
+- optimize output clear performance
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.46
+  - @difizen/libro-rendermime@0.3.46
+  - @difizen/libro-jupyter@0.3.46
+  - @difizen/libro-common@0.3.46
+  - @difizen/libro-core@0.3.46
+
 ## 0.3.45
 
 ### Patch Changes
