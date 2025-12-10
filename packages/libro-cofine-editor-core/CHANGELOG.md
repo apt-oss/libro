@@ -1,5 +1,14 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.46
+
+### Patch Changes
+
+- optimize output clear performance
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-contribution@0.3.46
+
 ## 0.3.45
 
 ### Patch Changes
