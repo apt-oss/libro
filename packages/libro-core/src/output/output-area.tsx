@@ -242,7 +242,12 @@ export class LibroOutputArea extends BaseView implements BaseOutputArea {
       this.clearNext = true;
       return;
     }
-    this.outputs.forEach((output) => {
+
+    const outputs = this.outputs;
+    // 先将 this.outputs 清空，然后再执行 dispose 。
+    // 这样后续的 remove 操作面对的是空数组（或已清空的引用），避免了大量的数组遍历和过滤操作，将复杂度降低为 O(N)。
+    this.outputs = [];
+    outputs.forEach((output) => {
       output.dispose();
     });
   }
