@@ -3,7 +3,6 @@
 
 import { Module } from '@difizen/libro-common/app';
 import * as oniguruma from 'vscode-oniguruma';
-import * as onig from 'vscode-oniguruma/release/onig.wasm';
 
 import {
   isBasicWasmSupported,
@@ -17,14 +16,10 @@ import { TextmateRegistry } from './textmate-registry.js';
 import { TextmateThemeContribution } from './textmate-theme-contribution.js';
 
 export async function fetchOniguruma(): Promise<ArrayBuffer | Response> {
-  // const onigurumaPath = 'https://unpkg.com/vscode-oniguruma@2.0.1/release/onig.wasm'; // webpack doing its magic here
-  const onigurumaPath = onig;
-  let onigurumaUrl = onigurumaPath;
-  if (typeof onigurumaPath !== 'string' && onigurumaPath.default) {
-    onigurumaUrl = onigurumaPath.default;
-  }
+  const onigurumaPath = 'https://unpkg.com/vscode-oniguruma@2.0.1/release/onig.wasm';
+  const url = new URL(onigurumaPath);
 
-  const response = await fetch(onigurumaUrl);
+  const response = await fetch(url);
   const contentType = response.headers.get('content-type');
   if (contentType === 'application/wasm') {
     return response;
