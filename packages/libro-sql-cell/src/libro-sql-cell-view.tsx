@@ -385,11 +385,6 @@ export class LibroSqlCellView extends LibroEditableExecutableCellView {
     await this.createEditor();
   };
 
-  override onViewUnmount() {
-    super.onViewUnmount();
-    this.toDispose.dispose();
-  }
-
   setEditorHost(ref: any) {
     const editorHostId = this.parent.id + this.id;
     this.codeEditorManager.setEditorHostRef(editorHostId, ref);
