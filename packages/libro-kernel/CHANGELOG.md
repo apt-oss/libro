@@ -1,5 +1,15 @@
 # @difizen/libro-kernel
 
+## 0.3.47
+
+### Patch Changes
+
+- fix event listeners are not disposed
+
+- Updated dependencies []:
+  - @difizen/libro-common@0.3.47
+  - @difizen/libro-core@0.3.47
+
 ## 0.3.46
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @difizen/libro-l10n
 
+## 0.3.47
+
+### Patch Changes
+
+- fix event listeners are not disposed
+
 ## 0.3.46
 
 ### Patch Changes

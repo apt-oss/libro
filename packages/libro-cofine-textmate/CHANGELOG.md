@@ -1,5 +1,14 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.47
+
+### Patch Changes
+
+- fix event listeners are not disposed
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.47
+
 ## 0.3.46
 
 ### Patch Changes
