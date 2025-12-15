@@ -344,7 +344,7 @@ export class LibroSqlCellView extends LibroEditableExecutableCellView {
         cell: this,
         toJSON: () => ({ cellId: this.id }),
       })
-      .then(async (outputArea) => {
+      .then(async (outputArea: LibroOutputArea) => {
         this.outputArea = outputArea;
         const output = this.outputs;
         if (isOutput(output)) {
@@ -384,6 +384,11 @@ export class LibroSqlCellView extends LibroEditableExecutableCellView {
   override onViewMount = async () => {
     await this.createEditor();
   };
+
+  override onViewUnmount() {
+    super.onViewUnmount();
+    this.toDispose.dispose();
+  }
 
   setEditorHost(ref: any) {
     const editorHostId = this.parent.id + this.id;
