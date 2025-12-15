@@ -168,10 +168,12 @@ export class LibroCellView extends BaseView implements CellView {
   }
 
   disposed = false;
+
   override dispose() {
     this.toDispose.dispose();
     super.dispose();
   }
+
   toJSON(): LibroCell {
     const meta = { ...(this.model.toJSON() as LibroCell) };
     const modelContribution = this.cellService.findModelProvider(this.model.options);

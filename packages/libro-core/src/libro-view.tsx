@@ -666,6 +666,9 @@ export class LibroView extends BaseView implements NotebookView {
   };
 
   deleteCell = (cell: CellView) => {
+    if (this.disposed) {
+      return;
+    }
     if (this.libroViewTracker.isEnabledSpmReporter && cell.model.id) {
       const id = cell.model.id + this.id;
       const libroTracker = this.libroViewTracker.getOrCreateTrackers({
@@ -1375,10 +1378,15 @@ export class LibroView extends BaseView implements NotebookView {
 
   override dispose() {
     if (!this.disposed) {
+      this.disposed = true;
       this.libroService.deleteLibroViewFromCache(this);
       this.toDispose.dispose();
+      this.model.cells.forEach((cell) => {
+        if (!cell.disposed) {
+          cell.dispose();
+        }
+      });
     }
-    this.disposed = true;
     super.dispose();
   }
 

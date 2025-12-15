@@ -1,6 +1,14 @@
 import type { IOutput, JSONObject, PartialJSONObject } from '@difizen/libro-common';
-import { BaseView, Emitter, prop, view, ViewOption } from '@difizen/libro-common/app';
-import { inject, transient } from '@difizen/libro-common/app';
+import {
+  BaseView,
+  Emitter,
+  prop,
+  view,
+  ViewOption,
+  DisposableCollection,
+  inject,
+  transient,
+} from '@difizen/libro-common/app';
 import type { FC } from 'react';
 import { v4 } from 'uuid';
 
@@ -33,6 +41,8 @@ export class LibroOutputView extends BaseView implements BaseOutputView {
   @prop()
   data: JSONObject;
 
+  protected override toDispose = new DisposableCollection();
+
   onUpdateEmitter = new Emitter<void>();
 
   get onUpdate() {
@@ -51,14 +61,18 @@ export class LibroOutputView extends BaseView implements BaseOutputView {
     this.type = 'libro-default-output';
     this.data = {};
     this.metadata = {};
-    this.onUpdate(() => {
-      this.cell.parent.model.onChange?.();
-    });
+    this.toDispose.push(this.onUpdateEmitter);
+    this.toDispose.push(
+      this.onUpdate(() => {
+        this.cell.parent.model.onChange?.();
+      }),
+    );
   }
 
   render: FC<{ output: BaseOutputView }> = LibroOutputModelRender;
 
   override dispose() {
+    this.toDispose.dispose();
     super.dispose();
   }
   toJSON() {
