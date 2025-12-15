@@ -438,7 +438,7 @@ export class LibroPromptCellView extends LibroEditableExecutableCellView {
         cell: this,
         toJSON: () => ({ cellId: this.id }),
       })
-      .then(async (outputArea) => {
+      .then(async (outputArea: LibroOutputArea) => {
         this.outputArea = outputArea;
         const output = this.outputs;
         if (isOutput(output)) {

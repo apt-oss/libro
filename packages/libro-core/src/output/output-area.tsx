@@ -14,7 +14,7 @@ import {
   ViewInstance,
 } from '@difizen/mana-app';
 import { Emitter, prop, contrib, inject, transient } from '@difizen/mana-app';
-import { useEffect, useState, forwardRef, useMemo } from 'react';
+import { useEffect, useState, forwardRef } from 'react';
 
 import { ExecutableCellView } from '../cell/index.js';
 import type { CellView } from '../libro-protocol.js';
@@ -85,7 +85,7 @@ const LibroOutputAreaRender = forwardRef<HTMLDivElement>(
 @transient()
 @view('libro-output-area')
 export class LibroOutputArea extends BaseView implements BaseOutputArea {
-  override view: ViewComponent = LibroOutputAreaRender;
+  view: ViewComponent = LibroOutputAreaRender;
   @contrib(OutputContribution)
   outputProvider: Contribution.Provider<OutputContribution>;
   cell: CellView;
