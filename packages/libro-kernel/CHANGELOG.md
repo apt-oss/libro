@@ -1,5 +1,15 @@
 # @difizen/libro-kernel
 
+## 0.3.48
+
+### Patch Changes
+
+- fix unmount dispose
+
+- Updated dependencies []:
+  - @difizen/libro-common@0.3.48
+  - @difizen/libro-core@0.3.48
+
 ## 0.3.47
 
 ### Patch Changes

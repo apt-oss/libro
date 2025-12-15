@@ -1,5 +1,17 @@
 # @difizen/libro-core
 
+## 0.3.48
+
+### Patch Changes
+
+- fix unmount dispose
+
+- Updated dependencies []:
+  - @difizen/libro-shared-model@0.3.48
+  - @difizen/libro-code-editor@0.3.48
+  - @difizen/libro-virtualized@0.3.48
+  - @difizen/libro-common@0.3.48
+
 ## 0.3.47
 
 ### Patch Changes
