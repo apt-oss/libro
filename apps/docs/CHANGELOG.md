@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.48
+
+### Patch Changes
+
+- fix unmount dispose
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.48
+  - @difizen/libro-jupyter@0.3.48
+  - @difizen/libro-core@0.3.48
+  - @difizen/libro-lab@0.3.48
+
 ## 0.3.47
 
 ### Patch Changes

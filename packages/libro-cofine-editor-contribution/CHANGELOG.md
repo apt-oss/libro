@@ -1,5 +1,11 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.48
+
+### Patch Changes
+
+- fix unmount dispose
+
 ## 0.3.47
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @difizen/libro-toc
 
+## 0.3.48
+
+### Patch Changes
+
+- fix unmount dispose
+
+- Updated dependencies []:
+  - @difizen/libro-rendermime@0.3.48
+  - @difizen/libro-markdown@0.3.48
+  - @difizen/libro-common@0.3.48
+  - @difizen/libro-core@0.3.48
+
 ## 0.3.47
 
 ### Patch Changes

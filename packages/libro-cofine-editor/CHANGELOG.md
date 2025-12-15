@@ -1,5 +1,19 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.48
+
+### Patch Changes
+
+- fix unmount dispose
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.48
+  - @difizen/libro-cofine-textmate@0.3.48
+  - @difizen/libro-code-editor@0.3.48
+  - @difizen/libro-common@0.3.48
+  - @difizen/libro-core@0.3.48
+  - @difizen/libro-lsp@0.3.48
+
 ## 0.3.47
 
 ### Patch Changes
