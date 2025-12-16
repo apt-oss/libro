@@ -1,5 +1,16 @@
 # @difizen/libro-search
 
+## 0.3.49
+
+### Patch Changes
+
+- fix editor instance is undefined
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.49
+  - @difizen/libro-common@0.3.49
+  - @difizen/libro-core@0.3.49
+
 ## 0.3.48
 
 ### Patch Changes

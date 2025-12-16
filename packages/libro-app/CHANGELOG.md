@@ -1,5 +1,14 @@
 # @difizen/libro-output
 
+## 0.3.49
+
+### Patch Changes
+
+- fix editor instance is undefined
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@0.3.49
+
 ## 0.3.48
 
 ### Patch Changes
