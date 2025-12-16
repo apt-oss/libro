@@ -185,7 +185,7 @@ export class CodeEditorView extends BaseView {
   };
 
   override onViewUnmount = () => {
-    if (this.editor.hasFocus()) {
+    if (this.editor?.hasFocus()) {
       // 保存编辑器状态
       const editorState = this.editor.getState();
       this.codeEditorStateManager.updateEditorState(this.options.uuid, editorState);
@@ -193,7 +193,7 @@ export class CodeEditorView extends BaseView {
       this.editorHostRef = this.getEditorHost();
       this.editorHostRef?.current?.focus();
     }
-    this.editor.dispose();
+    this.editor?.dispose();
 
     const prevState = this.editorStatus;
     this.editorStatus = 'disposed';
@@ -219,7 +219,7 @@ export class CodeEditorView extends BaseView {
    * Get the model used by the widget.
    */
   get model(): IModel {
-    return this.editor.model;
+    return this.editor?.model || this.options.model;
   }
 
   /**
@@ -230,11 +230,11 @@ export class CodeEditorView extends BaseView {
       return;
     }
     super.dispose();
-    this.editor.dispose();
+    this.editor?.dispose();
   }
 
   protected onViewActive = (): void => {
-    this.editor.focus();
+    this.editor?.focus();
   };
 
   /**
@@ -242,7 +242,7 @@ export class CodeEditorView extends BaseView {
    */
   protected onResize(): void {
     if (this.isVisible) {
-      this.editor.resizeToFit();
+      this.editor?.resizeToFit();
     }
   }
 
@@ -261,6 +261,9 @@ export class CodeEditorView extends BaseView {
    * Handle a change in model selections.
    */
   protected _onSelectionsChanged(): void {
+    if (!this.editor) {
+      return;
+    }
     const { start, end } = this.editor.getSelection();
 
     if (start.column !== end.column || start.line !== end.line) {
@@ -285,7 +288,7 @@ export class CodeEditorView extends BaseView {
    * Handle the `'lm-dragenter'` event for the widget.
    */
   protected _evtDragEnter = (event: DragEvent): void => {
-    if (this.editor.getOption('readOnly') === true) {
+    if (this.editor?.getOption('readOnly') === true) {
       return;
     }
     const data = findTextData(event);
