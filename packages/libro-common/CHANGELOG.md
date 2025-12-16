@@ -1,5 +1,11 @@
 # @difizen/libro-common
 
+## 0.3.49
+
+### Patch Changes
+
+- fix editor instance is undefined
+
 ## 0.3.48
 
 ### Patch Changes

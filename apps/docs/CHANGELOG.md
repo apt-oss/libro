@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.49
+
+### Patch Changes
+
+- fix editor instance is undefined
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.49
+  - @difizen/libro-jupyter@0.3.49
+  - @difizen/libro-core@0.3.49
+  - @difizen/libro-lab@0.3.49
+
 ## 0.3.48
 
 ### Patch Changes

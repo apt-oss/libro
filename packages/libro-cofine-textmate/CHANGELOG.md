@@ -1,5 +1,14 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.49
+
+### Patch Changes
+
+- fix editor instance is undefined
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.49
+
 ## 0.3.48
 
 ### Patch Changes
