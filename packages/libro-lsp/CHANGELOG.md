@@ -1,5 +1,17 @@
 # @difizen/libro-code-editor
 
+## 0.3.50
+
+### Patch Changes
+
+- fix: blur not exit commandMode
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.50
+  - @difizen/libro-common@0.3.50
+  - @difizen/libro-kernel@0.3.50
+  - @difizen/libro-core@0.3.50
+
 ## 0.3.49
 
 ### Patch Changes

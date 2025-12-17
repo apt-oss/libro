@@ -1,5 +1,11 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.50
+
+### Patch Changes
+
+- fix: blur not exit commandMode
+
 ## 0.3.49
 
 ### Patch Changes
