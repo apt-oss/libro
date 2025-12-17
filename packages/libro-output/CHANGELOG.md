@@ -1,5 +1,16 @@
 # @difizen/libro-output
 
+## 0.3.50
+
+### Patch Changes
+
+- fix: blur not exit commandMode
+
+- Updated dependencies []:
+  - @difizen/libro-rendermime@0.3.50
+  - @difizen/libro-common@0.3.50
+  - @difizen/libro-core@0.3.50
+
 ## 0.3.49
 
 ### Patch Changes
