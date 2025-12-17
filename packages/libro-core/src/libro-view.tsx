@@ -262,18 +262,16 @@ export const LibroRender = forwardRef<HTMLDivElement>(function LibroRender(props
       if (typeof ref === 'function') {
         return;
       }
-      // focus编辑器host
-      if (!e.relatedTarget) {
-        return;
-      }
-      // focus编辑器外部区域
-      if (ref?.current?.contains(e.relatedTarget)) {
+      const target = e.relatedTarget as Node | null;
+      const inside = target ? ref?.current?.contains(target) : false;
+
+      if (inside) {
         const dndDom = ref?.current?.getElementsByClassName(
           'libro-dnd-cells-container',
         )[0];
 
         if (
-          !dndDom?.contains(e.relatedTarget) &&
+          !dndDom?.contains(target as Node) &&
           (!instance.model.inputEditable ||
             !instance.model.outputEditable ||
             !instance.model.cellsEditable) &&
