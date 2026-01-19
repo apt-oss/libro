@@ -35,7 +35,7 @@ export class LibroContextKey {
 
   enableCommandMode = () => {
     this.commandModeEnabled = true;
-    this.commandMode.set(this.isCommandMode);
+    this.commandMode.set(this.isCommandMode && !!this.libroService.focus);
   };
 
   protected setupActive() {
@@ -54,6 +54,9 @@ export class LibroContextKey {
   protected setupFocus() {
     this.libroService.onFocusChanged(() => {
       this.focus.set(!!this.libroService.focus);
+      this.commandMode.set(
+        this.isCommandMode && this.commandModeEnabled && !!this.libroService.focus,
+      );
     });
     this.focus = this.contextKeyService.createKey<boolean>(
       LibroContextKeys.focus,
@@ -64,16 +67,22 @@ export class LibroContextKey {
   protected setupCommandMode() {
     this.commandMode = this.contextKeyService.createKey<boolean>(
       LibroContextKeys.commandMode,
-      !!this.libroService.active?.model.commandMode,
+      !!this.libroService.active?.model.commandMode && !!this.libroService.focus,
     );
     this.listenToActive();
   }
   protected listenToActive = () => {
     const active = this.libroService.active;
     if (active) {
+      this.isCommandMode = !!active.model.commandMode;
+      this.commandMode.set(
+        this.isCommandMode && this.commandModeEnabled && !!this.libroService.focus,
+      );
       this.toDisposeOnActiveChanged = active.model.onCommandModeChanged(() => {
         this.isCommandMode = !!active.model.commandMode;
-        this.commandMode.set(this.isCommandMode && this.commandModeEnabled);
+        this.commandMode.set(
+          this.isCommandMode && this.commandModeEnabled && !!this.libroService.focus,
+        );
       });
     }
   };
