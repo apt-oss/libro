@@ -1,6 +1,6 @@
 {
   "name": "@difizen/libro-rendermime",
-  "version": "0.3.50",
+  "version": "0.3.51",
   "description": "",
   "keywords": [
     "libro",
@@ -45,9 +45,9 @@
     "typecheck:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@difizen/libro-common": "^0.3.50",
-    "@difizen/libro-core": "^0.3.50",
-    "@difizen/libro-markdown": "^0.3.50",
+    "@difizen/libro-common": "^0.3.51",
+    "@difizen/libro-core": "^0.3.51",
+    "@difizen/libro-markdown": "^0.3.51",
     "@difizen/mana-app": "latest",
     "lodash.escape": "^4.0.1"
   },

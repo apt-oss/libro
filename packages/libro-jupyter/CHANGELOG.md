@@ -1,5 +1,29 @@
 # @difizen/libro-jupyter
 
+## 0.3.51
+
+### Patch Changes
+
+- fix(libro-context-key): 修复命令模式状态未考虑焦点状态的问题
+
+- Updated dependencies []:
+  - @difizen/libro-search-code-cell@0.3.51
+  - @difizen/libro-language-client@0.3.51
+  - @difizen/libro-cofine-editor@0.3.51
+  - @difizen/libro-markdown-cell@0.3.51
+  - @difizen/libro-code-editor@0.3.51
+  - @difizen/libro-codemirror@0.3.51
+  - @difizen/libro-rendermime@0.3.51
+  - @difizen/libro-code-cell@0.3.51
+  - @difizen/libro-raw-cell@0.3.51
+  - @difizen/libro-common@0.3.51
+  - @difizen/libro-kernel@0.3.51
+  - @difizen/libro-output@0.3.51
+  - @difizen/libro-search@0.3.51
+  - @difizen/libro-core@0.3.51
+  - @difizen/libro-l10n@0.3.51
+  - @difizen/libro-lsp@0.3.51
+
 ## 0.3.50
 
 ### Patch Changes

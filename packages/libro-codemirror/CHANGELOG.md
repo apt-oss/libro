@@ -1,5 +1,17 @@
 # @difizen/libro-codemirror
 
+## 0.3.51
+
+### Patch Changes
+
+- fix(libro-context-key): 修复命令模式状态未考虑焦点状态的问题
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.51
+  - @difizen/libro-rendermime@0.3.51
+  - @difizen/libro-common@0.3.51
+  - @difizen/libro-lsp@0.3.51
+
 ## 0.3.50
 
 ### Patch Changes

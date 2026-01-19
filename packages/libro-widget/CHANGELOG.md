@@ -1,5 +1,18 @@
 # @difizen/libro-widget
 
+## 0.3.51
+
+### Patch Changes
+
+- fix(libro-context-key): 修复命令模式状态未考虑焦点状态的问题
+
+- Updated dependencies []:
+  - @difizen/libro-rendermime@0.3.51
+  - @difizen/libro-jupyter@0.3.51
+  - @difizen/libro-common@0.3.51
+  - @difizen/libro-kernel@0.3.51
+  - @difizen/libro-core@0.3.51
+
 ## 0.3.50
 
 ### Patch Changes
