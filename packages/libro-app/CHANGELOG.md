@@ -1,5 +1,14 @@
 # @difizen/libro-output
 
+## 0.3.51
+
+### Patch Changes
+
+- fix(libro-context-key): 修复命令模式状态未考虑焦点状态的问题
+
+- Updated dependencies []:
+  - @difizen/libro-jupyter@0.3.51
+
 ## 0.3.50
 
 ### Patch Changes
