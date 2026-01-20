@@ -59,8 +59,56 @@ export class JupyterCodeCellView extends LibroCodeCellView {
     super.onViewMount();
     const kcReady = getOrigin((this.parent.model as LibroJupyterModel).kcReady);
     const kernelConnection = await kcReady;
+
+    // 渲染后检查 cell 是否处于执行中，如果还在执行则恢复输出
+    if (kernelConnection && !kernelConnection.isDisposed) {
+      const execution = this.model.metadata.execution as any;
+      const msgId = execution?.['libro_execution_msg_id'];
+      if (msgId) {
+        if (kernelConnection.status === 'idle') {
+          delete execution['libro_execution_msg_id'];
+          // 触发保存
+          this.parent.model.saveNotebookContent();
+          this.model.kernelExecuting = false;
+        } else {
+          this.model.kernelExecuting = true;
+          const disposable = kernelConnection.iopubMessage(
+            (msg: KernelMessage.IIOPubMessage) => {
+              if (msg.parent_header && (msg.parent_header as any).msg_id === msgId) {
+                this.model.msgChangeEmitter.fire(msg);
+                if (
+                  msg.header.msg_type === 'status' &&
+                  (msg.content as any).execution_state === 'idle'
+                ) {
+                  this.model.kernelExecuting = false;
+                  delete execution['libro_execution_msg_id'];
+                  // 触发保存
+                  this.parent.model.saveNotebookContent();
+                  disposable.dispose();
+                }
+              }
+            },
+          );
+          this.toDispose.push(disposable);
+          const statusDisposable = kernelConnection.statusChanged(
+            (status: KernelMessage.Status) => {
+              if (status === 'idle') {
+                this.model.kernelExecuting = false;
+                delete execution['libro_execution_msg_id'];
+                // 触发保存
+                this.parent.model.saveNotebookContent();
+                disposable.dispose();
+                statusDisposable.dispose();
+              }
+            },
+          );
+          this.toDispose.push(statusDisposable);
+        }
+      }
+    }
+
     // kernel重启后，清除执行状态，输出不变
-    kernelConnection?.statusChanged((e) => {
+    const disposable = kernelConnection?.statusChanged((e: KernelMessage.Status) => {
       const terminateStatus: KernelMessage.Status[] = [
         'autorestarting',
         'starting',
@@ -71,6 +119,7 @@ export class JupyterCodeCellView extends LibroCodeCellView {
         this.model.executing = false;
       }
     });
+    this.toDispose.push(disposable);
   }
 
   tooltipProvider: TooltipProvider = async (option: TooltipProviderOption) => {
@@ -156,6 +205,14 @@ export class JupyterCodeCellView extends LibroCodeCellView {
       let startTimeStr = '';
       this.clearExecution();
 
+      if (!cellModel.metadata.execution) {
+        cellModel.metadata.execution = {} as ExecutionMeta;
+      }
+      (cellModel.metadata.execution as any)['libro_execution_msg_id'] =
+        future.msg.header.msg_id;
+      // 触发保存
+      this.parent.model.saveNotebookContent();
+
       // Handle iopub messages
       future.onIOPub = (msg: any) => {
         if (msg.header.msg_type === 'execute_input') {
@@ -163,7 +220,10 @@ export class JupyterCodeCellView extends LibroCodeCellView {
             'shell.execute_reply.started': '',
             'shell.execute_reply.end': '',
             to_execute: new Date().toISOString(),
+            libro_execution_msg_id: future.msg.header.msg_id,
           } as ExecutionMeta;
+          // 触发保存
+          this.parent.model.saveNotebookContent();
           cellModel.kernelExecuting = true;
           startTimeStr = msg.header.date as string;
           const meta = cellModel.metadata.execution as ExecutionMeta;
@@ -181,6 +241,9 @@ export class JupyterCodeCellView extends LibroCodeCellView {
       const msgPromise = await future.done;
       cellModel.executing = false;
       cellModel.kernelExecuting = false;
+      if (cellModel.metadata.execution) {
+        delete (cellModel.metadata.execution as any)['libro_execution_msg_id'];
+      }
 
       startTimeStr = msgPromise.metadata['started'] as string;
       const endTimeStr = msgPromise.header.date;
