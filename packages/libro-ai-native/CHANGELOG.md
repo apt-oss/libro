@@ -1,5 +1,15 @@
 # @difizen/libro-output
 
+## 0.3.52
+
+### Patch Changes
+
+- support cell restore executing msg
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.52
+  - @difizen/libro-jupyter@0.3.52
+
 ## 0.3.51
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @difizen/libro-l10n
 
+## 0.3.52
+
+### Patch Changes
+
+- support cell restore executing msg
+
 ## 0.3.51
 
 ### Patch Changes
