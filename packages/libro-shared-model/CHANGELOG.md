@@ -1,5 +1,14 @@
 # @difizen/libro-shared-model
 
+## 0.3.52
+
+### Patch Changes
+
+- support cell restore executing msg
+
+- Updated dependencies []:
+  - @difizen/libro-common@0.3.52
+
 ## 0.3.51
 
 ### Patch Changes

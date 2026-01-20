@@ -1,5 +1,11 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.52
+
+### Patch Changes
+
+- support cell restore executing msg
+
 ## 0.3.51
 
 ### Patch Changes
