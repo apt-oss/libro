@@ -1,5 +1,17 @@
 # @difizen/libro-toc
 
+## 0.3.53
+
+### Patch Changes
+
+- markdown cell code block support highlight
+
+- Updated dependencies []:
+  - @difizen/libro-rendermime@0.3.53
+  - @difizen/libro-markdown@0.3.53
+  - @difizen/libro-common@0.3.53
+  - @difizen/libro-core@0.3.53
+
 ## 0.3.52
 
 ### Patch Changes

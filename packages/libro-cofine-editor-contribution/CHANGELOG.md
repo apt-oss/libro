@@ -1,5 +1,11 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.53
+
+### Patch Changes
+
+- markdown cell code block support highlight
+
 ## 0.3.52
 
 ### Patch Changes
