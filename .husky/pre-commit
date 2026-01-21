@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
+export PATH="/opt/homebrew/bin:$PATH"
 
 # 1) Validate committer email
 
