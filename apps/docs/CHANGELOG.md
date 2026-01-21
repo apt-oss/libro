@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.53
+
+### Patch Changes
+
+- markdown cell code block support highlight
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.53
+  - @difizen/libro-jupyter@0.3.53
+  - @difizen/libro-core@0.3.53
+  - @difizen/libro-lab@0.3.53
+
 ## 0.3.52
 
 ### Patch Changes

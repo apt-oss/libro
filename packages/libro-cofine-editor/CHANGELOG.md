@@ -1,5 +1,19 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.53
+
+### Patch Changes
+
+- markdown cell code block support highlight
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.53
+  - @difizen/libro-cofine-textmate@0.3.53
+  - @difizen/libro-code-editor@0.3.53
+  - @difizen/libro-common@0.3.53
+  - @difizen/libro-core@0.3.53
+  - @difizen/libro-lsp@0.3.53
+
 ## 0.3.52
 
 ### Patch Changes
