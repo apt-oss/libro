@@ -5,6 +5,7 @@ import {
   singleton,
 } from '@difizen/mana-app';
 import latexPlugin from '@traptitech/markdown-it-katex';
+import hljs from 'highlight.js';
 import MarkdownIt from 'markdown-it';
 import sanitizeHtml from 'sanitize-html';
 
@@ -13,6 +14,7 @@ import { LibroMarkdownConfiguration } from './config.js';
 import type { MarkdownRenderOption } from './markdown-protocol.js';
 import { MarkdownParser } from './markdown-protocol.js';
 import 'katex/dist/katex.min.css';
+import 'highlight.js/styles/github.css';
 
 @singleton({ token: MarkdownParser })
 export class MarkdownRender implements MarkdownParser {
@@ -26,6 +28,16 @@ export class MarkdownRender implements MarkdownParser {
     this.mkt = new MarkdownIt({
       html: true,
       linkify: true,
+      highlight: function (str, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+          try {
+            return hljs.highlight(str, { language: lang }).value;
+          } catch (__) {
+            //
+          }
+        }
+        return ''; // use external default escaping
+      },
     });
     this.mkt.linkify.set({ fuzzyLink: false });
     this.mkt.use(libroAnchor, {
@@ -113,6 +125,7 @@ export class MarkdownRender implements MarkdownParser {
       'q',
       's',
       'small',
+      'span',
       'strong',
       'sub',
       'sup',
@@ -131,14 +144,14 @@ export class MarkdownRender implements MarkdownParser {
     const allowedAttributes = Object.fromEntries(
       allowedTags.map((tag) => [
         tag,
-        [...(sanitizeHtml.defaults.allowedAttributes[tag] || []), 'id'],
+        [...(sanitizeHtml.defaults.allowedAttributes[tag] || []), 'id', 'class'],
       ]),
     );
     return sanitizeHtml(html, {
       allowedTags, // 允许的标签
       allowedAttributes: {
         ...allowedAttributes,
-        a: ['href', 'title', 'id'],
+        a: ['href', 'title', 'id', 'target'],
         img: ['src', 'alt', 'id'],
       },
     });
