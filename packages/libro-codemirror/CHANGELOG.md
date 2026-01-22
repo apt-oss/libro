@@ -1,5 +1,17 @@
 # @difizen/libro-codemirror
 
+## 0.3.54
+
+### Patch Changes
+
+- 存在执行中的 cell 时恢复 kernel 状态
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.54
+  - @difizen/libro-rendermime@0.3.54
+  - @difizen/libro-common@0.3.54
+  - @difizen/libro-lsp@0.3.54
+
 ## 0.3.53
 
 ### Patch Changes

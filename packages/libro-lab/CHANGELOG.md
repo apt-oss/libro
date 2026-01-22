@@ -1,5 +1,26 @@
 # @difizen/libro-lab
 
+## 0.3.54
+
+### Patch Changes
+
+- 存在执行中的 cell 时恢复 kernel 状态
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.54
+  - @difizen/libro-language-client@0.3.54
+  - @difizen/libro-prompt-cell@0.3.54
+  - @difizen/libro-ai-native@0.3.54
+  - @difizen/libro-sql-cell@0.3.54
+  - @difizen/libro-terminal@0.3.54
+  - @difizen/libro-jupyter@0.3.54
+  - @difizen/libro-kernel@0.3.54
+  - @difizen/libro-widget@0.3.54
+  - @difizen/libro-core@0.3.54
+  - @difizen/libro-l10n@0.3.54
+  - @difizen/libro-app@0.3.54
+  - @difizen/libro-toc@0.3.54
+
 ## 0.3.53
 
 ### Patch Changes
