@@ -4,14 +4,12 @@ import { l10n } from '@difizen/mana-l10n';
 import { duration } from 'moment';
 
 import { LibroJupyterModel } from '../libro-jupyter-model.js';
-import type {
-  ExecutedWithKernelCellModel,
-  ServerStatus,
-} from '../libro-jupyter-protocol.js';
+import type { ServerStatus } from '../libro-jupyter-protocol.js';
 import {
   jupyterServiceStatus,
   kernelStatus,
   statusToColor,
+  ExecutedWithKernelCellModel,
 } from '../libro-jupyter-protocol.js';
 
 export const EXECUTE_INPUT = 'to_execute'; // 用户点击执行按钮的时间
@@ -100,7 +98,18 @@ export const getServiceStatusInfo = (
     };
   }
 
-  return kernelStatus[libroModel.kernelConnection.status];
+  let status = libroModel.kernelConnection.status;
+
+  if (status === 'unknown') {
+    const hasRunningCell = libroModel.cells.some((cell) => {
+      return ExecutedWithKernelCellModel.is(cell.model) && cell.model.kernelExecuting;
+    });
+    if (hasRunningCell) {
+      status = 'busy';
+    }
+  }
+
+  return kernelStatus[status];
 };
 
 // 判断服务未启动、kernel正在连接 -> return false
