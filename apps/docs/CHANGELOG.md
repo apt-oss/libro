@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.54
+
+### Patch Changes
+
+- 存在执行中的 cell 时恢复 kernel 状态
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.54
+  - @difizen/libro-jupyter@0.3.54
+  - @difizen/libro-core@0.3.54
+  - @difizen/libro-lab@0.3.54
+
 ## 0.3.53
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @difizen/libro-output
 
+## 0.3.54
+
+### Patch Changes
+
+- 存在执行中的 cell 时恢复 kernel 状态
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.54
+  - @difizen/libro-jupyter@0.3.54
+
 ## 0.3.53
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @difizen/libro-shared-model
 
+## 0.3.54
+
+### Patch Changes
+
+- 存在执行中的 cell 时恢复 kernel 状态
+
+- Updated dependencies []:
+  - @difizen/libro-common@0.3.54
+
 ## 0.3.53
 
 ### Patch Changes
