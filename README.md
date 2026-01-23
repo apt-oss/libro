@@ -148,10 +148,11 @@ libro
 
 ## Contributors
 
-|[<img src="https://avatars.githubusercontent.com/u/20186737?v=4" width="100px;"/><br/><sub><b>NewByVector</b></sub>](https://github.com/NewByVector)<br/>|[<img src="https://avatars.githubusercontent.com/u/6045824?v=4" width="100px;"/><br/><sub><b>bubkoo</b></sub>](https://github.com/bubkoo)<br/>|
-| :---: | :---: |
+|[<img src="https://avatars.githubusercontent.com/u/41573506?v=4" width="80px;"/><br/><sub><b>sunshinesmilelk</b></sub>](https://github.com/sunshinesmilelk)<br/>|[<img src="https://avatars.githubusercontent.com/u/11978904?v=4" width="80px;"/><br/><sub><b>BroKun</b></sub>](https://github.com/BroKun)<br/>|[<img src="https://avatars.githubusercontent.com/u/4224253?v=4" width="80px;"/><br/><sub><b>zhanba</b></sub>](https://github.com/zhanba)<br/>|[<img src="https://avatars.githubusercontent.com/u/5857931?v=4" width="80px;"/><br/><sub><b>HellowVirgil</b></sub>](https://github.com/HellowVirgil)<br/>|[<img src="https://avatars.githubusercontent.com/u/1011681?v=4" width="80px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>|[<img src="https://avatars.githubusercontent.com/u/24583897?v=4" width="80px;"/><br/><sub><b>huxiamei</b></sub>](https://github.com/huxiamei)<br/>|
+| :---: | :---: | :---: | :---: | :---: | :---: |
+|[<img src="https://avatars.githubusercontent.com/u/6045824?v=4" width="80px;"/><br/><sub><b>bubkoo</b></sub>](https://github.com/bubkoo)<br/>|[<img src="https://avatars.githubusercontent.com/u/18068822?v=4" width="80px;"/><br/><sub><b>xujingli</b></sub>](https://github.com/xujingli)<br/>|[<img src="https://avatars.githubusercontent.com/u/20186737?v=4" width="80px;"/><br/><sub><b>NewByVector</b></sub>](https://github.com/NewByVector)<br/>|[<img src="https://avatars.githubusercontent.com/u/93302820?v=4" width="80px;"/><br/><sub><b>tonywu6</b></sub>](https://github.com/tonywu6)<br/>|[<img src="https://avatars.githubusercontent.com/u/37138631?v=4" width="80px;"/><br/><sub><b>coetzeexu</b></sub>](https://github.com/coetzeexu)<br/>|[<img src="https://avatars.githubusercontent.com/u/16317354?v=4" width="80px;"/><br/><sub><b>lulusir</b></sub>](https://github.com/lulusir)<br/>|
+[<img src="https://avatars.githubusercontent.com/u/30524126?v=4" width="80px;"/><br/><sub><b>z0gSh1u</b></sub>](https://github.com/z0gSh1u)<br/>
 
-
-This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Thu Jun 12 2025 12:58:42 GMT+0800`.
+This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Fri Jan 23 2026 22:16:34 GMT+0800`.
 
 <!-- GITCONTRIBUTOR_END -->
