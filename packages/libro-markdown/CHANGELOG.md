@@ -1,5 +1,11 @@
 # @difizen/libro-markdown
 
+## 0.3.55
+
+### Patch Changes
+
+- 修复 cell run 时执行 saveContent 引发 kernel shutdown 问题
+
 ## 0.3.54
 
 ### Patch Changes
