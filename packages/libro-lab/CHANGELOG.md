@@ -1,5 +1,26 @@
 # @difizen/libro-lab
 
+## 0.3.55
+
+### Patch Changes
+
+- 修复 cell run 时执行 saveContent 引发 kernel shutdown 问题
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-core@0.3.55
+  - @difizen/libro-language-client@0.3.55
+  - @difizen/libro-prompt-cell@0.3.55
+  - @difizen/libro-ai-native@0.3.55
+  - @difizen/libro-sql-cell@0.3.55
+  - @difizen/libro-terminal@0.3.55
+  - @difizen/libro-jupyter@0.3.55
+  - @difizen/libro-kernel@0.3.55
+  - @difizen/libro-widget@0.3.55
+  - @difizen/libro-core@0.3.55
+  - @difizen/libro-l10n@0.3.55
+  - @difizen/libro-app@0.3.55
+  - @difizen/libro-toc@0.3.55
+
 ## 0.3.54
 
 ### Patch Changes

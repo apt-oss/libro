@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.55
+
+### Patch Changes
+
+- 修复 cell run 时执行 saveContent 引发 kernel shutdown 问题
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.55
+  - @difizen/libro-jupyter@0.3.55
+  - @difizen/libro-core@0.3.55
+  - @difizen/libro-lab@0.3.55
+
 ## 0.3.54
 
 ### Patch Changes
