@@ -210,8 +210,7 @@ export class JupyterCodeCellView extends LibroCodeCellView {
       }
       (cellModel.metadata.execution as any)['libro_execution_msg_id'] =
         future.msg.header.msg_id;
-      // 触发保存
-      this.parent.model.saveNotebookContent();
+      cellModel.metadata = { ...cellModel.metadata };
 
       // Handle iopub messages
       future.onIOPub = (msg: any) => {
@@ -222,8 +221,7 @@ export class JupyterCodeCellView extends LibroCodeCellView {
             to_execute: new Date().toISOString(),
             libro_execution_msg_id: future.msg.header.msg_id,
           } as ExecutionMeta;
-          // 触发保存
-          this.parent.model.saveNotebookContent();
+          cellModel.metadata = { ...cellModel.metadata };
           cellModel.kernelExecuting = true;
           startTimeStr = msg.header.date as string;
           const meta = cellModel.metadata.execution as ExecutionMeta;
