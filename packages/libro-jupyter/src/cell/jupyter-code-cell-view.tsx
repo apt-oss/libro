@@ -67,8 +67,7 @@ export class JupyterCodeCellView extends LibroCodeCellView {
       if (msgId) {
         if (kernelConnection.status === 'idle') {
           delete execution['libro_execution_msg_id'];
-          // 触发保存
-          this.parent.model.saveNotebookContent();
+          this.model.metadata = { ...this.model.metadata };
           this.model.kernelExecuting = false;
         } else {
           this.model.kernelExecuting = true;
@@ -82,8 +81,7 @@ export class JupyterCodeCellView extends LibroCodeCellView {
                 ) {
                   this.model.kernelExecuting = false;
                   delete execution['libro_execution_msg_id'];
-                  // 触发保存
-                  this.parent.model.saveNotebookContent();
+                  this.model.metadata = { ...this.model.metadata };
                   disposable.dispose();
                 }
               }
@@ -95,8 +93,7 @@ export class JupyterCodeCellView extends LibroCodeCellView {
               if (status === 'idle') {
                 this.model.kernelExecuting = false;
                 delete execution['libro_execution_msg_id'];
-                // 触发保存
-                this.parent.model.saveNotebookContent();
+                this.model.metadata = { ...this.model.metadata };
                 disposable.dispose();
                 statusDisposable.dispose();
               }
