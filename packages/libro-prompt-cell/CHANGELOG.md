@@ -1,5 +1,18 @@
 # @difizen/libro-prompt-cell
 
+## 0.3.56
+
+### Patch Changes
+
+- 修复 JupyterCodeCellView 触发 saveNotebookContent 导致 kernel 中断问题
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.56
+  - @difizen/libro-rendermime@0.3.56
+  - @difizen/libro-jupyter@0.3.56
+  - @difizen/libro-common@0.3.56
+  - @difizen/libro-core@0.3.56
+
 ## 0.3.55
 
 ### Patch Changes
