@@ -1,5 +1,14 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.56
+
+### Patch Changes
+
+- 修复 JupyterCodeCellView 触发 saveNotebookContent 导致 kernel 中断问题
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-contribution@0.3.56
+
 ## 0.3.55
 
 ### Patch Changes

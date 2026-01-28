@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.56
+
+### Patch Changes
+
+- 修复 JupyterCodeCellView 触发 saveNotebookContent 导致 kernel 中断问题
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.56
+  - @difizen/libro-jupyter@0.3.56
+  - @difizen/libro-core@0.3.56
+  - @difizen/libro-lab@0.3.56
+
 ## 0.3.55
 
 ### Patch Changes
