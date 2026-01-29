@@ -1,5 +1,17 @@
 # @difizen/libro-docs
 
+## 0.3.57
+
+### Patch Changes
+
+- cancel reset kernel status
+
+- Updated dependencies []:
+  - @difizen/libro-terminal@0.3.57
+  - @difizen/libro-jupyter@0.3.57
+  - @difizen/libro-core@0.3.57
+  - @difizen/libro-lab@0.3.57
+
 ## 0.3.56
 
 ### Patch Changes

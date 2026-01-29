@@ -1,5 +1,11 @@
 # @difizen/libro-common
 
+## 0.3.57
+
+### Patch Changes
+
+- cancel reset kernel status
+
 ## 0.3.56
 
 ### Patch Changes
