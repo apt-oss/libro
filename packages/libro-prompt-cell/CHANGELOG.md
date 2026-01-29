@@ -1,5 +1,18 @@
 # @difizen/libro-prompt-cell
 
+## 0.3.57
+
+### Patch Changes
+
+- cancel reset kernel status
+
+- Updated dependencies []:
+  - @difizen/libro-code-editor@0.3.57
+  - @difizen/libro-rendermime@0.3.57
+  - @difizen/libro-jupyter@0.3.57
+  - @difizen/libro-common@0.3.57
+  - @difizen/libro-core@0.3.57
+
 ## 0.3.56
 
 ### Patch Changes

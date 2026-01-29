@@ -1,5 +1,14 @@
 # @difizen/libro-codemirror-markdown-cell
 
+## 0.3.57
+
+### Patch Changes
+
+- cancel reset kernel status
+
+- Updated dependencies []:
+  - @difizen/libro-cofine-editor-contribution@0.3.57
+
 ## 0.3.56
 
 ### Patch Changes
